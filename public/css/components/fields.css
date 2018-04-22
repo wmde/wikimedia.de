@@ -1,0 +1,260 @@
+/*!
+ * Copyright 2017 Atelier Disko. All rights reserved.
+ *
+ * Use of this source code is governed by the AGPL v3
+ * license that can be found in the LICENSE file.
+ */
+
+.fields {
+  position: relative;
+  overflow: hidden;
+}
+.field-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.field-button {
+  position: relative;
+  width: 288px;
+  height: 324px;
+  background-color: white;
+  transition: color .5s;
+  border: 2px solid var(--color-green);
+}
+.field-button:hover {
+  color: var(--color-green);
+}
+.field-button__inner {
+  position: absolute;
+  bottom: 32px;
+  left: 32px;
+  max-width: 230px;
+}
+.field-button--alpha {
+  background-image: url(../../ico/hf_icon_1.svg);
+  background-position: right 36px top 36px;
+  background-repeat: no-repeat;
+}
+
+.field-button--beta {
+  background-image: url(../../ico/hf_icon_2.svg);
+  background-position: right 36px top 36px;
+  background-repeat: no-repeat;
+}
+
+.field-button--gamma {
+  background-image: url(../../ico/hf_icon_3.svg);
+  background-position: right 36px top 36px;
+  background-repeat: no-repeat;
+}
+
+.is-active-support .field-button--alpha,
+.is-active-dev .field-button--beta,
+.is-active-know .field-button--gamma {
+  color: var(--color-green);
+}
+
+.fields__blurb {
+  position: relative;
+  transition: left .3s, transform .3s;
+  top: -81px;
+}
+.is-active-support .fields__blurb {
+  left: 0;
+}
+.is-active-dev .fields__blurb {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.is-active-know .fields__blurb {
+  left: 100%;
+  transform: translateX(-100%);
+}
+
+.fields__blurb-top {
+  background-color: var(--color-green);
+  width: 100%;
+  height: 36px;
+  /* 100% left, 50% center, 0% right */
+  background: url(../../img/fields_top_72.svg) no-repeat 100% bottom/cover;
+  transition: background .5s;
+}
+.is-active-support .fields__blurb-top {
+  background-position-x: calc(100% + 108px);
+}
+.is-active-dev .fields__blurb-top {
+  background-position-x: 50%;
+}
+.is-active-know .fields__blurb-top {
+  background-position-x: -108px;
+}
+.fields__blurb-lower {
+  background-color: var(--color-green);
+  color: white;
+}
+.fields__blurb-lower p:first-of-type {
+  margin-top: 0;
+}
+.fields__blurb-lower p:last-of-type {
+  margin-bottom: 0;
+}
+
+.fields--grid {
+  background-image: url(../../img/fields_grid_72.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.fields__next {
+  display: none;
+}
+
+.field-counter {
+  display: none;
+}
+
+@media (max-width: 1152px) {
+  .field-buttons {
+    justify-content: center;
+  }
+  .field-button {
+    width: 180px;
+    height: 216px;
+    margin-right: 45px;
+    margin-left: 45px;
+  }
+  .field-button__inner {
+    font-size: 20px;
+    bottom: 24px;
+    left: 24px;
+    max-width: 135px;
+  }
+  .fields--grid {
+    background-image: url(../../img/fields_grid_45.svg);
+  }
+  .fields__blurb-wrapper {
+    max-width: 792px;
+  }
+  .fields__blurb {
+    top: -45px;
+    max-width: 540px;
+  }
+  .fields__blurb-top {
+    background-image: url(../../img/fields_top_45.svg);
+    height: 24px;
+  }
+  .is-active-support .fields__blurb-top {
+    background-position-x: 100%;
+  }
+  .is-active-know .fields__blurb-top {
+    background-position-x: 0;
+  }
+}
+
+@media (max-width: 864px) {
+  .field-buttons {
+    display: block;
+    position: relative;
+  }
+  .field-button {
+    display: block;
+    position: absolute;
+    top: 72px;
+    left: 36px;
+    width: calc(100% - 72px);
+    max-width: 540px;
+    margin: 0;
+    pointer-events: none;
+    color: var(--color-black) !important;
+    transition: left .5s, opacity .5s;
+  }
+  .field-button__inner {
+    font-size: 28px;
+    max-width: 360px;
+    bottom: 36px;
+    left: 36px;
+  }
+  .fields--grid {
+    height: 468px;
+  }
+  .fields__blurb-wrapper {
+    max-width: none;
+  }
+  .fields__blurb {
+    left: 0 !important;
+    transform: translateX(0) !important;
+    right: auto;
+  }
+  .fields__blurb-top {
+    background-position-x: -360px !important;
+  }
+
+  .fields__next {
+    display: block;
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    top: 45px;
+    right: 36px;
+
+    background-color: var(--color-green);
+    background-image: url(../../ico/arrow_r_white.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+
+  .field-counter {
+    display: block;
+    position: absolute;
+    top: 99px;
+    left: 36px;
+  }
+
+  .is-active-support .field-button--beta,
+  .is-active-dev .field-button--gamma,
+  .is-active-know .field-button--alpha {
+    left: 100vw;
+    opacity: 0;
+  }
+
+  .is-active-support .field-button--gamma,
+  .is-active-dev .field-button--alpha,
+  .is-active-know .field-button--beta {
+    left: -100vw;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 648px) {
+  .fields__next {
+    top: 22px;
+    right: 18px;
+  }
+  .field-button {
+    width: calc(100% - 36px);
+    height: 162px;
+    left: 18px;
+    max-width: 360px;
+  }
+  .field-button__inner {
+    font-size: 20px;
+    max-width: 243px;
+    bottom: 24px;
+    left: 24px;
+  }
+  .fields--grid {
+    height: 360px;
+    background-image: url(../../img/fields_grid_27.svg);
+  }
+  .fields__blurb-top {
+    background-image: url(../../img/fields_top_27.svg);
+    background-position-x: 0 !important;
+    height: 14px;
+  }
+  .field-counter {
+    top: 54px;
+    left: 18px;
+  }
+}

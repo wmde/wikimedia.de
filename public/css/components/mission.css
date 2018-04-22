@@ -1,0 +1,81 @@
+/*!
+ * Copyright 2017 Atelier Disko. All rights reserved.
+ *
+ * Use of this source code is governed by the AGPL v3
+ * license that can be found in the LICENSE file.
+ */
+
+.mission__inner {
+  position: relative;
+}
+
+.mission__text {
+  position: absolute;
+  top: 144px;
+  right: 72px;
+  max-width: 432px;
+  color: var(--color-green);
+  background-color: white;
+
+  border: 2px solid;
+}
+.mission__text p {
+  margin: 0;
+}
+
+.mission__image .fig__media {
+  max-width: 504px;
+}
+.mission__image > * {
+  /* Align caption right to image and number. */
+  display: inline-block;
+}
+.mission__caption {
+  /* Place caption on the same visual baseline with the image. */
+  position: relative;
+  top: -21px;
+}
+
+@media (max-width: 1152px) {
+  .mission__text {
+    top: 72px;
+    right: 108px;
+  }
+  .mission__image {
+    margin-top: 90px;
+  }
+}
+@media (max-width: 864px) {
+  .mission__caption {
+    top: 0;
+    display: block;
+    margin-left: 0;
+  }
+  .mission__text {
+    right: 36px;
+  }
+}
+@media (max-width: 648px) {
+  .mission__text {
+    top: auto;
+    right: auto;
+    width: 360px;
+    max-width: calc(100vw - 54px);
+    position: relative;
+    float: right;
+    margin-top: 36px;
+  }
+  .mission__image .fig__media {
+    width: 360px;
+    max-width: calc(100vw - 54px);
+  }
+  .mission__image {
+    float: left;
+    display: block;
+    margin-top: -36px;
+    margin-left: 0;
+  }
+  .mission__caption {
+    margin-left: 0;
+  }
+}

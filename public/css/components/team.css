@@ -1,0 +1,204 @@
+/*!
+ * Copyright 2017 Atelier Disko. All rights reserved.
+ *
+ * Use of this source code is governed by the AGPL v3
+ * license that can be found in the LICENSE file.
+ */
+
+.team h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.team ul {
+  list-style: none;
+  padding-left: 0;
+}
+.team__inner {
+  position: relative;
+}
+
+.team__select {
+  display: none;
+}
+.team__list {
+  width: 360px;
+  line-height: 27px;
+}
+.team__list-item {
+  position: relative;
+}
+.team__list-item:hover {
+  color: var(--color-green);
+  cursor: pointer;
+}
+.team__list-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  transition: width .3s;
+  background-color: var(--color-green);
+}
+.team__list-item.active {
+  color: var(--color-green);
+}
+.team__list-item.active::after {
+  width: 100%;
+}
+
+.member {
+  display: flex;
+  position: relative;
+  padding-top: 36px;
+}
+.member + .member {
+  display: none;
+}
+.member__name {
+  width: 360px;
+}
+
+.member__image {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 432px;
+}
+.member__fig {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transition: opacity .3s;
+}
+.member__fig.fadeout {
+  opacity: 0;
+}
+
+.member__info {
+  position: absolute;
+  top: 108px;
+  right: 0;
+  color: var(--color-green);
+  background-color: white;
+
+  border: 2px solid;
+  padding: 36px;
+}
+.member__link {
+  border-bottom: 1px solid;
+}
+.member__mail {
+  white-space: nowrap;
+}
+
+@media (max-width: 1152px) { /* 16 cells */
+ .team__select-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 288px;
+    margin-right: 144px;
+  }
+  .team__select-wrapper::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 40px;
+    pointer-events: none;
+    background-color: var(--color-green);
+    background-image: url(../../ico/arrow_select_white.svg);
+    background-repeat: no-repeat;
+    background-position: center 19px;
+  }
+  .team__select {
+    display: block;
+    height: 40px;
+
+    width: 100%;
+    color: white;
+    background-color: var(--color-lightishgreen);
+    padding-left: 32px;
+    border-radius: 0;
+    border: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }
+  .team__select::-ms-expand {
+    display: none;
+  }
+
+  .team__list {
+    display: none;
+  }
+
+  .member {
+    padding-top: 72px;
+    padding-bottom: 288px;
+  }
+  .member__image {
+    max-width: 324px;
+    height: 360px;
+  }
+  .member__fig {
+    width: auto;
+  }
+  /* The image is now placed to the right of the info text
+     and slightly underlaps it. */
+  .member__image .fig__ref {
+    text-align: right;
+  }
+  .member__info {
+    left: 0;
+    top: 180px;
+    max-width: 468px;
+  }
+}
+
+@media (max-width: 864px) { /* 12 cells */
+  .team__select-wrapper {
+    margin-right: 36px;
+  }
+  .member {
+    padding-top: 36px;
+    padding-bottom: 360px;
+  }
+  .member__image {
+    max-width: 252px;
+    height: 288px;
+  }
+  .member__info {
+    top: 126px;
+    max-width: 360px;
+  }
+}
+
+@media (max-width: 648px) { /* 9 cells */
+  .member {
+    padding-top: 36px;
+    padding-bottom: 72px;
+    display: block;
+  }
+  .team__select-wrapper {
+    margin-right: 0;
+    margin-bottom: 36px;
+  }
+  .member__image {
+    float: right;
+    max-width: 288px;
+    height: 324px;
+    margin-right: -18px;
+  }
+  .member__info {
+    position: relative;
+    top: auto;
+    float: left;
+    max-width: 360px;
+    margin-top: -72px;
+    padding: 16px;
+  }
+}

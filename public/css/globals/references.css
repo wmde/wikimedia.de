@@ -1,0 +1,96 @@
+/*!
+ * Copyright 2017 Atelier Disko. All rights reserved.
+ *
+ * Use of this source code is governed by the AGPL v3
+ * license that can be found in the LICENSE file.
+ */
+
+
+/* General reference styles, for both citation and in-index refs.
+---------------------------------------------------------------- */
+.ref,
+.ref__number,
+a.ref__title,
+a.ref__license {
+  color: var(--color-darkgray);
+}
+
+/* source and license can both also be simple strings.*/
+a.ref__title,
+a.ref__license {
+  border-bottom: 1px solid var(--color-darkgray);
+}
+
+.ref__number:before {
+  content: "[";
+}
+.ref__number:after {
+  content: "]";
+}
+
+/* highlighted reference */
+.ref.hi,
+.ref.hi .ref__number,
+.ref.hi a:not(.ref__back) {
+  font-weight: bold;
+  color: var(--color-black);
+  border-color: var(--color-black);
+}
+.ref__back {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  overflow: hidden;
+  width: 9px;
+  height: 11px;
+  color: transparent;
+  background: url(../../ico/arrow_ref_back.svg) no-repeat left center/contain;
+}
+
+/* Index
+---------------------------------------------------------------- */
+/* We use our own index number styling, but want to keep the
+   semantics of an ordered list. */
+.refs-index {
+  list-style: none;
+  padding-left: 0;
+  margin: 18px 0;
+}
+.refs-index .ref {
+  /* Leave space to the right for the close "column". */
+  max-width: calc(100% - 24px - 18px);
+}
+.refs-index .ref__number {
+  display: inline-block;
+}
+.refs-index .ref + .ref {
+  margin-top: 32px;
+}
+
+/* Foldout
+---------------------------------------------------------------- */
+.refs-foldout {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .5s;
+}
+.refs-foldout.revealed {
+  /* Set to an (hopefully) impossible number. */
+  max-height: 2000px;
+}
+.refs-foldout__close {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-top: 18px;
+  overflow: hidden;
+  color: transparent;
+  float: right;
+  background: url(../../ico/close.svg) no-repeat right top/contain;
+}
+
+@media (max-width: 648px) {
+  .home .ref {
+    display: none;
+  }
+}

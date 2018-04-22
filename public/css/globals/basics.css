@@ -1,0 +1,44 @@
+/*!
+ * Copyright 2017 Atelier Disko. All rights reserved.
+ *
+ * Use of this source code is governed by the AGPL v3
+ * license that can be found in the LICENSE file.
+ */
+
+body {
+  font: 600 16px/1.35 var(--font-family-sans);
+
+  font-feature-settings: "kern" 1, "liga" 1;
+  font-kerning: nornal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+
+  color: var(--color-black);
+  background-color: var(--color-lightgray);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+abbr[title] {
+  text-decoration: none;
+}
+
+/* Provide link to skip to main content, esp. for screenreaders. */
+/* @see https://webaim.org/techniques/css/invisiblecontent/ */
+.skip-nav {
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 72px;
+  top: 100px;
+  background: white;
+  z-index: 10;
+}
+.skip-nav:focus {
+  height: auto;
+  overflow: visible;
+}

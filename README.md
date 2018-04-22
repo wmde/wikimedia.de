@@ -21,3 +21,7 @@ After the command finished, you can view the application at http://localhost:800
 Executing this in the project root will give you a shell from which you can interact with Symfony via PHP:
 
     docker-compose exec php-fpm bash
+    
+Running PHPUnit
+
+    ./vendor/bin/simple-phpunit

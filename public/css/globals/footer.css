@@ -1,0 +1,39 @@
+/*!
+ * Copyright 2017 Atelier Disko. All rights reserved.
+ *
+ * Use of this source code is governed by the AGPL v3
+ * license that can be found in the LICENSE file.
+ */
+
+.mf {
+  background-color: var(--color-black);
+}
+.mf__column:first-child {
+  width:33%;
+}
+.mf__column__inner,
+.mf__column {
+  display: inline-block;
+  vertical-align: top;
+}
+.mf__column__inner:first-child {
+  min-width: 369px;
+}
+.mf__column-title {
+  color: white;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.mf__nav a {
+  display: block;
+  color: var(--color-lightgray);
+  margin-bottom: 9px;
+}
+
+@media (max-width: 400px) {
+  .mf__column__inner:first-child {
+    width: 100%;
+    min-width: 0;
+  }
+}

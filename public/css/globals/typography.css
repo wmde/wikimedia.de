@@ -1,0 +1,119 @@
+/*!
+ * Copyright 2017 Atelier Disko. All rights reserved.
+ *
+ * Use of this source code is governed by the AGPL v3
+ * license that can be found in the LICENSE file.
+ */
+
+/* Large type group for headlines etc.
+---------------------------------------------------------------- */
+/* use for very large running text */
+.tl--alpha {
+  font: 35px/1.25 var(--font-family-serif);
+  letter-spacing: .01em;
+}
+/* use inline with tl--alpha, or as standalone headline */
+.tl--beta {
+  font: 600 34px/1.4 var(--font-family-sans);
+  letter-spacing: .01em;
+}
+/* use for large running text */
+.tl--gamma {
+  font: 28px/1.25 var(--font-family-serif);
+  letter-spacing: .01em;
+}
+
+@media (max-width: 1152px) {
+  .tl--alpha,
+  .tl--beta {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 648px) {
+  .tl--alpha {
+    font-size: 20px;
+  }
+  .tl--beta {
+    font-size: 18px;
+  }
+  .tl--gamma {
+    font-size: 20px;
+  }
+}
+
+/* Medium type group for running text
+---------------------------------------------------------------- */
+/* use for running text */
+.tm--alpha {
+  font: 600 18px/1.3 var(--font-family-sans);
+}
+/* use for running text */
+.tm--beta {
+  font: 20px/1.3 var(--font-family-serif);
+}
+/* use in combination with tm--delta for i.e. buttons, or as mini headlines */
+.tm--gamma {
+  font: 600 16px/1.3 var(--font-family-sans);
+}
+.tm--delta {
+  font: 18px/1.3 var(--font-family-serif);
+  letter-spacing: .01em;
+}
+
+@media (max-width: 1152px) {
+  .tm--gamma {
+    font-size: 14px;
+  }
+  .tm--delta {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 648px) {
+  .tm--alpha {
+    font-size: 14px;
+  }
+  .tm--beta {
+    font-size: 16px;
+  }
+  .tm--gamma {
+    font-size: 12px;
+  }
+  .tm--delta {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
+
+
+/* Small type group for captions etc.
+---------------------------------------------------------------- */
+/* use for buttons */
+.ts--alpha {
+  font: 600 14px/1.7 var(--font-family-sans);
+}
+.ts--beta {
+  font: 14px/1.7 var(--font-family-serif);
+}
+
+/* no intermediate sizes for < 1152px */
+
+@media (max-width: 720px) {
+  .ts--alpha {
+    font-size: 12px;
+  }
+}
+
+/* Other Type Modifiers that can be combined with clases above
+---------------------------------------------------------------- */
+.t--dimmed {
+  color: var(--color-darkgray);
+}
+.t--caps {
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.t--strong {
+  font-weight: bold;
+}

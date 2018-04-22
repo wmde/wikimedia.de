@@ -1,0 +1,212 @@
+/*!
+ * Copyright 2017 Atelier Disko. All rights reserved.
+ *
+ * Use of this source code is governed by the AGPL v3
+ * license that can be found in the LICENSE file.
+ */
+
+.illu-hero {
+  height: 720px;
+  position: relative;
+  /* Allows pointer events on illu reference */
+  z-index: 1;
+}
+.illu-hero__inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.illu-hero__wrapper {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+.illu-hero__wrapper--no-overflow {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.illu-hero__green {
+  background-image: url(../../img/element_left_big_2x.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: contain;
+
+  position: absolute;
+  bottom: 0;
+  left: -300px;
+
+  width: 47vw;
+  min-width: 620px;
+  max-width: 860px;
+  height: 23vw;
+  max-height: 500px;
+  min-height: 300px;
+}
+
+.illu-hero__cube {
+  background-image: url(../../img/element_middle_big_2x.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  position: absolute;
+  bottom: -5vw;
+  left: 216px;
+
+  width: calc(100% - 216px);
+  height: 50vw;
+  min-height: 650px;
+  max-height: 740px;
+}
+
+.illu-hero__blue {
+  background-image: url(../../img/element_right_big_2x.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 100% auto;
+
+  position: absolute;
+  bottom: 0;
+  right: -190px;
+
+  width: 60vw;
+  min-width: 750px;
+  max-width: 920px;
+  height: 100%;
+}
+
+.illu-hero__text {
+  position: absolute;
+  right: 72px;
+  bottom: 72px;
+  color: var(--color-black);
+
+  width: 34vw;
+  max-width: 504px;
+}
+.illu-hero__text p {
+  margin: 0;
+}
+
+/* Content is coming from database. */
+.illu-hero__text b,
+.illu-hero__text strong {
+  /* inherit tl--beta */
+  font-weight: bold;
+  /* inherit t--strong */
+  font: 700 34px/1.4 var(--font-family-sans);
+  letter-spacing: .01em;
+}
+@media (max-width: 1152px) {
+  .illu-hero__text b,
+  .illu-hero__text strong {
+    font-size: 28px;
+  }
+}
+@media (max-width: 648px) {
+  .illu-hero__text b,
+  .illu-hero__text strong {
+    font-size: 18px;
+  }
+}
+
+.illu-hero__ref {
+  position: absolute;
+  right: 72px;
+  width: 34vw;
+  max-width: 504px;
+}
+
+@media (max-width: 1152px) {
+  .illu-hero {
+    height: 642px;
+  }
+  .illu-hero__green {
+    display: none;
+  }
+  .illu-hero__cube {
+    background-image: url(../../img/element_middle_medium_2x.png);
+    bottom: auto;
+    top: 144px;
+    left: 36px;
+
+    width: calc(100% - 36px);
+    height: 50vw;
+    min-height: 369px;
+    max-height: 513px;
+  }
+  .illu-hero__blue {
+    background-image: url(../../img/element_right_medium_2x.png);
+    right: 0px;
+
+    width: 100%;
+    min-width: auto;
+    max-width: 640px;
+  }
+  .illu-hero__text {
+    right: 72px;
+    bottom: 36px;
+    width: 360px;
+  }
+  .illu-hero__ref {
+    right: 72px;
+    width: 360px;
+  }
+}
+
+@media (max-width: 864px) {
+  .illu-hero__blue {
+    right: -144px;
+    max-width: 720px;
+  }
+  .illu-hero__text {
+    right: 36px;
+    width: 297px;
+  }
+  .illu-hero__ref {
+    right: 36px;
+    width: 297px;
+  }
+}
+
+@media (max-width: 648px) {
+  .illu-hero {
+    height: 540px;
+  }
+  .illu-hero__cube {
+    background-image: url(../../img/element_middle_small_2x.png);
+    top: 108px;
+    left: 0;
+    width: 100%;
+    height: 60vw;
+    min-height: 248px;
+    max-height: 360px;
+  }
+  .illu-hero__blue {
+    background-image: url(../../img/element_right_small_2x.png);
+    left: calc(63vw - 192px);
+    max-width: auto;
+    width: 432px;
+  }
+  .illu-hero__text {
+    width: 252px;
+    max-width: calc(100vw - 36px);
+    right: 18px;
+  }
+  .illu-hero__ref {
+    width: 252px;
+    max-width: calc(100vw - 36px);
+    right: 18px;
+  }
+}
+
+/* Prevent text crop for ultra-panorama desktops, e.g. 1280x800 */
+@media (min-width: 1152px) and (max-height: 720px) {
+  .illu-hero__text {
+    bottom: 144px;
+  }
+}

@@ -1,0 +1,25 @@
+/*!
+ * Copyright 2017 Atelier Disko. All rights reserved.
+ *
+ * Use of this source code is governed by the AGPL v3
+ * license that can be found in the LICENSE file.
+ */
+
+/* Resets */
+a {
+  color: var(--color-black);
+  text-decoration: none;
+}
+
+.link--dimmed {
+  color: var(--color-darkgray);
+  border-bottom: 1px solid var(--color-darkgray);
+}
+.link--black {
+  color: var(--color-black);
+  border-bottom: 1px solid var(--color-black);
+}
+.link--green {
+  color: var(--color-green);
+  border-bottom: 1px solid var(--color-green);
+}
