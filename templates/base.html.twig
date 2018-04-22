@@ -28,7 +28,7 @@
                 </h1>
                 <div class="mh__new-notice ts--beta">
                     <div class="wh__new-notic-inner">
-                        <a href="/wiki/Hauptseite" class="link link--green">Click here for the previous website</a>					<br>
+                        <a href="/wiki/Hauptseite" class="link link--green">Click here for the previous website</a><br>
                         of Wikimedia Deutschland
                     </div>
                 </div>
@@ -51,6 +51,27 @@
         </header>
 
         {% block body %}{% endblock %}
+
+        <footer class="mf">
+            <div class="limit--20 center-column cp--h1 cp--b0-5">
+                <div class="mf__column cp--v1-25">
+                    <a href="/" class="mf__logo logo logo--white logo--ir">Wikimedia Deutschland e. V.</a>
+                </div>
+                <div class="mf__column">
+                    <div class="mf__column__inner cp--v1-25">
+                        <div class="mf__column-title ts--alpha">Verein</div>
+                        <nav class="mf__nav ts--alpha"><a href="/de/impressum">Impressum und Kontakt</a><a href="#refs-foldout" class="toggle-refs-foldout">Lizenzhinweise dieser Seite</a><a href="/de/transparenz">Transparenz</a><a href="/de/satzung">Satzung, Ordnungen &amp; Beschlüsse</a></nav>
+                    </div>
+                    <div class="mf__column__inner cp--v1-25">
+                        <div class="mf__column-title ts--alpha">Kanäle</div>
+                        <nav class="mf__nav ts--alpha"><a href="https://blog.wikimedia.de/" target="new">Unser Blog</a><a href="https://www.facebook.com/WMDEeV" target="new">Facebook</a><a href="https://twitter.com/wikimediade" target="new">Twitter</a></nav>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        {# TODO: references #}
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
