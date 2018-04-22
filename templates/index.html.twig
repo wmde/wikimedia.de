@@ -3,7 +3,7 @@
 {#{% block title %}Hello {{ controller_name }}!{% endblock %}#}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+    {{ parent() }}
 {% endblock %}
 
 {% block body %}

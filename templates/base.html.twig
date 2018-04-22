@@ -3,10 +3,55 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Wikimedia Deutschland e. V.{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+
+        <link rel="icon" href="{{ asset('ico/app.png') }}">
+
+        <!-- SEO -->
+        {#<?php echo $this->seo->title() ?>#}
+        {#<?php echo $this->seo->description() ?>#}
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+        {% endblock %}
+
+        <!-- Social -->
+        <meta property="og:url" content="https://www.wikimedia.de" />
+        <meta property="og:image" content="{{ asset('ico/app.png') }}">
     </head>
-    <body>
+    <body class="layout-default">
+        <a href="#main" class="skip-nav">Navigation überspringen</a>
+
+        <header class="mh">
+            <div class="mh__inner clearfix limit--20 cp--h1 center-column">
+                <h1 class="mh__logo-wrap logo--ir cm--r1">
+                    <a href="/" class="mh__logo logo logo--black">Wikimedia Deutschland e. V.</a>
+                </h1>
+                <div class="mh__new-notice ts--beta">
+                    <div class="wh__new-notic-inner">
+                        <a href="/wiki/Hauptseite" class="link link--green">Click here for the previous website</a>					<br>
+                        of Wikimedia Deutschland
+                    </div>
+                </div>
+                <a href="/#cta"
+                        class="mh__support cp--0-5"
+                        role="button"
+                        aria-label="Go to the section ‚Support Free Knowledge‘">
+                    <div class="wh__support-inner">
+                        <div class="tm--gamma t--caps t--strong">Support</div>
+                        <div class="tm--delta">Free Knowledge</div>
+                    </div>
+                </a>
+                <div class="nav-locale-toggle ts--alpha">
+                    <div class="nav-locale-wrapper">
+                        <div class="nav-locale-toggle__locale">en</div>
+                        <nav class="nav-locale"><a href="/change-locale/de">Deutsch (de)</a><a href="/change-locale/en" class="active">English (en)</a></nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
+
