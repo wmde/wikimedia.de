@@ -59,12 +59,21 @@
                 </div>
                 <div class="mf__column">
                     <div class="mf__column__inner cp--v1-25">
-                        <div class="mf__column-title ts--alpha">Verein</div>
-                        <nav class="mf__nav ts--alpha"><a href="/de/impressum">Impressum und Kontakt</a><a href="#refs-foldout" class="toggle-refs-foldout">Lizenzhinweise dieser Seite</a><a href="/de/transparenz">Transparenz</a><a href="/de/satzung">Satzung, Ordnungen &amp; Beschlüsse</a></nav>
+                        <div class="mf__column-title ts--alpha">{% trans %}footer.header.association{% endtrans %}</div>
+                        <nav class="mf__nav ts--alpha">
+                            <a href="/de/impressum">{% trans %}footer.link.imprint{% endtrans %}</a>
+                            <a href="#refs-foldout" class="toggle-refs-foldout">{% trans %}footer.link.license{% endtrans %}</a>
+                            <a href="/de/transparenz">{% trans %}footer.link.transparancy{% endtrans %}</a>
+                            <a href="/de/satzung">{% trans %}footer.link.charter{% endtrans %}</a>
+                        </nav>
                     </div>
                     <div class="mf__column__inner cp--v1-25">
-                        <div class="mf__column-title ts--alpha">Kanäle</div>
-                        <nav class="mf__nav ts--alpha"><a href="https://blog.wikimedia.de/" target="new">Unser Blog</a><a href="https://www.facebook.com/WMDEeV" target="new">Facebook</a><a href="https://twitter.com/wikimediade" target="new">Twitter</a></nav>
+                        <div class="mf__column-title ts--alpha">{% trans %}footer.header.channels{% endtrans %}</div>
+                        <nav class="mf__nav ts--alpha">
+                            <a href="https://blog.wikimedia.de/" target="new">{% trans %}footer.link.blog{% endtrans %}</a>
+                            <a href="https://www.facebook.com/WMDEeV" target="new">{% trans %}footer.link.facebook{% endtrans %}</a>
+                            <a href="https://twitter.com/wikimediade" target="new">{% trans %}footer.link.twitter{% endtrans %}</a>
+                        </nav>
                     </div>
                 </div>
             </div>
