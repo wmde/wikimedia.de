@@ -43,7 +43,7 @@
                 </a>
                 <div class="nav-locale-toggle ts--alpha">
                     <div class="nav-locale-wrapper">
-                        <div class="nav-locale-toggle__locale">{{ app.request.locale }}</div>
+                        <div class="nav-locale-toggle__locale">{{ app.request.locale|escape }}</div>
                         <nav class="nav-locale">
                             <a href="{{ path('index', {'_locale': 'de'}) }}">Deutsch (de)</a>
                             <a href="{{ path('index', {'_locale': 'en'}) }}" class="active">English (en)</a>
