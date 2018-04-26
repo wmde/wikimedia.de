@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 class SimplePageController extends Controller {
 
 	public function index() {
-		return $this->render( 'index.html.twig' );
+		return $this->render( 'pages/home.html.twig' );
 	}
 
 	public function imprint( Request $request ) {
