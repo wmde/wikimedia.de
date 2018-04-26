@@ -21,7 +21,6 @@ requirejs.config({
 
     // App
     'router': 'app/js/router',
-    'components/news': 'app/js/components/news',
     'components/team': 'app/js/components/team',
     'components/fields': 'app/js/components/fields',
     'hammer': 'app/js/hammer',
