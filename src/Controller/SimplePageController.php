@@ -16,7 +16,7 @@ class SimplePageController extends Controller {
 	}
 
 	private function getPageTemplatePath( string $pageName, string $locale ): string {
-		return 'pages/' . $pageName . '/' . $pageName . '.' . $locale . '.twig.html';
+		return 'pages/' . $pageName . '/' . $pageName . '.' . $locale . '.html.twig';
 	}
 
 	public function transparency( Request $request ) {
