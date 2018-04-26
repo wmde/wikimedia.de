@@ -45,8 +45,8 @@
                     <div class="nav-locale-wrapper">
                         <div class="nav-locale-toggle__locale">{{ app.request.locale|escape }}</div>
                         <nav class="nav-locale">
-                            <a href="{{ path('index', {'_locale': 'de'}) }}">Deutsch (de)</a>
-                            <a href="{{ path('index', {'_locale': 'en'}) }}" class="active">English (en)</a>
+                            <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'de'}) }}" {% if app.request.locale == 'de' %}class="active"{% endif %}>Deutsch (de)</a>
+                            <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'en'}) }}" {% if app.request.locale == 'en' %}class="active"{% endif %}>English (en)</a>
                         </nav>
                     </div>
                 </div>
@@ -84,7 +84,26 @@
 
         {# TODO: references #}
 
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script>
+				App = {
+					"debug": false,
+					"assets": {
+						"base": "https:\/\/www.wikimedia.de\/assets\/v:1+a2cc69e"
+					},
+					"media": {
+						"base": "https:\/\/www.wikimedia.de\/media"
+					},
+					"routes": [],
+					"flash": null
+				}
+            </script>
+
+            <script type="text/javascript" src="{{ asset('js/compat/core.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/require.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/base.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/views/layouts/default.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
 

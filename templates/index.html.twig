@@ -133,3 +133,12 @@
         {# TODO board section #}
     </main>
 {% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('js/views/pages/home.js') }}"></script>
+{% endblock %}
+
+
