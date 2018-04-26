@@ -11,10 +11,14 @@ root:
     controller: App\Controller\SimplePageController::index
     options: { i18n: false }
 
-suchpage:
-    path: /{_locale}/suchpage/
+imprint:
+    path: /imprint
     controller: App\Controller\SimplePageController::such
-    requirements:
-        maw: '%app.locales%'
-    defaults:
-        _locale: '%locale%'
+
+transparency:
+    path: /transparency
+    controller: App\Controller\SimplePageController::such
+
+charter:
+    path: /charter
+    controller: App\Controller\SimplePageController::such
