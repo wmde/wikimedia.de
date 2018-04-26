@@ -1,4 +1,7 @@
 {
+    "jms/i18n-routing-bundle": {
+        "version": "3.0.2"
+    },
     "nikic/php-parser": {
         "version": "v4.0.1"
     },

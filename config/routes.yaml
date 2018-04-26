@@ -1,9 +1,20 @@
 index:
-    path: /{_locale}{trailingSlash}
-    controller: App\Controller\DefaultController::index
+    path: /{trailingSlash}
+    controller: App\Controller\SimplePageController::index
     requirements:
-        _locale: '%app.locales%'
         trailingSlash : "[/]{0,1}"
     defaults:
-        _locale: '%locale%'
         trailingSlash : "/"
+
+root:
+    path: /
+    controller: App\Controller\SimplePageController::index
+    options: { i18n: false }
+
+suchpage:
+    path: /{_locale}/suchpage/
+    controller: App\Controller\SimplePageController::such
+    requirements:
+        maw: '%app.locales%'
+    defaults:
+        _locale: '%locale%'

@@ -24,7 +24,7 @@
         <header class="mh">
             <div class="mh__inner clearfix limit--20 cp--h1 center-column">
                 <h1 class="mh__logo-wrap logo--ir cm--r1">
-                    <a href="/" class="mh__logo logo logo--black">Wikimedia Deutschland e. V.</a>
+                    <a href="{{ path('index') }}" class="mh__logo logo logo--black">Wikimedia Deutschland e. V.</a>
                 </h1>
                 <div class="mh__new-notice ts--beta">
                     <div class="wh__new-notic-inner">
@@ -43,8 +43,11 @@
                 </a>
                 <div class="nav-locale-toggle ts--alpha">
                     <div class="nav-locale-wrapper">
-                        <div class="nav-locale-toggle__locale">en</div>
-                        <nav class="nav-locale"><a href="/change-locale/de">Deutsch (de)</a><a href="/change-locale/en" class="active">English (en)</a></nav>
+                        <div class="nav-locale-toggle__locale">{{ app.request.locale }}</div>
+                        <nav class="nav-locale">
+                            <a href="{{ path('index', {'_locale': 'de'}) }}">Deutsch (de)</a>
+                            <a href="{{ path('index', {'_locale': 'en'}) }}" class="active">English (en)</a>
+                        </nav>
                     </div>
                 </div>
             </div>
