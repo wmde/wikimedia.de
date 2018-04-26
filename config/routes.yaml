@@ -13,12 +13,12 @@ root:
 
 imprint:
     path: /imprint
-    controller: App\Controller\SimplePageController::such
+    controller: App\Controller\SimplePageController::imprint
 
 transparency:
     path: /transparency
-    controller: App\Controller\SimplePageController::such
+    controller: App\Controller\SimplePageController::transparency
 
 charter:
     path: /charter
-    controller: App\Controller\SimplePageController::such
+    controller: App\Controller\SimplePageController::charter
