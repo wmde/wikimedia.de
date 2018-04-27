@@ -130,58 +130,31 @@
             <div class="team__inner limit--16 cp--h1 cp--t1-25 center-column">
                 <h1 class="tl--beta t--strong">Our board</h1>
 
-                <article id="member-stage" role="region" aria-live="polite" class="member cp--b4 clearfix" >
-                    <h1 class="member__name" hidden>Tim Moritz Hector</h1>
-                    <div class="member__image">
-                        <figure class="fig member__fig">
-                            <img src="https://www.wikimedia.de/media/fix20/43/317ac5.jpg" class="fig__media" alt="Portrait of Tim Moritz Hector" />
-                            {#TODO: ref#}
-                        </figure>
-                    </div>
-                    <div class="member__info limit--5">
-                        <h2 class="member__role tm--alpha t--strong">Chair</h2>
-                        <div class="member__text tm--beta" >
-                            <p>
-                                »As chair of the board, I am committed to making the Wikimedia world understandable and
-                                accessible to all. For me, Free Knowledge means more available knowledge for everybody
-                                and thus more educational justice. For me, this is the key to a mature society.«
-                                <br>
-                            </p>
+                {% for member in board %}
+                    <article class="member cp--b4 clearfix" {% if loop.first %}id="member-stage" role="region" aria-live="polite"{% endif %}>
+                        <h1 class="member__name" hidden>{{ member.name|e }}</h1>
+                        <div class="member__image">
+                            <figure class="fig member__fig">
+                                <img src="{{ member.image|e('html_attr') }}" class="fig__media" alt="Portrait of {{ member.name|e('html_attr') }}" />
+                                {#TODO: ref#}
+                            </figure>
                         </div>
+                        <div class="member__info limit--5">
+                            <h2 class="member__role tm--alpha t--strong">{{ member.title|e }}</h2>
+                            <div class="member__text tm--beta" >
+                                <p>
+                                    »{{ member.message|e }}«
+                                    <br>
+                                </p>
+                            </div>
 
-                        <a class="member__link ts--alpha" href="mailto:tim-moritz.hector@wikimedia.de">
-                            <span class="ts--beta">E-mail:</span>
-                            <span class="member__mail">tim-moritz.hector@wikimedia.de</span>
-                        </a>
-                    </div>
-                </article>
-
-                <article class="member cp--b4 clearfix" >
-                    <h1 class="member__name" hidden>Sabria David</h1>
-                    <div class="member__image">
-                        <figure class="fig member__fig">
-                            <img src="https://www.wikimedia.de/media/fix20/b5/cb9ad0.jpg" class="fig__media" alt="Portrait of Sabria David" />
-                            {#TODO: ref#}
-                        </figure>
-                    </div>
-                    <div class="member__info limit--5">
-                        <h2 class="member__role tm--alpha t--strong">Vice Chair</h2>
-                        <div class="member__text tm--beta" >
-                            <p>
-                                »As vice chair, I take care of the strategic affairs of the association and its global
-                                role. With the support of the largest of all sources of knowledge, there is also a
-                                responsibility for society as a whole. Time and again, I'm concerned with how we can
-                                make the global movement and Wikipedia sustainable.«
-                                <br>
-                            </p>
+                            <a class="member__link ts--alpha" href="{{ member.email|e('html_attr') }}">
+                                <span class="ts--beta">E-mail:</span>
+                                <span class="member__mail">{{ member.email|e }}</span>
+                            </a>
                         </div>
-
-                        <a class="member__link ts--alpha" href="mailto:sabria.david@wikimedia.de">
-                            <span class="ts--beta">E-mail:</span>
-                            <span class="member__mail">sabria.david@wikimedia.de</span>
-                        </a>
-                    </div>
-                </article>
+                    </article>
+                {% endfor %}
 
 
             </div>
