@@ -7,8 +7,10 @@ index:
         trailingSlash : "/"
 
 root:
-    path: /
+    path: /{_locale}
     controller: App\Controller\SimplePageController::index
+    defaults:
+        _locale: '%locale%'
     options: { i18n: false }
 
 imprint:

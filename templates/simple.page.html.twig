@@ -10,7 +10,7 @@
 {% block body %}
     <main class="dynamic-page dynamic-page--impressum limit--20 center-column cp--h1 cp--t3-5 cp--b2">
         <div class="limit--12 cp--h1 cp--t0-5 cp--b1 sc--white">
-            <a href="/" class="link--green ts--alpha t--strong">{% trans %}simple.page.to.homepage{% endtrans %}</a>
+            <a href="{{ path('index') }}" class="link--green ts--alpha t--strong">{% trans %}simple.page.to.homepage{% endtrans %}</a>
             <h1 class="dynamic-page__title tl--beta t--strong cp--t0-5">{{ page_title }}</h1>
             <div class="dynamic-page__body tm--beta">
                 {% block pagebody %}{% endblock %}
