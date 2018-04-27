@@ -1,91 +1,80 @@
-{% extends 'base.html.twig' %}
+{% extends 'simple.page.html.twig' %}
 
-{% block title %}Imprint and Contact - Wikimedia Deutschland e. V.{% endblock %}
+{% set page_title = 'Imprint and Contact' %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/dynamic.css') }}">
-{% endblock %}
+{% block pagebody %}
+    <p>
+        This imprint applies to the domains wikimedia.de and wikipedia.de. Please note that Wikimedia
+        Deutschland is not the service provider of all Wikimedia projects mentioned on this website.
+        <br>
+    </p>
 
-{% block body %}
-    <main class="dynamic-page dynamic-page--impressum limit--20 center-column cp--h1 cp--t3-5 cp--b2">
-        <div class="limit--12 cp--h1 cp--t0-5 cp--b1 sc--white">
-            <a href="/" class="link--green ts--alpha t--strong">To home page</a>
-            <h1 class="dynamic-page__title tl--beta t--strong cp--t0-5">Imprint and Contact</h1>
-            <div class="dynamic-page__body tm--beta">
-                <p>
-                    This imprint applies to the domains wikimedia.de and wikipedia.de. Please note that Wikimedia
-                    Deutschland is not the service provider of all Wikimedia projects mentioned on this website.
-                    <br>
-                </p>
+    <h3 class="rt__h--gamma">Service Provider</h3>
 
-                <h3 class="rt__h--gamma">Service Provider</h3>
-
-                <p>Wikimedia Deutschland - &nbsp;Association for the promotion of Free Knowledge e. V.
-                    <br>Tempelhofer Ufer 23/24<br>10963 Berlin</p><p>E-Mail: <a href="mailto:info@wikimedia.de">info@wikimedia.de</a>
-                    <br>Telephone: +49 (0) 30-219 15 826-0<br>Fax: +49 (0) 30-219 158 26-9<br><br>Executive Board: Abraham Taherivand
-                    <br>Registered in the register of associations of the district court Charlottenburg, VR 23855.
-                    Responsible for the content according to § 55 Abs. 2 RStV: Abraham Taherivand (address as above).
-                    <br>
-                </p>
-                <h3 class="rt__h--gamma">Data protection</h3>
-                <p>
-                    Personal data is collected on this website only to the technically necessary extent. In no case will
-                    the data collected be sold or otherwise disclosed to third parties. Below you will find an overview
-                    of the data collected by us within the framework of this website.<br>
-                </p>
-                <ul>
-                    <li>Log-Files: When using this offer, the data transmitted by your browser to the server will be
-                        recorded and saved. This usually includes information about the type and version of the browser
-                        you are using, the operating system you are using, the referrer URL (the web page from which you
-                        came to this web site), the host name of the accessing computer (the IP address), and the time
-                        of the server request. As a rule, these data can not be assigned to specific persons - and thus
-                        not to you. Neither does it reconcile data with other data for this purpose, nor does it merge
-                        it with other data. The data are regularly deleted after a statistical evaluation.<br></li>
-                    <li>Cookies: This website uses cookies in several places. Cookies are small text files that your
-                        browser stores and which serve to make the use of a website easier, more effective and safer.
-                        Cookies do not harm your computer, take up minimal space and do not contain viruses.<br></li>
-                    <li>Google Analytics: This website uses Google Analytics, a web analytics service provided by Google
-                        Inc. ("Google"). Google Analytics uses so-called "cookies", text files that are stored on your
-                        computer and that allow an analysis of the use of the website by you. The information generated
-                        by the cookie about your use of this website is usually transmitted to a Google server in the
-                        USA and stored there. However, in the event of activation of IP anonymisation on this website,
-                        your IP address will be shortened beforehand by Google within member states of the European
-                        Union or in other contracting states of the Agreement on the European Economic Area. Only in
-                        exceptional cases will the full IP address be sent to a Google server in the US and shortened
-                        there. On behalf of the operator of this website, Google will use this information to evaluate
-                        your use of the website, to compile reports on website activity and to provide other services
-                        related to website activity and internet usage to the website operator. The IP address provided
-                        by Google Analytics as part of Google Analytics will not be merged with other Google data. You
-                        can prevent the storage of cookies by a corresponding setting of your browser software; however,
-                        please note that if you do this, you may not be able to use all the features of this website to
-                        the fullest extent possible. In addition, you may prevent the collection by Google of the data
-                        generated by the cookie and related to your use of the website (including your IP address) as
-                        well as the processing of this data by Google by using the link below (<a
-                                href="http://tools.google.com/dlpage/gaoptout?hl=en">http://tools.google.com/dlpage/gaoptout?hl=en</a>)
-                        to download and install the available browser plugin. You can prevent the collection by Google
-                        Analytics by clicking on the following link. An opt-out cookie will be set to prevent future
-                        collection of your information when you visit this site: <a href="javascript:gaOptout()">Disable
-                            Google Analytics</a>. For more information about Terms of Use and Privacy, please visit <a
-                                href="https://www.google.com/analytics/terms/us.html">https://www.google.com/analytics/terms/us.html</a>
-                        or at <a
-                                href="https://www.google.de/intl/en/policies/">https://www.google.de/intl/en/policies/</a>.
-                        We point out that on this website Google Analytics has been extended by the code "anonymizeIp"
-                        to ensure an anonymous collection of IP addresses (so-called IP-Masking).<br></li>
-                </ul>
-                <h3 class="rt__h--gamma"><br></h3>
-                <h3 class="rt__h--gamma">Office</h3>
-                <p>
-                    Wikimedia Deutschland<br>Association for the promotion of Free Knowledge e. V.<br>PO Box 61 03 49<br>10925
-                    Berlin
-                </p>
-                <p>
-                    Telephone: +49 (0) 30-219 15 826-0<br>Fax: +49 (0) 30-219 158 26-9<br>E-Mail:
-                    <a href="mailto:info@wikimedia.de">info@wikimedia.de</a><br><br>
-                </p>
-            </div>
-        </div>
-    </main>
+    <p>Wikimedia Deutschland - &nbsp;Association for the promotion of Free Knowledge e. V.
+        <br>Tempelhofer Ufer 23/24<br>10963 Berlin
+    </p>
+    <p>E-Mail: <a href="mailto:info@wikimedia.de">info@wikimedia.de</a>
+        <br>Telephone: +49 (0) 30-219 15 826-0<br>Fax: +49 (0) 30-219 158 26-9<br><br>Executive Board: Abraham Taherivand
+        <br>Registered in the register of associations of the district court Charlottenburg, VR 23855.
+        Responsible for the content according to § 55 Abs. 2 RStV: Abraham Taherivand (address as above).
+        <br>
+    </p>
+    <h3 class="rt__h--gamma">Data protection</h3>
+    <p>
+        Personal data is collected on this website only to the technically necessary extent. In no case will
+        the data collected be sold or otherwise disclosed to third parties. Below you will find an overview
+        of the data collected by us within the framework of this website.<br>
+    </p>
+    <ul>
+        <li>Log-Files: When using this offer, the data transmitted by your browser to the server will be
+            recorded and saved. This usually includes information about the type and version of the browser
+            you are using, the operating system you are using, the referrer URL (the web page from which you
+            came to this web site), the host name of the accessing computer (the IP address), and the time
+            of the server request. As a rule, these data can not be assigned to specific persons - and thus
+            not to you. Neither does it reconcile data with other data for this purpose, nor does it merge
+            it with other data. The data are regularly deleted after a statistical evaluation.<br></li>
+        <li>Cookies: This website uses cookies in several places. Cookies are small text files that your
+            browser stores and which serve to make the use of a website easier, more effective and safer.
+            Cookies do not harm your computer, take up minimal space and do not contain viruses.<br></li>
+        <li>Google Analytics: This website uses Google Analytics, a web analytics service provided by Google
+            Inc. ("Google"). Google Analytics uses so-called "cookies", text files that are stored on your
+            computer and that allow an analysis of the use of the website by you. The information generated
+            by the cookie about your use of this website is usually transmitted to a Google server in the
+            USA and stored there. However, in the event of activation of IP anonymisation on this website,
+            your IP address will be shortened beforehand by Google within member states of the European
+            Union or in other contracting states of the Agreement on the European Economic Area. Only in
+            exceptional cases will the full IP address be sent to a Google server in the US and shortened
+            there. On behalf of the operator of this website, Google will use this information to evaluate
+            your use of the website, to compile reports on website activity and to provide other services
+            related to website activity and internet usage to the website operator. The IP address provided
+            by Google Analytics as part of Google Analytics will not be merged with other Google data. You
+            can prevent the storage of cookies by a corresponding setting of your browser software; however,
+            please note that if you do this, you may not be able to use all the features of this website to
+            the fullest extent possible. In addition, you may prevent the collection by Google of the data
+            generated by the cookie and related to your use of the website (including your IP address) as
+            well as the processing of this data by Google by using the link below (<a
+                    href="http://tools.google.com/dlpage/gaoptout?hl=en">http://tools.google.com/dlpage/gaoptout?hl=en</a>)
+            to download and install the available browser plugin. You can prevent the collection by Google
+            Analytics by clicking on the following link. An opt-out cookie will be set to prevent future
+            collection of your information when you visit this site: <a href="javascript:gaOptout()">Disable
+                Google Analytics</a>. For more information about Terms of Use and Privacy, please visit <a
+                    href="https://www.google.com/analytics/terms/us.html">https://www.google.com/analytics/terms/us.html</a>
+            or at <a
+                    href="https://www.google.de/intl/en/policies/">https://www.google.de/intl/en/policies/</a>.
+            We point out that on this website Google Analytics has been extended by the code "anonymizeIp"
+            to ensure an anonymous collection of IP addresses (so-called IP-Masking).<br></li>
+    </ul>
+    <h3 class="rt__h--gamma"><br></h3>
+    <h3 class="rt__h--gamma">Office</h3>
+    <p>
+        Wikimedia Deutschland<br>Association for the promotion of Free Knowledge e. V.<br>PO Box 61 03 49<br>10925
+        Berlin
+    </p>
+    <p>
+        Telephone: +49 (0) 30-219 15 826-0<br>Fax: +49 (0) 30-219 158 26-9<br>E-Mail:
+        <a href="mailto:info@wikimedia.de">info@wikimedia.de</a><br><br>
+    </p>
 {% endblock %}
 
 
