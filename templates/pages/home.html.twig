@@ -140,7 +140,7 @@
                             </figure>
                         </div>
                         <div class="member__info limit--5">
-                            <h2 class="member__role tm--alpha t--strong">{{ member.title|e }}</h2>
+                            <h2 class="member__role tm--alpha t--strong">{{ member.title|trans }}</h2>
                             <div class="member__text tm--beta" >
                                 <p>
                                     »{{ member.message|e }}«
@@ -155,8 +155,6 @@
                         </div>
                     </article>
                 {% endfor %}
-
-
             </div>
         </section>
     </main>

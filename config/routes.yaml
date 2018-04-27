@@ -1,6 +1,6 @@
 index:
     path: /{trailingSlash}
-    controller: App\Controller\SimplePageController::index
+    controller: App\Controller\IndexController::index
     requirements:
         trailingSlash : "[/]{0,1}"
     defaults:
@@ -8,7 +8,7 @@ index:
 
 root:
     path: /{_locale}
-    controller: App\Controller\SimplePageController::index
+    controller: App\Controller\IndexController::index
     defaults:
         _locale: '%locale%'
     options: { i18n: false }
