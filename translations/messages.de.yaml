@@ -1,6 +1,36 @@
-homepage.vision.message: Unsere <strong>Vision</strong> ist eine Welt, in der jeder Mensch am Wissen der Mensch­heit teilhaben, es nutzen und mehren kann.
+footer.header.association: Verein
+footer.header.channels: Kanäle
+footer.link.imprint: Impressum und Kontakt
+footer.link.license: License notices of this page
+footer.link.transparency: Transparenz
+footer.link.charter: Satzung, Ordnungen & Beschlüsse
+footer.link.blog: Unser Blog
+footer.link.facebook: Facebook
+footer.link.twitter: Twitter
 
+homepage.vision.message: Unsere <strong>Vision</strong> ist eine Welt, in der jeder Mensch am Wissen der Mensch­heit teilhaben, es nutzen und mehren kann.
+homepage.mission.header: Mission
+homepage.mission.message: Wir setzen uns für Freies Wissen ein, um die Chancen­gleichheit beim Zu­gang zu Wissen und Bildung zu fördern.
+homepage.ED.title: Geschäftsführender Vorstand
+homepage.fields.header: Handlungsfelder
+homepage.fields.support.header: Freiwillige unterstützen, gewinnen und halten
+homepage.fields.development.header: Software entwickeln
+homepage.fields.knowledge.header: Rahmen­bedingungen für Freies Wissen stärken
+homepage.fields.support.message: <p>Die freie Enzyklopädie Wikipedia wird von ehrenamtlichen Autorinnen und Autoren geschrieben. Da es keine hauptamtliche Redaktion gibt, lebt die Wikipedia von der Mitarbeit möglichst vieler Menschen. Aber die Zahl der aktiven Autorinnen und Autoren geht zurück. Wenn sich auch in Zukunft immer weniger Menschen engagieren, könnten Artikel nicht mehr aktuell gehalten werden – oder keine neuen entstehen. </p><p>Wir setzen uns deshalb dafür ein, dass die Wikipedia auch in Zukunft verlässlich, umfassend und aktuell ist. Wir machen Menschen darauf aufmerksam, dass sie sich an der Wikipedia beteiligen können und bieten Interessierten Hilfe und Einstiegsmöglichkeiten.</p><p>Alle Autorinnen und Autoren – ob neu oder schon langjährig aktiv – bestärken wir in ihrem Engagement und stehen ihnen zur Seite, wenn es darum geht, ihre Pläne in die Tat umzusetzen. Wir vergeben zum Beispiel Stipendien, helfen bei der Durchführung von Workshops und Wettbewerben oder bieten technische Unterstützung. </p>
+homepage.fields.development.message: <p>Wenn wir heute etwas wissen wollen, schauen wir einfach im Internet nach. Anders als bei einem gedruckten Lexikon brauchen wir für das Internet Software, damit dieses Wissen überhaupt vernünftig angezeigt werden kann. Aber die digitale Umgebung entwickelt sich rasant weiter. </p><p>Damit die Wikipedia auch in Zukunft benutzerfreundlich und für alle digital zugänglich bleibt, bauen wir MediaWiki, die Software hinter der Wikipedia, immer weiter aus. </p><p>Außerdem entwickeln wir unsere freie Datenbank Wikidata, die Menschen auf der ganzen Welt zum Beispiel an die fast 300 verschiedenen Sprachversionen von Wikipedia anbinden können. Die Software hinter Wikidata ist so konzipiert, dass sie jederzeit und von allen Interessierten auch außerhalb der Wikimedia-Welt Zugang zu unserer Datenbank bietet. </p>
+homepage.fields.knowledge.message: <p>Die Welt ist reich an Kulturgütern wie Büchern, Gemälden oder wissenschaftlichen Arbeiten. Sie können von der Öffentlichkeit meist angesehen, aber nicht genutzt werden. Selbst wenn sie beispielsweise in einem Museum ausgestellt sind, dürfen wir sie oft nicht fotografieren und verwenden. </p><p>Öffentliche Güter gehören aus unserer Sicht in die Öffentlichkeit. Wir arbeiten daher mit Bildungs-, Wissenschafts- und Kulturinstitutionen zusammen und befähigen sie, ihre Inhalte unter eine freie Lizenz zu stellen. So können all diese Schätze frei weiterverwendet werden – etwa für Unterrichtsmaterialien oder einen Blog. </p><p>Dafür braucht es einen geeigneten rechtlichen Rahmen. Wir wollen erreichen, dass Menschen so leicht wie möglich ihr Wissen teilen können und es gemeinschaftlich genutzt werden kann. Wir setzen uns aus diesem Grund für ein zeitgemäßes Urheberrecht ein, das die Möglichkeiten des Internets nutzt, um Wissen zu verbreiten und zu vermehren. </p>
+homepage.become.a.member.top: Werde Mitglied bei
+homepage.become.a.member.bottom: Wikimedia Deutschland
+homepage.make.a.donation.top: Spende für
+homepage.make.a.donation.bottom: Freies Wissen
 homepage.news.header: Aktuelles
+
+news.type.event: Event
+news.type.event.link: Zu diesem Event
+news.type.project: Projekt
+news.type.project.link: Zu diesem Projekt
+news.type.initiative: Initiative
+news.type.initiative.link: Zu dieser Initiative
 
 board.title.chair: Vorsitzender
 board.title.vice.chair: Stellvertretende Vorsitzende
