@@ -23,6 +23,14 @@ homepage.become.a.member.top: Become a member of
 homepage.become.a.member.bottom: Wikimedia Deutschland
 homepage.make.a.donation.top: Make a donation for
 homepage.make.a.donation.bottom: Free Knowledge
+homepage.news.header: News
+
+news.type.event: Event
+news.type.event.link: To this event
+news.type.project: Project
+news.type.project.link: To this project
+news.type.initiative: Initiative
+news.type.initiative.link: To this initiative
 
 board.title.chair: Chair
 board.title.vice.chair: Vice chair

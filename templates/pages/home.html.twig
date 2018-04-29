@@ -124,7 +124,40 @@
             </div>
         </section>
 
-        {# TODO news section #}
+        <section class="news sc--lightgray">
+            <div class="news__inner limit--16 center-column cp--h1 cp--t2">
+                <h1 class="tl--beta t--strong">{% trans %}homepage.news.header{% endtrans %}</h1>
+
+                {% for article in news %}
+                    <article
+                        class="news__post cp--b2"
+                        {% if loop.first %}id="news-stage" aria-live="polite"{% endif %}
+                        {% if not loop.first %}hidden{% endif %}
+                    >
+                        <div class="news__box tagged--event limit--8 cm--l5 cp--v0-5 cp--r0-5 cp--l2-5 sc--white">
+                            <h1 class="news__title tm--gamma t--caps">{{ article.type_message|trans }}</h1>
+                            <div class="news__image active">
+                                <figure class="fig">
+                                    <img src="{{ article.image|e('html_attr') }}" class="fig__media"/>
+                                </figure>
+                            </div>
+
+                            <div class="news__teaser tm--alpha">
+                                <p>{{ article.title|e }}<br></p>
+                            </div>
+                            <div class="news__text tm--beta cm--b1">
+                                <p>{{ article.text|e }}</p>
+                            </div>
+
+                            <a href="https://blog.wikimedia.de/2018/03/16/zentrum-des-freien-wissens-wikimedia-livein-karlsruhe/"
+                               class="news__link link--black ts--alpha" target="new">
+                                {{ article.link_message|trans }}
+                            </a>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        </section>
 
         <section class="team sc--white">
             <div class="team__inner limit--16 cp--h1 cp--t1-25 center-column">

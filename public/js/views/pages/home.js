@@ -5,6 +5,7 @@
  * license that can be found in the LICENSE file.
  */
 
+// TODO: move classes into dedicated files and load with https://github.com/symfony/webpack-encore
 
 // A component which has two areas: one for selecting content
 // and one for content display. The content area is tethered
@@ -336,10 +337,237 @@ Team = class Team {
 	}
 };
 
+News = class News {
+	constructor(props = {}) {
+		this.props = props;
+		this.state = {
+			current: 0
+		};
+	}
+
+	mount(element) {
+		this.element = element;
+		this.$el = element.querySelectorAll.bind(element);
+		this.$el1 = element.querySelector.bind(element);
+
+		this.title = this.$el1('.news__title');
+		this.teaser = this.$el1('.news__teaser');
+		this.text = this.$el1('.news__text');
+		this.box = this.$el1('.news__box');
+		this.link = this.$el1('.news__link');
+		this.counterHook = this.$el1('.news__post');
+
+		this.extractData(this.$el('.news__post'));
+		this.createCounter(this.counterHook);
+		this.createPreviousImage(this.box);
+		this.createNextImage(this.box, false);
+		this.createNextImage(this.box, true);
+		this.createPreviousButton(this.element);
+		this.createNextButton(this.element);
+		this.attachEventHandlers();
+	}
+
+	extractData(postEls) {
+		this.state.data = [];
+
+		for (let el of postEls) {
+			let item = {
+				image: el.querySelector('.news__image').innerHTML,
+				title: el.querySelector('.news__title').innerHTML,
+				teaser: el.querySelector('.news__teaser').innerHTML,
+				text: el.querySelector('.news__text').innerHTML,
+				// need copy, not pointer; hence using 'value' prop
+				classes: el.querySelector('.news__box').classList.value,
+				link: {
+					href: el.querySelector('.news__link').getAttribute('href'),
+					innerText: el.querySelector('.news__link').innerText
+				}
+			};
+			this.state.data.push(item);
+		}
+	}
+
+	createCounter(targetEl) {
+		let counter = document.createElement('div');
+		let count = document.createElement('span');
+		let total = document.createElement('span');
+		let sep = document.createElement('span');
+
+		counter.classList.add(
+			'news__counter',
+			'tm--gamma',
+			't--caps',
+			't--strong'
+		);
+		counter.setAttribute('aria-live', 'status');
+
+		count.classList.add('post__count');
+		count.innerText = this.state.current + 1;
+
+		sep.innerText = ' / ';
+
+		total.innerText = this.state.data.length;
+
+		counter.appendChild(count);
+		counter.appendChild(sep);
+		counter.appendChild(total);
+
+		targetEl.insertAdjacentElement('afterbegin', counter);
+	}
+
+	createPreviousImage(targetEl) {
+		let index = this.state.current - 1;
+
+		let image = document.createElement('div');
+		image.classList.add('news__image');
+		image.setAttribute('aria-hidden', true);
+		image.classList.add('old');
+		if (index < 0) {
+			index = this.state.data.length -1;
+		}
+		image.innerHTML = this.state.data[index].image;
+
+		targetEl.insertAdjacentElement('beforeend', image);
+	}
+
+	createNextImage(targetEl, isAfterNext) {
+		let index = this.state.current + 1;
+
+		let image = document.createElement('div');
+		image.classList.add('news__image');
+		image.setAttribute('aria-hidden', true);
+		if (isAfterNext) {
+			index += 1;
+			image.classList.add('after-next');
+		} else {
+			image.classList.add('next');
+		}
+		if (index >= this.state.data.length) {
+			index %= this.state.data.length;
+		}
+		image.innerHTML = this.state.data[index].image;
+
+		targetEl.insertAdjacentElement('beforeend', image);
+	}
+
+	createPreviousButton(targetEl) {
+		let button = document.createElement('div');
+
+		button.id = 'previousButton';
+		button.classList.add('news__previous');
+		button.setAttribute('aria-controls', 'news-stage');
+		button.setAttribute('role', 'button');
+
+		targetEl.insertAdjacentElement('beforeend', button);
+	}
+
+	createNextButton(targetEl) {
+		let button = document.createElement('div');
+
+		button.id = 'nextButton';
+		button.classList.add('news__next');
+		button.setAttribute('aria-controls', 'news-stage');
+		button.setAttribute('role', 'button');
+
+		targetEl.insertAdjacentElement('beforeend', button);
+	}
+
+	attachEventHandlers() {
+		let previousButton = this.$el1('#previousButton');
+		let nextButton = this.$el1('#nextButton');
+
+		let updateCounter = (target) => {
+			target.innerHTML = this.state.current + 1;
+		};
+
+		let updateText = (i) => {
+			this.title.innerHTML = this.state.data[i].title;
+			this.teaser.innerHTML = this.state.data[i].teaser;
+			this.text.innerHTML = this.state.data[i].text;
+			this.box.classList = this.state.data[i].classes;
+
+			let link = this.state.data[i].link;
+			this.link.href = link.href;
+			this.link.innerText = link.innerText;
+			this.link.hidden = link.href === '#';
+		};
+
+		let updateImageNext = () => {
+			let active = this.$el1('.news__image.active');
+			let next = this.$el1('.news__image.next');
+			let afterNext = this.$el1('.news__image.after-next');
+
+			this.$el1('.news__image.old').remove();
+
+			active.classList.replace('active', 'old');
+			active.setAttribute('aria-hidden', true);
+
+			next.classList.replace('next', 'active');
+			next.removeAttribute('aria-hidden');
+
+			afterNext.classList.replace('after-next', 'next');
+
+			this.createNextImage(this.box, true);
+		};
+
+		let updateImagePrevious = () => {
+			let old = this.$el1('.news__image.old');
+			let active = this.$el1('.news__image.active');
+			let next = this.$el1('.news__image.next');
+
+			old.classList.replace('old', 'active');
+			old.removeAttribute('aria-hidden');
+
+			active.classList.replace('active', 'next');
+			active.setAttribute('aria-hidden', true);
+
+			this.$el1('.news__image.after-next').remove();
+			next.classList.replace('next', 'after-next');
+
+
+			this.createPreviousImage(this.box);
+		};
+
+		let previous = () => {
+			this.state.current--;
+			if (this.state.current === -1) {
+				this.state.current = this.state.data.length-1;
+			}
+
+			updateCounter(this.$el1('.post__count'));
+			updateText(this.state.current);
+			updateImagePrevious();
+		};
+
+		let next = () => {
+			this.state.current++;
+			if (this.state.current === this.state.data.length) {
+				this.state.current = 0;
+			}
+
+			updateCounter(this.$el1('.post__count'));
+			updateText(this.state.current);
+			updateImageNext();
+		};
+
+		previousButton.addEventListener('click', previous);
+		nextButton.addEventListener('click', next);
+
+		// Add swipe control
+		if (Modernizr.touchevents) { // TODO: this might be broken after migrating away from the atelierdisco FW
+			let swipeElement = new Hammer(this.element);
+			swipeElement.on('swipeleft', next);
+			swipeElement.on('swiperight', previous);
+		}
+	}
+};
+
 let $1 = document.querySelector.bind(document);
 
 let fields = new Fields();
 let team = new Team();
+let news = new News();
 
 fields.mount($1('.fields'));
 team.mount($1('.team'));
+news.mount($1('.news'));

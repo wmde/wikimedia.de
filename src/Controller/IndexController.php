@@ -74,6 +74,40 @@ class IndexController extends Controller {
 						'image' => 'https://www.wikimedia.de/media/fix20/55/55f19b.jpg',
 						'message' => 'As a lawyer and head of the social and occupational safety section of the Ministry of Social Affairs of Saxony-Anhalt, I would like to contribute my experience with authorities and organizations to Wikimedia. I am delighted to be able to support the idea of spreading free access to knowledge and to be able to participate practically.',
 					]
+				],
+				'news' => [
+					[
+						'title' => 'Wikimedia live in Karlsruhe',
+						'link' => 'https://blog.wikimedia.de/2018/03/16/zentrum-des-freien-wissens-wikimedia-livein-karlsruhe/',
+						'image' => 'https://www.wikimedia.de/media/fix20/30/c2e518.jpg',
+						'type_message' => 'news.type.event',
+						'link_message' => 'news.type.event.link',
+						'text' => 'Wikimedia Deutschland kommt am 26. Mai ins Zentrum für Kunst und Medien nach Karlsruhe. Dort bauen wir für einen Tag ein „Zentrum des Freien Wissens" auf, das auf 300 Quadratmetern unser Engagement für Freies Wissen erlebbar macht.'
+					],
+					[
+						'title' => 'Aus dem Leben von Wikidata',
+						'link' => 'https://blog.wikimedia.de/2018/03/21/aus-dem-leben-von-wikidata/',
+						'image' => 'https://www.wikimedia.de/media/fix20/ee/a9d2ac.jpg',
+						'type_message' => 'news.type.project',
+						'link_message' => 'news.type.project.link',
+						'text' => 'Ein neues Tool von Wikimedia Deutschland liefert spannende Einblicke in die weltweite Nutzung und Verknüpfung von Freiem Wissen.'
+					],
+					[
+						'title' => 'Das ABC des Freien Wissens „Q = Qualität“',
+						'link' => 'https://blog.wikimedia.de/2018/03/16/qualitaetskriterien-und-standards-in-der-offenen-wissenschaft/',
+						'image' => 'https://www.wikimedia.de/media/fix20/79/bfe3bd.jpg',
+						'type_message' => 'news.type.event',
+						'link_message' => 'news.type.event.link',
+						'text' => 'Ist Offene Wissenschaft die bessere Wissenschaft? Und kann die Open-Maxime „Je offener, desto besser“ tatsächlich in der Praxis bestehen? Video und Rückblick zur Veranstaltung jetzt im Blog.'
+					],
+					[
+						'title' => '#NoUploadFilter – Die gefilterte Wikipedia?',
+						'link' => 'https://blog.wikimedia.de/2018/03/16/wird-die-wikipedia-bald-vorgefiltert-upload-filter-nein-danke/',
+						'image' => 'https://www.wikimedia.de/media/fix20/20/dd9bf0.jpg',
+						'type_message' => 'news.type.initiative',
+						'link_message' => 'news.type.initiative.link',
+						'text' => 'Unter dem Motto "Community kann Kontext. Filter nicht" kämpft Wikimedia gegen die Einführung von von der EU-Kommission geforderten Upload-Filter. Diese könnten community-betriebenen Projekten wie der Wikipedia große Probleme bereiten.'
+					]
 				]
 			]
 		);
