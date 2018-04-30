@@ -1,5 +1,7 @@
 # www.wikimedia.de website
 
+[![Build Status](https://travis-ci.org/wmde/website.svg?branch=master)](https://travis-ci.org/wmde/website)
+
 This repo contains the source code of the [www.wikimedia.de website](https://www.wikimedia.de).
 
 ## Development
