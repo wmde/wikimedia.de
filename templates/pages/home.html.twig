@@ -176,7 +176,8 @@
                             <h2 class="member__role tm--alpha t--strong">{{ member.title|trans }}</h2>
                             <div class="member__text tm--beta" >
                                 <p>
-                                    »{{ member.message|e }}«
+                                    {# TODO: the response model should contain the correct message already #}
+                                    »{% if app.request.locale == 'de' %}{{ member.message_de|e }}{% else %}{{ member.message_en|e }}{% endif %}«
                                     <br>
                                 </p>
                             </div>
