@@ -26,4 +26,8 @@ Executing this in the project root will give you a shell from which you can inte
     
 Running PHPUnit
 
-    ./vendor/bin/simple-phpunit
+	make test
+   
+Full CI run
+
+	make ci
