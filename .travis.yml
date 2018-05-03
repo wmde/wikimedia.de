@@ -6,6 +6,9 @@ php:
 
 sudo: false
 
+services:
+  - docker
+
 install: travis_retry composer install
 
 script: make ci
