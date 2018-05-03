@@ -1,0 +1,26 @@
+{% for member in board %}
+<article class="member cp--b4 clearfix" {% if loop.first %}id="member-stage" role="region" aria-live="polite"{% endif %}>
+    <h1 class="member__name" hidden>{{ member.name|e }}</h1>
+    <div class="member__image">
+        <figure class="fig member__fig">
+            <img src="{{ member.image|e('html_attr') }}" class="fig__media" alt="Portrait of {{ member.name|e('html_attr') }}" />
+            {#TODO: ref#}
+        </figure>
+    </div>
+    <div class="member__info limit--5">
+        <h2 class="member__role tm--alpha t--strong">{{ member.title|trans }}</h2>
+        <div class="member__text tm--beta" >
+            <p>
+                {# TODO: the response model should contain the correct message already #}
+                »{% if app.request.locale == 'de' %}{{ member.message_de|e }}{% else %}{{ member.message_en|e }}{% endif %}«
+                <br>
+            </p>
+        </div>
+
+        <a class="member__link ts--alpha" href="{{ member.email|e('html_attr') }}">
+            <span class="ts--beta">E-mail:</span>
+            <span class="member__mail">{{ member.email|e }}</span>
+        </a>
+    </div>
+</article>
+{% endfor %}
