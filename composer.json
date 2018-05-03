@@ -20,7 +20,6 @@
         "symfony/profiler-pack": "^1.0",
         "symfony/debug-pack": "*",
         "symfony/browser-kit": "^4.0",
-        "symfony/phpunit-bridge": "^4.0",
 
         "phpunit/phpunit": "^7.1",
 
