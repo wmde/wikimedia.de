@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Tests\EdgeToEdge\Controller;
+declare( strict_types = 1 );
+
+namespace App\Tests\EdgeToEdge;
 
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -30,7 +32,6 @@ class TranslationTest extends WebTestCase {
 	private function assertPageIsGerman( Client $client ) {
 		$this->assertContains( 'Wir setzen uns für Freies', $client->getResponse()->getContent() );
 	}
-
 
 	public function testPageIsInEnglishWhenLocaleIsEn() {
 		$client = static::createClient();

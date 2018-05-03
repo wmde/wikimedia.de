@@ -21,7 +21,14 @@
         "symfony/debug-pack": "*",
         "symfony/browser-kit": "^4.0",
         "symfony/phpunit-bridge": "^4.0",
-        "phpunit/phpunit": "^7.1"
+
+        "phpunit/phpunit": "^7.1",
+
+        "squizlabs/php_codesniffer": "~3.2",
+        "slevomat/coding-standard": "~4.5",
+        "mediawiki/mediawiki-codesniffer": "~18.0",
+
+        "phpstan/phpstan": "~0.9.2"
     },
     "config": {
         "preferred-install": {

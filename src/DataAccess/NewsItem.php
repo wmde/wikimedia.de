@@ -1,5 +1,7 @@
 <?php
 
+declare( strict_types = 1 );
+
 namespace App\DataAccess;
 
 class NewsItem {
@@ -29,6 +31,5 @@ class NewsItem {
 		$this->excerpt = $excerpt;
 		return $this;
 	}
-
 
 }

@@ -8,7 +8,7 @@ sudo: false
 
 install: travis_retry composer install
 
-script: vendor/bin/simple-phpunit
+script: make ci
 
 cache:
   directories:
