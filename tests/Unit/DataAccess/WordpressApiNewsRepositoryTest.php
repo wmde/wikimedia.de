@@ -82,4 +82,15 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		);
 	}
 
+	public function testWhenLocaleIsDe_germanTagIsUsed() {
+		$this->repoLocale = 'de';
+
+		$this->newRepository()->getLatestNewsItems();
+
+		$this->assertContains(
+			'posts?tags=' . WordpressApiNewsRepository::TAG_ID_DE,
+			$this->fileFetcher->getFirstFetchedUrl()
+		);
+	}
+
 }

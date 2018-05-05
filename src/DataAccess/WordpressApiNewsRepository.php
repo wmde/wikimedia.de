@@ -12,12 +12,17 @@ class WordpressApiNewsRepository implements NewsRepository {
 	public const TAG_ID_DE = 243;
 	public const TAG_ID_EN = 464;
 
+	private const API_URL = 'https://blog.wikimedia.de/wp-json/wp/v2/posts';
+
 	private $fileFetcher;
-	private $locale;
+	private $localeTagId;
 
 	public function __construct( FileFetcher $fileFetcher, string $locale ) {
 		$this->fileFetcher = $fileFetcher;
-		$this->locale = $locale;
+		$this->localeTagId = [
+			'en' => self::TAG_ID_EN,
+			'de' => self::TAG_ID_DE,
+		][$locale];
 	}
 
 	/**
@@ -42,7 +47,7 @@ class WordpressApiNewsRepository implements NewsRepository {
 
 	private function getPostsArray(): array {
 		$posts = json_decode(
-			$this->fileFetcher->fetchFile( 'https://blog.wikimedia.de/wp-json/wp/v2/posts?tags=464' ),
+			$this->fileFetcher->fetchFile( $this->getPostsUrl() ),
 			true
 		);
 
@@ -51,6 +56,16 @@ class WordpressApiNewsRepository implements NewsRepository {
 		}
 
 		return [];
+	}
+
+	private function getPostsUrl(): string {
+		return self::API_URL
+			. '?'
+			. http_build_query(
+				[
+					'tags' => $this->localeTagId
+				]
+			);
 	}
 
 }
