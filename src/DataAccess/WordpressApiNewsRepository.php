@@ -9,19 +9,21 @@ use FileFetcher\FileFetchingException;
 
 class WordpressApiNewsRepository implements NewsRepository {
 
+	public const TAG_ID_DE = 243;
+	public const TAG_ID_EN = 464;
+
 	private $fileFetcher;
+	private $locale;
 
 	public function __construct( FileFetcher $fileFetcher, string $locale ) {
 		$this->fileFetcher = $fileFetcher;
+		$this->locale = $locale;
 	}
 
 	/**
 	 * @return NewsItem[]
 	 */
 	public function getLatestNewsItems(): array {
-		// DE https://blog.wikimedia.de/wp-json/wp/v2/posts?tags=243
-		// EN https://blog.wikimedia.de/wp-json/wp/v2/posts?tags=464
-
 		try {
 			return array_map(
 				function( array $post ): NewsItem {
@@ -40,7 +42,7 @@ class WordpressApiNewsRepository implements NewsRepository {
 
 	private function getPostsArray(): array {
 		$posts = json_decode(
-			$this->fileFetcher->fetchFile( 'TODO' ),
+			$this->fileFetcher->fetchFile( 'https://blog.wikimedia.de/wp-json/wp/v2/posts?tags=464' ),
 			true
 		);
 

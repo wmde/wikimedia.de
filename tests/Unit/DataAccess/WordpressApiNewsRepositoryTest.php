@@ -20,7 +20,7 @@ use PHPUnit\Framework\TestCase;
 class WordpressApiNewsRepositoryTest extends TestCase {
 
 	/**
-	 * @var FileFetcher
+	 * @var SpyingFileFetcher
 	 */
 	private $fileFetcher;
 
@@ -73,6 +73,13 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		$this->assertStringEndsWith( 'wikidatacon-2017/">Weiterlesen</a></p>', $item->getExcerpt() );
 	}
 
+	public function testWhenLocaleIsEn_englishTagIsUsed() {
+		$this->newRepository()->getLatestNewsItems();
 
+		$this->assertContains(
+			'posts?tags=' . WordpressApiNewsRepository::TAG_ID_EN,
+			$this->fileFetcher->getFirstFetchedUrl()
+		);
+	}
 
 }
