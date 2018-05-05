@@ -93,4 +93,11 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		);
 	}
 
+	public function testWhenLocaleIsUnknown_constructorThrowsException() {
+		$this->repoLocale = 'maw';
+
+		$this->expectException( \InvalidArgumentException::class );
+		$this->newRepository();
+	}
+
 }

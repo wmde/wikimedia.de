@@ -13,16 +13,28 @@ class WordpressApiNewsRepository implements NewsRepository {
 	public const TAG_ID_EN = 464;
 
 	private const API_URL = 'https://blog.wikimedia.de/wp-json/wp/v2/posts';
+	private const LOCALE_TO_TAG_ID_MAP = [
+		'en' => self::TAG_ID_EN,
+		'de' => self::TAG_ID_DE,
+	];
 
 	private $fileFetcher;
 	private $localeTagId;
 
+	/**
+	 * @throws \InvalidArgumentException
+	 */
 	public function __construct( FileFetcher $fileFetcher, string $locale ) {
 		$this->fileFetcher = $fileFetcher;
-		$this->localeTagId = [
-			'en' => self::TAG_ID_EN,
-			'de' => self::TAG_ID_DE,
-		][$locale];
+		$this->setLocaleTagIdFromLocale( $locale );
+	}
+
+	private function setLocaleTagIdFromLocale( string $locale ) {
+		if ( !array_key_exists( $locale, self::LOCALE_TO_TAG_ID_MAP ) ) {
+			throw new \InvalidArgumentException( 'Invalid locale' );
+		}
+
+		$this->localeTagId = self::LOCALE_TO_TAG_ID_MAP[$locale];
 	}
 
 	/**
