@@ -36,10 +36,16 @@ class WordpressApiNewsRepository implements NewsRepository {
 	}
 
 	private function getPostsArray(): array {
-		return json_decode(
+		$posts = json_decode(
 			$this->fileFetcher->fetchFile( 'TODO' ),
 			true
 		);
+
+		if ( is_array( $posts ) ) {
+			return $posts;
+		}
+
+		return [];
 	}
 
 }

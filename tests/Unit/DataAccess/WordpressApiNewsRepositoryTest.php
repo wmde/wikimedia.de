@@ -36,4 +36,10 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		return new StubFileFetcher( TestData::getFileContents( 'blog/' . $fileName ) );
 	}
 
+	public function testWhenJsonIsInvalid_emptyArrayIsReturned() {
+		$repo = new WordpressApiNewsRepository( new StubFileFetcher( '~=[,,_,,]:3' ) );
+
+		$this->assertSame( [], $repo->getLatestNewsItems() );
+	}
+
 }
