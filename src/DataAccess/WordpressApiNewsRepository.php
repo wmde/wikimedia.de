@@ -47,7 +47,8 @@ class WordpressApiNewsRepository implements NewsRepository {
 					return NewsItem::newInstance()
 						->withTitle( $post['title']['rendered'] )
 						->withLink( $post['link'] )
-						->withExcerpt( trim( $post['excerpt']['rendered'] ) );
+						->withExcerpt( trim( $post['excerpt']['rendered'] ) )
+						->withImageUrl( 'TODO' );
 				},
 				$this->getPostsArray()
 			);

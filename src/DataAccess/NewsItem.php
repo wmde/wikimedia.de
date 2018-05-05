@@ -9,6 +9,7 @@ class NewsItem {
 	private $title;
 	private $link;
 	private $excerpt;
+	private $imageUrl;
 
 	private function __construct() {
 	}
@@ -32,6 +33,11 @@ class NewsItem {
 		return $this;
 	}
 
+	public function withImageUrl( string $imageUrl ): self {
+		$this->imageUrl = $imageUrl;
+		return $this;
+	}
+
 	public function getTitle(): string {
 		return $this->title;
 	}
@@ -44,6 +50,8 @@ class NewsItem {
 		return $this->excerpt;
 	}
 
-
+	public function getImageUrl(): string {
+		return $this->imageUrl;
+	}
 
 }

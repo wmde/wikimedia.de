@@ -69,8 +69,11 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 
 		$this->assertSame( 'WikidataCon 2017', $item->getTitle() );
 		$this->assertSame( 'https://blog.wikimedia.de/2017/11/13/wikidatacon-2017/', $item->getLink() );
+
 		$this->assertStringStartsWith( '<p>WikidataCon, the first conference dedicated', $item->getExcerpt() );
 		$this->assertStringEndsWith( 'wikidatacon-2017/">Weiterlesen</a></p>', $item->getExcerpt() );
+
+		$this->assertSame( 'TODO', $item->getImageUrl() );
 	}
 
 	public function testWhenLocaleIsEn_englishTagIsUsed() {
