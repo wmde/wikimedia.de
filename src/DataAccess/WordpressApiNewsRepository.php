@@ -11,7 +11,7 @@ class WordpressApiNewsRepository implements NewsRepository {
 
 	private $fileFetcher;
 
-	public function __construct( FileFetcher $fileFetcher ) {
+	public function __construct( FileFetcher $fileFetcher, string $locale ) {
 		$this->fileFetcher = $fileFetcher;
 	}
 
