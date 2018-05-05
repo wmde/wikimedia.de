@@ -13,7 +13,7 @@ class NewsItem {
 	private function __construct() {
 	}
 
-	public function newInstance(): self {
+	public static function newInstance(): self {
 		return new self();
 	}
 
