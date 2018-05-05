@@ -32,4 +32,18 @@ class NewsItem {
 		return $this;
 	}
 
+	public function getTitle(): string {
+		return $this->title;
+	}
+
+	public function getLink(): string {
+		return $this->link;
+	}
+
+	public function getExcerpt(): string {
+		return $this->excerpt;
+	}
+
+
+
 }

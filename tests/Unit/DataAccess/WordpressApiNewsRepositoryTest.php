@@ -42,4 +42,17 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		$this->assertSame( [], $repo->getLatestNewsItems() );
 	}
 
+	public function testWhenJsonIsValid_newsItemsContainCorrectValues() {
+		$repo = new WordpressApiNewsRepository( $this->newStubFetcher( 'posts-one-german.json' ) );
+
+		$item = $repo->getLatestNewsItems()[0];
+
+		$this->assertSame( 'Bei den Deutschen funktioniert sogar die Wikipedia!', $item->getTitle() );
+		$this->assertSame( 'https://blog.wikimedia.de/2010/11/29/bei-den-deutschen-funktioniert-sogar-die-wikipedia/', $item->getLink() );
+		$this->assertStringStartsWith( '<p>Vor einiger Zeit habe ich eine Karte veröffentlicht', $item->getExcerpt() );
+		$this->assertStringEndsWith( 'die-wikipedia/">Weiterlesen</a></p>', $item->getExcerpt() );
+	}
+
+
+
 }

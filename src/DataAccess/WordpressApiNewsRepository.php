@@ -15,6 +15,9 @@ class WordpressApiNewsRepository implements NewsRepository {
 		$this->fileFetcher = $fileFetcher;
 	}
 
+	/**
+	 * @return NewsItem[]
+	 */
 	public function getLatestNewsItems(): array {
 		// DE https://blog.wikimedia.de/wp-json/wp/v2/posts?tags=243
 		// EN https://blog.wikimedia.de/wp-json/wp/v2/posts?tags=464
@@ -25,7 +28,7 @@ class WordpressApiNewsRepository implements NewsRepository {
 					return NewsItem::newInstance()
 						->withTitle( $post['title']['rendered'] )
 						->withLink( $post['link'] )
-						->withExcerpt( $post['excerpt']['rendered'] );
+						->withExcerpt( trim( $post['excerpt']['rendered'] ) );
 				},
 				$this->getPostsArray()
 			);

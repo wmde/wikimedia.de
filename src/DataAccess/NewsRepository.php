@@ -7,7 +7,7 @@ namespace App\DataAccess;
 interface NewsRepository {
 
 	/**
-	 * @return NewsItem
+	 * @return NewsItem[]
 	 */
 	public function getLatestNewsItems(): array;
 
