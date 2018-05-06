@@ -16,7 +16,7 @@
                 <p>{{ article.title|e }}<br></p>
             </div>
             <div class="news__text tm--beta cm--b1">
-                <p>{{ article.text|e }}</p>
+                {{ article.text|raw }}
             </div>
 
             <a href="https://blog.wikimedia.de/2018/03/16/zentrum-des-freien-wissens-wikimedia-livein-karlsruhe/"

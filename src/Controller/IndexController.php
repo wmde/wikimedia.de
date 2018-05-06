@@ -4,49 +4,25 @@ declare( strict_types = 1 );
 
 namespace App\Controller;
 
+use App\DataAccess\NewsRepository;
+use App\DataAccess\WordpressApiNewsRepository;
+use App\Presenter\NewsItemsTwigPresenter;
+use FileFetcher\SimpleFileFetcher;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 // phpcs:ignoreFile
 class IndexController extends Controller {
 
-	public function index() {
+	public function index( Request $request ) {
+		// TODO: use dedicated DI mechanism (ie top level factory) (NOT framework bound approaches)
+		$newsPresenter = new NewsItemsTwigPresenter();
+		$newsPresenter->present( $this->newNewsRepository( $request->getLocale() )->getLatestNewsItems() );
+
 		return $this->render(
 			'pages/home.html.twig',
 			[
-				'news' => [
-					[
-						'title' => 'Wikimedia live in Karlsruhe',
-						'link' => 'https://blog.wikimedia.de/2018/03/16/zentrum-des-freien-wissens-wikimedia-livein-karlsruhe/',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/c2e518.jpg',
-						'type_message' => 'news.type.event',
-						'link_message' => 'news.type.event.link',
-						'text' => 'Wikimedia Deutschland kommt am 26. Mai ins Zentrum für Kunst und Medien nach Karlsruhe. Dort bauen wir für einen Tag ein „Zentrum des Freien Wissens" auf, das auf 300 Quadratmetern unser Engagement für Freies Wissen erlebbar macht.'
-					],
-					[
-						'title' => 'Aus dem Leben von Wikidata',
-						'link' => 'https://blog.wikimedia.de/2018/03/21/aus-dem-leben-von-wikidata/',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/a9d2ac.jpg',
-						'type_message' => 'news.type.project',
-						'link_message' => 'news.type.project.link',
-						'text' => 'Ein neues Tool von Wikimedia Deutschland liefert spannende Einblicke in die weltweite Nutzung und Verknüpfung von Freiem Wissen.'
-					],
-					[
-						'title' => 'Das ABC des Freien Wissens „Q = Qualität“',
-						'link' => 'https://blog.wikimedia.de/2018/03/16/qualitaetskriterien-und-standards-in-der-offenen-wissenschaft/',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/bfe3bd.jpg',
-						'type_message' => 'news.type.event',
-						'link_message' => 'news.type.event.link',
-						'text' => 'Ist Offene Wissenschaft die bessere Wissenschaft? Und kann die Open-Maxime „Je offener, desto besser“ tatsächlich in der Praxis bestehen? Video und Rückblick zur Veranstaltung jetzt im Blog.'
-					],
-					[
-						'title' => '#NoUploadFilter – Die gefilterte Wikipedia?',
-						'link' => 'https://blog.wikimedia.de/2018/03/16/wird-die-wikipedia-bald-vorgefiltert-upload-filter-nein-danke/',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/dd9bf0.jpg',
-						'type_message' => 'news.type.initiative',
-						'link_message' => 'news.type.initiative.link',
-						'text' => 'Unter dem Motto "Community kann Kontext. Filter nicht" kämpft Wikimedia gegen die Einführung von von der EU-Kommission geforderten Upload-Filter. Diese könnten community-betriebenen Projekten wie der Wikipedia große Probleme bereiten.'
-					]
-				],
+				'news' => $newsPresenter->getViewModel(),
 				'board' => [
 					[
 						'name' => 'Tim Moritz Hector',
@@ -123,6 +99,11 @@ class IndexController extends Controller {
 				]
 			]
 		);
+	}
+
+	private function newNewsRepository( string $locale ): NewsRepository {
+		// TODO: decorate with ErrorLoggingFileFetcher
+		return new WordpressApiNewsRepository( new SimpleFileFetcher(), $locale );
 	}
 
 }
