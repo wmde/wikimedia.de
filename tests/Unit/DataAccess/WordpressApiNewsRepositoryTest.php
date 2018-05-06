@@ -4,7 +4,6 @@ declare( strict_types = 1 );
 
 namespace App\Tests\Unit\DataAccess;
 
-use App\DataAccess\NewsItem;
 use App\DataAccess\NewsRepository;
 use App\DataAccess\WordpressApiNewsRepository;
 use App\Tests\TestData;
@@ -54,7 +53,7 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 	public function testWhenJsonIsValid_newsItemsAreReturned() {
 		$items = $this->newRepository()->getLatestNewsItems();
 
-		$this->assertContainsOnlyInstancesOf( NewsItem::class, $items );
+		$this->assertContainsOnlyInstancesOf( \App\Domain\NewsItem::class, $items );
 		$this->assertCount( 10, $items );
 	}
 
@@ -75,7 +74,7 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 
 		$this->assertSame( 'TODO', $item->getImageUrl() );
 
-		$this->assertSame( NewsItem::CATEGORY_COMMUNITY, $item->getCategory() );
+		$this->assertSame( \App\Domain\NewsItem::CATEGORY_COMMUNITY, $item->getCategory() );
 	}
 
 	public function testWhenLocaleIsEn_englishTagIsUsed() {

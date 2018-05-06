@@ -2,7 +2,7 @@
 
 declare( strict_types = 1 );
 
-namespace App\DataAccess;
+namespace App\Domain;
 
 class NewsItem {
 
