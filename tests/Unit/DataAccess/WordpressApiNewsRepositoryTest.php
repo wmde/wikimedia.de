@@ -72,7 +72,7 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		$this->assertStringStartsWith( '<p>WikidataCon, the first conference dedicated', $item->getExcerpt() );
 		$this->assertStringEndsWith( 'wikidatacon-2017/">Weiterlesen</a></p>', $item->getExcerpt() );
 
-		$this->assertSame( 'TODO', $item->getImageUrl() );
+		$this->assertSame( 'https://blog.wikimedia.de/wp-content/uploads/image3-300x200-1.png', $item->getImageUrl() );
 
 		$this->assertSame( \App\Domain\NewsItem::CATEGORY_COMMUNITY, $item->getCategory() );
 	}
@@ -81,7 +81,7 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		$this->newRepository()->getLatestNewsItems();
 
 		$this->assertContains(
-			'posts?tags=' . WordpressApiNewsRepository::TAG_ID_EN,
+			'tags=' . WordpressApiNewsRepository::TAG_ID_EN,
 			$this->fileFetcher->getFirstFetchedUrl()
 		);
 	}
@@ -92,7 +92,7 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		$this->newRepository()->getLatestNewsItems();
 
 		$this->assertContains(
-			'posts?tags=' . WordpressApiNewsRepository::TAG_ID_DE,
+			'tags=' . WordpressApiNewsRepository::TAG_ID_DE,
 			$this->fileFetcher->getFirstFetchedUrl()
 		);
 	}

@@ -30,7 +30,7 @@ class WordpressApiNewsRepository implements NewsRepository {
 		self::CATEGORY_ID_WIKIMEDIA => NewsItem::CATEGORY_WIKIMEDIA,
 	];
 
-	private const API_URL = 'https://blog.wikimedia.de/wp-json/wp/v2/posts';
+	private const API_URL = 'https://blog.wikimedia.de/wp-json/wp/v2/posts?_embed&per_page=5&';
 
 	private $fileFetcher;
 	private $localeTagId;
@@ -63,7 +63,7 @@ class WordpressApiNewsRepository implements NewsRepository {
 						->withLink( $post['link'] )
 						->withExcerpt( trim( $post['excerpt']['rendered'] ) )
 						->withCategory( $this->getCategory( $post ) )
-						->withImageUrl( 'TODO' );
+						->withImageUrl( $this->getImageUrl( $post ) );
 				},
 				$this->getPostsArray()
 			);
@@ -88,7 +88,6 @@ class WordpressApiNewsRepository implements NewsRepository {
 
 	private function getPostsUrl(): string {
 		return self::API_URL
-			. '?'
 			. http_build_query(
 				[
 					'tags' => $this->localeTagId
@@ -104,6 +103,14 @@ class WordpressApiNewsRepository implements NewsRepository {
 		}
 
 		return NewsItem::CATEGORY_NONE;
+	}
+
+	private function getImageUrl( array $post ): string {
+		if ( array_key_exists( 'wp:featuredmedia', $post['_embedded'] ) ) {
+			return $post['_embedded']['wp:featuredmedia'][0]['source_url'];
+		}
+
+		return 'TODO'; // TODO
 	}
 
 }
