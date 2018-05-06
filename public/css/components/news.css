@@ -124,6 +124,10 @@
   right: 0;
   transform: translateX(0);
   transition: right .5s, transform .5s;
+  min-height: 200px;
+  max-height: 500px;
+  min-width: 300px;
+  max-width: 700px;
 }
 .news__image.next .fig__media {
   right: 100%;
