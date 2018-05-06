@@ -13,7 +13,6 @@ use Symfony\Component\Routing\RouteCollectionBuilder;
 
 // phpcs:ignoreFile
 class Kernel extends BaseKernel {
-
 	use MicroKernelTrait;
 
 	const CONFIG_EXTS = '.{php,xml,yaml,yml}';

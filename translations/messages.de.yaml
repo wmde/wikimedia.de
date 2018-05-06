@@ -31,12 +31,12 @@ homepage.make.a.donation.top: Spende für
 homepage.make.a.donation.bottom: Freies Wissen
 homepage.news.header: Aktuelles
 
-news.type.event: Event
-news.type.event.link: Zu diesem Event
-news.type.project: Projekt
-news.type.project.link: Zu diesem Projekt
-news.type.initiative: Initiative
-news.type.initiative.link: Zu dieser Initiative
+news.view.more.link: Zum Blog-Beitrag
+news.category.community: Communitys
+news.category.technology: Technologie
+news.category.wikimedia: Wikimedia
+news.category.politik: Politik
+news.category.none: Wikimedia
 
 board.title.chair: Vorsitzender
 board.title.vice.chair: Stellvertretende Vorsitzende

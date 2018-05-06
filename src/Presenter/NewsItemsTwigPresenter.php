@@ -13,6 +13,14 @@ class NewsItemsTwigPresenter {
 
 	private $viewModel;
 
+	private const CATEGORY_MESSAGE_MAP = [
+		NewsItem::CATEGORY_COMMUNITY => 'news.category.community',
+		NewsItem::CATEGORY_WIKIMEDIA => 'news.category.wikimedia',
+		NewsItem::CATEGORY_TECHNOLOGY => 'news.category.technology',
+		NewsItem::CATEGORY_ORGANIZATION => 'news.category.politik',
+		NewsItem::CATEGORY_NONE => 'news.category.none',
+	];
+
 	public function present( array $newsItems ): void {
 		$this->viewModel = array_map(
 			function( NewsItem $newsItem ) {
@@ -20,8 +28,8 @@ class NewsItemsTwigPresenter {
 					'title' => $newsItem->getTitle(),
 					'link' => $newsItem->getLink(),
 					'image' => $newsItem->getImageUrl(),
-					'type_message' => 'news.type.event', // TODO
-					'link_message' => 'news.type.event.link', // TODO
+					'type_message' => self::CATEGORY_MESSAGE_MAP[$newsItem->getCategory()],
+					'link_message' => 'news.view.more.link',
 					'text' => $newsItem->getExcerpt()
 				];
 			},

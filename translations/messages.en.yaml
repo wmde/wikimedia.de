@@ -31,12 +31,12 @@ homepage.make.a.donation.top: Make a donation for
 homepage.make.a.donation.bottom: Free Knowledge
 homepage.news.header: News
 
-news.type.event: Event
-news.type.event.link: To this event
-news.type.project: Project
-news.type.project.link: To this project
-news.type.initiative: Initiative
-news.type.initiative.link: To this initiative
+news.view.more.link: To the blog post
+news.category.community: Community
+news.category.technology: Tech
+news.category.wikimedia: Wikimedia
+news.category.politik: Politics
+news.category.none: Wikimedia
 
 board.title.chair: Chair
 board.title.vice.chair: Vice chair
