@@ -12,11 +12,24 @@ class WordpressApiNewsRepository implements NewsRepository {
 	public const TAG_ID_DE = 243;
 	public const TAG_ID_EN = 464;
 
-	private const API_URL = 'https://blog.wikimedia.de/wp-json/wp/v2/posts';
 	private const LOCALE_TO_TAG_ID_MAP = [
 		'en' => self::TAG_ID_EN,
 		'de' => self::TAG_ID_DE,
 	];
+
+	public const CATEGORY_ID_COMMUNITY = 179;
+	public const CATEGORY_ID_TECHNOLOGY = 1298;
+	public const CATEGORY_ID_GESELLSCHAFT = 1299;
+	public const CATEGORY_ID_WIKIMEDIA = 1297;
+
+	private const CATEGORY_ID_TO_NAME_MAP = [
+		self::CATEGORY_ID_COMMUNITY => NewsItem::CATEGORY_COMMUNITY,
+		self::CATEGORY_ID_TECHNOLOGY => NewsItem::CATEGORY_TECHNOLOGY,
+		self::CATEGORY_ID_GESELLSCHAFT => NewsItem::CATEGORY_ORGANIZATION,
+		self::CATEGORY_ID_WIKIMEDIA => NewsItem::CATEGORY_WIKIMEDIA,
+	];
+
+	private const API_URL = 'https://blog.wikimedia.de/wp-json/wp/v2/posts';
 
 	private $fileFetcher;
 	private $localeTagId;
@@ -48,6 +61,7 @@ class WordpressApiNewsRepository implements NewsRepository {
 						->withTitle( $post['title']['rendered'] )
 						->withLink( $post['link'] )
 						->withExcerpt( trim( $post['excerpt']['rendered'] ) )
+						->withCategory( $this->getCategory( $post ) )
 						->withImageUrl( 'TODO' );
 				},
 				$this->getPostsArray()
@@ -79,6 +93,16 @@ class WordpressApiNewsRepository implements NewsRepository {
 					'tags' => $this->localeTagId
 				]
 			);
+	}
+
+	private function getCategory( array $post ): string {
+		foreach ( $post['categories'] as $categoryId ) {
+			if ( array_key_exists( $categoryId, self::CATEGORY_ID_TO_NAME_MAP ) ) {
+				return self::CATEGORY_ID_TO_NAME_MAP[$categoryId];
+			}
+		}
+
+		return NewsItem::CATEGORY_NONE;
 	}
 
 }

@@ -74,6 +74,8 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		$this->assertStringEndsWith( 'wikidatacon-2017/">Weiterlesen</a></p>', $item->getExcerpt() );
 
 		$this->assertSame( 'TODO', $item->getImageUrl() );
+
+		$this->assertSame( NewsItem::CATEGORY_COMMUNITY, $item->getCategory() );
 	}
 
 	public function testWhenLocaleIsEn_englishTagIsUsed() {

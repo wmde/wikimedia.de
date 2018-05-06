@@ -6,10 +6,17 @@ namespace App\DataAccess;
 
 class NewsItem {
 
+	public const CATEGORY_COMMUNITY = 'community';
+	public const CATEGORY_TECHNOLOGY = 'tech';
+	public const CATEGORY_ORGANIZATION = 'org';
+	public const CATEGORY_WIKIMEDIA = 'wikimedia';
+	public const CATEGORY_NONE = 'none';
+
 	private $title;
 	private $link;
 	private $excerpt;
 	private $imageUrl;
+	private $category;
 
 	private function __construct() {
 	}
@@ -38,6 +45,11 @@ class NewsItem {
 		return $this;
 	}
 
+	public function withCategory( string $category ): self {
+		$this->category = $category;
+		return $this;
+	}
+
 	public function getTitle(): string {
 		return $this->title;
 	}
@@ -52,6 +64,10 @@ class NewsItem {
 
 	public function getImageUrl(): string {
 		return $this->imageUrl;
+	}
+
+	public function getCategory(): string {
+		return $this->category;
 	}
 
 }
