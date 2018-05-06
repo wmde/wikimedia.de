@@ -4,10 +4,8 @@ declare( strict_types = 1 );
 
 namespace App\Controller;
 
-use App\DataAccess\NewsRepository;
-use App\DataAccess\WordpressApiNewsRepository;
 use App\Presenter\NewsItemsTwigPresenter;
-use FileFetcher\SimpleFileFetcher;
+use App\TopLevelFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -15,9 +13,10 @@ use Symfony\Component\HttpFoundation\Request;
 class IndexController extends Controller {
 
 	public function index( Request $request ) {
-		// TODO: use dedicated DI mechanism (ie top level factory) (NOT framework bound approaches)
 		$newsPresenter = new NewsItemsTwigPresenter();
-		$newsPresenter->present( $this->newNewsRepository( $request->getLocale() )->getLatestNewsItems() );
+
+		// TODO: tests need to be able to change the TopLevelFactory
+		$newsPresenter->present( TopLevelFactory::newForRequest( $request )->newNewsRepository()->getLatestNewsItems() );
 
 		return $this->render(
 			'pages/home.html.twig',
@@ -99,11 +98,6 @@ class IndexController extends Controller {
 				]
 			]
 		);
-	}
-
-	private function newNewsRepository( string $locale ): NewsRepository {
-		// TODO: decorate with ErrorLoggingFileFetcher
-		return new WordpressApiNewsRepository( new SimpleFileFetcher(), $locale );
 	}
 
 }

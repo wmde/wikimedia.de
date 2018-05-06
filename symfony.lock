@@ -5,6 +5,9 @@
     "nikic/php-parser": {
         "version": "v4.0.1"
     },
+    "pimple/pimple": {
+        "version": "v3.2.3"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
