@@ -57,11 +57,11 @@ class WordpressApiNewsRepository implements NewsRepository {
 	public function getLatestNewsItems(): array {
 		try {
 			return array_map(
-				function( array $post ): NewsItem {
+				function ( array $post ): NewsItem {
 					return NewsItem::newInstance()
 						->withTitle( $post['title']['rendered'] )
 						->withLink( $post['link'] )
-						->withExcerpt( trim( $post['excerpt']['rendered'] ) )
+						->withExcerpt( $this->getExcerpt( $post ) )
 						->withCategory( $this->getCategory( $post ) )
 						->withImageUrl( $this->getImageUrl( $post ) );
 				},
@@ -93,6 +93,11 @@ class WordpressApiNewsRepository implements NewsRepository {
 					'tags' => $this->localeTagId
 				]
 			);
+	}
+
+	private function getExcerpt( array $post ): string {
+		$parts = explode( '… <a href=', trim( $post['excerpt']['rendered'] ) );
+		return $parts[0] . '…';
 	}
 
 	private function getCategory( array $post ): string {

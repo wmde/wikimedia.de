@@ -70,7 +70,7 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		$this->assertSame( 'https://blog.wikimedia.de/2017/11/13/wikidatacon-2017/', $item->getLink() );
 
 		$this->assertStringStartsWith( '<p>WikidataCon, the first conference dedicated', $item->getExcerpt() );
-		$this->assertStringEndsWith( 'wikidatacon-2017/">Weiterlesen</a></p>', $item->getExcerpt() );
+		$this->assertStringEndsWith( '…', $item->getExcerpt() );
 
 		$this->assertSame( 'https://blog.wikimedia.de/wp-content/uploads/image3-300x200-1.png', $item->getImageUrl() );
 
