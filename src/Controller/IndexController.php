@@ -6,15 +6,14 @@ namespace App\Controller;
 
 use App\Presenter\NewsItemsTwigPresenter;
 use App\TopLevelFactory;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 // phpcs:ignoreFile
-class IndexController extends Controller {
+class IndexController extends BaseController {
 
-	public function index(TopLevelFactory $factory) {
+	public function index() {
 		$newsPresenter = new NewsItemsTwigPresenter();
 
-		$newsPresenter->present( $factory->newNewsRepository()->getLatestNewsItems() );
+		$newsPresenter->present( $this->getFactory()->newNewsRepository()->getLatestNewsItems() );
 
 		return $this->render(
 			'pages/home.html.twig',

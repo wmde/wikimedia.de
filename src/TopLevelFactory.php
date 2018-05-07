@@ -16,14 +16,6 @@ class TopLevelFactory {
 	private $locale;
 	private $container;
 
-	/**
-	 * TODO: move this framework bound function elsewhere
-	 * Unless we make this factory depend on the framework for easier access to general config
-	 */
-	public static function newForRequest( Request $request ): self {
-		return new self( $request->getLocale() );
-	}
-
 	public function __construct( string $locale ) {
 		$this->locale = $locale;
 		$this->container = $this->newPimple();

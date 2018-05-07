@@ -45,7 +45,7 @@ class Kernel extends BaseKernel {
 
 	protected function initializeContainer() {
 		parent::initializeContainer();
-		$this->container->set( 'App\TopLevelFactory', $this->topLevelFactory );
+		$this->container->set( FactoryWrapper::class, $this->topLevelFactory );
 	}
 
 	protected function configureContainer( ContainerBuilder $container, LoaderInterface $loader ) {
