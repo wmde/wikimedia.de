@@ -30,7 +30,7 @@ class WordpressApiNewsRepository implements NewsRepository {
 		self::CATEGORY_ID_WIKIMEDIA => NewsItem::CATEGORY_WIKIMEDIA,
 	];
 
-	private const API_URL = 'https://blog.wikimedia.de/wp-json/wp/v2/posts?_embed&per_page=5&';
+	private const API_URL = 'https://blog.wikimedia.de/wp-json/wp/v2/posts?_embed&per_page=7&';
 
 	private $fileFetcher;
 	private $localeTagId;
@@ -56,21 +56,37 @@ class WordpressApiNewsRepository implements NewsRepository {
 	 */
 	public function getLatestNewsItems(): array {
 		try {
-			return array_map(
-				function ( array $post ): NewsItem {
-					return NewsItem::newInstance()
-						->withTitle( $post['title']['rendered'] )
-						->withLink( $post['link'] )
-						->withExcerpt( $this->getExcerpt( $post ) )
-						->withCategory( $this->getCategory( $post ) )
-						->withImageUrl( $this->getImageUrl( $post ) );
-				},
-				$this->getPostsArray()
-			);
+			$postsArray = $this->getPostsArray();
+
 		}
 		catch ( FileFetchingException $ex ) {
 			return [];
 		}
+
+		return array_map(
+			function ( array $post ): NewsItem {
+				return $this->newNewsItem( $post );
+			},
+			array_filter(
+				$postsArray,
+				function( array $post ) {
+					return $this->hasImage( $post );
+				}
+			)
+		);
+	}
+
+	private function newNewsItem( array $post ): NewsItem {
+		return NewsItem::newInstance()
+			->withTitle( $post['title']['rendered'] )
+			->withLink( $post['link'] )
+			->withExcerpt( $this->getExcerpt( $post ) )
+			->withCategory( $this->getCategory( $post ) )
+			->withImageUrl( $this->getImageUrl( $post ) );
+	}
+
+	private function hasImage( array $post ): bool {
+		return array_key_exists( 'wp:featuredmedia', $post['_embedded'] );
 	}
 
 	private function getPostsArray(): array {
@@ -111,11 +127,7 @@ class WordpressApiNewsRepository implements NewsRepository {
 	}
 
 	private function getImageUrl( array $post ): string {
-		if ( array_key_exists( 'wp:featuredmedia', $post['_embedded'] ) ) {
-			return $post['_embedded']['wp:featuredmedia'][0]['source_url'];
-		}
-
-		return 'TODO'; // TODO
+		return $post['_embedded']['wp:featuredmedia'][0]['source_url'];
 	}
 
 }

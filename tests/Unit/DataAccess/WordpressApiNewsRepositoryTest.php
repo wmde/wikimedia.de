@@ -29,7 +29,7 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 	private $repoLocale;
 
 	public function setUp() {
-		$this->fileFetcher = new SpyingFileFetcher( $this->newStubFetcher( 'posts-several-english.json' ) );
+		$this->fileFetcher = new SpyingFileFetcher( $this->newStubFetcher( 'posts-several.json' ) );
 		$this->repoLocale = 'en';
 	}
 
@@ -54,7 +54,7 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		$items = $this->newRepository()->getLatestNewsItems();
 
 		$this->assertContainsOnlyInstancesOf( \App\Domain\NewsItem::class, $items );
-		$this->assertCount( 10, $items );
+		$this->assertNotEmpty( $items );
 	}
 
 	public function testWhenJsonIsInvalid_emptyArrayIsReturned() {
@@ -102,6 +102,11 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 
 		$this->expectException( \InvalidArgumentException::class );
 		$this->newRepository();
+	}
+
+	public function testWhenImageIsMissing_postDoesNotGetIncluded() {
+		$this->fileFetcher = new SpyingFileFetcher( $this->newStubFetcher( 'posts-only-3-with-image.json' ) );
+		$this->assertCount( 3, $this->newRepository()->getLatestNewsItems() );
 	}
 
 }
