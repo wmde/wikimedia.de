@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class TranslationTest extends EdgeToEdgeTestCase {
 
 	public function testPageIsEnglishByDefault() {
-		$response = $this->request( 'GET', '/en' );
+		$response = $this->request( 'GET', '/' );
 
 		$this->assertPageIsEnglish( $response );
 	}
