@@ -4,27 +4,39 @@ declare( strict_types = 1 );
 
 namespace App\Tests\EdgeToEdge;
 
+use App\Kernel;
 use App\TopLevelFactory;
 use FileFetcher\NullFileFetcher;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use PHPUnit\Framework\TestCase;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Client;
 
-abstract class EdgeToEdgeTestCase extends KernelTestCase {
+abstract class EdgeToEdgeTestCase extends TestCase {
 
-	protected function createClient( array $options = [] ): Client {
-		static::ensureKernelShutdown();
-
-		static::$kernel = static::createKernel( $options );
+	/**
+	 * @see Client::request
+	 */
+	protected function request( string $method, string $uri, array $parameters = array(),
+		array $files = array(), array $server = array(), string $content = null, bool $changeHistory = true ): Response {
 
 		$factory = new TopLevelFactory( 'en' );
 		$factory->setFileFetcher( new NullFileFetcher() );
-		static::$kernel->setTopLevelFactory( $factory );
 
-		static::$kernel->boot();
+		$kernel = new Kernel( 'test', true );
+		$kernel->setTopLevelFactory( $factory );
 
-		$client = static::$kernel->getContainer()->get( 'test.client' );
+		$kernel->boot();
 
-		return $client;
+		/**
+		 * @var Client $client
+		 */
+		$client = $kernel->getContainer()->get( 'test.client' );
+
+		$client->request( ...func_get_args() );
+
+		$kernel->terminate( $client->getRequest(), $client->getResponse() );
+
+		return $client->getResponse();
 	}
 
 }

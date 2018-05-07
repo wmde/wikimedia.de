@@ -4,57 +4,46 @@ declare( strict_types = 1 );
 
 namespace App\Tests\EdgeToEdge;
 
-use App\TopLevelFactory;
-use Symfony\Bundle\FrameworkBundle\Client;
+use Symfony\Component\HttpFoundation\Response;
 
 class TranslationTest extends EdgeToEdgeTestCase {
 
 	public function testPageIsEnglishByDefault() {
-		$client = $this->createClient();
+		$response = $this->request( 'GET', '/' );
 
-		$client->request( 'GET', '/' );
-
-		$this->assertPageIsEnglish( $client );
+		$this->assertPageIsEnglish( $response );
 	}
 
-	private function assertPageIsEnglish( Client $client ) {
-		$this->assertContains( 'We promote Free', $client->getResponse()->getContent() );
+	private function assertPageIsEnglish( Response $response ) {
+		$this->assertContains( 'We promote Free', $response->getContent() );
 	}
 
 	public function testPageIsInGermanWhenLocaleIsDe() {
-		$client = $this->createClient();
+		$response = $this->request( 'GET', '/de' );
 
-		$client->request( 'GET', '/de' );
-
-		$this->assertPageIsGerman( $client );
+		$this->assertPageIsGerman( $response );
 	}
 
-	private function assertPageIsGerman( Client $client ) {
-		$this->assertContains( 'Wir setzen uns für Freies', $client->getResponse()->getContent() );
+	private function assertPageIsGerman( Response $response ) {
+		$this->assertContains( 'Wir setzen uns für Freies', $response->getContent() );
 	}
 
 	public function testPageIsInEnglishWhenLocaleIsEn() {
-		$client = $this->createClient();
+		$response = $this->request( 'GET', '/en' );
 
-		$client->request( 'GET', '/en' );
-
-		$this->assertPageIsEnglish( $client );
+		$this->assertPageIsEnglish( $response );
 	}
 
 	public function testWhenLocaleIsEn_linksAreToEnglishPages() {
-		$client = $this->createClient();
+		$response = $this->request( 'GET', '/en' );
 
-		$client->request( 'GET', '/en' );
-
-		$this->assertContains( 'href="/en/imprint"', $client->getResponse()->getContent() );
+		$this->assertContains( 'href="/en/imprint"', $response->getContent() );
 	}
 
 	public function testWhenLocaleIsDe_linksAreToGermanPages() {
-		$client = $this->createClient();
+		$response = $this->request( 'GET', '/de' );
 
-		$client->request( 'GET', '/de' );
-
-		$this->assertContains( 'href="/de/impressum"', $client->getResponse()->getContent() );
+		$this->assertContains( 'href="/de/impressum"', $response->getContent() );
 	}
 
 }
