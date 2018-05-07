@@ -19,7 +19,7 @@ abstract class EdgeToEdgeTestCase extends TestCase {
 	protected function request( string $method, string $uri, array $parameters = array(),
 		array $files = array(), array $server = array(), string $content = null, bool $changeHistory = true ): Response {
 
-		$factory = new TopLevelFactory( 'en' );
+		$factory = TopLevelFactory::newForRequest( $request );
 		$factory->setFileFetcher( new NullFileFetcher() );
 
 		$kernel = new Kernel( 'test', true );
@@ -34,7 +34,9 @@ abstract class EdgeToEdgeTestCase extends TestCase {
 
 		$client->request( ...func_get_args() );
 
-		$kernel->terminate( $client->getRequest(), $client->getResponse() );
+		$request = $client->getRequest();
+
+		$kernel->terminate( $request, $client->getResponse() );
 
 		return $client->getResponse();
 	}
