@@ -11,10 +11,10 @@ use Symfony\Component\HttpKernel\Client;
 
 abstract class EdgeToEdgeTestCase extends KernelTestCase {
 
-	protected function createClient(array $options = array()): Client {
+	protected function createClient( array $options = [] ): Client {
 		static::ensureKernelShutdown();
 
-		static::$kernel = static::createKernel($options);
+		static::$kernel = static::createKernel( $options );
 
 		$factory = new TopLevelFactory( 'en' );
 		$factory->setFileFetcher( new NullFileFetcher() );
@@ -22,7 +22,7 @@ abstract class EdgeToEdgeTestCase extends KernelTestCase {
 
 		static::$kernel->boot();
 
-		$client = static::$kernel->getContainer()->get('test.client');
+		$client = static::$kernel->getContainer()->get( 'test.client' );
 
 		return $client;
 	}
