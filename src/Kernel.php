@@ -17,6 +17,11 @@ class Kernel extends BaseKernel {
 
 	const CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
+	/**
+	 * @var TopLevelFactory
+	 */
+	private $topLevelFactory;
+
 	public function getCacheDir() {
 		return $this->getProjectDir() . '/var/cache/' . $this->environment;
 	}
@@ -32,6 +37,15 @@ class Kernel extends BaseKernel {
 				yield new $class();
 			}
 		}
+	}
+
+	public function setTopLevelFactory( TopLevelFactory $topLevelFactory ) {
+		$this->topLevelFactory = $topLevelFactory;
+	}
+
+	protected function initializeContainer() {
+		parent::initializeContainer();
+		$this->container->set( 'App\TopLevelFactory', $this->topLevelFactory );
 	}
 
 	protected function configureContainer( ContainerBuilder $container, LoaderInterface $loader ) {

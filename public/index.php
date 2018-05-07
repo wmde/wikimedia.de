@@ -1,6 +1,7 @@
 <?php
 
 use App\Kernel;
+use App\TopLevelFactory;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,6 +35,10 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
 
 $kernel = new Kernel($env, $debug);
 $request = Request::createFromGlobals();
+
+$topLevelFactory = TopLevelFactory::newForRequest( $request );
+$kernel->setTopLevelFactory( $topLevelFactory );
+
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);

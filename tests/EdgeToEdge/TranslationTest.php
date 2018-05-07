@@ -4,13 +4,13 @@ declare( strict_types = 1 );
 
 namespace App\Tests\EdgeToEdge;
 
+use App\TopLevelFactory;
 use Symfony\Bundle\FrameworkBundle\Client;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class TranslationTest extends WebTestCase {
+class TranslationTest extends EdgeToEdgeTestCase {
 
 	public function testPageIsEnglishByDefault() {
-		$client = static::createClient();
+		$client = $this->createClient();
 
 		$client->request( 'GET', '/' );
 
@@ -22,7 +22,7 @@ class TranslationTest extends WebTestCase {
 	}
 
 	public function testPageIsInGermanWhenLocaleIsDe() {
-		$client = static::createClient();
+		$client = $this->createClient();
 
 		$client->request( 'GET', '/de' );
 
@@ -34,7 +34,7 @@ class TranslationTest extends WebTestCase {
 	}
 
 	public function testPageIsInEnglishWhenLocaleIsEn() {
-		$client = static::createClient();
+		$client = $this->createClient();
 
 		$client->request( 'GET', '/en' );
 
@@ -42,7 +42,7 @@ class TranslationTest extends WebTestCase {
 	}
 
 	public function testWhenLocaleIsEn_linksAreToEnglishPages() {
-		$client = static::createClient();
+		$client = $this->createClient();
 
 		$client->request( 'GET', '/en' );
 
@@ -50,7 +50,7 @@ class TranslationTest extends WebTestCase {
 	}
 
 	public function testWhenLocaleIsDe_linksAreToGermanPages() {
-		$client = static::createClient();
+		$client = $this->createClient();
 
 		$client->request( 'GET', '/de' );
 

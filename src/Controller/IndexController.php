@@ -7,16 +7,14 @@ namespace App\Controller;
 use App\Presenter\NewsItemsTwigPresenter;
 use App\TopLevelFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 // phpcs:ignoreFile
 class IndexController extends Controller {
 
-	public function index( Request $request ) {
+	public function index(TopLevelFactory $factory) {
 		$newsPresenter = new NewsItemsTwigPresenter();
 
-		// TODO: tests need to be able to change the TopLevelFactory
-		$newsPresenter->present( TopLevelFactory::newForRequest( $request )->newNewsRepository()->getLatestNewsItems() );
+		$newsPresenter->present( $factory->newNewsRepository()->getLatestNewsItems() );
 
 		return $this->render(
 			'pages/home.html.twig',
