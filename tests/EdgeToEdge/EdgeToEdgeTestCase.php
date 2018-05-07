@@ -25,6 +25,7 @@ abstract class EdgeToEdgeTestCase extends TestCase {
 		$wrapper = $kernel->getContainer()->get( FactoryWrapper::class );
 
 		$wrapper->onBuild( function( TopLevelFactory $factory ) {
+			// TODO: put in dedicated service that can be used by integration tests as well
 			$factory->setFileFetcher( new NullFileFetcher() );
 		} );
 
