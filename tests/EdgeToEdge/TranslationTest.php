@@ -8,10 +8,10 @@ use Symfony\Component\HttpFoundation\Response;
 
 class TranslationTest extends EdgeToEdgeTestCase {
 
-	public function testPageIsEnglishByDefault() {
+	public function testPageIsGermanByDefault() {
 		$response = $this->request( 'GET', '/' );
 
-		$this->assertPageIsEnglish( $response );
+		$this->assertPageIsGerman( $response );
 	}
 
 	private function assertPageIsEnglish( Response $response ) {
