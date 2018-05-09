@@ -11,6 +11,9 @@ use FileFetcher\SimpleFileFetcher;
 use Pimple\Container;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Framework independent object graph construction
+ */
 class TopLevelFactory {
 
 	private $locale;
@@ -32,7 +35,6 @@ class TopLevelFactory {
 	}
 
 	public function newNewsRepository(): NewsRepository {
-		// TODO: decorate with ErrorLoggingFileFetcher
 		return new WordpressApiNewsRepository( $this->getFileFetcher(), $this->locale );
 	}
 
