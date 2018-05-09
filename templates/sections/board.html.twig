@@ -4,7 +4,9 @@
     <div class="member__image">
         <figure class="fig member__fig">
             <img src="{{ member.image|e('html_attr') }}" class="fig__media" alt="Portrait of {{ member.name|e('html_attr') }}" />
-            {#TODO: ref#}
+            <div id="citation-{{ member.reference_number|e('html_attr') }}" class="ref fig__ref ts--beta" aria-label="citation number {{ member.reference_number|e('html_attr') }}">
+                <a href="#ref-{{ member.reference_number|e('html_attr') }}" class="ref__number" aria-label="jump to reference in index">{{ member.reference_number|e('html_attr') }}</a>
+            </div>
         </figure>
     </div>
     <div class="member__info limit--5">
