@@ -36,3 +36,14 @@ You can get a shell from which you can interact with Symfony via PHP. Though bew
 and that newly created files will be owned by root.
 
     docker-compose exec php-fpm bash
+    
+### Application structure
+
+At present the repo contains no application or domain logic. However a decoupling mechanism has been put in place
+that allows following the Clean Architecture by creating UseCases containing application logic that are fully
+decoupled from the framework. The typical scenario here is that a controller method gets invoked and this method
+then gets a UseCase instance via the TopLevelFactory. This TopLevelFactory is available via BaseController in
+the production code and via EdgeToEdgeTestCase in the tests.
+
+Example of a similarly structured application:
+https://github.com/wmde/FundraisingFrontend/blob/master/README.md#project-structure
