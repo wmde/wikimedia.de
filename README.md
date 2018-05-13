@@ -4,6 +4,44 @@
 
 This repo contains the source code of the [www.wikimedia.de website](https://www.wikimedia.de).
 
+## Editing content
+
+Presently there are two types of content on the site, each with their own editing approach.
+
+### Messages
+
+Many of the text on the site, known as "messages", is displayed using a translation mechanism. This mechanism gets the
+message in the correct language from a translation file. These files can be found in the `translations` directory, and
+there is one per language. They contain one line per message, starting with an identifier, followed by the actual text
+in the right language.
+
+Excerpt from `translations/messages.en.yaml`:
+
+	homepage.mission.header: Mission
+	homepage.mission.message: We promote Free Knowledge to further equal access to knowledge and education.
+	homepage.ED.title: Executive Director
+
+If you want to update a message on the site, you can open the right messages file with a text editor and search
+for the message you want to update. Leave the identifier on the left alone.
+
+Further understanding of how the system works is not needed, though might be useful:
+The messages are used in the templates (located in the `templates` folder), where they are identified by their
+identifier. By looking at the templates you can see exactly where a message is used.
+
+### Templates
+
+The simple pages such as "imprint" are not translated via the messages system. Instead there are two versions of the
+page, one English and one German. To update the text or structure of these pages you will need to edit their respective
+template.
+
+The templates can all be found in the `templates` directory, with the pages residing in the `pages`
+sub-directory. Simple pages have a dedicated subdirectory there with one twig file per language. Example:
+`templates/pages/imprint/imprint.de.html.twig` is the German version of the imprint page.
+
+The templates can be edited with a text editor. They do contain simple HTML, though you can update text without
+understanding the HTML. With basic understanding of HTML you can change the structure of the page. Though beware
+that you will only be changing the structure of one language version of the page.
+
 ## Development
 
 The application is build on top of the Symfony 4 PHP web framework.
