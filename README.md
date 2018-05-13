@@ -14,20 +14,25 @@ Development is done via Docker. No local PHP installation is needed.
 
 In the root of the project, execute this to start the Docker containers:
 
-    docker-compose up -d
+    docker-compose up
 
 After the command finished, you can view the application at http://localhost:8000
 
 ### Executing PHP (including tests)
-
-Executing this in the project root will give you a shell from which you can interact with Symfony via PHP:
-
-    docker-compose exec php-fpm bash
     
-Running PHPUnit
+Running the tests (includes PHPUnit)
 
 	make test
+   
+Running the style checks
+
+	make cs
    
 Full CI run
 
 	make ci
+
+You can get a shell from which you can interact with Symfony via PHP. Though beware that this is executed as root,
+and that newly created files will be owned by root.
+
+    docker-compose exec php-fpm bash
