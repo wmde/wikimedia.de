@@ -24,6 +24,11 @@ Excerpt from `translations/messages.en.yaml`:
 If you want to update a message on the site, you can open the right messages file with a text editor and search
 for the message you want to update. Leave the identifier on the left alone.
 
+GitHub editing links:
+
+* [German messages](https://github.com/wmde/website/edit/master/translations/messages.de.yaml)
+* [English messages](https://github.com/wmde/website/edit/master/translations/messages.en.yaml)
+
 Further understanding of how the system works is not needed, though might be useful:
 The messages are used in the templates (located in the `templates` folder), where they are identified by their
 identifier. By looking at the templates you can see exactly where a message is used.
@@ -41,6 +46,15 @@ sub-directory. Simple pages have a dedicated subdirectory there with one twig fi
 The templates can be edited with a text editor. They do contain simple HTML, though you can update text without
 understanding the HTML. With basic understanding of HTML you can change the structure of the page. Though beware
 that you will only be changing the structure of one language version of the page.
+
+GitHub editing links:
+
+* [Charter - German](https://github.com/wmde/website/edit/master/templates/pages/charter/charter.de.html.twig)
+* [Charter - English](https://github.com/wmde/website/edit/master/templates/pages/charter/charter.en.html.twig)
+* [Imprint - German](https://github.com/wmde/website/edit/master/templates/pages/imprint/imprint.de.html.twig)
+* [Imprint - English](https://github.com/wmde/website/edit/master/templates/pages/imprint/imprint.en.html.twig)
+* [Transparency - German](https://github.com/wmde/website/edit/master/templates/pages/transparency/transparency.de.html.twig)
+* [Transparency - English](https://github.com/wmde/website/edit/master/templates/pages/transparency/transparency.en.html.twig)
 
 ## Development
 
