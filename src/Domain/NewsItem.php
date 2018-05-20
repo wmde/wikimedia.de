@@ -17,6 +17,7 @@ class NewsItem {
 	private $excerpt;
 	private $imageUrl;
 	private $category;
+	private $attribution;
 
 	private function __construct() {
 	}
@@ -45,6 +46,11 @@ class NewsItem {
 		return $this;
 	}
 
+	public function withImageAttribution( HtmlString $attribution ): self {
+		$this->attribution = $attribution;
+		return $this;
+	}
+
 	public function withCategory( string $category ): self {
 		$this->category = $category;
 		return $this;
@@ -64,6 +70,10 @@ class NewsItem {
 
 	public function getImageUrl(): string {
 		return $this->imageUrl;
+	}
+
+	public function getImageAttribution(): HtmlString {
+		return $this->attribution;
 	}
 
 	public function getCategory(): string {

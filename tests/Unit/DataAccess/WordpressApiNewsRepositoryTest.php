@@ -74,6 +74,7 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 
 		$this->assertSame( 'https://blog.wikimedia.de/wp-content/uploads/image3-300x200-1.png', $item->getImageUrl() );
 
+
 		$this->assertSame( \App\Domain\NewsItem::CATEGORY_COMMUNITY, $item->getCategory() );
 	}
 
@@ -107,6 +108,25 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 	public function testWhenImageIsMissing_postDoesNotGetIncluded() {
 		$this->fileFetcher = new SpyingFileFetcher( $this->newStubFetcher( 'posts-only-3-with-image.json' ) );
 		$this->assertCount( 3, $this->newRepository()->getLatestNewsItems() );
+	}
+
+	public function testWhenImageDoesNotHaveAttribution_attributionIsEmpty() {
+		$this->assertSame(
+			'',
+			$this->newRepository()->getLatestNewsItems()[0]->getImageAttribution()->getHtml()
+		);
+	}
+
+	public function testWhenImageHasAttribution_newsItemHasAttribution() {
+		$this->fileFetcher = new SpyingFileFetcher( $this->newStubFetcher( 'post-one-with-attibuted-image.json' ) );
+
+		$this->assertSame(
+			'<p>Jason Krüger for Wikimedia Deutschland e.V., Wikimedia Conference 2018, Group photo (2), '
+				. 'CC BY-SA 4.0&nbsp;… '
+				. '<a href="https://blog.wikimedia.de/2018/05/05/freies_wissen_weltweit_teil_1/1024px-wikimedia_conference_2018_group_photo_2/">'
+				. 'Weiterlesen</a></p>',
+			$this->newRepository()->getLatestNewsItems()[0]->getImageAttribution()->getHtml()
+		);
 	}
 
 }

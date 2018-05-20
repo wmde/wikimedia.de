@@ -83,7 +83,8 @@ class WordpressApiNewsRepository implements NewsRepository {
 			->withLink( $post['link'] )
 			->withExcerpt( $this->getExcerpt( $post ) )
 			->withCategory( $this->getCategory( $post ) )
-			->withImageUrl( $this->getImageUrl( $post ) );
+			->withImageUrl( $this->getImageUrl( $post ) )
+			->withImageAttribution( $this->getImageAttribution( $post ) );
 	}
 
 	private function hasImage( array $post ): bool {
@@ -129,6 +130,16 @@ class WordpressApiNewsRepository implements NewsRepository {
 
 	private function getImageUrl( array $post ): string {
 		return $post['_embedded']['wp:featuredmedia'][0]['source_url'];
+	}
+
+	private function getImageAttribution( array $post ): HtmlString {
+		$imageData = $post['_embedded']['wp:featuredmedia'][0];
+
+		if ( array_key_exists( 'caption', $imageData ) ) {
+			return new HtmlString( trim( $imageData['caption']['rendered'] ) );
+		}
+
+		return new HtmlString( '' );
 	}
 
 }
