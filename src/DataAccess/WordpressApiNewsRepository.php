@@ -14,8 +14,8 @@ class WordpressApiNewsRepository implements NewsRepository {
 	public const TAG_ID_DE = 243;
 	public const TAG_ID_EN = 464;
 
-	public const POSTS_PER_PAGE = 5;
-	private const POSTS_IN_API_REQUEST = self::POSTS_PER_PAGE + 2;
+	public const ITEMS_PER_PAGE = 5;
+	private const POSTS_IN_API_REQUEST = self::ITEMS_PER_PAGE + 2;
 
 	private const LOCALE_TO_TAG_ID_MAP = [
 		'en' => self::TAG_ID_EN,
@@ -88,7 +88,7 @@ class WordpressApiNewsRepository implements NewsRepository {
 				}
 			),
 			0,
-			self::POSTS_PER_PAGE
+			self::ITEMS_PER_PAGE
 		);
 	}
 

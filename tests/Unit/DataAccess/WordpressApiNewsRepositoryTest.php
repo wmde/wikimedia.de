@@ -128,11 +128,11 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		);
 	}
 
-	public function testWhenThereAreMoreImagesThanTheLimit_onlyFiveAreReturned() {
+	public function testWhenThereAreMorePostsThanTheLimit_onlyFiveNewsItemsAreReturned() {
 		$this->fileFetcher = new SpyingFileFetcher( $this->newStubFetcher( 'posts-six-valid.json' ) );
 
 		$this->assertCount(
-			WordpressApiNewsRepository::POSTS_PER_PAGE,
+			WordpressApiNewsRepository::ITEMS_PER_PAGE,
 			$this->newRepository()->getLatestNewsItems()
 		);
 	}
