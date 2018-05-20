@@ -31,11 +31,13 @@
         <div class="news__box tagged--event limit--8 cm--l5 cp--v0-5 cp--r0-5 cp--l2-5 sc--white">
             <h1 class="news__title tm--gamma t--caps">{{ article.type_message|trans }}</h1>
             <div class="news__image active">
-<figure class="fig">
-    <img src="{{ article.image|e('html_attr') }}" class="fig__media"/>
+                <figure class="fig">
+                    <img src="{{ article.image|e('html_attr') }}" class="fig__media"/>
 
-    <figcaption class="image-caption-text">{{ article.image_attribution|e }}</figcaption>
-</figure>
+                    {% if article.image_attribution %}
+                        <figcaption class="image-caption-text">{{ article.image_attribution|e }}</figcaption>
+                    {% endif %}
+                </figure>
             </div>
 
             <div class="news__teaser tm--alpha">
