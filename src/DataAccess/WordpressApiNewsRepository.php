@@ -14,6 +14,9 @@ class WordpressApiNewsRepository implements NewsRepository {
 	public const TAG_ID_DE = 243;
 	public const TAG_ID_EN = 464;
 
+	public const POSTS_PER_PAGE = 5;
+	private const POSTS_IN_API_REQUEST = self::POSTS_PER_PAGE + 2;
+
 	private const LOCALE_TO_TAG_ID_MAP = [
 		'en' => self::TAG_ID_EN,
 		'de' => self::TAG_ID_DE,
@@ -31,7 +34,7 @@ class WordpressApiNewsRepository implements NewsRepository {
 		self::CATEGORY_ID_WIKIMEDIA => NewsItem::CATEGORY_WIKIMEDIA,
 	];
 
-	private const API_URL = 'https://blog.wikimedia.de/wp-json/wp/v2/posts?_embed&per_page=7&';
+	private const API_URL = 'https://blog.wikimedia.de/wp-json/wp/v2/posts?_embed&';
 
 	private $fileFetcher;
 	private $localeTagId;
@@ -64,16 +67,28 @@ class WordpressApiNewsRepository implements NewsRepository {
 			return [];
 		}
 
+		return $this->buildPostsFromArray( $postsArray );
+	}
+
+	private function buildPostsFromArray( array $postsArray ): array {
 		return array_map(
 			function ( array $post ): NewsItem {
 				return $this->newNewsItem( $post );
 			},
+			$this->filterPosts( $postsArray )
+		);
+	}
+
+	private function filterPosts( array $postsArray ): array {
+		return array_slice(
 			array_filter(
 				$postsArray,
 				function( array $post ) {
 					return $this->hasImage( $post );
 				}
-			)
+			),
+			0,
+			self::POSTS_PER_PAGE
 		);
 	}
 
@@ -108,6 +123,7 @@ class WordpressApiNewsRepository implements NewsRepository {
 		return self::API_URL
 			. http_build_query(
 				[
+					'per_page' => self::POSTS_IN_API_REQUEST,
 					'tags' => $this->localeTagId
 				]
 			);

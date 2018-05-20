@@ -74,7 +74,6 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 
 		$this->assertSame( 'https://blog.wikimedia.de/wp-content/uploads/image3-300x200-1.png', $item->getImageUrl() );
 
-
 		$this->assertSame( \App\Domain\NewsItem::CATEGORY_COMMUNITY, $item->getCategory() );
 	}
 
@@ -126,6 +125,15 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 				. '<a href="https://blog.wikimedia.de/2018/05/05/freies_wissen_weltweit_teil_1/1024px-wikimedia_conference_2018_group_photo_2/">'
 				. 'Weiterlesen</a></p>',
 			$this->newRepository()->getLatestNewsItems()[0]->getImageAttribution()->getHtml()
+		);
+	}
+
+	public function testWhenThereAreMoreImagesThanTheLimit_onlyFiveAreReturned() {
+		$this->fileFetcher = new SpyingFileFetcher( $this->newStubFetcher( 'posts-six-valid.json' ) );
+
+		$this->assertCount(
+			WordpressApiNewsRepository::POSTS_PER_PAGE,
+			$this->newRepository()->getLatestNewsItems()
 		);
 	}
 
