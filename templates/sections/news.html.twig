@@ -1,3 +1,27 @@
+<style>
+    .image-caption-text {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 5px 10px;
+        background: rgba( 0, 0, 0, 0.5 );
+        color: #fff;
+        font-style: italic;
+        font-size: smaller;
+    }
+    .image-caption-text a {
+        text-decoration: underline;
+        color: #fff;
+    }
+    .image-caption-text a:hover {
+        text-decoration: none;
+    }
+    .image-caption-text:last-child {
+        padding-bottom: 5px;
+    }
+</style>
+
 {% for article in news %}
     <article
             class="news__post cp--b2"
@@ -7,9 +31,11 @@
         <div class="news__box tagged--event limit--8 cm--l5 cp--v0-5 cp--r0-5 cp--l2-5 sc--white">
             <h1 class="news__title tm--gamma t--caps">{{ article.type_message|trans }}</h1>
             <div class="news__image active">
-                <figure class="fig">
-                    <img src="{{ article.image|e('html_attr') }}" class="fig__media"/>
-                </figure>
+<figure class="fig">
+    <img src="{{ article.image|e('html_attr') }}" class="fig__media"/>
+
+    <figcaption class="image-caption-text">{{ article.image_attribution|e }}</figcaption>
+</figure>
             </div>
 
             <div class="news__teaser tm--alpha">

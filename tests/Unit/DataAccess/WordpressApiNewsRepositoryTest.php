@@ -112,7 +112,7 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 	public function testWhenImageDoesNotHaveAttribution_attributionIsEmpty() {
 		$this->assertSame(
 			'',
-			$this->newRepository()->getLatestNewsItems()[0]->getImageAttribution()->getHtml()
+			$this->newRepository()->getLatestNewsItems()[0]->getImageAttribution()
 		);
 	}
 
@@ -120,11 +120,8 @@ class WordpressApiNewsRepositoryTest extends TestCase {
 		$this->fileFetcher = new SpyingFileFetcher( $this->newStubFetcher( 'post-one-with-attibuted-image.json' ) );
 
 		$this->assertSame(
-			'<p>Jason Krüger for Wikimedia Deutschland e.V., Wikimedia Conference 2018, Group photo (2), '
-				. 'CC BY-SA 4.0&nbsp;… '
-				. '<a href="https://blog.wikimedia.de/2018/05/05/freies_wissen_weltweit_teil_1/1024px-wikimedia_conference_2018_group_photo_2/">'
-				. 'Weiterlesen</a></p>',
-			$this->newRepository()->getLatestNewsItems()[0]->getImageAttribution()->getHtml()
+			'Jason Krüger for Wikimedia Deutschland e.V., Wikimedia Conference 2018, Group photo (2), CC BY-SA 4.0',
+			$this->newRepository()->getLatestNewsItems()[0]->getImageAttribution()
 		);
 	}
 

@@ -30,7 +30,8 @@ class NewsItemsTwigPresenter {
 					'image' => $newsItem->getImageUrl(),
 					'type_message' => self::CATEGORY_MESSAGE_MAP[$newsItem->getCategory()],
 					'link_message' => 'news.view.more.link',
-					'text' => $newsItem->getExcerpt()->getHtml()
+					'text' => $newsItem->getExcerpt()->getHtml(),
+					'image_attribution' => $newsItem->getImageAttribution()
 				];
 			},
 			$newsItems

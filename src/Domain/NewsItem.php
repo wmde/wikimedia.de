@@ -46,7 +46,7 @@ class NewsItem {
 		return $this;
 	}
 
-	public function withImageAttribution( HtmlString $attribution ): self {
+	public function withImageAttribution( string $attribution ): self {
 		$this->attribution = $attribution;
 		return $this;
 	}
@@ -72,7 +72,7 @@ class NewsItem {
 		return $this->imageUrl;
 	}
 
-	public function getImageAttribution(): HtmlString {
+	public function getImageAttribution(): string {
 		return $this->attribution;
 	}
 

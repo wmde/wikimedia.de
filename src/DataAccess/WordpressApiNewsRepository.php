@@ -148,14 +148,14 @@ class WordpressApiNewsRepository implements NewsRepository {
 		return $post['_embedded']['wp:featuredmedia'][0]['source_url'];
 	}
 
-	private function getImageAttribution( array $post ): HtmlString {
+	private function getImageAttribution( array $post ): string {
 		$imageData = $post['_embedded']['wp:featuredmedia'][0];
 
-		if ( array_key_exists( 'caption', $imageData ) ) {
-			return new HtmlString( trim( $imageData['caption']['rendered'] ) );
+		if ( array_key_exists( 'alt_text', $imageData ) ) {
+			return trim( $imageData['alt_text'] );
 		}
 
-		return new HtmlString( '' );
+		return '';
 	}
 
 }
