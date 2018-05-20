@@ -4,6 +4,7 @@ declare( strict_types = 1 );
 
 namespace App\DataAccess;
 
+use App\Domain\HtmlString;
 use App\Domain\NewsItem;
 use FileFetcher\FileFetcher;
 use FileFetcher\FileFetchingException;
@@ -111,9 +112,9 @@ class WordpressApiNewsRepository implements NewsRepository {
 			);
 	}
 
-	private function getExcerpt( array $post ): string {
+	private function getExcerpt( array $post ): HtmlString {
 		$parts = explode( '… <a href=', trim( $post['excerpt']['rendered'] ) );
-		return $parts[0] . '…';
+		return new HtmlString( $parts[0] . '…' );
 	}
 
 	private function getCategory( array $post ): string {

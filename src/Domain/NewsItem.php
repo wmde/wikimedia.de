@@ -35,7 +35,7 @@ class NewsItem {
 		return $this;
 	}
 
-	public function withExcerpt( string $excerpt ): self {
+	public function withExcerpt( HtmlString $excerpt ): self {
 		$this->excerpt = $excerpt;
 		return $this;
 	}
@@ -58,7 +58,7 @@ class NewsItem {
 		return $this->link;
 	}
 
-	public function getExcerpt(): string {
+	public function getExcerpt(): HtmlString {
 		return $this->excerpt;
 	}
 
