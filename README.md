@@ -99,3 +99,21 @@ the production code and via EdgeToEdgeTestCase in the tests.
 
 Example of a similarly structured application:
 https://github.com/wmde/FundraisingFrontend/blob/master/README.md#project-structure
+
+## Deployment
+
+Standard deployment practices for Symfony 4 applications can be followed. See
+[How to Deploy a Symfony Application](https://symfony.com/doc/current/deployment.html)
+
+However since the website does not currently have a database or uses compiled assets, many steps can be skipped.
+
+Get a clone of the git repository
+
+	git clone https://github.com/wmde/website.git
+	
+Then follow steps A through D from the section
+"[Common Post-Deployment Tasks](https://symfony.com/doc/current/deployment.html#common-post-deployment-tasks)".
+
+### Updating to a new version
+
+Run `composer update` and clear the cache with `php bin/console cache:clear --env=prod --no-debug`
