@@ -7,6 +7,7 @@
         "symfony/asset": "^4.0",
         "symfony/console": "^4.0",
         "symfony/flex": "^1.0",
+        "symfony/dotenv": "^4.0",
         "symfony/framework-bundle": "^4.0",
         "symfony/lts": "^4@dev",
         "symfony/twig-bundle": "^4.0",
@@ -17,7 +18,6 @@
         "pimple/pimple": "^3.2.3"
     },
     "require-dev": {
-        "symfony/dotenv": "^4.0",
         "symfony/profiler-pack": "^1.0",
         "symfony/debug-pack": "*",
         "symfony/browser-kit": "^4.0",
