@@ -116,4 +116,6 @@ Then follow steps A through D from the section
 
 ### Updating to a new version
 
-Run `composer update` and clear the cache with `php bin/console cache:clear --env=prod --no-debug`
+* `git pull` - get the latest version of the site
+* `composer update` - update the dependencies
+* `php bin/console cache:clear --env=prod --no-debug` - clear the cache
