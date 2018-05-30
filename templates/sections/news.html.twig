@@ -23,7 +23,7 @@
                 {{ article.text|raw }}
             </div>
 
-            <a href="https://blog.wikimedia.de/2018/03/16/zentrum-des-freien-wissens-wikimedia-livein-karlsruhe/"
+            <a href="{{ article.link|e('html_attr') }}"
                class="news__link link--black ts--alpha" target="new">
                 {{ article.link_message|trans }}
             </a>

@@ -14,10 +14,6 @@ class TranslationTest extends EdgeToEdgeTestCase {
 		$this->assertPageIsGerman( $response );
 	}
 
-	private function assertPageIsEnglish( Response $response ) {
-		$this->assertContains( 'We promote Free', $response->getContent() );
-	}
-
 	public function testPageIsInGermanWhenLocaleIsDe() {
 		$response = $this->request( 'GET', '/de' );
 
@@ -32,6 +28,10 @@ class TranslationTest extends EdgeToEdgeTestCase {
 		$response = $this->request( 'GET', '/en' );
 
 		$this->assertPageIsEnglish( $response );
+	}
+
+	private function assertPageIsEnglish( Response $response ) {
+		$this->assertContains( 'We promote Free', $response->getContent() );
 	}
 
 	public function testWhenLocaleIsEn_linksAreToEnglishPages() {

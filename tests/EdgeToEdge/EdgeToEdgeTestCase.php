@@ -6,8 +6,11 @@ namespace App\Tests\EdgeToEdge;
 
 use App\FactoryWrapper;
 use App\Kernel;
+use App\Tests\TestData;
 use App\TopLevelFactory;
 use FileFetcher\NullFileFetcher;
+use FileFetcher\SimpleFileFetcher;
+use FileFetcher\StubFileFetcher;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Client;
@@ -25,8 +28,8 @@ abstract class EdgeToEdgeTestCase extends TestCase {
 		$wrapper = $kernel->getContainer()->get( FactoryWrapper::class );
 
 		$wrapper->onBuild( function( TopLevelFactory $factory ) {
-			// TODO: put in dedicated service that can be used by integration tests as well
-			$factory->setFileFetcher( new NullFileFetcher() );
+			// TODO: avoid disk read for every test
+			$factory->setFileFetcher( new StubFileFetcher( TestData::getFileContents( 'blog/posts-six-valid.json' ) ) );
 		} );
 
 		/**
