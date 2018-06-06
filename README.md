@@ -118,4 +118,3 @@ Then follow steps A through D from the section
 
 1. `git pull` - get the latest version of the site
 2. `composer update` - update the dependencies
-3. `php bin/console cache:clear --env=prod --no-debug` - clear the cache
