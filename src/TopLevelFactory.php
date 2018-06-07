@@ -8,8 +8,6 @@ use App\DataAccess\NewsRepository;
 use App\DataAccess\WordpressApiNewsRepository;
 use FileFetcher\FileFetcher;
 use FileFetcher\SimpleFileFetcher;
-use Pimple\Container;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Framework independent object graph construction
@@ -17,21 +15,10 @@ use Symfony\Component\HttpFoundation\Request;
 class TopLevelFactory {
 
 	private $locale;
-	private $container;
+	private $container = [];
 
 	public function __construct( string $locale ) {
 		$this->locale = $locale;
-		$this->container = $this->newPimple();
-	}
-
-	private function newPimple(): Container {
-		$container = new Container();
-
-		$container['file_fetcher'] = function() {
-			return new SimpleFileFetcher();
-		};
-
-		return $container;
 	}
 
 	public function newNewsRepository(): NewsRepository {
@@ -39,11 +26,27 @@ class TopLevelFactory {
 	}
 
 	private function getFileFetcher(): FileFetcher {
-		return $this->container['file_fetcher'];
+		return $this->getSharedService(
+			'file_fetcher',
+			function() {
+				return new SimpleFileFetcher();
+			}
+		);
 	}
 
 	public function setFileFetcher( FileFetcher $fileFetcher ) {
 		$this->container['file_fetcher'] = $fileFetcher;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	private function getSharedService( string $serviceName, callable $constructionFunction ) {
+		if ( !array_key_exists( $serviceName, $this->container ) ) {
+			$this->container[$serviceName] = $constructionFunction();
+		}
+
+		return $this->container[$serviceName];
 	}
 
 }
