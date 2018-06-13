@@ -12,7 +12,7 @@ use FileFetcher\FileFetchingException;
 class WordpressApiNewsRepository implements NewsRepository {
 
 	public const TAG_ID_DE = 243;
-	public const TAG_ID_EN = 464;
+	public const TAG_ID_EN = 2941;
 
 	public const ITEMS_PER_PAGE = 5;
 	private const POSTS_IN_API_REQUEST = self::ITEMS_PER_PAGE + 2;
