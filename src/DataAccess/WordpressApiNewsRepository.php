@@ -103,7 +103,8 @@ class WordpressApiNewsRepository implements NewsRepository {
 	}
 
 	private function hasImage( array $post ): bool {
-		return array_key_exists( 'wp:featuredmedia', $post['_embedded'] );
+		return array_key_exists( 'wp:featuredmedia', $post['_embedded'] )
+			&& array_key_exists( 'source_url', $post['_embedded']['wp:featuredmedia'][0] );
 	}
 
 	private function getPostsArray(): array {
