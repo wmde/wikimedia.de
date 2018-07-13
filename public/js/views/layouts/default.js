@@ -12,22 +12,6 @@ require(['domready!'], function() {
   let $1 = document.querySelector.bind(document);
   let hasSmoothScroll = 'scrollBehavior' in document.documentElement.style;
 
-  // Smoothly scroll the CTA into view when we clicked on the header support button.
-  if (hasSmoothScroll) {
-    let button = $1('.mh__support');
-    let target = $1(button.hash);
-
-    button.addEventListener('click', function(ev) {
-      // The target is not on the current page, allow to load the
-      // page having it, then we will be autoplaced on the target.
-      if (!target) {
-        return;
-      }
-      ev.preventDefault();
-      target.scrollIntoView({behavior: 'smooth'});
-    });
-  }
-
   // Language Switch - .nav-locale-toggle
   let navLocaleToggle = $1('.nav-locale-toggle__locale');
   navLocaleToggle.addEventListener('click', function(ev) {
