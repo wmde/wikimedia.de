@@ -117,4 +117,4 @@ Then follow steps A through D from the section
 ### Updating to a new version
 
 1. `git pull` - get the latest version of the site
-2. `composer update` - update the dependencies
+2. `composer install` - install the dependencies
