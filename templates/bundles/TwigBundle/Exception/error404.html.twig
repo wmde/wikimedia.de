@@ -1,0 +1,11 @@
+{% extends 'simple.page.html.twig' %}
+
+{% set page_title = 'Page not found' %}
+
+{% block pagebody %}
+    <h1>{% trans %}error.page.not.found.title{% endtrans %}</h1>
+
+    <p>{% trans %}error.page.not.found.message{% endtrans %}</p>
+{% endblock %}
+
+
