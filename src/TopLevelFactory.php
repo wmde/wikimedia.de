@@ -21,6 +21,17 @@ class TopLevelFactory {
 		$this->locale = $locale;
 	}
 
+	/**
+	 * @return mixed
+	 */
+	private function getSharedService( string $serviceName, callable $constructionFunction ) {
+		if ( !array_key_exists( $serviceName, $this->container ) ) {
+			$this->container[$serviceName] = $constructionFunction();
+		}
+
+		return $this->container[$serviceName];
+	}
+
 	public function newNewsRepository(): NewsRepository {
 		return new WordpressApiNewsRepository( $this->getFileFetcher(), $this->locale );
 	}
@@ -36,17 +47,6 @@ class TopLevelFactory {
 
 	public function setFileFetcher( FileFetcher $fileFetcher ) {
 		$this->container['file_fetcher'] = $fileFetcher;
-	}
-
-	/**
-	 * @return mixed
-	 */
-	private function getSharedService( string $serviceName, callable $constructionFunction ) {
-		if ( !array_key_exists( $serviceName, $this->container ) ) {
-			$this->container[$serviceName] = $constructionFunction();
-		}
-
-		return $this->container[$serviceName];
 	}
 
 }
