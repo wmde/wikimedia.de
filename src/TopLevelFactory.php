@@ -21,23 +21,6 @@ class TopLevelFactory {
 		$this->locale = $locale;
 	}
 
-	public function newNewsRepository(): NewsRepository {
-		return new WordpressApiNewsRepository( $this->getFileFetcher(), $this->locale );
-	}
-
-	private function getFileFetcher(): FileFetcher {
-		return $this->getSharedService(
-			'file_fetcher',
-			function() {
-				return new SimpleFileFetcher();
-			}
-		);
-	}
-
-	public function setFileFetcher( FileFetcher $fileFetcher ) {
-		$this->container['file_fetcher'] = $fileFetcher;
-	}
-
 	/**
 	 * @return mixed
 	 */
@@ -47,6 +30,23 @@ class TopLevelFactory {
 		}
 
 		return $this->container[$serviceName];
+	}
+
+	public function newNewsRepository(): NewsRepository {
+		return new WordpressApiNewsRepository( $this->getFileFetcher(), $this->locale );
+	}
+
+	private function getFileFetcher(): FileFetcher {
+		return $this->getSharedService(
+			FileFetcher::class,
+			function() {
+				return new SimpleFileFetcher();
+			}
+		);
+	}
+
+	public function setFileFetcher( FileFetcher $fileFetcher ) {
+		$this->container[FileFetcher::class] = $fileFetcher;
 	}
 
 }
