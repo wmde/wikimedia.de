@@ -38,7 +38,7 @@ class TopLevelFactory {
 
 	private function getFileFetcher(): FileFetcher {
 		return $this->getSharedService(
-			'file_fetcher',
+			FileFetcher::class,
 			function() {
 				return new SimpleFileFetcher();
 			}
@@ -46,7 +46,7 @@ class TopLevelFactory {
 	}
 
 	public function setFileFetcher( FileFetcher $fileFetcher ) {
-		$this->container['file_fetcher'] = $fileFetcher;
+		$this->container[FileFetcher::class] = $fileFetcher;
 	}
 
 }
