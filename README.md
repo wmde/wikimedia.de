@@ -62,6 +62,10 @@ The application is build on top of the Symfony 4 PHP web framework.
 
 Development is done via Docker. No local PHP installation is needed.
 
+### Installing the application
+
+    make install
+
 ### Running the application
 
 In the root of the project, execute this to start the Docker containers:
@@ -117,4 +121,4 @@ Then follow steps A through D from the section
 ### Updating to a new version
 
 1. `git pull` - get the latest version of the site
-2. `composer install` - install the dependencies
+2. `composer install` - install the dependencies (`make install` if you have Docker instead of PHP)
