@@ -1,0 +1,27 @@
+/* Team */
+
+/* Team filter */
+
+.wdiv-team-filter {
+    /* brute clearfix */
+    width: 100%;
+    float: left;
+}
+
+.wdiv-team-filter-option {
+    width: calc(100%/3);
+    float: left;
+}
+
+/* Team cards */
+
+.wdiv-group {
+    /* brute clearfix */
+    width: 100%;
+    float: left;
+}
+
+.wdiv-group-item {
+    width: 25%;
+    float: left;
+}
