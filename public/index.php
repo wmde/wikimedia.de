@@ -1,9 +1,8 @@
 <?php
 
-// hijacking PHP request before Symfony kicks in
+// Template query? Hijacking PHP request before Symfony kicks in
+// query is everything after `/templates/` + trailing slash in case it's `/templates`
 
-// check if request contains template query
-// we're including a trailing slash in case it's `/templates`
 $templateQuery = explode('/templates/',$_SERVER['REQUEST_URI'].'/');
 if ( count ( $templateQuery ) > 1 ) {
 
