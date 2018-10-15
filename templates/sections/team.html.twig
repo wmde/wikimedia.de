@@ -4,16 +4,23 @@
             {% for group in team %}
                 <p><input type="checkbox" value="{{loop.index}}" id="wdiv-group-filter-{{loop.index}}"><label for="wdiv-group-filter-{{loop.index}}">{{ group.title }}</label></p>
             {% endfor %}
+            <p>
+                <button>Filter aufheben</button>
+            </p>
         </div>
     </header>
     <div class="wdiv-team-content">
     {% for group in team %}
-        <p>{{ group.title }}</p>
-        {% for person in group.members %}
-            <p>{{ person.name }}</p>
-            <p>{{ person.position }}</p>
-            <p><a href="{{ person.mail }}">E-Mail</a></p>
-        {% endfor %}
+        <div class="wdiv-group" data-group-id="{{loop.index}}">
+            <h2 class="wdiv-group-title">{{ group.title }}</h2>
+            {% for person in group.members %}
+                <div class="wdiv-group-item">
+                    <h3 class="wdiv-person-title">{{ person.name }}</h3>
+                    <p>{{ person.position }}</p>
+                    <p><a href="{{ person.mail }}">E-Mail</a></p>
+                </div>
+            {% endfor %}
+        </div>
     {% endfor %}
     </div>
 </div>
