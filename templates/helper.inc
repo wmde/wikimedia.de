@@ -49,5 +49,6 @@ if ( count ( $templateQuery ) > 1 ) {
 	echo $template->load($data['template'])->render($data['data']);
 
 	// stop PHP propagation
-	return;
+	// TODO: would be nicer w/ a return clause, but more complicated on includes
+	die;
 }
