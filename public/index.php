@@ -15,10 +15,10 @@ if ( count ( $templateQuery ) > 1 ) {
 	// kill potential trailing slash(es)
 	$query = preg_replace('/[\/]*$/' , '', $templateQuery[1] );
 
-	//this is supposed to have the name of the query w/ `tpl.yaml` extension
+	// this is supposed to have the name of the query w/ `tpl.yaml` extension
 	$queryFile = __DIR__.'/../templates/'.$query.'.html.yaml';
 
-	//no template definition – no output
+	// no template definition – no output
 	if (!file_exists($queryFile)) { return; }
 
 	// read YAML template def file
