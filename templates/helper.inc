@@ -1,8 +1,7 @@
 <?php
 
-// Template query? Hijacking PHP request before Symfony kicks in
-// query is everything after `/templates/` + trailing slash in case it's `/templates`
 
+// query is everything after `/templates/` + trailing slash in case it's `/templates`
 $templateQuery = explode('/templates/',$_SERVER['REQUEST_URI'].'/');
 
 //prep YAML loader
