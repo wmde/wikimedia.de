@@ -1,12 +1,12 @@
-# If the first argument is "composer"...
-ifeq (composer,$(firstword $(MAKECMDGOALS)))
-  # use the rest as arguments for "composer"
-  RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-  # ...and turn them into do-nothing targets
-  $(eval $(RUN_ARGS):;@:)
-endif
+current_user  := $(shell id -u)
+current_group := $(shell id -g)
+BUILD_DIR     := $(PWD)
+DOCKER_FLAGS  := --interactive --tty
+COMPOSER_FLAGS :=
 
-.PHONY: ci test phpunit cs stan covers composer
+.DEFAULT_GOAL := ci
+
+.PHONY: ci test phpunit cs stan covers composer install update
 
 ci: test cs
 
@@ -22,3 +22,9 @@ phpcs:
 
 stan:
 	docker-compose run --rm php-fpm ./vendor/bin/phpstan analyse --level=1 --no-progress src/ tests/
+
+install:
+	docker run --rm $(DOCKER_FLAGS) --volume $(BUILD_DIR):/app -w /app --volume ~/.composer:/composer --user $(current_user):$(current_group) composer install --ignore-platform-reqs $(COMPOSER_FLAGS)
+
+update:
+	docker run --rm $(DOCKER_FLAGS) --volume $(BUILD_DIR):/app -w /app --volume ~/.composer:/composer --user $(current_user):$(current_group) composer update --ignore-platform-reqs $(COMPOSER_FLAGS)
