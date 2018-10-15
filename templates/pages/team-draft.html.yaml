@@ -1,0 +1,21 @@
+---
+template: pages/team.html.twig
+data:
+  team:
+    - title: Group 1
+      members:
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+    - title: Group 2
+      members:
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+...
