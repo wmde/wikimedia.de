@@ -1,5 +1,17 @@
 <?php
 
+// hijacking PHP request before Symfony kicks in
+
+// check if request contains template query
+// we're including a trailing slash in case it's `/templates`
+$templateQuery = explode('/templates/',$_SERVER['REQUEST_URI'].'/');
+if ( count ( $templateQuery ) > 1 ) {
+	// stop PHP propagation
+	return;
+}
+
+// start of actual Symfony application
+
 use App\Kernel;
 use App\TopLevelFactory;
 use Symfony\Component\Debug\Debug;
