@@ -6,6 +6,16 @@
 // we're including a trailing slash in case it's `/templates`
 $templateQuery = explode('/templates/',$_SERVER['REQUEST_URI'].'/');
 if ( count ( $templateQuery ) > 1 ) {
+
+	// kill potential trailing slash(es)
+	$query = preg_replace('/[\/]*$/' , '', $templateQuery[1] );
+
+	//this is supposed to have the name of the query w/ `tpl.yaml` extension
+	$queryFile = __DIR__.'/../templates/'.$query.'.html.yaml';
+
+	//no template definition – no output
+	if (!file_exists($queryFile)) { return; }
+
 	// stop PHP propagation
 	return;
 }
