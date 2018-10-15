@@ -1,1 +1,8 @@
-…
+{% for group in team %}
+    <p>{{ group.title }}</p>
+    {% for person in group.members %}
+        <p>{{ person.name }}</p>
+        <p>{{ person.position }}</p>
+        <p><a href="{{ person.mail }}">E-Mail</a></p>
+    {% endfor %}
+{% endfor %}
