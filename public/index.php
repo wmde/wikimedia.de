@@ -4,6 +4,12 @@
 // query is everything after `/templates/` + trailing slash in case it's `/templates`
 
 $templateQuery = explode('/templates/',$_SERVER['REQUEST_URI'].'/');
+
+//prep YAML loader
+//sorry, this should rather go in some templateQuery class
+use Symfony\Component\Yaml\Yaml;
+require_once __DIR__ . '/../vendor/autoload.php';
+
 if ( count ( $templateQuery ) > 1 ) {
 
 	// kill potential trailing slash(es)
@@ -14,6 +20,18 @@ if ( count ( $templateQuery ) > 1 ) {
 
 	//no template definition – no output
 	if (!file_exists($queryFile)) { return; }
+
+	// read YAML template def file
+	$data = Yaml::parse( file_get_contents($queryFile) );
+
+	// init Twig interpreter
+	$loader = new Twig_Loader_Filesystem('../templates');
+	$template = new Twig_Environment($loader,['debug'=>true]);
+	// + debugger
+	$template->addExtension(new \Twig_Extension_Debug());
+
+	// output template
+	echo $template->load($data['template'])->render($data['data']);
 
 	// stop PHP propagation
 	return;
