@@ -55,9 +55,4 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
         });
     });
 
-    console.log(teamList);
-
-    // TODO: single filter function
-    // TODO: multifilter function
-
 });
