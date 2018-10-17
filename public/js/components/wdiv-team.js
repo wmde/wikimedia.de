@@ -34,7 +34,10 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
     });
 
     var teamList = new List(teamWrapper, {
-        'listClass' : 'wdiv-team-content'
+        'listClass' : 'wdiv-team-content',
+        'valueNames' : [ {
+            data: [ 'group-id' ]
+        } ]
     });
 
     console.log(teamList);
