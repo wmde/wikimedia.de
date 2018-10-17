@@ -33,7 +33,12 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
         });
     });
 
-    // TODO: init List.js on content
+    var teamList = new List(teamWrapper, {
+        'listClass' : 'wdiv-team-content'
+    });
+
+    console.log(teamList);
+
     // TODO: single filter function
     // TODO: multifilter function
 
