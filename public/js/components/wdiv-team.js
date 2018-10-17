@@ -57,4 +57,14 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
         });
     });
 
+    context.querySelector('.wdiv-team-filter .filter-reset').addEventListener('click', function (change) {
+        // remove checked attribute
+        Array.prototype.forEach.call( inputFilters , function( inputFilter ){
+            inputFilter.checked = false;
+        });
+        // see, see: this doesn't trigger `change`, so we simply kill empty `active` array
+        active = [];
+        filter();
+    });
+
 });
