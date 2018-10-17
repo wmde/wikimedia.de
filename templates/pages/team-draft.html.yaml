@@ -2,7 +2,7 @@
 template: pages/team.html.twig
 data:
   team:
-    - title: Group 1
+    - title: Kommunikation
       members:
         - name: Foo bar
           position: Various
@@ -10,8 +10,65 @@ data:
         - name: Foo bar
           position: Various
           mail: foo@bar.foo
-    - title: Group 2
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+    - title: Programme
       members:
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+    - title: Ideenförderung
+      members:
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+    - title: Politik & Recht
+      members:
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+    - title: Bildung, Wissenschaft & Kultur
+      members:
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+    - title: Software-Entwicklung
+      members:
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+    - title: Fundraising
+      members:
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
+    - title: Finanzen & Zentrale Dienste
+      members:
+        - name: Foo bar
+          position: Various
+          mail: foo@bar.foo
         - name: Foo bar
           position: Various
           mail: foo@bar.foo
