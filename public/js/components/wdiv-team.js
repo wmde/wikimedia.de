@@ -7,13 +7,26 @@
 var context = document;
 Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , function (teamWrapper) {
 
+    // active filter lookup
+    var active = [];
+
     Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-filter input') , function( inputFilter ){
         inputFilter.addEventListener('change', function (change) {
 
-            if (! change.target.checked) { return; }
+            // Note: this logic assumes unique values on all checkboxes
+            var value = change.target.value;
 
-            // log value if checked
-            console.log(change.target.value);
+            if (change.target.checked) {
+                // option is checked: add to filter
+                active.push(change.target.value);
+                // that's all!
+                return;
+            }
+
+            // option is unchecked: remove existing filter
+            if ( active.indexOf(value) > -1 ) {
+                active.splice(active.indexOf(value));
+            }
 
         });
     });
