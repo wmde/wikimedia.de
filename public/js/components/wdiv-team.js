@@ -16,14 +16,17 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
             // Note: this logic assumes unique values on all checkboxes
             var value = change.target.value;
 
-            if (change.target.checked) {
-                // option is checked: add to filter
-                active.push(change.target.value);
-                // that's all!
-            } else {
-                // option is unchecked: remove existing filter
-                if ( active.indexOf(value) > -1 ) {
-                    active.splice(active.indexOf(value));
+            switch (change.target.checked) {
+                case true:
+                    // add to filter
+                    active.push(change.target.value);
+                    break;
+                case false:
+                    // remove existing filter
+                    if ( active.indexOf(value) > -1 ) {
+                        active.splice(active.indexOf(value));
+                    }
+                    break;
             }
 
         });
