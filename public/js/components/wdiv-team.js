@@ -20,6 +20,12 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
 
     // filter against `active` array
     function filter() {
+        if (active.length === 0) {
+            // reset any filter if none is active = show all
+            teamList.filter();
+            return ;
+        }
+
         teamList.filter(function(item) {
             // filter for items
             if ( active.indexOf( item.values()['group-id'] ) > -1 ) {
