@@ -10,6 +10,18 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
     // active filter lookup
     var active = [];
 
+    // filter against `active` array
+    function filter() {
+        teamList.filter(function(item) {
+            // filter for items
+            if ( active.indexOf( item.values()['group-id'] ) > -1 ) {
+               return true;
+            } else {
+               return false;
+            }
+        });
+    }
+
     // TODO: initial run if filters are already checked in markup
     Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-filter input') , function( inputFilter ){
         inputFilter.addEventListener('change', function (change) {
@@ -29,6 +41,8 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
                     }
                     break;
             }
+
+            filter();
 
         });
     });
