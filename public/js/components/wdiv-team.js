@@ -30,8 +30,10 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
         });
     }
 
+    var inputFilters = context.querySelectorAll('.wdiv-team-filter input');
+
     // TODO: initial run if filters are already checked in markup
-    Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-filter input') , function( inputFilter ){
+    Array.prototype.forEach.call( inputFilters , function( inputFilter ){
         inputFilter.addEventListener('change', function (change) {
 
             var value = change.target.value;
