@@ -7,11 +7,19 @@
 var context = document;
 Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , function (teamWrapper) {
 
-    // TODO: callbacks on filter
+    Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-filter input') , function( inputFilter ){
+        inputFilter.addEventListener('change', function (change) {
+
+            if (! change.target.checked) { return; }
+
+            // log value if checked
+            console.log(change.target.value);
+
+        });
+    });
+
     // TODO: init List.js on content
     // TODO: single filter function
     // TODO: multifilter function
-
-    console.log(teamWrapper);
 
 });
