@@ -10,12 +10,13 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
     // active filter lookup
     var active = [];
 
+    // TODO: initial run if filters are already checked
     Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-filter input') , function( inputFilter ){
         inputFilter.addEventListener('change', function (change) {
 
-            // Note: this logic assumes unique values on all checkboxes
             var value = change.target.value;
 
+            // Note: the following logic assumes unique values on all checkboxes
             switch (change.target.checked) {
                 case true:
                     // add to filter
