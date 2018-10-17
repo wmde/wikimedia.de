@@ -10,7 +10,7 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
     // active filter lookup
     var active = [];
 
-    // TODO: initial run if filters are already checked
+    // TODO: initial run if filters are already checked in markup
     Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-filter input') , function( inputFilter ){
         inputFilter.addEventListener('change', function (change) {
 
