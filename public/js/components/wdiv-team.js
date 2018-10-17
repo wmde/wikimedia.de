@@ -7,7 +7,15 @@
 var context = document;
 Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , function (teamWrapper) {
 
-    // active filter lookup
+    // init List.js object
+    var teamList = new List(teamWrapper, {
+        'listClass' : 'wdiv-team-content',
+        'valueNames' : [ {
+            data: [ 'group-id' ]
+        } ]
+    });
+
+    // active filter lookup array
     var active = [];
 
     // filter against `active` array
@@ -45,13 +53,6 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
             filter();
 
         });
-    });
-
-    var teamList = new List(teamWrapper, {
-        'listClass' : 'wdiv-team-content',
-        'valueNames' : [ {
-            data: [ 'group-id' ]
-        } ]
     });
 
     console.log(teamList);
