@@ -20,12 +20,10 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
                 // option is checked: add to filter
                 active.push(change.target.value);
                 // that's all!
-                return;
-            }
-
-            // option is unchecked: remove existing filter
-            if ( active.indexOf(value) > -1 ) {
-                active.splice(active.indexOf(value));
+            } else {
+                // option is unchecked: remove existing filter
+                if ( active.indexOf(value) > -1 ) {
+                    active.splice(active.indexOf(value));
             }
 
         });
