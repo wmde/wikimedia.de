@@ -1,0 +1,26 @@
+---
+template: pages/topics.html.twig
+data:
+  topics:
+    1:
+      title: Wikimedia
+      desc: |
+        Ehrenamtliche Autorinnen und Autoren teilen in der freien Enzyklopädie Wikipedia kostenlos ihr Wissen, indem sie Fehler verbessern, Fotos einbinden, Informationen aktuell halten und ganze Artikel schreiben. Ohne den unermüdlichen Einsatz von vielen Tausend Freiwilligen würden Projekte wie die Wikipedia nicht existieren. Deswegen ist die Förderung der Freiwilligen ein fester Bestandteil der Arbeit von Wikimedia Deutschland. 2017 haben wir beispielsweise zahlreiche Aktiven-Treffen ermöglicht – bei der größten davon, der WikiCon, kamen 287 Ehrenamtliche in Leipzig zusammen. Wir unterstützen auch die Einrichtung lokaler Wikipedia-Büros, die mittlerweile in Köln, Hamburg, München und seit 2017 auch in Berlin die Arbeit der Freiwilligen erleichtern. Ein großer Schwerpunkt waren 2017 zudem die vier Banner- Kampagnen innerhalb der Wikipedia, mit denen wir neue Autorinnen und Autoren für die freie Enzyklopädie gewinnen wollten.
+    2:
+      title: Freiwillige
+      desc: |
+        Ehrenamtliche Autorinnen und Autoren teilen in der freien Enzyklopädie Wikipedia kostenlos ihr Wissen, indem sie Fehler verbessern, Fotos einbinden, Informationen aktuell halten und ganze Artikel schreiben. Ohne den unermüdlichen Einsatz von vielen Tausend Freiwilligen würden Projekte wie die Wikipedia nicht existieren. Deswegen ist die Förderung der Freiwilligen ein fester Bestandteil der Arbeit von Wikimedia Deutschland. 2017 haben wir beispielsweise zahlreiche Aktiven-Treffen ermöglicht – bei der größten davon, der WikiCon, kamen 287 Ehrenamtliche in Leipzig zusammen. Wir unterstützen auch die Einrichtung lokaler Wikipedia-Büros, die mittlerweile in Köln, Hamburg, München und seit 2017 auch in Berlin die Arbeit der Freiwilligen erleichtern. Ein großer Schwerpunkt waren 2017 zudem die vier Banner- Kampagnen innerhalb der Wikipedia, mit denen wir neue Autorinnen und Autoren für die freie Enzyklopädie gewinnen wollten.
+  projects:
+    - topic: 1
+      type: wide
+      title: Foo Bar
+      image: #
+      body: |
+        Lorem Ipsum
+    - topic: 2
+      type: wide
+      title: Foo Bar
+      image: #
+      body: |
+        Lorem Ipsum
+...
