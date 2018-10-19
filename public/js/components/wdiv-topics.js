@@ -23,6 +23,17 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') ,
 
     // simple one-value filter
     var filter = function(list, value) {
+        // no value means: clear filter
+        if (typeof value === "undefined") {
+            // reset filtering via native List.js function
+            list.filter()
+            // remove filtered attribute
+            list.list.classList.remove('js-filtered');
+            // done!
+            return;
+        }
+
+        // we have a value = filter
         list.filter(function(item) {
             // filter for items
             if ( value === item.values()['topic-id'] ) {
