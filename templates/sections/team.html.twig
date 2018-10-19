@@ -1,8 +1,8 @@
 <div class="wdiv-team-wrapper">
     <header class="wdiv-team-header">
         <div class="wdiv-team-filter">
-            {% for group in team %}
-                <p class="wdiv-team-filter-option"><input type="checkbox" value="{{loop.index}}" id="wdiv-group-filter-{{loop.index}}"><label for="wdiv-group-filter-{{loop.index}}">{{ group.title }}</label></p>
+            {% for domain in domains %}
+                <p class="wdiv-team-filter-option"><input type="checkbox" value="{{loop.index}}" id="wdiv-group-filter-{{loop.index}}"><label for="wdiv-group-filter-{{loop.index}}">{{ domain.title }}</label></p>
             {% endfor %}
             <p>
                 <button class="filter-reset">Filter aufheben</button>
@@ -10,10 +10,11 @@
         </div>
     </header>
     <div class="wdiv-team-content">
-    {% for group in team %}
-        <div class="wdiv-group" data-group-id="{{loop.index}}">
-            <h2 class="wdiv-group-title">{{ group.title }}</h2>
-            {% for person in group.members %}
+    {% for domain in domains %}
+    {% for team in domain.teams %}
+        <div class="wdiv-group" data-group-id="{{loop.parent.loop.index}}">
+            <h2 class="wdiv-group-title">{{ team.title }}</h2>
+            {% for person in team.members %}
                 <div class="wdiv-group-item">
                     <h3 class="wdiv-person-title">{{ person.name }}</h3>
                     <p>{{ person.position }}</p>
@@ -21,6 +22,7 @@
                 </div>
             {% endfor %}
         </div>
+    {% endfor %}
     {% endfor %}
     </div>
 </div>
