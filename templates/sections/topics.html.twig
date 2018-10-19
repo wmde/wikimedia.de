@@ -1,20 +1,30 @@
 <div class="wdiv-topics-wrapper">
     <header class="wdiv-topics-header">
         <div class="wdiv-topics-filter">
-            <p>
-                <button class="filter-reset">Alle Themen</button>
-            </p>
             {% for id, topic in topics %}
-                <p class="wdiv-topics-filter-option"><input type="radio" value="{{id}}" id="wdiv-topic-filter-{{id}}" name="wdiv-topic-filter"><label for="wdiv-topic-filter-{{id}}">{{ topic.title }}</label><div class="wdiv-topic-desc">{{ topic.desc | raw }}</div></p>
+                <p class="wdiv-topics-filter-option"><input type="radio" value="{{id}}" id="wdiv-topic-filter-{{id}}" name="wdiv-topic-filter"><label for="wdiv-topic-filter-{{id}}">{{ topic.title }}</label></p>
             {% endfor %}
         </div>
     </header>
     <div class="wdiv-topics-content">
-    {% for project in projects %}
-        <div class="wdiv-project wdiv-project-{{type}}" data-group-id="{{project.topic}}">
-            <h2 class="wdiv-project-title">{{ project.title }}</h2>
-            <p>{{ project.body | raw }}</p>
+        <div class="wdiv-topic-header">
+        {% for id, topic in topics %}
+            <div class="wdiv-topic wdiv-topic-{{id}}">
+                <div class="wdiv-topic-desc">{{ topic.desc | raw }}</div>
+                <h2 class="wdiv-topic-title">Projekte aus dem Bereich {{ topic.title }}</h2>
+                <p>
+                    <button class="wdiv-topics-filter-reset">Alle Projekte anzeigen</button>
+                </p>
+            </div>
+        {% endfor %}
+        <div>
+        <div class="wdiv-projects">
+        {% for project in projects %}
+            <div class="wdiv-project wdiv-project-{{type}}" data-group-id="{{project.topic}}">
+                <h2 class="wdiv-project-title">{{ project.title }}</h2>
+                <p>{{ project.body | raw }}</p>
+            </div>
+        {% endfor %}
         </div>
-    {% endfor %}
     </div>
 </div>
