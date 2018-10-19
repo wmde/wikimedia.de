@@ -1,1 +1,6 @@
 /* Topics */
+
+.wdiv-topic-header:not(.js-filtered) {
+    /* hide unfiltered topics */
+    display: none;
+}

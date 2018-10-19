@@ -47,6 +47,9 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') ,
             filter(topicList, value);
             filter(projectList, value);
 
+            topicList.list.classList.add('js-filtered');
+            projectList.list.classList.add('js-filtered');
+
             filter();
 
         });
