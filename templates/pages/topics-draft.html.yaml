@@ -33,4 +33,15 @@ data:
       image: #
       body: |
         Lorem Ipsum
+    - topic: 3
+      title: Foo Bar
+      image: #
+      body: |
+        Lorem Ipsum
+    - topic: 4
+      type: wide
+      title: Foo Bar
+      image: #
+      body: |
+        Lorem Ipsum
 ...
