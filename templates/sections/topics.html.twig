@@ -1,0 +1,20 @@
+<div class="wdiv-topics-wrapper">
+    <header class="wdiv-topics-header">
+        <div class="wdiv-topics-filter">
+            <p>
+                <button class="filter-reset">Alle Themen</button>
+            </p>
+            {% for id, topic in topics %}
+                <p class="wdiv-topics-filter-option"><input type="radio" value="{{id}}" id="wdiv-topic-filter-{{id}}" name="wdiv-topic-filter"><label for="wdiv-topic-filter-{{id}}">{{ topic.title }}</label><div class="wdiv-topic-desc">{{ topic.desc | raw }}</div></p>
+            {% endfor %}
+        </div>
+    </header>
+    <div class="wdiv-topics-content">
+    {% for project in projects %}
+        <div class="wdiv-project wdiv-project-{{type}}" data-group-id="{{project.topic}}">
+            <h2 class="wdiv-project-title">{{ project.title }}</h2>
+            <p>{{ project.body | raw }}</p>
+        </div>
+    {% endfor %}
+    </div>
+</div>
