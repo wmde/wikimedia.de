@@ -25,6 +25,7 @@
         {% for project in projects %}
             <div class="wdiv-project wdiv-project-{{project.type}}" data-topic-id="{{project.topic}}">
                 <h2 class="wdiv-project-title">{{ project.title }}</h2>
+                <h3>{{ topics[project.topic].title }}</h3>
                 <p>{{ project.body | raw }}</p>
             </div>
         {% endfor %}
