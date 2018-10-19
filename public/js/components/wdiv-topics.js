@@ -63,7 +63,9 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') ,
         });
     });
 
-    context.querySelector('.wdiv-topics-filter-reset').addEventListener('click', function (change) {
+    Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-filter-reset') , function (button) {
+
+    button.addEventListener('click', function (change) {
         // remove checked attribute
         Array.prototype.forEach.call( inputFilters , function( inputFilter ){
             inputFilter.checked = false;
@@ -72,6 +74,8 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') ,
         // reset filtering = don't pass value
         filter(topicList);
         filter(projectList);
+    });
+
     });
 
 
