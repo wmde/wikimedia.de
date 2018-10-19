@@ -21,4 +21,36 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') ,
         } ]
     });
 
+    // simple one-value filter
+    var filter = function(list, value) {
+        list.filter(function(item) {
+            // filter for items
+            if ( value === item.values()['topic-id'] ) {
+               return true;
+            } else {
+               return false;
+            }
+        });
+    }
+
+    var inputFilters = context.querySelectorAll('.wdiv-topics-filter input');
+
+    // TODO: initial run if filters are already checked in markup
+    Array.prototype.forEach.call( inputFilters , function( inputFilter ){
+        inputFilter.addEventListener('change', function (change) {
+
+            var value = change.target.value;
+
+            if (!change.target.checked) { return; }
+
+            // input was selected = filter both lists
+            filter(topicList, value);
+            filter(projectList, value);
+
+            filter();
+
+        });
+    });
+
+
 });
