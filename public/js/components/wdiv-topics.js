@@ -65,16 +65,16 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') ,
 
     Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-filter-reset') , function (button) {
 
-    button.addEventListener('click', function (change) {
-        // remove checked attribute
-        Array.prototype.forEach.call( inputFilters , function( inputFilter ){
-            inputFilter.checked = false;
+        button.addEventListener('click', function (change) {
+            // remove checked attribute
+            Array.prototype.forEach.call( inputFilters , function( inputFilter ){
+                inputFilter.checked = false;
+            });
+    
+            // reset filtering = don't pass value
+            filter(topicList);
+            filter(projectList);
         });
-
-        // reset filtering = don't pass value
-        filter(topicList);
-        filter(projectList);
-    });
 
     });
 
