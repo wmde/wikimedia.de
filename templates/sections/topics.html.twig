@@ -9,7 +9,7 @@
     <div class="wdiv-topics-content">
         <div class="wdiv-topic-header">
         {% for id, topic in topics %}
-            <div class="wdiv-topic wdiv-topic-{{id}}">
+            <div class="wdiv-topic wdiv-topic-{{id}}" data-topic-id="{{id}}">
                 <div class="wdiv-topic-desc">{{ topic.desc | raw }}</div>
                 <h2 class="wdiv-topic-title">Projekte aus dem Bereich {{ topic.title }}</h2>
                 <p>
@@ -20,7 +20,7 @@
         <div>
         <div class="wdiv-projects">
         {% for project in projects %}
-            <div class="wdiv-project wdiv-project-{{type}}" data-group-id="{{project.topic}}">
+            <div class="wdiv-project wdiv-project-{{type}}" data-topic-id="{{project.topic}}">
                 <h2 class="wdiv-project-title">{{ project.title }}</h2>
                 <p>{{ project.body | raw }}</p>
             </div>
