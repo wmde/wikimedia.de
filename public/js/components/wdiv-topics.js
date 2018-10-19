@@ -8,7 +8,6 @@ var context = document;
 Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') , function (topicsWrapper) {
 
     // init List.js object
-    // TODO: using the same wrapper causes errors
     var topicList = new List(topicsWrapper, {
         'listClass' : 'wdiv-topic-header',
         'valueNames' : [ {
@@ -50,8 +49,6 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') ,
             filter(topicList, value);
             filter(projectList, value);
 
-
-            filter();
 
         });
     });
