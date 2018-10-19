@@ -2,7 +2,10 @@
     <header class="wdiv-topics-header">
         <div class="wdiv-topics-filter">
             {% for id, topic in topics %}
-                <p class="wdiv-topics-filter-option"><input type="radio" value="{{id}}" id="wdiv-topic-filter-{{id}}" name="wdiv-topic-filter"><label for="wdiv-topic-filter-{{id}}">{{ topic.title }}</label></p>
+                <p class="wdiv-topics-filter-option">
+                    <input type="radio" value="{{id}}" id="wdiv-topic-filter-{{id}}" name="wdiv-topic-filter">
+                    <label for="wdiv-topic-filter-{{id}}">{{ topic.title }}</label>
+                </p>
             {% endfor %}
         </div>
     </header>
