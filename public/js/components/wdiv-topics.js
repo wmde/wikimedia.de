@@ -60,8 +60,18 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') ,
             filter(topicList, value);
             filter(projectList, value);
 
-
         });
+    });
+
+    context.querySelector('.wdiv-topics-filter-reset').addEventListener('click', function (change) {
+        // remove checked attribute
+        Array.prototype.forEach.call( inputFilters , function( inputFilter ){
+            inputFilter.checked = false;
+        });
+
+        // reset filtering = don't pass value
+        filter(topicList);
+        filter(projectList);
     });
 
 
