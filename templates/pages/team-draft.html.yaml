@@ -1,78 +1,127 @@
 ---
 template: pages/team.html.twig
 data:
-  team:
+  domains:
+    - title: Softwareentwicklung
+      teams:
+        - title: Wikidata
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+        - title: Technische Wünsche & Fundraising
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+        - title: Community-Kommunikation
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+        - title: UX & Design
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+        - title: Softwareentwicklung
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+        - title: Community-Kommunikation
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+        - title: Produktmanagement
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
     - title: Kommunikation
-      members:
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-    - title: Programme
-      members:
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-    - title: Ideenförderung
-      members:
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-    - title: Politik & Recht
-      members:
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-    - title: Bildung, Wissenschaft & Kultur
-      members:
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-    - title: Software-Entwicklung
-      members:
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
+      teams:
+        - title: Kommunikation
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+    - title: Vorstand
+      teams:
+        - title: Vorstand
+        - title: Internationales
+        - title: Präsidium
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
     - title: Fundraising
-      members:
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-    - title: Finanzen & Zentrale Dienste
-      members:
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
-        - name: Foo bar
-          position: Various
-          mail: foo@bar.foo
+      teams:
+        - title: Fundraising
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+    - title: Zentrale Dienste
+      teams:
+        - title: Eventmanagement
+        - title: Officemanagement
+        - title: Finanzadministration & Berichtswesen
+        - title: Personal
+        - title: Interne IT
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+    - title: Programme
+      teams:
+        - title: Politik & Recht
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
+        - title: Bildung, Wissenschaft & Kultur
+        - title: IF Projekte
+        - title: IF Förderung
+        - title: Programme
+          members:
+            - name: Foo bar
+              position: Various
+              mail: foo@bar.foo
 ...
