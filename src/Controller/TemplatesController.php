@@ -12,12 +12,12 @@ use Symfony\Component\Yaml\Yaml;
 
 class TemplatesController extends Controller {
 
-	public function preview( Request $request ): Response {
+	public function preview( Request $request, $path ): Response {
+		// note: the route comes w/ a $path enviroment variable, see
+		// /config/routes.yaml
 
-		// TODO: use a request part instead of hardcoded
-		$previewPath = 'pages/team-draft';
 
-		$preview = Yaml::parse( file_get_contents(__DIR__.'/../../templates/'.$previewPath.'.html.yaml') );
+		$preview = Yaml::parse( file_get_contents(__DIR__.'/../../templates/pages/'.$path.'.html.yaml') );
 
 		// we're assuming a data pattern w/ keys `template` and `data` on root
 		return $this->render( $preview['template'], $preview['data'] );

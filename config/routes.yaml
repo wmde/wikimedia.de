@@ -28,5 +28,5 @@ charter:
 # TODO: this does not yet process request parts, e.g. `templates/pages/team-draft`
 # TODO: this currently only works w/ locale, e.g. `/de/templates`
 templates:
-    path: /templates
+    path: /templates/{path}
     controller: App\Controller\TemplatesController::preview
