@@ -1,8 +1,5 @@
 <?php
 
-// Template query? Hijacking PHP request before Symfony kicks in
-include_once('../templates/helper.inc');
-
 // start of actual Symfony application
 
 use App\Kernel;
