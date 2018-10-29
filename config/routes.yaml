@@ -25,8 +25,11 @@ charter:
     path: /charter
     controller: App\Controller\SimplePageController::charter
 
-# TODO: this does not yet process request parts, e.g. `templates/pages/team-draft`
 # TODO: this currently only works w/ locale, e.g. `/de/templates`
 templates:
     path: /templates/{path}
     controller: App\Controller\TemplatesController::preview
+    # allow slashes in route parameters, see
+    # https://symfony.com/doc/current/routing/slash_in_parameter.html
+    requirements:
+        path: .+
