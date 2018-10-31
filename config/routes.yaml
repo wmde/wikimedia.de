@@ -25,7 +25,6 @@ charter:
     path: /charter
     controller: App\Controller\SimplePageController::charter
 
-# TODO: this currently only works w/ locale, e.g. `/de/templates`
 templates:
     path: /templates{path}
     controller: App\Controller\TemplatesController::preview
