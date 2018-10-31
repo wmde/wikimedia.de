@@ -14,7 +14,7 @@ class TemplatesController extends Controller {
 
 	public function previewTopics( Request $request ): Response {
 		$path = '/pages/topics-draft';
-		$preview = Yaml::parse( file_get_contents(__DIR__.'/../../templates'.$path.'.html.yaml') );
+		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates'.$path.'.html.yaml' ) );
 
 		// we're assuming a data pattern w/ keys `template` and `data` on root
 		return $this->render( $preview['template'], $preview['data'] );
@@ -22,11 +22,10 @@ class TemplatesController extends Controller {
 
 	public function previewTeam( Request $request ): Response {
 		$path = '/pages/team-draft';
-		$preview = Yaml::parse( file_get_contents(__DIR__.'/../../templates'.$path.'.html.yaml') );
+		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates'.$path.'.html.yaml' ) );
 
 		// we're assuming a data pattern w/ keys `template` and `data` on root
 		return $this->render( $preview['template'], $preview['data'] );
 	}
-
 
 }
