@@ -12,11 +12,8 @@ use Symfony\Component\Yaml\Yaml;
 
 class TemplatesController extends Controller {
 
-	public function preview( Request $request, $path ): Response {
-		// note: the route comes w/ a $path enviroment variable, see
-		// /config/routes.yaml
-
-
+	public function previewTopics( Request $request ): Response {
+			$path = '/pages/topics-draft';
 		$preview = Yaml::parse( file_get_contents(__DIR__.'/../../templates'.$path.'.html.yaml') );
 
 		// we're assuming a data pattern w/ keys `template` and `data` on root

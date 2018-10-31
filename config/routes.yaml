@@ -25,10 +25,14 @@ charter:
     path: /charter
     controller: App\Controller\SimplePageController::charter
 
-templates:
-    path: /templates{path}
-    controller: App\Controller\TemplatesController::preview
-    # allow slashes in route parameters, see
-    # https://symfony.com/doc/current/routing/slash_in_parameter.html
-    requirements:
-        path: .+
+templatesTopics:
+    path: /templates/pages/topics-draft
+    controller: App\Controller\TemplatesController::previewTopics
+
+# templates:
+#     path: /templates{path}
+#     controller: App\Controller\TemplatesController::preview
+#     # allow slashes in route parameters, see
+#     # https://symfony.com/doc/current/routing/slash_in_parameter.html
+#     requirements:
+#         path: .+
