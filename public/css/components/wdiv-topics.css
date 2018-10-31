@@ -1,26 +1,28 @@
 /* general? */
 
-main {
-    padding-left: calc( 250 / 1140 * 100% );
-    position: relative;
+@media (min-width: 720px) {
+    main {
+        padding-left: calc( 250 / 1140 * 100% );
+        position: relative;
+    }
+
+    main::before {
+        content: '';
+        position: absolute;
+
+        left: 0;
+        width: calc( 250 / 1140 * 100% );
+        max-width: 250px;
+        height: 100%;
+
+        background-color: #339966;
+    }
 }
 
 @media (min-width: 1140px) {
     main {
         padding-left: 250px;
     }
-}
-
-main::before {
-    content: '';
-    position: absolute;
-
-    left: 0;
-    width: calc( 250 / 1140 * 100% );
-    max-width: 250px;
-    height: 100%;
-
-    background-color: #339966;
 }
 
 /* Topics */
