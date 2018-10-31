@@ -29,6 +29,10 @@ templatesTopics:
     path: /templates/pages/topics-draft
     controller: App\Controller\TemplatesController::previewTopics
 
+templatesTeam:
+    path: /templates/pages/team-draft
+    controller: App\Controller\TemplatesController::previewTeam
+
 # templates:
 #     path: /templates{path}
 #     controller: App\Controller\TemplatesController::preview
