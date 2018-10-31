@@ -17,7 +17,7 @@ class TemplatesController extends Controller {
 		// /config/routes.yaml
 
 
-		$preview = Yaml::parse( file_get_contents(__DIR__.'/../../templates/'.$path.'.html.yaml') );
+		$preview = Yaml::parse( file_get_contents(__DIR__.'/../../templates'.$path.'.html.yaml') );
 
 		// we're assuming a data pattern w/ keys `template` and `data` on root
 		return $this->render( $preview['template'], $preview['data'] );

@@ -27,7 +27,7 @@ charter:
 
 # TODO: this currently only works w/ locale, e.g. `/de/templates`
 templates:
-    path: /templates/{path}
+    path: /templates{path}
     controller: App\Controller\TemplatesController::preview
     # allow slashes in route parameters, see
     # https://symfony.com/doc/current/routing/slash_in_parameter.html
