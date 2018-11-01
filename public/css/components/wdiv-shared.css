@@ -30,3 +30,10 @@
 .wdiv-max-width-1190 {
     max-width: 1190px; /* subtracts sidebar width from main container */
 }
+
+/* header */
+
+.wdiv-header-meta {
+    /* imitate existing height */
+    height: 72px;
+}

@@ -23,6 +23,7 @@
         <div class="wdiv-sidebar-alignment">
         <header class="mh">
             <div class="mh__inner clearfix cp--h1 center-column wdiv-max-width-1190">
+                <div class="wdiv-header-meta">
                 <a href="https://spenden.wikimedia.de/apply-for-membership?piwik_campaign=wm.de_neu&piwik_kwd=mitglieds_btn"
                         class="mh__support cp--0-5"
                         role="button"
@@ -40,6 +41,7 @@
                             <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'en'}) }}" {% if app.request.locale == 'en' %}class="active"{% endif %}>English (en)</a>
                         </nav>
                     </div>
+                </div>
                 </div>
             </div>
         </header>
