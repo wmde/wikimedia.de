@@ -1,11 +1,19 @@
 {% extends 'base.html.twig' %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('/js/vendor/list.min.js') }}"></script>
+    <script src="{{ asset('/js/components/wdiv-topics.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('/css/components/wdiv-topics.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
 {% block body %}
     <main id="main" style="font-family: sans-serif; line-height: 1.4em;">
-        <link href="/css/components/wdiv-topics.css" rel="stylesheet" type="text/css">
         <h1>Unsere Themen</h1>
         {% include 'sections/topics.html.twig' %}
-        <script src="/js/vendor/list.min.js"></script>
-        <script src="/js/components/wdiv-topics.js"></script>
     </main>
 {% endblock %}
