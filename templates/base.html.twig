@@ -21,34 +21,46 @@
     <body class="layout-default">
         <a href="#main" class="skip-nav">Navigation überspringen</a>
         <div class="wdiv-sidebar-alignment">
-        <header class="wdiv-page-header">
-        <div class="mh">
-            <div class="mh__inner clearfix cp--h1 center-column wdiv-max-width-1190">
-                <div class="wdiv-header-meta">
-                <a href="https://spenden.wikimedia.de/apply-for-membership?piwik_campaign=wm.de_neu&piwik_kwd=mitglieds_btn"
-                        class="mh__support cp--0-5"
-                        role="button"
-                        aria-label="Go to the section ‚Support Free Knowledge‘">
-                    <div class="wh__support-inner">
-                        <div class="tm--gamma t--caps t--strong">{% trans %}header.support.knowledge.link{% endtrans %}</div>
-                        <div class="tm--delta">{% trans %}header.support.knowledge.link.continued{% endtrans %}</div>
-                    </div>
-                </a>
-                <div class="nav-locale-toggle ts--alpha">
-                    <div class="nav-locale-wrapper">
-                        <div class="nav-locale-toggle__locale">{{ app.request.locale|escape }}</div>
-                        <nav class="nav-locale">
-                            <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'de'}) }}" {% if app.request.locale == 'de' %}class="active"{% endif %}>Deutsch (de)</a>
-                            <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'en'}) }}" {% if app.request.locale == 'en' %}class="active"{% endif %}>English (en)</a>
-                        </nav>
+            <header class="wdiv-page-header">
+                <!-- <div class="wdiv-header-nav">
+                <h2>
+                    <a href="{{ path('index') }}">Wikimedia Deutschland e. V.</a>
+                </h2>
+                <nav>
+                    <a href="#"></a>Themen<br>
+                    <a href="#"></a>Über Uns<br>
+                    <a href="#"></a>Menschen<br>
+                    <a href="#"></a>Kontakt<br>
+                    <a href="#"></a>Unterstütze Uns<br>
+                </nav>
+                </div> -->
+                <div class="mh">
+                    <div class="mh__inner clearfix cp--h1 center-column wdiv-max-width-1190">
+                        <div class="wdiv-header-meta">
+                            <a href="https://spenden.wikimedia.de/apply-for-membership?piwik_campaign=wm.de_neu&piwik_kwd=mitglieds_btn"
+                                    class="mh__support cp--0-5"
+                                    role="button"
+                                    aria-label="Go to the section ‚Support Free Knowledge‘">
+                                <div class="wh__support-inner">
+                                    <div class="tm--gamma t--caps t--strong">{% trans %}header.support.knowledge.link{% endtrans %}</div>
+                                    <div class="tm--delta">{% trans %}header.support.knowledge.link.continued{% endtrans %}</div>
+                                </div>
+                            </a>
+                            <div class="nav-locale-toggle ts--alpha">
+                                <div class="nav-locale-wrapper">
+                                    <div class="nav-locale-toggle__locale">{{ app.request.locale|escape }}</div>
+                                    <nav class="nav-locale">
+                                        <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'de'}) }}" {% if app.request.locale == 'de' %}class="active"{% endif %}>Deutsch (de)</a>
+                                        <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'en'}) }}" {% if app.request.locale == 'en' %}class="active"{% endif %}>English (en)</a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>
-        </div>
-        </header>
-
-        {% block body %}{% endblock %}
+            </header>
+    
+            {% block body %}{% endblock %}
 
         </div>
 
