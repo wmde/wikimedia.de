@@ -10,3 +10,39 @@
     /* hide unfiltered topics */
     display: none;
 }
+
+.wdiv-topics-heading {
+    /* WIP: color test */
+    background-color: rgb(233, 238, 240);
+
+    padding-top: 72px;
+}
+
+.wdiv-topics-heading-container {
+    padding-top: calc( 530 / 1050 * 100% );
+    height: 0;
+
+    position: relative;
+}
+
+.wdiv-topics-heading-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Filter */
+
+/* TODO: unify markup for both filters */
+
+.wdiv-topics-filter {
+    /* brute clearfix */
+    width: 100%;
+    float: left;
+}
+
+.wdiv-topics-filter-option {
+    width: calc(100%/3);
+    float: left;
+}
+
