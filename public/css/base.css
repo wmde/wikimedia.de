@@ -16,6 +16,9 @@
 @import "globals/text.css";
 @import "globals/util.css";
 @import "globals/layout.css";
+
+@import "components/wdiv-shared.css";
+
 @import "globals/header.css";
 @import "globals/footer.css";
 @import "globals/forms.css";
