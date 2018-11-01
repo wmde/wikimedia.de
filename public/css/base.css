@@ -17,8 +17,6 @@
 @import "globals/util.css";
 @import "globals/layout.css";
 
-@import "components/wdiv-shared.css";
-
 @import "globals/header.css";
 @import "globals/footer.css";
 @import "globals/forms.css";
@@ -36,8 +34,6 @@
 @import "components/fields.css";
 @import "components/figure.css";
 
-/*
-  All "views" CSS files, except those in "elements", are loaded
-  automatically when needed. However its good practive to scope
-  them to their page.
-*/
+
+/* Phase IV redesign */
+@import "components/wdiv-shared.css";
