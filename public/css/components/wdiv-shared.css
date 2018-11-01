@@ -33,7 +33,7 @@
 
 /* header */
 
-.wdiv-header-meta {
+.wdiv-header-meta-container {
     /* imitate existing height */
     height: 72px;
 }
