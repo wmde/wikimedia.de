@@ -1,6 +1,9 @@
 <div class="wdiv-topics-wrapper">
     <header class="wdiv-topics-header">
-        <h1>Unsere Themen</h1>
+        <div class="wdiv-topics-heading">
+            <h1 class="clearfix cp--h1 center-column wdiv-max-width-1190">Unsere Themen</h1>
+        </div>
+        <div class="clearfix cp--h1 center-column wdiv-max-width-1190">
         <div class="wdiv-topics-filter">
             {% for id, topic in topics %}
                 <p class="wdiv-topics-filter-option">
@@ -9,7 +12,9 @@
                 </p>
             {% endfor %}
         </div>
+        </div>
     </header>
+    <div class="clearfix cp--h1 center-column wdiv-max-width-1190">
     <div class="wdiv-topics-content">
         <div class="wdiv-topic-header">
         {% for id, topic in topics %}
@@ -31,5 +36,6 @@
             </div>
         {% endfor %}
         </div>
+    </div>
     </div>
 </div>
