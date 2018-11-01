@@ -1,5 +1,7 @@
 /* general */
 
+/* new sidebar layout */
+
 @media (min-width: 720px) {
     .wdiv-sidebar-alignment {
         padding-left: calc( 250 / 1140 * 100% );
@@ -23,4 +25,8 @@
     .wdiv-sidebar-alignment {
         padding-left: 250px;
     }
+}
+
+.wdiv-max-width-1190 {
+    max-width: 1190px; /* subtracts sidebar width from main container */
 }
