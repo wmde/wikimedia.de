@@ -12,8 +12,9 @@
 {% endblock %}
 
 {% block body %}
-    <main id="main" style="font-family: sans-serif; line-height: 1.4em;">
-        <h1>Unsere Themen</h1>
-        {% include 'sections/topics.html.twig' %}
+    <main id="main">
+        <div class="clearfix cp--h1 center-column wdiv-max-width-1190">
+            {% include 'sections/topics.html.twig' %}
+        </div>
     </main>
 {% endblock %}
