@@ -6,14 +6,16 @@
             </div>
         </div>
         <div class="clearfix cp--h1 center-column wdiv-max-width-1190">
-        <div class="wdiv-topics-filter">
+        <div class="wdiv-topics-filter wdiv-clearfix">
             {% for id, topic in topics %}
-                <p class="wdiv-topics-filter-option">
+                <p class="wdiv-topics-filter-col">
                     <input type="radio" value="{{id}}" id="wdiv-topic-filter-{{id}}" name="wdiv-topic-filter">
-                    <label for="wdiv-topic-filter-{{id}}">{{ topic.title }}</label>
+                    <label class="wdiv-topics-filter-option" for="wdiv-topic-filter-{{id}}">{{ topic.title }}</label>
                 </p>
             {% endfor %}
-            <button class="wdiv-topics-filter-option wdiv-topics-filter-reset">Alle Projekte anzeigen</button>
+            <p class="wdiv-topics-filter-col">
+                <button class="wdiv-topics-filter-option wdiv-topics-filter-reset">Alle Projekte anzeigen</button>
+            </p>
         </div>
         </div>
     </header>

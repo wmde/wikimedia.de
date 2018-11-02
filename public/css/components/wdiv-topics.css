@@ -36,13 +36,31 @@
 /* TODO: unify markup for both filters */
 
 .wdiv-topics-filter {
-    /* brute clearfix */
-    width: 100%;
+    margin: 0 -5px; /* account for gutter */
+}
+
+.wdiv-topics-filter-col {
+    width: calc( 100% / 4 - 10px );
     float: left;
+
+    margin: 0 5px; /* gutter */
 }
 
 .wdiv-topics-filter-option {
-    width: calc(100%/3);
-    float: left;
+    display: block;
+
+    font-size: 16px;
+    line-height: 1.375em; /* 22 to 16px */
+    padding: 9px 0 9px 32px;
+
+    /* skinning */
+
+    border-bottom: 1px solid #339966;
+
+    color: #339966;
+    font-weight: 500; /* medium */
+    font-family: 'Montserrat', sans-serif;
+
+    cursor: pointer;
 }
 
