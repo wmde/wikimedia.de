@@ -1,5 +1,15 @@
 /* general */
 
+.wdiv-clearfix::after {
+/*
+    via (defunct)
+    http://cssmojo.com/the-very-latest-clearfix-reloaded/
+*/
+    content: "";
+    display: block;
+    clear: both;
+}
+
 /* new sidebar layout */
 
 @media (min-width: 720px) {
