@@ -1,4 +1,4 @@
-/* general */
+/* shared/layout */
 
 .wdiv-clearfix::after {
 /*
@@ -10,7 +10,7 @@
     clear: both;
 }
 
-/* new sidebar layout */
+/* shared/new sidebar */
 
 @media (min-width: 720px) {
     .wdiv-sidebar-alignment {
@@ -41,7 +41,7 @@
     max-width: 1190px; /* subtracts sidebar width from main container */
 }
 
-/* header */
+/* shared/new header */
 
 .wdiv-header-meta-container {
     /* imitate existing height */
