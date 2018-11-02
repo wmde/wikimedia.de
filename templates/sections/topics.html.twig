@@ -13,6 +13,7 @@
                     <label for="wdiv-topic-filter-{{id}}">{{ topic.title }}</label>
                 </p>
             {% endfor %}
+            <button class="wdiv-topics-filter-option wdiv-topics-filter-reset">Alle Projekte anzeigen</button>
         </div>
         </div>
     </header>
@@ -23,9 +24,6 @@
             <div class="wdiv-topic wdiv-topic-{{id}}" data-topic-id="{{id}}">
                 <div class="wdiv-topic-desc">{{ topic.desc | raw }}</div>
                 <h2 class="wdiv-topic-title">Projekte aus dem Bereich {{ topic.title }}</h2>
-                <p>
-                    <button class="wdiv-topics-filter-reset">Alle Projekte anzeigen</button>
-                </p>
             </div>
         {% endfor %}
         </div>
