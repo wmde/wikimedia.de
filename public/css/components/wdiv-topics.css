@@ -158,13 +158,17 @@ input[type="radio"]:checked + .wdiv-topics-filter-option .wdiv-topics-filter-ind
     position: relative;
 
     display: grid;
-    /* grid:  auto-flow dense / 40px 40px 1fr; */
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(6, 1fr); /* we need 6 cols */
 }
 
 .wdiv-project {
     background-color: white;
     margin: 30px; /* adds up to 60px gutter */
+    grid-column: span 2; /* use 2 cols */
+}
+
+.wdiv-project-wide {
+    grid-column: span 3; /* use 3 cols */
 }
 
 
