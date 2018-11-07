@@ -64,3 +64,22 @@
     cursor: pointer;
 }
 
+.wdiv-topics-filter input[type="radio"] {
+    /* display: none; */
+    visibility: hidden;
+}
+
+/* reset button */
+
+button.wdiv-topics-filter-option {
+    /* reset button has wrong widht */
+    width: 100%;
+
+    /* hmm? */
+    text-align: left;
+
+    /* reset standard button borders … rather clunky */
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
