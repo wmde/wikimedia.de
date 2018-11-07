@@ -58,7 +58,10 @@
     margin: 0 5px; /* gutter */
 }
 
-.wdiv-topics-filter-option {
+/* general filter design */
+
+.wdiv-topics-filter-option,
+.wdiv-topics-filter-reset {
     display: block;
 
     position: relative;
@@ -67,10 +70,6 @@
     line-height: 1.375em; /* 22 to 16px */
     padding: 9px 0 9px 32px;
 
-    /* skinning */
-
-    border-bottom: 1px solid #339966;
-
     color: #339966;
     font-weight: 500; /* medium */
     font-family: 'Montserrat', sans-serif;
@@ -78,8 +77,32 @@
     cursor: pointer;
 }
 
+.wdiv-topics-filter-option {
+    /* skinning */
+
+    border-bottom: 1px solid #339966;
+}
+
+
+/* reset button */
+
+.wdiv-topics-filter-reset {
+    /* reset button has wrong widht */
+    width: 100%;
+
+    /* hmm? */
+    text-align: left;
+
+    /* reset standard button borders … rather clunky */
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+/* indicator */
+
 .wdiv-topics-filter input[type="radio"] {
-    /* display: none; */
+    /* hide actual element */
     visibility: hidden;
 }
 
@@ -125,19 +148,4 @@ input[type="radio"] + .wdiv-topics-filter-option .wdiv-topics-filter-indicator::
 
 input[type="radio"]:checked + .wdiv-topics-filter-option .wdiv-topics-filter-indicator::before {
     transform: translate(-50%, -50%) scale(1);
-}
-
-/* reset button */
-
-button.wdiv-topics-filter-option {
-    /* reset button has wrong widht */
-    width: 100%;
-
-    /* hmm? */
-    text-align: left;
-
-    /* reset standard button borders … rather clunky */
-    border-top: none;
-    border-left: none;
-    border-right: none;
 }
