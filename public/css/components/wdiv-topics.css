@@ -37,6 +37,39 @@
     left: 0;
 }
 
+.wdiv-topics-heading .wdiv-heading-box {
+    position: absolute;
+    top: 25%;
+    left: 24%; /* elbow grease: move box content to the left */
+
+    display: block;
+    width: calc( 200 / 1050 * 100% ); /* 200px tp 1050px */
+    height: 0;
+    padding-top: calc( 232 / 1050 * 100% ); /* 223px to 200px tp 1050px */
+
+    background-image: url('/img/wdiv/cube-default.png');
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.wdiv-heading-box-1 {
+    transform: translate(50%,0); /* X: 0,5 / Y: 0 */
+}
+
+.wdiv-heading-box-2 {
+    transform: translate(150%,49.5%); /* X: 1,5 / Y: 0 */
+}
+
+.wdiv-heading-box-3 {
+    transform: translate(0,74.5%); /* X: 0 / Y: 1 */
+}
+
+.wdiv-heading-box-4 {
+    transform: translate(100%,74.5%); /* X: 1 / Y: 1 */
+}
+
+
 .wdiv-topic-desc {
     background-color: white;
 
