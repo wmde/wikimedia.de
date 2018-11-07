@@ -47,6 +47,12 @@
 
                     <div class="wdiv-project-body tm--epsilon">
                         <p>{{ project.body | raw }}</p>
+
+                        {% if project.link is defined %}
+                        <p class="wdiv-project-links ts--alpha">
+                            <a href="{{ project.link }}">Zur Projektseite</a>
+                        </p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
