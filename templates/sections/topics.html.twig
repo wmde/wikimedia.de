@@ -29,9 +29,10 @@
             </div>
         {% endfor %}
         </div>
-        <div class="wdiv-projects">
+        <div class="wdiv-projects wdiv-clearfix">
         {% for project in projects %}
             <div class="wdiv-project {% if project.type is defined %}wdiv-project-{{project.type}}{% endif %}" data-topic-id="{{project.topic}}">
+                <img class="wdiv-project-img" src="{{ project.image }}">
                 <h2 class="wdiv-project-title">{{ project.title }}</h2>
                 <h3>{{ topics[project.topic].title }}</h3>
                 <p>{{ project.body | raw }}</p>

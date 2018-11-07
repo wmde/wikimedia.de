@@ -149,3 +149,24 @@ input[type="radio"] + .wdiv-topics-filter-option .wdiv-topics-filter-indicator::
 input[type="radio"]:checked + .wdiv-topics-filter-option .wdiv-topics-filter-indicator::before {
     transform: translate(-50%, -50%) scale(1);
 }
+
+/* Topic Cards */
+
+.wdiv-projects {
+    clear: both;
+    margin: -30px; /* negative gutter */
+    position: relative;
+}
+
+.wdiv-project {
+    background-color: white;
+    width: calc( 300 / 1110 * 100% ); /* 300px to 1050px + 2x30px gutter */
+    float: left;
+
+    margin: 30px;
+}
+
+
+.wdiv-project-img {
+    width: 100%;
+}
