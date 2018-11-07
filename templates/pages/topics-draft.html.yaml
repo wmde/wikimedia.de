@@ -22,26 +22,42 @@ data:
         <p>Als Gesellschaft zur Förderung Freien Wissens arbeitet Wikimedia Deutschland daran, dass Projekte wie die Wikipedia auch in Zukunft existieren können und dass Freies Wissen in unserer Gesellschaft zur Selbstverständlichkeit wird. Wir unterstützen die unschätzbar wertvolle Arbeit der Ehrenamtlichen in den Wikimedia-Projekten und wirken darauf hin, dass sich noch mehr Menschen beteiligen. Wir entwickeln und verbessern Software, damit Freiwillige ihr Wissen noch besser in den Wikimedia-Projekten teilen können. Wir arbeiten mit Institutionen aus Kultur, Bildung und Wissenschaft zusammen und bringen politischen und gesellschaftlichen Entscheidungsträgern die Idee des Freien Wissens näher..</p>
   projects:
     - topic: 1
+      title: Foo Bar
+      image: /img/projects/Monsters_of_Law_-_Folie.jpg
+      body: |
+        Lorem Ipsum
+    - topic: 2
+      title: Foo Bar
+      image: /img/projects/Coding_da_Vinci_Sticker.jpg
+      body: |
+        Lorem Ipsum
+    - topic: 3
+      title: Foo Bar
+      image: /img/projects/Ein_Eisvogel_im_Schwebflug.jpg
+      body: |
+        Lorem Ipsum
+      link: #
+    - topic: 4
       type: wide
       title: Foo Bar
-      image: #
+      image: /img/projects/Logo_Fellowprogramm_quer.jpg
+      body: |
+        Lorem Ipsum
+    - topic: 4
+      title: Foo Bar
+      image: /img/projects/Tech_on_Tour_2.jpg
+      body: |
+        Lorem Ipsum
+    - topic: 3
+      title: Foo Bar
+      image: /img/projects/WikiCon_2014-Begrüß_ungs_ver_an_stal_tung_für_alle_Teilnehmer_im_Festsaal_(4).jpg
+      link: #
       body: |
         Lorem Ipsum
     - topic: 2
       type: wide
       title: Foo Bar
-      image: #
-      body: |
-        Lorem Ipsum
-    - topic: 3
-      title: Foo Bar
-      image: #
-      body: |
-        Lorem Ipsum
-    - topic: 4
-      type: wide
-      title: Foo Bar
-      image: #
+      image: /img/projects/Wikidata-logo-v3.jpg
       body: |
         Lorem Ipsum
 ...
