@@ -30,8 +30,10 @@
         <div class="wdiv-topic-header">
         {% for id, topic in topics %}
             <div class="wdiv-topic wdiv-topic-{{id}}" data-topic-id="{{id}}">
-                <div class="wdiv-topic-desc">{{ topic.desc | raw }}</div>
-                <h2 class="wdiv-topic-title">Projekte aus dem Bereich {{ topic.title }}</h2>
+                <div class="wdiv-topic-desc">
+                    {{ topic.desc | raw }}
+                </div>
+                <h2 class="wdiv-topic-title tm--alpha">Projekte aus dem Bereich {{ topic.title }}</h2>
             </div>
         {% endfor %}
         </div>
@@ -39,9 +41,14 @@
         {% for project in projects %}
             <div class="wdiv-project {% if project.type is defined %}wdiv-project-{{project.type}}{% endif %}" data-topic-id="{{project.topic}}">
                 <img class="wdiv-project-img" src="{{ project.image }}">
-                <h2 class="wdiv-project-title">{{ project.title }}</h2>
-                <h3>{{ topics[project.topic].title }}</h3>
-                <p>{{ project.body | raw }}</p>
+                <div class="wdiv-project-content">
+                    <h3 class="wdiv-project-topic ts--alpha">{{ topics[project.topic].title }}</h3>
+                    <h2 class="wdiv-project-title tl--gamma">{{ project.title }}</h2>
+
+                    <div class="wdiv-project-body tm--epsilon">
+                        <p>{{ project.body | raw }}</p>
+                    </div>
+                </div>
             </div>
         {% endfor %}
         </div>

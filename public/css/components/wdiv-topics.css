@@ -82,6 +82,11 @@
     max-width: 780px;
 }
 
+.wdiv-topic-title {
+    text-transform: uppercase;
+    color: #339966;
+}
+
 /* Filter */
 
 /* TODO: unify markup for both filters */
@@ -201,16 +206,57 @@ input[type="radio"]:checked + .wdiv-topics-filter-option .wdiv-topics-filter-ind
 }
 
 .wdiv-project {
-    background-color: white;
     margin: 30px; /* adds up to 60px gutter */
     grid-column: span 2; /* use 2 cols */
+
+    /* skinning */
+    background-color: white;
 }
 
 .wdiv-project-wide {
     grid-column: span 3; /* use 3 cols */
 }
 
+.wdiv-project-content {
+    padding: 15px;
+}
 
 .wdiv-project-img {
     width: 100%;
+}
+
+/* Textual content */
+
+.wdiv-project-topic {
+    display: inline-block;
+    padding: 0 7px;
+
+    background-color: #339966;
+    color: white;
+
+    text-transform: uppercase;
+}
+
+.wdiv-project-title {
+    margin-top: 0.6em;
+}
+
+/* Medium Epsilon Sans Serif */
+.wdiv-project-body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.4em;
+}
+
+@media (min-width: 500px) {
+    .wdiv-project-body {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .wdiv-project-body {
+        font-size: 16px;
+    }
 }
