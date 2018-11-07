@@ -10,11 +10,11 @@
             {% for id, topic in topics %}
                 <p class="wdiv-topics-filter-col">
                     <input type="radio" value="{{id}}" id="wdiv-topic-filter-{{id}}" name="wdiv-topic-filter">
-                    <label class="wdiv-topics-filter-option" for="wdiv-topic-filter-{{id}}">{{ topic.title }}</label>
+                    <label class="wdiv-topics-filter-option" for="wdiv-topic-filter-{{id}}"><span class="wdiv-topics-filter-indicator"></span>{{ topic.title }}</label>
                 </p>
             {% endfor %}
             <p class="wdiv-topics-filter-col">
-                <button class="wdiv-topics-filter-option wdiv-topics-filter-reset">Alle Projekte anzeigen</button>
+                <button class="wdiv-topics-filter-reset">Alle Projekte anzeigen</button>
             </p>
         </div>
         </div>
