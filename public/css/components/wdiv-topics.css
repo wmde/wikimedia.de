@@ -23,6 +23,9 @@
 
 .wdiv-topics-heading-container {
     padding-top: calc( 530 / 1050 * 100% );
+    max-width: 1050px;
+    margin: 0 auto;
+
     height: 0;
 
     position: relative;
