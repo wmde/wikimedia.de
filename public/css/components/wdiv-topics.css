@@ -156,14 +156,15 @@ input[type="radio"]:checked + .wdiv-topics-filter-option .wdiv-topics-filter-ind
     clear: both;
     margin: -30px; /* negative gutter */
     position: relative;
+
+    display: grid;
+    /* grid:  auto-flow dense / 40px 40px 1fr; */
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .wdiv-project {
     background-color: white;
-    width: calc( 300 / 1110 * 100% ); /* 300px to 1050px + 2x30px gutter */
-    float: left;
-
-    margin: 30px;
+    margin: 30px; /* adds up to 60px gutter */
 }
 
 
