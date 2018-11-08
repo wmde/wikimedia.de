@@ -109,6 +109,20 @@
 
 }
 
+/* state filter 4 */
+
+[data-filtered-by="4"] .wdiv-heading-box-2 {
+    transform: translate(0,24.5%); /* X: 0 / Y: 1 */
+}
+
+[data-filtered-by="4"] .wdiv-heading-box-3 {
+    transform: translate(0,74.5%); /* X: 0 / Y: 1 */
+}
+
+[data-filtered-by="4"] .wdiv-heading-box-4 {
+    transform: translate(150%,49.5%); /* X: 1,5 / Y: 0 */
+}
+
 .wdiv-topic-desc {
     background-color: white;
 
