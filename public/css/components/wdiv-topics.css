@@ -193,7 +193,8 @@ input[type="radio"]:checked ~ .wdiv-topics-filter-option {
 /* reset button */
 
 .wdiv-topics-filter-reset {
-    /* reset button has wrong width */
+    position: relative; /* for icon positioning */
+
     width: 100%;
 
     /* hmm? */
@@ -203,6 +204,32 @@ input[type="radio"]:checked ~ .wdiv-topics-filter-option {
     border: none;
     background: transparent;
     outline: none;
+}
+
+/* cross icon in CSS */
+
+.wdiv-topics-filter-reset::before,
+.wdiv-topics-filter-reset::after {
+    content: "";
+    display: block;
+
+    position: absolute;
+    top: 50%;
+    margin-top: -9px;
+    left: 10px;
+
+    height: 18px;
+
+    border-color: inherit;  /* uses parent element's color */
+    border-left: 1px solid;
+}
+
+.wdiv-topics-filter-reset::before {
+    transform: rotate(45deg);
+}
+
+.wdiv-topics-filter-reset::after {
+    transform: rotate(-45deg);
 }
 
 /* indicator */
