@@ -72,7 +72,7 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') ,
             Array.prototype.forEach.call( inputFilters , function( inputFilter ){
                 inputFilter.checked = false;
             });
-    
+
             // reset filtering = don't pass value
             filter(topicList);
             filter(projectList);
