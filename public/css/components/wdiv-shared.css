@@ -10,6 +10,19 @@
     clear: both;
 }
 
+.wdiv-hide-accessibly {
+  /*
+    see articles like:
+    https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+    https://css-tricks.com/snippets/css/accessibilityseo-friendly-css-hiding/#comment-1206657
+  */
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  height: 1px;
+  width: 1px;
+}
+
 /* shared/new sidebar */
 
 @media (min-width: 720px) {
