@@ -200,6 +200,8 @@ input[type="radio"]:checked ~ .wdiv-topics-filter-option {
     /* hmm? */
     text-align: left;
 
+    color: #cacaca; /* initially inactive */
+
     /* reset standard button borders … rather clunky */
     border: none;
     background: transparent;
@@ -230,6 +232,10 @@ input[type="radio"]:checked ~ .wdiv-topics-filter-option {
 
 .wdiv-topics-filter-reset::after {
     transform: rotate(-45deg);
+}
+
+.js-filtered .wdiv-topics-filter-reset {
+    color: #131313;
 }
 
 /* indicator */
