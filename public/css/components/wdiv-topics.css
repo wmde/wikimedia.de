@@ -1,9 +1,3 @@
-.wdiv-topics-wrapper {
-    /* WIP: remove */
-    font-family: sans-serif;
-    line-height: 1.4em;
-}
-
 /* Topics */
 
 .wdiv-topics-wrapper:not(.js-filtered) .wdiv-topic-header {
