@@ -206,11 +206,6 @@ input[type="radio"]:checked ~ .wdiv-topics-filter-option {
 
 /* indicator */
 
-.wdiv-topics-filter input[type="radio"] {
-    /* hide actual element */
-    visibility: hidden;
-}
-
 .wdiv-topics-filter-indicator {
     display: block;
     position: absolute;
