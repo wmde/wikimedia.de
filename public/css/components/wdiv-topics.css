@@ -94,14 +94,19 @@
     transform: translate(150%,49.5%); /* X: 1,5 / Y: 0 */
 }
 
-/* state filter 2 */
+/* state filter 3 */
 
-[data-filtered-by="2"] .wdiv-heading-box-1 {
-    transform: translate(50%,0); /* X: 0,5 / Y: 0 */
+[data-filtered-by="3"] .wdiv-heading-box-2 {
+    transform: translate(100%,74.5%); /* X: 0,5 / Y: 0 */
 }
 
-[data-filtered-by="2"] .wdiv-heading-box-4 {
+[data-filtered-by="3"] .wdiv-heading-box-3 {
+    transform: translate(100%,24.5%); /* X: 1,5 / Y: 0 */
+}
+
+[data-filtered-by="3"] .wdiv-heading-box-4 {
     transform: translate(150%,49.5%); /* X: 1,5 / Y: 0 */
+
 }
 
 .wdiv-topic-desc {
