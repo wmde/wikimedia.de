@@ -29,6 +29,7 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') ,
             list.filter()
             // remove filtered attribute
             topicsWrapper.classList.remove('js-filtered');
+            topicsWrapper.removeAttribute('data-filtered-by');
             // done!
             return;
         }
@@ -44,6 +45,7 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') ,
         });
 
         topicsWrapper.classList.add('js-filtered');
+        topicsWrapper.setAttribute('data-filtered-by',value);
     }
 
     var inputFilters = context.querySelectorAll('.wdiv-topics-filter input');
