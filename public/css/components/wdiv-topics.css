@@ -6,7 +6,7 @@
 
 /* Topics */
 
-.wdiv-topic-header:not(.js-filtered) {
+.wdiv-topics-wrapper:not(.js-filtered) .wdiv-topic-header {
     /* hide unfiltered topics */
     display: none;
 }
