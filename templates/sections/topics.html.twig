@@ -15,7 +15,7 @@
         <div class="wdiv-topics-filter wdiv-clearfix">
             {% for id, topic in topics %}
                 <p class="wdiv-topics-filter-col">
-                    <input type="radio" value="{{id}}" id="wdiv-topic-filter-{{id}}" name="wdiv-topic-filter">
+                    <input class="wdiv-hide-accessibly" type="radio" value="{{id}}" id="wdiv-topic-filter-{{id}}" name="wdiv-topic-filter">
                     <label class="wdiv-topics-filter-option" for="wdiv-topic-filter-{{id}}"><span class="wdiv-topics-filter-indicator"></span>{{ topic.title }}</label>
                 </p>
             {% endfor %}
