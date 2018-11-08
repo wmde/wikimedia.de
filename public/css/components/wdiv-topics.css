@@ -208,9 +208,6 @@ input[type="radio"]:checked + .wdiv-topics-filter-option .wdiv-topics-filter-ind
 .wdiv-project {
     margin: 30px; /* adds up to 60px gutter */
     grid-column: span 2; /* use 2 cols */
-
-    /* skinning */
-    background-color: white;
 }
 
 .wdiv-project-wide {
@@ -219,6 +216,9 @@ input[type="radio"]:checked + .wdiv-topics-filter-option .wdiv-topics-filter-ind
 
 .wdiv-project-content {
     padding: 15px;
+
+    /* skinning */
+    background-color: white;
 }
 
 .wdiv-project-img {
