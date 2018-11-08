@@ -145,14 +145,14 @@
 /* TODO: unify markup for both filters */
 
 .wdiv-topics-filter {
-    margin: 0 -5px; /* account for gutter */
+    margin: 1.4em -12px 1em; /* account for negative gutter */
 }
 
 .wdiv-topics-filter-col {
-    width: calc( 100% / 4 - 10px );
+    width: calc( 100% / 4 - 24px );
     float: left;
 
-    margin: 0 5px; /* gutter */
+    margin: 0 12px; /* gutter */
 }
 
 /* general filter design */
@@ -258,7 +258,7 @@ input[type="radio"]:checked + .wdiv-topics-filter-option .wdiv-topics-filter-ind
 
 .wdiv-projects {
     clear: both;
-    margin: 1em -30px 4em; /* negative gutter */
+    margin: 0 -30px 4em; /* negative gutter */
     position: relative;
 
     display: grid;
