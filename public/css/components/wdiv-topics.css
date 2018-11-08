@@ -223,6 +223,7 @@ input[type="radio"]:checked + .wdiv-topics-filter-option .wdiv-topics-filter-ind
 
 .wdiv-project-img {
     width: 100%;
+    display: block;
 }
 
 /* Textual content */
