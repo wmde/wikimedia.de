@@ -174,17 +174,18 @@
     cursor: pointer;
 }
 
+/* inactive state … */
 .js-filtered .wdiv-topics-filter-option {
     color: #CACACA;
 }
 
+/* … except for the actually checked one */
 input[type="radio"]:checked ~ .wdiv-topics-filter-option {
     color: #339966;
 }
 
 .wdiv-topics-filter-option {
     /* skinning */
-
     border-bottom: 1px solid #339966;
 }
 
@@ -192,7 +193,7 @@ input[type="radio"]:checked ~ .wdiv-topics-filter-option {
 /* reset button */
 
 .wdiv-topics-filter-reset {
-    /* reset button has wrong widht */
+    /* reset button has wrong width */
     width: 100%;
 
     /* hmm? */
