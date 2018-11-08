@@ -1,9 +1,6 @@
 /* Topics */
 
-.wdiv-topics-wrapper:not(.js-filtered) .wdiv-topic-header {
-    /* hide unfiltered topics */
-    display: none;
-}
+/* heading */
 
 .wdiv-topics-heading {
     background-color: rgb(233, 238, 240);
@@ -241,6 +238,13 @@ input[type="radio"] + .wdiv-topics-filter-option .wdiv-topics-filter-indicator::
 
 input[type="radio"]:checked + .wdiv-topics-filter-option .wdiv-topics-filter-indicator::before {
     transform: translate(-50%, -50%) scale(1);
+}
+
+/* Topic information */
+
+.wdiv-topics-wrapper:not(.js-filtered) .wdiv-topic-header {
+    /* hide unfiltered topics */
+    display: none;
 }
 
 /* Topic Cards */
