@@ -46,6 +46,8 @@
     height: 0;
     padding-top: calc( 232 / 1050 * 100% ); /* 223px to 200px tp 1050px */
 
+    transition: transform 0.3s;
+
     background-image: url('/img/wdiv/cube-default.png');
     background-size: 100% auto;
     background-position: center;
