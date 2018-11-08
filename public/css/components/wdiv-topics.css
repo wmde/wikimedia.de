@@ -13,12 +13,19 @@
 
 .wdiv-topics-heading-container {
     padding-top: calc( 530 / 1050 * 100% );
-    max-width: 1050px;
     margin: 0 auto;
 
     height: 0;
 
     position: relative;
+}
+
+@media (min-width: 1315px) {
+    .wdiv-topics-heading-container {
+        /* stop growing when 1050px element + 100px padding + 250px sidebar + 15px scrollbar  have been reached */
+        width: 1050px;
+        padding-top: 530px;
+    }
 }
 
 .wdiv-topics-heading-title {
