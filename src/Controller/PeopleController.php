@@ -17,6 +17,25 @@ class PeopleController extends Controller {
 
 		$csv = str_getcsv(file_get_contents( $this->container->getParameter('kernel.project_dir').'/templates/pages/people/staff.csv' ));
 
+		// split first line (column headings)
+		$keysOrig = array_shift($csv);
+
+		// note:
+		// instead of mapping, we could actually use the csv headings
+		// but we settle for simple ids for now
+		$keys = [
+			'firstname', // "Vorname"
+			'lastname', // "Nachname"
+			'title_de', // "Stellenbezeichnung (de)"
+			'title_en', // "Stellenbezeichnung (en)"
+			'mail', // "E-Mail (geschäftlich)"
+			'domain_de', // "Bereich (de)"
+			'domain_en', // "Bereich (en)"
+			'team_de', // "Team (de)"
+			'team_en', // "Team (en)"
+			'imgsrc' //" BildLink
+		];
+
 		// TODO: convert staff.csv to team template object
 
 		// $data =
