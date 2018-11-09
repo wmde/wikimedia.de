@@ -15,7 +15,16 @@ class PeopleController extends Controller {
 	public function staff( Request $request ): Response {
 		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates/pages/team-draft.html.yaml' ) );
 
-		$csv = str_getcsv(file_get_contents( $this->container->getParameter('kernel.project_dir').'/templates/pages/people/staff.csv' ));
+		// thanks to durik at 3ilab dot net for pointing out we need 2 str_getcsv() parsers for rows/columns, see
+		// https://secure.php.net/manual/en/function.str-getcsv.php#101888
+		$csv = [];
+		foreach(
+			str_getcsv( file_get_contents( $this->container->getParameter('kernel.project_dir').'/templates/pages/people/staff.csv' ), "\n")
+			as
+			$row
+		) {
+			$csv[] = str_getcsv( $row );
+		}
 
 		// split first line (column headings)
 		$keysOrig = array_shift($csv);
