@@ -1,3 +1,6 @@
+# ignore datasources
+/templates/pages/people/*.csv
+
 ###> symfony/framework-bundle ###
 /.env
 /public/bundles/
