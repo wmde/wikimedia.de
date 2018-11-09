@@ -33,6 +33,7 @@ class PeopleController extends Controller {
 		// instead of mapping, we could actually use the csv headings
 		// but we settle for simple ids for now
 		$keys = [
+			'delta', // "Nummer"
 			'firstname', // "Vorname"
 			'lastname', // "Nachname"
 			'title_de', // "Stellenbezeichnung (de)"
