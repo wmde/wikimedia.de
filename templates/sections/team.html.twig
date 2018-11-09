@@ -2,7 +2,10 @@
     <header class="wdiv-team-header">
         <div class="wdiv-radio-filter">
             {% for domain in domains %}
-                <p class="wdiv-radio-filter-option"><input type="radio" value="{{loop.index}}" name="wdiv-group-filter" id="wdiv-group-filter-{{loop.index}}" ><label for="wdiv-group-filter-{{loop.index}}">{{ domain.title }}</label></p>
+                <p class="wdiv-radio-filter-col">
+                    <input class="wdiv-hide-accessibly" type="radio" value="{{loop.index}}" name="wdiv-group-filter" id="wdiv-group-filter-{{loop.index}}" >
+                    <label class="wdiv-radio-filter-option" for="wdiv-group-filter-{{loop.index}}"><span class="wdiv-radio-filter-indicator"></span>{{ domain.title }}</label>
+                </p>
             {% endfor %}
             <p>
                 <button class="wdiv-filter-reset">Filter aufheben</button>
