@@ -53,6 +53,17 @@ class PeopleController extends Controller {
 		//		…
 		// ]
 
+		// convert csv array to key/value objects per row
+		$items = [];
+		foreach ($csv as $row) {
+			$item = [];
+			foreach ($keys as $index => $key) {
+				$value = isset($row[$index]) ? $row[$index] : "";
+				$item[$key] = $value;
+			}
+			$items[] = $item;
+		}
+
 		// we're assuming a data pattern w/ keys `template` and `data` on root
 		return $this->render( $preview['template'], $preview['data'] );
 	}
