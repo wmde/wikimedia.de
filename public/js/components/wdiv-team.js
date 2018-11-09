@@ -42,7 +42,7 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
         teamWrapper.setAttribute('data-filtered-by',value);
     }
 
-    var inputFilters = context.querySelectorAll('.wdiv-team-filter input');
+    var inputFilters = context.querySelectorAll('.wdiv-radio-filter input');
 
     // TODO: initial run if filters are already checked in markup
     Array.prototype.forEach.call( inputFilters , function( inputFilter ){
@@ -58,7 +58,7 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
         });
     });
 
-    Array.prototype.forEach.call( context.querySelectorAll('.filter-reset') , function (button) {
+    Array.prototype.forEach.call( context.querySelectorAll('.wdiv-filter-reset') , function (button) {
 
         button.addEventListener('click', function (change) {
             // remove checked attribute

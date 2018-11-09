@@ -1,11 +1,11 @@
 <div class="wdiv-team-wrapper wdiv-clearfix">
     <header class="wdiv-team-header">
-        <div class="wdiv-team-filter">
+        <div class="wdiv-radio-filter">
             {% for domain in domains %}
                 <p class="wdiv-radio-filter-option"><input type="radio" value="{{loop.index}}" name="wdiv-group-filter" id="wdiv-group-filter-{{loop.index}}" ><label for="wdiv-group-filter-{{loop.index}}">{{ domain.title }}</label></p>
             {% endfor %}
             <p>
-                <button class="filter-reset">Filter aufheben</button>
+                <button class="wdiv-filter-reset">Filter aufheben</button>
             </p>
         </div>
     </header>
