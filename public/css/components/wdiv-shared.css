@@ -25,7 +25,8 @@
 
 /* shared/new sidebar */
 
-@media (min-width: 720px) {
+/* Media query includes old breakpoint: max720 for mobile and adds 250px navbar width */
+@media (min-width: 970px) {
     .wdiv-sidebar-alignment {
         margin-left: calc( 250 / 1140 * 100% );
         position: relative;
