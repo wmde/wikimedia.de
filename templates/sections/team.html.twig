@@ -2,7 +2,7 @@
     <header class="wdiv-team-header">
         <div class="wdiv-team-filter">
             {% for domain in domains %}
-                <p class="wdiv-team-filter-option"><input type="checkbox" value="{{loop.index}}" id="wdiv-group-filter-{{loop.index}}"><label for="wdiv-group-filter-{{loop.index}}">{{ domain.title }}</label></p>
+                <p class="wdiv-team-filter-option"><input type="radio" value="{{loop.index}}" name="wdiv-group-filter" id="wdiv-group-filter-{{loop.index}}" ><label for="wdiv-group-filter-{{loop.index}}">{{ domain.title }}</label></p>
             {% endfor %}
             <p>
                 <button class="filter-reset">Filter aufheben</button>
