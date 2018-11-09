@@ -35,7 +35,7 @@ themesLegacy:
 
 peopleStaff:
     path: /people/staff
-    controller: App\Controller\TemplatesController::previewTeam
+    controller: App\Controller\PeopleController::staff
 
 peopleLegacy:
     path: /templates/pages/team-draft
