@@ -146,11 +146,11 @@
 
 /* TODO: unify markup for both filters */
 
-.wdiv-topics-filter {
+.wdiv-radio-filter {
     margin: 1.4em -12px 1em; /* account for negative gutter */
 }
 
-.wdiv-topics-filter-col {
+.wdiv-radio-filter-col {
     width: calc( 100% / 4 - 24px );
     float: left;
 
@@ -159,8 +159,8 @@
 
 /* general filter design */
 
-.wdiv-topics-filter-option,
-.wdiv-topics-filter-reset {
+.wdiv-radio-filter-option,
+.wdiv-radio-filter-reset {
     display: block;
 
     position: relative;
@@ -177,16 +177,16 @@
 }
 
 /* inactive state … */
-.js-filtered .wdiv-topics-filter-option {
+.js-filtered .wdiv-radio-filter-option {
     color: #CACACA;
 }
 
 /* … except for the actually checked one */
-input[type="radio"]:checked ~ .wdiv-topics-filter-option {
+input[type="radio"]:checked ~ .wdiv-radio-filter-option {
     color: #339966;
 }
 
-.wdiv-topics-filter-option {
+.wdiv-radio-filter-option {
     /* skinning */
     border-bottom: 1px solid #339966;
 }
@@ -194,7 +194,7 @@ input[type="radio"]:checked ~ .wdiv-topics-filter-option {
 
 /* reset button */
 
-.wdiv-topics-filter-reset {
+.wdiv-radio-filter-reset {
     position: relative; /* for icon positioning */
 
     width: 100%;
@@ -212,8 +212,8 @@ input[type="radio"]:checked ~ .wdiv-topics-filter-option {
 
 /* cross icon in CSS */
 
-.wdiv-topics-filter-reset::before,
-.wdiv-topics-filter-reset::after {
+.wdiv-radio-filter-reset::before,
+.wdiv-radio-filter-reset::after {
     content: "";
     display: block;
 
@@ -228,21 +228,21 @@ input[type="radio"]:checked ~ .wdiv-topics-filter-option {
     border-left: 1px solid;
 }
 
-.wdiv-topics-filter-reset::before {
+.wdiv-radio-filter-reset::before {
     transform: rotate(45deg);
 }
 
-.wdiv-topics-filter-reset::after {
+.wdiv-radio-filter-reset::after {
     transform: rotate(-45deg);
 }
 
-.js-filtered .wdiv-topics-filter-reset {
+.js-filtered .wdiv-radio-filter-reset {
     color: #131313;
 }
 
 /* indicator */
 
-.wdiv-topics-filter-indicator {
+.wdiv-radio-filter-indicator {
     display: block;
     position: absolute;
 
@@ -261,7 +261,7 @@ input[type="radio"]:checked ~ .wdiv-topics-filter-option {
 }
 
 /* yeah, I know … dat selector */
-input[type="radio"] + .wdiv-topics-filter-option .wdiv-topics-filter-indicator::before {
+input[type="radio"] + .wdiv-radio-filter-option .wdiv-radio-filter-indicator::before {
     content: "";
 
     position: absolute;
@@ -282,7 +282,7 @@ input[type="radio"] + .wdiv-topics-filter-option .wdiv-topics-filter-indicator::
     transition: transform 0.2s;
 }
 
-input[type="radio"]:checked + .wdiv-topics-filter-option .wdiv-topics-filter-indicator::before {
+input[type="radio"]:checked + .wdiv-radio-filter-option .wdiv-radio-filter-indicator::before {
     transform: translate(-50%, -50%) scale(1);
 }
 

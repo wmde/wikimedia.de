@@ -12,15 +12,15 @@
             </div>
         </div>
         <div class="clearfix cp--h1 center-column wdiv-max-width-1190">
-            <div class="wdiv-topics-filter wdiv-clearfix">
+            <div class="wdiv-radio-filter wdiv-clearfix">
                 {% for id, topic in topics %}
-                    <p class="wdiv-topics-filter-col">
-                        <input class="wdiv-hide-accessibly" type="radio" value="{{id}}" id="wdiv-topic-filter-{{id}}" name="wdiv-topic-filter">
-                        <label class="wdiv-topics-filter-option" for="wdiv-topic-filter-{{id}}"><span class="wdiv-topics-filter-indicator"></span>{{ topic.title }}</label>
+                    <p class="wdiv-radio-filter-col">
+                        <input class="wdiv-hide-accessibly" type="radio" value="{{id}}" id="wdiv-radio-filter-{{id}}" name="wdiv-radio-filter">
+                        <label class="wdiv-radio-filter-option" for="wdiv-radio-filter-{{id}}"><span class="wdiv-radio-filter-indicator"></span>{{ topic.title }}</label>
                     </p>
                 {% endfor %}
-                <p class="wdiv-topics-filter-col">
-                    <button class="wdiv-topics-filter-reset">Alle Projekte anzeigen</button>
+                <p class="wdiv-radio-filter-col">
+                    <button class="wdiv-radio-filter-reset">Alle Projekte anzeigen</button>
                 </p>
             </div>
         </div>
