@@ -127,7 +127,9 @@
     background-color: white;
 
     /* TODO: this should be set on multiple wrappers */
+    /* TODO: mobile */
     padding: 1em 152px 2em 60px;
+    margin: 50px 0 100px;
 
     font-weight: 400;
 
