@@ -15,6 +15,15 @@ class PeopleController extends Controller {
 	public function staff( Request $request ): Response {
 		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates/pages/team-draft.html.yaml' ) );
 
+		$csv = str_getcsv(file_get_contents( $this->container->getParameter('kernel.project_dir').'/templates/pages/people/staff.csv' ));
+
+		// TODO: convert staff.csv to team template object
+
+		// $data =
+		// "domains" => [
+		//		…
+		// ]
+
 		// we're assuming a data pattern w/ keys `template` and `data` on root
 		return $this->render( $preview['template'], $preview['data'] );
 	}
