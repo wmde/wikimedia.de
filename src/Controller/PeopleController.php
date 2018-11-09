@@ -46,7 +46,8 @@ class PeopleController extends Controller {
 			'imgsrc' //" BildLink
 		];
 
-		// TODO: convert staff.csv to team template object
+		// TODO: group csv array per teams
+		// TODO: group team arrays per domain
 
 		// $data =
 		// "domains" => [
