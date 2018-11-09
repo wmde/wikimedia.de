@@ -9,51 +9,63 @@ data:
             - name: Foo bar
               position: Various
               mail: foo@bar.foo
+              img: /img/staff/default.jpg
         - title: Technische Wünsche & Fundraising
           members:
             - name: Foo bar
               position: Various
               mail: foo@bar.foo
+              img: /img/staff/default.jpg
             - name: Foo bar
               position: Various
               mail: foo@bar.foo
+              img: /img/staff/default.jpg
             - name: Foo bar
               position: Various
               mail: foo@bar.foo
+              img: /img/staff/default.jpg
         - title: Community-Kommunikation
           members:
             - name: Foo bar
               position: Various
               mail: foo@bar.foo
+              img: /img/staff/default.jpg
         - title: UX & Design
           members:
             - name: Foo bar
               position: Various
               mail: foo@bar.foo
+              img: /img/staff/default.jpg
         - title: Softwareentwicklung
           members:
             - name: Foo bar
               position: Various
               mail: foo@bar.foo
+              img: /img/staff/default.jpg
             - name: Foo bar
               position: Various
               mail: foo@bar.foo
+              img: /img/staff/default.jpg
         - title: Community-Kommunikation
           members:
             - name: Foo bar
               position: Various
               mail: foo@bar.foo
+              img: /img/staff/default.jpg
         - title: Produktmanagement
           members:
             - name: Foo bar
               position: Various
               mail: foo@bar.foo
+              img: /img/staff/default.jpg
             - name: Foo bar
               position: Various
               mail: foo@bar.foo
+              img: /img/staff/default.jpg
             - name: Foo bar
               position: Various
               mail: foo@bar.foo
+              img: /img/staff/default.jpg
     - title: Kommunikation
       teams:
         - title: Kommunikation
