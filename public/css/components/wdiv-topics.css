@@ -160,7 +160,7 @@
 /* general filter design */
 
 .wdiv-radio-filter-option,
-.wdiv-radio-filter-reset {
+.wdiv-filter-reset {
     display: block;
 
     position: relative;
@@ -194,7 +194,7 @@ input[type="radio"]:checked ~ .wdiv-radio-filter-option {
 
 /* reset button */
 
-.wdiv-radio-filter-reset {
+.wdiv-filter-reset {
     position: relative; /* for icon positioning */
 
     width: 100%;
@@ -212,8 +212,8 @@ input[type="radio"]:checked ~ .wdiv-radio-filter-option {
 
 /* cross icon in CSS */
 
-.wdiv-radio-filter-reset::before,
-.wdiv-radio-filter-reset::after {
+.wdiv-filter-reset::before,
+.wdiv-filter-reset::after {
     content: "";
     display: block;
 
@@ -228,15 +228,15 @@ input[type="radio"]:checked ~ .wdiv-radio-filter-option {
     border-left: 1px solid;
 }
 
-.wdiv-radio-filter-reset::before {
+.wdiv-filter-reset::before {
     transform: rotate(45deg);
 }
 
-.wdiv-radio-filter-reset::after {
+.wdiv-filter-reset::after {
     transform: rotate(-45deg);
 }
 
-.js-filtered .wdiv-radio-filter-reset {
+.js-filtered .wdiv-filter-reset {
     color: #131313;
 }
 

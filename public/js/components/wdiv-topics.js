@@ -65,7 +65,7 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-topics-wrapper') ,
         });
     });
 
-    Array.prototype.forEach.call( context.querySelectorAll('.wdiv-radio-filter-reset') , function (button) {
+    Array.prototype.forEach.call( context.querySelectorAll('.wdiv-filter-reset') , function (button) {
 
         button.addEventListener('click', function (change) {
             // remove checked attribute
