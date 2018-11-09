@@ -15,25 +15,31 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
         } ]
     });
 
-    // active filter lookup array
-    var active = [];
-
-    // filter against `active` array
-    function filter() {
-        if (active.length === 0) {
-            // reset any filter if none is active = show all
-            teamList.filter();
-            return ;
+    // simple one-value filter
+    var filter = function(list, value) {
+        // no value means: clear filter
+        if (typeof value === "undefined") {
+            // reset filtering via native List.js function
+            list.filter()
+            // remove filtered attribute
+            teamWrapper.classList.remove('js-filtered');
+            teamWrapper.removeAttribute('data-filtered-by');
+            // done!
+            return;
         }
 
-        teamList.filter(function(item) {
+        // we have a value = filter
+        list.filter(function(item) {
             // filter for items
-            if ( active.indexOf( item.values()['group-id'] ) > -1 ) {
+            if ( value === item.values()['group-id'] ) {
                return true;
             } else {
                return false;
             }
         });
+
+        teamWrapper.classList.add('js-filtered');
+        teamWrapper.setAttribute('data-filtered-by',value);
     }
 
     var inputFilters = context.querySelectorAll('.wdiv-team-filter input');
@@ -44,33 +50,26 @@ Array.prototype.forEach.call( context.querySelectorAll('.wdiv-team-wrapper') , f
 
             var value = change.target.value;
 
-            // Note: the following logic assumes unique values on all checkboxes
-            switch (change.target.checked) {
-                case true:
-                    // add to filter
-                    active.push(change.target.value);
-                    break;
-                case false:
-                    // remove existing filter
-                    if ( active.indexOf(value) > -1 ) {
-                        active.splice(active.indexOf(value));
-                    }
-                    break;
-            }
+            if (!change.target.checked) { return; }
 
-            filter();
+            // input was selected = filter list
+            filter(teamList, value);
 
         });
     });
 
-    context.querySelector('.wdiv-team-filter .filter-reset').addEventListener('click', function (change) {
-        // remove checked attribute
-        Array.prototype.forEach.call( inputFilters , function( inputFilter ){
-            inputFilter.checked = false;
+    Array.prototype.forEach.call( context.querySelectorAll('.filter-reset') , function (button) {
+
+        button.addEventListener('click', function (change) {
+            // remove checked attribute
+            Array.prototype.forEach.call( inputFilters , function( inputFilter ){
+                inputFilter.checked = false;
+            });
+
+            // reset filtering = don't pass value
+            filter(teamList);
         });
-        // see, see: this doesn't trigger `change`, so we simply kill empty `active` array
-        active = [];
-        filter();
+
     });
 
 });
