@@ -25,11 +25,19 @@ charter:
     path: /charter
     controller: App\Controller\SimplePageController::charter
 
-templatesTopics:
+themes:
+    path: /themes
+    controller: App\Controller\TemplatesController::previewTopics
+
+themesLegacy:
     path: /templates/pages/topics-draft
     controller: App\Controller\TemplatesController::previewTopics
 
-templatesTeam:
+peopleStaff:
+    path: /people/staff
+    controller: App\Controller\TemplatesController::previewTeam
+
+peopleLegacy:
     path: /templates/pages/team-draft
     controller: App\Controller\TemplatesController::previewTeam
 
