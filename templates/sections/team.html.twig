@@ -21,8 +21,8 @@
             {% for person in team.members %}
                 <div class="wdiv-group-item">
                     {# TODO: person.img should be set to default on controller #}
-                    {% if person.imgsrc is defined %}
-                    <img src="{{ person.imgsrc }}" style="width: 100%">
+                    {% if person.img %}
+                    <img src="/files/staff/{{ person.img }}" style="width: 100%">
                     {% else %}
                     <img src="/img/staff/default.jpg" style="width: 100%">
                     {% endif %}
