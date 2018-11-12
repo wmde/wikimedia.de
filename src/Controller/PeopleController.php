@@ -75,10 +75,10 @@ class PeopleController extends Controller {
 				if (isset($item[$key])) {
 					// value not yet encountered? register grouping value in lookup
 					if (!in_array($item[$key], $groupsLookup)) {
-						$groupsLook[] = $item[$key];
+						$groupsLookup[] = $item[$key];
 					}
 
-					$groups[] = $item;
+					$groups[array_search($item[$key],$groupsLookup)] = $item;
 				}
 			}
 
