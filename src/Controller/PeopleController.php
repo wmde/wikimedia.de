@@ -47,7 +47,8 @@ class PeopleController extends Controller {
 		];
 
 		// TODO: group csv array per teams
-		// TODO: group team arrays per domain
+		// TODO: supply multilingual strings per template
+		// TODO: split team and domain titles to de/en
 
 		// $data =
 		// "domains" => [
