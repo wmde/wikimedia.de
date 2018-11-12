@@ -74,8 +74,8 @@ class PeopleController extends Controller {
 			}
 			return $items;
 		}
-		$items = csv2object($csv, $keys);
 
+		// group array in sub-arrays
 		// TODO: currently, only 1 root key is supported by argument,
 		// we should be able to dive deeper via an array like [ 'title' , 'de' ]
 		function groupBy($array, $key){
@@ -100,15 +100,33 @@ class PeopleController extends Controller {
 
 		// 3. group datasets by domains and teams
 
-		// grouping by domain
-		$items = groupBy($items, "domain_de");
+		$data['domains'] = [];
+		foreach(
+			groupBy(csv2object($csv, $keys), "domain_de")
+			as $domainItems
+		) {
+			// preparing domain object
+			$domain = [
+				// assuming identical titles due to grouping
+				// TODO: multilanguage
+				"title" => $domainItems[0]['domain_de'],
+				"teams" => []
+			];
 
-		// grouping by team per domain
-		foreach ($items as &$domain) {
-			$domain = groupBy($domain, "team_de");
+			foreach (groupBy($domainItems, "team_de") as $team) {
+				// preparing team object
+				$domain['teams'][] = [
+					// assuming identical titles due to grouping
+					// TODO: multilanguage
+					"title" => $team[0]['team_de'],
+					"members" => $team
+				];
+			}
+
+			$data['domains'][] = $domain;
+
 		}
 
-		$data['domains'] = $items;
 
 		// we're assuming a data pattern w/ keys `template` and `data` on root
 		return $this->render( $preview['template'], $preview['data'] );
