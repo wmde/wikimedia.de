@@ -50,14 +50,8 @@ class PeopleController extends Controller {
 			'imgsrc' //" BildLink
 		];
 
-		// TODO: create keys for groups
 		// TODO: supply multilingual strings per template
 		// TODO: split team and domain titles to de/en
-
-		// $data =
-		// "domains" => [
-		//		…
-		// ]
 
 		// convert csv array to key/value objects per row
 		// keys get supplied separately
