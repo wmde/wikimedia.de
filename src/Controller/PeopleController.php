@@ -21,7 +21,7 @@ class PeopleController extends Controller {
 		// https://secure.php.net/manual/en/function.str-getcsv.php#101888
 		$csv = [];
 		foreach(
-			str_getcsv( file_get_contents( $this->container->getParameter('kernel.project_dir').'/templates/pages/people/staff.csv' ), "\n")
+			str_getcsv( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).'/templates/pages/people/staff.csv' ), "\n" )
 			as
 			$row
 		) {
@@ -31,7 +31,7 @@ class PeopleController extends Controller {
 		// 2. key handling
 
 		// split first line (column headings)
-		$keysOrig = array_shift($csv);
+		$keysOrig = array_shift( $csv );
 
 		// note:
 		// instead of mapping, we could actually use the csv headings
@@ -55,12 +55,12 @@ class PeopleController extends Controller {
 
 		// convert csv array to key/value objects per row
 		// keys get supplied separately
-		function csv2object($csv, $keys){
+		function csv2object( $csv, $keys ){
 			$items = [];
-			foreach ($csv as $row) {
+			foreach ( $csv as $row ) {
 				$item = [];
-				foreach ($keys as $index => $key) {
-					$value = isset($row[$index]) ? $row[$index] : "";
+				foreach ( $keys as $index => $key ) {
+					$value = isset( $row[$index] ) ? $row[$index] : "";
 					$item[$key] = $value;
 				}
 				$items[] = $item;
@@ -71,20 +71,20 @@ class PeopleController extends Controller {
 		// group array in sub-arrays
 		// TODO: currently, only 1 root key is supported by argument,
 		// we should be able to dive deeper via an array like [ 'title' , 'de' ]
-		function groupBy($array, $key){
+		function groupBy( $array, $key ){
 			$groups = [];
 			$groupsLookup = [];
-			foreach ($array as $item) {
-				if (isset($item[$key])) {
+			foreach ( $array as $item ) {
+				if ( isset( $item[$key] ) ) {
 					$groupBy = $item[$key];
 
 					// value not yet encountered? register grouping value in lookup
-					if (!in_array($item[$key], $groupsLookup)) {
+					if ( !in_array( $item[$key], $groupsLookup ) ) {
 						$groupsLookup[] = $groupBy;
 					}
 
 					// groups are filled in order of first encounter of key value
-					$groups[array_search($groupBy,$groupsLookup)][] = $item;
+					$groups[array_search( $groupBy,$groupsLookup )][] = $item;
 
 				}
 			}
@@ -93,14 +93,14 @@ class PeopleController extends Controller {
 
 		// 3. modify item datasets
 
-		$items = csv2object($csv, $keys);
+		$items = csv2object( $csv, $keys );
 
 		// add image sources
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
 		// /files/staff/*.*
 
-		foreach($items as &$item) {
-			$item['img'] = pathinfo($item['imgsrc'])['basename'];
+		foreach( $items as &$item ) {
+			$item['img'] = pathinfo( $item['imgsrc'] )['basename'];
 		}
 
 
@@ -108,7 +108,7 @@ class PeopleController extends Controller {
 
 		$data['domains'] = [];
 		foreach(
-			groupBy($items, "domain_de")
+			groupBy( $items, "domain_de" )
 			as $domainItems
 		) {
 			// preparing domain object
@@ -119,7 +119,7 @@ class PeopleController extends Controller {
 				"teams" => []
 			];
 
-			foreach (groupBy($domainItems, "team_de") as $team) {
+			foreach ( groupBy( $domainItems, "team_de" ) as $team ) {
 				// preparing team object
 				$domain['teams'][] = [
 					// assuming identical titles due to grouping
