@@ -66,22 +66,22 @@ class PeopleController extends Controller {
 		}
 
 		// TODO: currently, only 1 root key is supported by argument,
-		//       we should be able to dive deeper via an array like [ 'title' , 'de' ]
+		// we should be able to dive deeper via an array like [ 'title' , 'de' ]
 		function groupBy($array, $key){
-            $groups = [];
-            $groupsLookup = [];
-            foreach ($array as $item) {
-                if (isset($item[$key])) {
-                    // value not yet encountered? register grouping value in lookup
-                    if (!in_array($item[$key], $groupsLookup)) {
-                        $groupsLook[] = $item[$key];
-                    }
+			$groups = [];
+			$groupsLookup = [];
+			foreach ($array as $item) {
+				if (isset($item[$key])) {
+					// value not yet encountered? register grouping value in lookup
+					if (!in_array($item[$key], $groupsLookup)) {
+						$groupsLook[] = $item[$key];
+					}
 
-                    $groups[] = $item;
-                }
-            }
+					$groups[] = $item;
+				}
+			}
 
-            return $groups;
+			return $groups;
 		}
 		$items = groupBy($items, "domain_de");
 
