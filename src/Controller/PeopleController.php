@@ -55,7 +55,7 @@ class PeopleController extends Controller {
 
 		// convert csv array to key/value objects per row
 		// keys get supplied separately
-		function csv2object( $csv, $keys ) : array {
+		function csv2object( array $csv, array $keys ) : array {
 			$items = [];
 			foreach ( $csv as $row ) {
 				$item = [];
@@ -71,7 +71,7 @@ class PeopleController extends Controller {
 		// group array in sub-arrays
 		// TODO: currently, only 1 root key is supported by argument,
 		// we should be able to dive deeper via an array like [ 'title' , 'de' ]
-		function groupBy( $array, $key ) : array {
+		function groupBy( array $array, string $key ) : array {
 			$groups = [];
 			$groupsLookup = [];
 			foreach ( $array as $item ) {
