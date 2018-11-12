@@ -1,5 +1,5 @@
 <div class="wdiv-team-wrapper wdiv-clearfix">
-    <header class="wdiv-team-header">
+    <header class="wdiv-team-header clearfix cp--h1 center-column wdiv-max-width-1190">
         <div class="wdiv-radio-filter">
             {% for domain in domains %}
                 <p class="wdiv-radio-filter-col">
@@ -7,16 +7,17 @@
                     <label class="wdiv-radio-filter-option" for="wdiv-group-filter-{{loop.index}}"><span class="wdiv-radio-filter-indicator"></span>{{ domain.title }}</label>
                 </p>
             {% endfor %}
-            <p>
+            <p class="wdiv-radio-filter-col">
                 <button class="wdiv-filter-reset">Filter aufheben</button>
             </p>
         </div>
     </header>
-    <div class="wdiv-team-content">
+    <div class="wdiv-team-content clearfix cp--h1 center-column wdiv-max-width-1190">
     {% for domain in domains %}
     {% for team in domain.teams %}
-        <div class="wdiv-group" data-group-id="{{loop.parent.loop.index}}">
+        <div class="wdiv-group  clearfix" data-group-id="{{loop.parent.loop.index}}">
             <h2 class="wdiv-group-title">{{ team.title }}</h2>
+            <div class="wdiv-group-items">
             {% if team.members is defined %}
             {% for person in team.members %}
                 <div class="wdiv-group-item">
@@ -32,6 +33,7 @@
                 </div>
             {% endfor %}
             {% endif %}
+            </div>
         </div>
     {% endfor %}
     {% endfor %}
