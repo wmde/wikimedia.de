@@ -56,15 +56,20 @@ class PeopleController extends Controller {
 		// ]
 
 		// convert csv array to key/value objects per row
-		$items = [];
-		foreach ($csv as $row) {
-			$item = [];
-			foreach ($keys as $index => $key) {
-				$value = isset($row[$index]) ? $row[$index] : "";
-				$item[$key] = $value;
+		// keys get supplied separately
+		function csv2object($csv, $keys){
+			$items = [];
+			foreach ($csv as $row) {
+				$item = [];
+				foreach ($keys as $index => $key) {
+					$value = isset($row[$index]) ? $row[$index] : "";
+					$item[$key] = $value;
+				}
+				$items[] = $item;
 			}
-			$items[] = $item;
+			return $items;
 		}
+		$items = csv2object($csv, $keys);
 
 		// TODO: currently, only 1 root key is supported by argument,
 		// we should be able to dive deeper via an array like [ 'title' , 'de' ]
