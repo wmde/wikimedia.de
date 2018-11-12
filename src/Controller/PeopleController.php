@@ -21,7 +21,7 @@ class PeopleController extends Controller {
 		// https://secure.php.net/manual/en/function.str-getcsv.php#101888
 		$csv = [];
 		foreach(
-			str_getcsv( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).'/templates/pages/people/staff.csv' ), '\n' )
+			str_getcsv( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).'/templates/pages/people/staff.csv' ), "\n" )
 			as
 			$row
 		) {
