@@ -21,7 +21,7 @@ class PeopleController extends Controller {
 		// https://secure.php.net/manual/en/function.str-getcsv.php#101888
 		$csv = [];
 		foreach(
-			str_getcsv( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).'/templates/pages/people/staff.csv' ), "\n" )
+			str_getcsv( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).'/templates/pages/people/staff.csv' ), '\n' )
 			as
 			$row
 		) {
@@ -37,17 +37,17 @@ class PeopleController extends Controller {
 		// instead of mapping, we could actually use the csv headings
 		// but we settle for simple ids for now
 		$keys = [
-			'delta', // "Nummer"
-			'firstname', // "Vorname"
-			'lastname', // "Nachname"
-			'title_de', // "Stellenbezeichnung (de)"
-			'title_en', // "Stellenbezeichnung (en)"
-			'mail', // "E-Mail (geschäftlich)"
-			'domain_de', // "Bereich (de)"
-			'domain_en', // "Bereich (en)"
-			'team_de', // "Team (de)"
-			'team_en', // "Team (en)"
-			'imgsrc' //" BildLink
+			'delta', // 'Nummer'
+			'firstname', // 'Vorname'
+			'lastname', // 'Nachname'
+			'title_de', // 'Stellenbezeichnung (de)'
+			'title_en', // 'Stellenbezeichnung (en)'
+			'mail', // 'E-Mail (geschäftlich)'
+			'domain_de', // 'Bereich (de)'
+			'domain_en', // 'Bereich (en)'
+			'team_de', // 'Team (de)'
+			'team_en', // 'Team (en)'
+			'imgsrc' //' BildLink
 		];
 
 		// TODO: supply multilingual strings per template
@@ -60,7 +60,7 @@ class PeopleController extends Controller {
 			foreach ( $csv as $row ) {
 				$item = [];
 				foreach ( $keys as $index => $key ) {
-					$value = isset( $row[$index] ) ? $row[$index] : "";
+					$value = isset( $row[$index] ) ? $row[$index] : '';
 					$item[$key] = $value;
 				}
 				$items[] = $item;
@@ -108,24 +108,24 @@ class PeopleController extends Controller {
 
 		$data['domains'] = [];
 		foreach(
-			groupBy( $items, "domain_de" )
+			groupBy( $items, 'domain_de' )
 			as $domainItems
 		) {
 			// preparing domain object
 			$domain = [
 				// assuming identical titles due to grouping
 				// TODO: multilanguage
-				"title" => $domainItems[0]['domain_de'],
-				"teams" => []
+				'title' => $domainItems[0]['domain_de'],
+				'teams' => []
 			];
 
-			foreach ( groupBy( $domainItems, "team_de" ) as $team ) {
+			foreach ( groupBy( $domainItems, 'team_de' ) as $team ) {
 				// preparing team object
 				$domain['teams'][] = [
 					// assuming identical titles due to grouping
 					// TODO: multilanguage
-					"title" => $team[0]['team_de'],
-					"members" => $team
+					'title' => $team[0]['team_de'],
+					'members' => $team
 				];
 			}
 
