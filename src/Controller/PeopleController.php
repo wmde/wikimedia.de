@@ -14,7 +14,6 @@ class PeopleController extends Controller {
 
 	public function staff( Request $request ): Response {
 		$data = [];
-		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates/pages/team-draft.html.yaml' ) );
 
 		// 1. loading team table as data source
 
@@ -127,9 +126,7 @@ class PeopleController extends Controller {
 
 		}
 
-
-		// we're assuming a data pattern w/ keys `template` and `data` on root
-		return $this->render( $preview['template'], $preview['data'] );
+		return $this->render( 'pages/team.html.twig', $data );
 	}
 
 }
