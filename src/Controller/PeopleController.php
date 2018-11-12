@@ -13,7 +13,10 @@ use Symfony\Component\Yaml\Yaml;
 class PeopleController extends Controller {
 
 	public function staff( Request $request ): Response {
+		$data = [];
 		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates/pages/team-draft.html.yaml' ) );
+
+		// 1. loading team table as data source
 
 		// thanks to durik at 3ilab dot net for pointing out we need 2 str_getcsv() parsers for rows/columns, see
 		// https://secure.php.net/manual/en/function.str-getcsv.php#101888
@@ -25,6 +28,8 @@ class PeopleController extends Controller {
 		) {
 			$csv[] = str_getcsv( $row );
 		}
+
+		// 2. key handling
 
 		// split first line (column headings)
 		$keysOrig = array_shift($csv);
@@ -93,6 +98,8 @@ class PeopleController extends Controller {
 			return $groups;
 		}
 
+		// 3. group datasets by domains and teams
+
 		// grouping by domain
 		$items = groupBy($items, "domain_de");
 
@@ -100,6 +107,8 @@ class PeopleController extends Controller {
 		foreach ($items as &$domain) {
 			$domain = groupBy($domain, "team_de");
 		}
+
+		$data['domains'] = $items;
 
 		// we're assuming a data pattern w/ keys `template` and `data` on root
 		return $this->render( $preview['template'], $preview['data'] );
