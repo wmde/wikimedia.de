@@ -28,7 +28,7 @@
                     {% endif %}
                     <h3 class="wdiv-person-title">{{ person.firstname }} {{ person.lastname }}</h3>
                     <p>{{ person.title_de }}</p>
-                    <p><a href="{{ person.mail }}">E-Mail</a></p>
+                    <p><a href="mailto:{{ person.mail }}">E-Mail</a></p>
                 </div>
             {% endfor %}
             {% endif %}
