@@ -21,13 +21,13 @@
             {% for person in team.members %}
                 <div class="wdiv-group-item">
                     {# TODO: person.img should be set to default on controller #}
-                    {% if person.img is defined %}
-                    <img src="{{ person.img }}">
+                    {% if person.imgsrc is defined %}
+                    <img src="{{ person.imgsrc }}">
                     {% else %}
                     <img src="/img/staff/default.jpg">
                     {% endif %}
-                    <h3 class="wdiv-person-title">{{ person.name }}</h3>
-                    <p>{{ person.position }}</p>
+                    <h3 class="wdiv-person-title">{{ person.firstname }} {{ person.lastname }}</h3>
+                    <p>{{ person.title_de }}</p>
                     <p><a href="{{ person.mail }}">E-Mail</a></p>
                 </div>
             {% endfor %}
