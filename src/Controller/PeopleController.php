@@ -78,7 +78,7 @@ class PeopleController extends Controller {
 						$groupsLookup[] = $item[$key];
 					}
 
-					$groups[array_search($item[$key],$groupsLookup)] = $item;
+					$groups[array_search($item[$key],$groupsLookup)][] = $item;
 				}
 			}
 
