@@ -73,17 +73,22 @@ class PeopleController extends Controller {
 			$groupsLookup = [];
 			foreach ($array as $item) {
 				if (isset($item[$key])) {
+					$groupBy = $item[$key];
+
 					// value not yet encountered? register grouping value in lookup
 					if (!in_array($item[$key], $groupsLookup)) {
-						$groupsLookup[] = $item[$key];
+						$groupsLookup[] = $groupBy;
 					}
 
-					$groups[array_search($item[$key],$groupsLookup)][] = $item;
+					// groups are filled in order of first encounter of key value
+					$groups[array_search($groupBy,$groupsLookup)][] = $item;
+
 				}
 			}
-
 			return $groups;
 		}
+
+		// grouping by domain
 		$items = groupBy($items, "domain_de");
 
 		// we're assuming a data pattern w/ keys `template` and `data` on root
