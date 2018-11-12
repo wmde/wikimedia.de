@@ -91,11 +91,24 @@ class PeopleController extends Controller {
 			return $groups;
 		}
 
-		// 3. group datasets by domains and teams
+		// 3. modify item datasets
+
+		$items = csv2object($csv, $keys);
+
+		// add image sources
+		// this should be handled by an extra column, for now we only remove the path and assume the files under
+		// /files/staff/*.*
+
+		foreach($items as &$item) {
+			$item['img'] = pathinfo($item['imgsrc'])['basename'];
+		}
+
+
+		// 4. group datasets by domains and teams
 
 		$data['domains'] = [];
 		foreach(
-			groupBy(csv2object($csv, $keys), "domain_de")
+			groupBy($items, "domain_de")
 			as $domainItems
 		) {
 			// preparing domain object
