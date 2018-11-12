@@ -46,7 +46,7 @@ class PeopleController extends Controller {
 			'imgsrc' //" BildLink
 		];
 
-		// TODO: group csv array per teams
+		// TODO: create keys for groups
 		// TODO: supply multilingual strings per template
 		// TODO: split team and domain titles to de/en
 
@@ -90,6 +90,11 @@ class PeopleController extends Controller {
 
 		// grouping by domain
 		$items = groupBy($items, "domain_de");
+
+		// grouping by team per domain
+		foreach ($items as &$domain) {
+			$domain = groupBy($domain, "team_de");
+		}
 
 		// we're assuming a data pattern w/ keys `template` and `data` on root
 		return $this->render( $preview['template'], $preview['data'] );
