@@ -15,13 +15,18 @@
 
 /* Team cards */
 
-.wdiv-group {
-    /* brute clearfix */
-    width: 100%;
-    float: left;
+.wdiv-group-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* we need 6 cols */
+
 }
 
-.wdiv-group-item {
-    width: 25%;
-    float: left;
+@media (min-width: 1280px ){
+    .wdiv-group-item {
+        width: 200px;
+    }
+}
+
+.wdiv-team-wrapper {
+    background-color: white;
 }
