@@ -25,6 +25,12 @@
 
 /* shared/new sidebar */
 
+@media (max-width: 969px) {
+  .wdiv-header-nav {
+    display: none;
+  }
+}
+
 /* Media query includes old breakpoint: max720 for mobile and adds 250px navbar width */
 @media (min-width: 970px) {
     .wdiv-sidebar-alignment {
@@ -43,9 +49,25 @@
 
         background-color: #339966;
     }
+
+    .wdiv-header-nav {
+      position: fixed;
+
+      width: calc( 250 / 1140 * 100% );
+      top: 0;
+      left: 0;
+
+      box-sizing: border-box;
+
+      padding: 1em 26px 1em;
+    }
 }
 
 @media (min-width: 1140px) {
+    .wdiv-header-nav {
+      width: 250px;
+    }
+
     .wdiv-sidebar-alignment {
         margin-left: 250px;
     }
