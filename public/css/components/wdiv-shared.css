@@ -23,6 +23,10 @@
   width: 1px;
 }
 
+.wdiv-img-max-100 {
+  max-width: 100%;
+}
+
 /* shared/new sidebar */
 
 @media (max-width: 969px) {

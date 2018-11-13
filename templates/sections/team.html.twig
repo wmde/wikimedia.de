@@ -23,9 +23,9 @@
                 <div class="wdiv-group-item">
                     {# TODO: person.img should be set to default on controller #}
                     {% if person.img %}
-                    <img src="/files/staff/{{ person.img }}" style="width: 100%">
+                    <img src="/files/staff/{{ person.img }}" class="wdiv-img-max-100">
                     {% else %}
-                    <img src="/img/staff/default.jpg" style="width: 100%">
+                    <img src="/img/staff/default.jpg" class="wdiv-img-max-100">
                     {% endif %}
                     <h3 class="wdiv-person-title">{{ person.firstname }} {{ person.lastname }}</h3>
                     <p>{{ person.title_de }}</p>
