@@ -17,11 +17,26 @@
 
 .wdiv-group-items {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* we need 6 cols */
+    grid-template-columns: repeat(2, 1fr); /* we need 6 cols */
+}
 
+@media (min-width: 720px ){
+    .wdiv-group-items {
+        grid-template-columns: repeat(3, 1fr); /* we need 6 cols */
+    }
 }
 
 @media (min-width: 1280px ){
+    .wdiv-group-items {
+        grid-template-columns: repeat(4, 1fr); /* we need 6 cols */
+    }
+}
+
+.wdiv-group-item {
+    width: 160px;
+}
+
+@media (min-width: 520px ) {
     .wdiv-group-item {
         width: 200px;
     }
