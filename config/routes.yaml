@@ -29,20 +29,11 @@ themes:
     path: /themes
     controller: App\Controller\DatasetPageController::themes
 
-# for previewing purposes only
-themesLegacy:
-    path: /templates/pages/topics-draft
-    controller: App\Controller\TemplatesController::previewTopics
-
 peopleStaff:
     path: /people/staff
     controller: App\Controller\DatasetPageController::peopleStaff
 
-# for previewing purposes only
-peopleLegacy:
-    path: /templates/pages/team-draft
-    controller: App\Controller\TemplatesController::previewTeam
-
+# this could be the Styleguide base if anybody ever finishes this
 # templates:
 #     path: /templates{path}
 #     controller: App\Controller\TemplatesController::preview
