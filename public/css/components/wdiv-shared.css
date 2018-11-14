@@ -114,8 +114,23 @@
 
   .wdiv-nav-wrapper {
     background-color: rgba(51,153,102,0.8);
+  }
 
+  .wdiv-nav-wrapper .wdiv-nav {
     padding: 42px 90px; /* TODO: smaller mobile spacing */
+  }
+
+  /* navigation toggling */
+
+  /* TODO: JS-detection */
+
+  .wdiv-nav-wrapper {
+    overflow: hidden;
+    transition: height 0.6s; /* animate height changes */
+  }
+
+  .wdiv-header-nav:not(.wdiv-js-toggled) .wdiv-nav-wrapper {
+    height: 0!important; /* force close navigation */
   }
 
   /* crazy hacks */
