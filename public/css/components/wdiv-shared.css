@@ -74,7 +74,36 @@
 
 @media (max-width: 969px) {
   .wdiv-header-nav {
-    display: none;
+    width: 100%;
+  }
+
+
+  /* top element */
+
+  .wdiv-nav-header {
+    box-sizing: border-box;
+    height: 90px;
+    background-color: #339966;
+    padding: 26px 50px; /* TODO: smaller mobile spacing */
+  }
+
+  .wdiv-header-nav-logo {
+    width: 160px;
+  }
+
+  /* navigation */
+
+  .wdiv-nav-container {
+    background-color: rgba(51,153,102,0.8);
+
+    padding: 42px 90px; /* TODO: smaller mobile spacing */
+  }
+
+  /* crazy hacks */
+
+  .wdiv-header-nav + .mh {
+    /* crudely override the existing CTA button */
+    display: none!important;
   }
 }
 

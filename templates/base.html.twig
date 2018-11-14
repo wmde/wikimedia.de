@@ -23,19 +23,23 @@
         <div class="wdiv-sidebar-alignment">
             <header class="wdiv-page-header">
                 <div class="wdiv-header-nav">
-                <h2 class="wdiv-header-nav-logo">
-                    <a href="{{ path('index') }}">
-                      <img class="wdiv-img-max-100" src="/img/wmde_logo_white.svg" alt="Wikimedia Deutschland e. V.">
-                    </a>
-                </h2>
-                <nav class="tm--gamma">
-                    <a href="{{ path('themes') }}" class="wdiv-color-white">Themen</a><br><br>
-                    <!-- <a class="wdiv-color-white" href="{{ path('index') }}">Über Uns</a><br><br> -->
-                    <!-- <a class="wdiv-color-white" href="/en/people">Menschen</a><br><br> -->
-                    <a class="wdiv-color-white" href="{{ path('peopleStaff') }}">Mitglieder</a><br><br>
-                    <a class="wdiv-color-white" href="{{ path('imprint') }}">Kontakt</a><br><br>
-                    <a class="wdiv-color-white" href="https://spenden.wikimedia.de/apply-for-membership?piwik_campaign=wm.de_neu&piwik_kwd=mitglieds_btn">Unterstütze Uns</a><br><br>
-                </nav>
+                    <header class="wdiv-nav-header">
+                        <h2 class="wdiv-header-nav-logo">
+                            <a href="{{ path('index') }}">
+                              <img class="wdiv-img-max-100" src="/img/wmde_logo_white.svg" alt="Wikimedia Deutschland e. V.">
+                            </a>
+                        </h2>
+                    </header>
+                    <div class="wdiv-nav-container">
+                        <nav class="tm--gamma">
+                            <a href="{{ path('themes') }}" class="wdiv-color-white">Themen</a><br><br>
+                            <!-- <a class="wdiv-color-white" href="{{ path('index') }}">Über Uns</a><br><br> -->
+                            <!-- <a class="wdiv-color-white" href="/en/people">Menschen</a><br><br> -->
+                            <a class="wdiv-color-white" href="{{ path('peopleStaff') }}">Mitglieder</a><br><br>
+                            <a class="wdiv-color-white" href="{{ path('imprint') }}">Kontakt</a><br><br>
+                            <a class="wdiv-color-white" href="https://spenden.wikimedia.de/apply-for-membership?piwik_campaign=wm.de_neu&piwik_kwd=mitglieds_btn">Unterstütze Uns</a><br><br>
+                        </nav>
+                    </div>
                 </div>
                 <div class="mh">
                     <div class="mh__inner clearfix cp--h1 center-column wdiv-max-width-1190">
