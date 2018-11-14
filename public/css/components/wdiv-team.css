@@ -1,5 +1,15 @@
 /* Team */
 
+/* general team heading */
+
+.wdiv-team-heading {
+    height: 124px; /* TODO: responsive */
+}
+
+.wdiv-team-heading .wdiv-heading-title {
+    margin-top: 2.3em;
+}
+
 /* Team filter */
 
 .wdiv-team-filter {
