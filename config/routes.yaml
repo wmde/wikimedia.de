@@ -27,7 +27,7 @@ charter:
 
 themes:
     path: /themes
-    controller: App\Controller\TemplatesController::previewTopics
+    controller: App\Controller\DatasetPageController::themes
 
 # for previewing purposes only
 themesLegacy:
