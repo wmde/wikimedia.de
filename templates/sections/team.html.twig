@@ -1,4 +1,6 @@
 <div class="wdiv-team-wrapper wdiv-clearfix">
+    {# hide filter for single group #}
+    {% if domains|length > 1 %}
     <header class="wdiv-team-header clearfix cp--h1 center-column wdiv-max-width-1190">
         <div class="wdiv-radio-filter">
             {% for domain in domains %}
@@ -12,6 +14,7 @@
             </p>
         </div>
     </header>
+    {% endif %}
     <div class="wdiv-team-content clearfix cp--h1 center-column wdiv-max-width-1190">
     {% for domain in domains %}
     {% for team in domain.teams %}
