@@ -95,6 +95,19 @@
 
   .wdiv-header-nav-logo {
     width: 160px;
+    float: left;
+  }
+
+  .wdiv-nav-toggle {
+    float: right;
+    height: 38px;
+
+    /* remove system styles */
+    border-style: none;
+    padding: 0;
+
+    cursor: pointer;
+    background-color: transparent;
   }
 
   /* navigation */
