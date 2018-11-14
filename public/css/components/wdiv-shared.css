@@ -1,5 +1,9 @@
 /* shared/layout */
 
+.wdiv-max-width-1190 {
+    max-width: 1190px; /* subtracts sidebar width from main container */
+}
+
 .wdiv-clearfix::after {
 /*
     via (defunct)
@@ -75,10 +79,6 @@
     .wdiv-sidebar-alignment {
         margin-left: 250px;
     }
-}
-
-.wdiv-max-width-1190 {
-    max-width: 1190px; /* subtracts sidebar width from main container */
 }
 
 /* shared/new header */
