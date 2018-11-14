@@ -14,12 +14,12 @@
         <div class="clearfix cp--h1 center-column wdiv-max-width-1190">
             <div class="wdiv-radio-filter wdiv-clearfix">
                 {% for id, topic in topics %}
-                    <p class="wdiv-radio-filter-col">
+                    <p class="wdiv-radio-filter-col-3">
                         <input class="wdiv-hide-accessibly" type="radio" value="{{id}}" id="wdiv-radio-filter-{{id}}" name="wdiv-radio-filter">
                         <label class="wdiv-radio-filter-option" for="wdiv-radio-filter-{{id}}"><span class="wdiv-radio-filter-indicator"></span>{{ topic.title }}</label>
                     </p>
                 {% endfor %}
-                <p class="wdiv-radio-filter-col">
+                <p class="wdiv-radio-filter-col-3">
                     <button class="wdiv-filter-reset">Alle Projekte anzeigen</button>
                 </p>
             </div>
