@@ -39,6 +39,29 @@
   color: #339966;
 }
 
+/* Type */
+
+/* new addition to font system */
+
+.wdiv-tm--epsilon {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.4em;
+}
+
+@media (min-width: 500px) {
+    .wdiv-tm--epsilon {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .wdiv-tm--epsilon {
+        font-size: 16px;
+    }
+}
+
 /* shared/new sidebar */
 
 /* mobile layout */

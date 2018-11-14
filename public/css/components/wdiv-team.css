@@ -25,26 +25,8 @@
 
 /* this equals Medium Epsilon Sans Serif */
 .wdiv-person-subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.4em;
-
     /* reset system styles */
     margin: 0;
-}
-
-
-@media (min-width: 500px) {
-    .wdiv-person-subtitle {
-        font-size: 14px;
-    }
-}
-
-@media (min-width: 1000px) {
-    .wdiv-person-subtitle {
-        font-size: 16px;
-    }
 }
 
 .wdiv-group-title {
