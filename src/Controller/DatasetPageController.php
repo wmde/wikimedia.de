@@ -12,7 +12,7 @@ use Symfony\Component\Yaml\Yaml;
 
 class DatasetPageController extends Controller {
 
-	public function peopleStaff( Request $request ): Response {
+	private function peopleParse($csvPath) {
 		$data = [];
 
 		// 1. loading team table as data source
@@ -21,7 +21,7 @@ class DatasetPageController extends Controller {
 		// https://secure.php.net/manual/en/function.str-getcsv.php#101888
 		$csv = [];
 		foreach(
-			str_getcsv( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).'/templates/pages/people/staff.csv' ), "\n" )
+			str_getcsv( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).$csvPath ), "\n" )
 			as
 			$row
 		) {
@@ -134,6 +134,11 @@ class DatasetPageController extends Controller {
 		}
 
 		return $this->render( 'pages/team.html.twig', $data );
+
+	}
+
+	public function peopleStaff( Request $request ): Response {
+		return $this->peopleParse('/templates/pages/people/staff.csv');
 	}
 
 	public function themes( Request $request ): Response {
