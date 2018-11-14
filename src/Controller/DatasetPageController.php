@@ -133,7 +133,7 @@ class DatasetPageController extends Controller {
 
 		}
 
-		return $this->render( 'pages/team.html.twig', $data );
+		return $this->render( 'pages/people/staff.html.twig', $data );
 
 	}
 
