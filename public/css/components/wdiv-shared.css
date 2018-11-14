@@ -10,6 +10,12 @@
   }
 }
 
+@media (min-width: 970px) {
+  .wdiv-hide-from-970 {
+    display: none;
+  }
+}
+
 .wdiv-clearfix::after {
 /*
     via (defunct)
