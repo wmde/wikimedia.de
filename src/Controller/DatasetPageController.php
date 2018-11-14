@@ -141,6 +141,10 @@ class DatasetPageController extends Controller {
 		return $this->peopleParse('/templates/pages/people/staff.csv');
 	}
 
+	public function peopleBoard( Request $request ): Response {
+		return $this->peopleParse('/templates/pages/people/board.csv');
+	}
+
 	public function themes( Request $request ): Response {
 		$path = '/pages/topics-draft';
 		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates'.$path.'.html.yaml' ) );

@@ -29,6 +29,10 @@ themes:
     path: /themes
     controller: App\Controller\DatasetPageController::themes
 
+peopleBoard:
+    path: /people/board
+    controller: App\Controller\DatasetPageController::peopleBoard
+
 peopleStaff:
     path: /people/staff
     controller: App\Controller\DatasetPageController::peopleStaff
