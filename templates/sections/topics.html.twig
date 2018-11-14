@@ -44,10 +44,10 @@
                     <div class="wdiv-project-content">
                         <h3 class="wdiv-project-topic ts--alpha">{{ topics[project.topic].title }}</h3>
                         <h2 class="wdiv-project-title tl--gamma">{{ project.title }}</h2>
-    
+
                         <div class="wdiv-project-body wdiv-tm--epsilon">
                             <p>{{ project.body | raw }}</p>
-    
+
                             {% if project.link is defined %}
                             <p class="wdiv-project-links ts--alpha">
                                 <a href="{{ project.link }}">Zur Projektseite</a>
