@@ -12,7 +12,7 @@ use Symfony\Component\Yaml\Yaml;
 
 class DatasetPageController extends Controller {
 
-	private function peopleParse($csvPath) {
+	private function peopleParse($templatePath, $csvPath) {
 		$data = [];
 
 		// 1. loading team table as data source
@@ -133,16 +133,16 @@ class DatasetPageController extends Controller {
 
 		}
 
-		return $this->render( 'pages/people/staff.html.twig', $data );
+		return $this->render( $templatePath , $data );
 
 	}
 
 	public function peopleStaff( Request $request ): Response {
-		return $this->peopleParse('/templates/pages/people/staff.csv');
+		return $this->peopleParse('pages/people/staff.html.twig', '/templates/pages/people/staff.csv');
 	}
 
 	public function peopleBoard( Request $request ): Response {
-		return $this->peopleParse('/templates/pages/people/board.csv');
+		return $this->peopleParse('pages/people/staff.html.twig', '/templates/pages/people/board.csv');
 	}
 
 	public function themes( Request $request ): Response {
