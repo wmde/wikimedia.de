@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+// TODO: remove once the template dummy is no longer used
 use Symfony\Component\Yaml\Yaml;
 
 class DatasetPageController extends Controller {
