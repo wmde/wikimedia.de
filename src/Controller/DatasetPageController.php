@@ -143,7 +143,7 @@ class DatasetPageController extends Controller {
 	}
 
 	public function peopleBoard( Request $request ): Response {
-		return $this->peopleParse('pages/people/staff.html.twig', '/templates/pages/people/board.csv');
+		return $this->peopleParse('pages/people/board.html.twig', '/templates/pages/people/board.csv');
 	}
 
 	public function themes( Request $request ): Response {

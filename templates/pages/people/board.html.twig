@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('/js/vendor/list.min.js') }}"></script>
+    <script src="{{ asset('/js/components/wdiv-team.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('/css/components/wdiv-radio-filter.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('/css/components/wdiv-team.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block body %}
+    <main id="main">
+        <div class="wdiv-team-heading clearfix cp--h1 center-column wdiv-max-width-1190">
+            <h1 class="tl--gamma wdiv-heading-title">Präsidium und Mitgliedern</h1>
+            <a class="wdiv-tm--epsilon" href="{{ path('peopleStaff') }}">Zu Mitarbeitern</a>
+        </div>
+        {% include 'sections/team.html.twig' %}
+    </main>
+{% endblock %}
