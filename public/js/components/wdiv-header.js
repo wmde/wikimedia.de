@@ -8,9 +8,8 @@
 var context = document;
 Array.prototype.forEach.call( context.querySelectorAll('.wdiv-header-nav') , function (navWrapper) {
 
-
     // TODO: get and write nav height in px for animation
-    // TODO: get and write nav height in px for animation
+    // TODO: possibly update height on resize events
 
     Array.prototype.forEach.call( navWrapper.querySelectorAll('.wdiv-nav-toggle') , function (button) {
 
