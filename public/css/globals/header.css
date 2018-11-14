@@ -129,9 +129,6 @@
 }
 
 @media (max-width: 720px) {
-  main {
-    padding-top: 36px;
-  }
   .mh {
     top: 0;
     height: 36px;
@@ -144,35 +141,5 @@
   }
   .mh__support {
     display: none;
-  }
-  .nav-locale-toggle {
-    height: 36px;
-    position: absolute;
-    top: -36px;
-    width: 100%;
-    right: 0;
-    text-align: right;
-    background-image: none;
-    padding: 0;
-  }
-  .nav-locale-toggle__locale {
-    position: absolute;
-    background: white url(../../ico/arrow_select.svg) no-repeat right center;
-    right: 25px;
-    bottom: 4px;
-    padding-bottom: 5px;
-    padding-right: 27px;
-    height: auto;
-    width: auto;
-  }
-  .nav-locale {
-    padding: 0 9px;
-    bottom: 0;
-    width: 100%;
-    border-left: none;
-    border-bottom: 1px solid var(--color-lightgray);
-  }
-  .nav-locale a:first-child {
-    border-top: 1px solid var(--color-lightgray);
   }
 }

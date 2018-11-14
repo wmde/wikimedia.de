@@ -4,6 +4,12 @@
     max-width: 1190px; /* subtracts sidebar width from main container */
 }
 
+@media (max-width: 720px) {
+  .wdiv-hide-to-720 {
+    display: none;
+  }
+}
+
 .wdiv-clearfix::after {
 /*
     via (defunct)
