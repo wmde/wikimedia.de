@@ -112,7 +112,7 @@
 
   /* navigation */
 
-  .wdiv-nav-container {
+  .wdiv-nav-wrapper {
     background-color: rgba(51,153,102,0.8);
 
     padding: 42px 90px; /* TODO: smaller mobile spacing */
