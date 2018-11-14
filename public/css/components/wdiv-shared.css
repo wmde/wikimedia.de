@@ -31,7 +31,13 @@
   max-width: 100%;
 }
 
+.wdiv-color-white {
+  color: white;
+}
+
 /* shared/new sidebar */
+
+/* mobile layout */
 
 @media (max-width: 969px) {
   .wdiv-header-nav {
@@ -68,6 +74,10 @@
       box-sizing: border-box;
 
       padding: 1em 26px 1em;
+    }
+
+    .wdiv-header-nav-logo {
+      margin: 22px 0 72px; /* TODO: responsive */
     }
 }
 
