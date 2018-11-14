@@ -10,9 +10,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 use Symfony\Component\Yaml\Yaml;
 
-class PeopleController extends Controller {
+class DatasetPageController extends Controller {
 
-	public function staff( Request $request ): Response {
+	public function peopleStaff( Request $request ): Response {
 		$data = [];
 
 		// 1. loading team table as data source
@@ -135,5 +135,14 @@ class PeopleController extends Controller {
 
 		return $this->render( 'pages/team.html.twig', $data );
 	}
+
+	public function themes( Request $request ): Response {
+		$path = '/pages/topics-draft';
+		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates'.$path.'.html.yaml' ) );
+
+		// we're assuming a data pattern w/ keys `template` and `data` on root
+		return $this->render( $preview['template'], $preview['data'] );
+	}
+
 
 }

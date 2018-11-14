@@ -36,7 +36,7 @@ themesLegacy:
 
 peopleStaff:
     path: /people/staff
-    controller: App\Controller\PeopleController::staff
+    controller: App\Controller\DatasetPageController::peopleStaff
 
 # for previewing purposes only
 peopleLegacy:
