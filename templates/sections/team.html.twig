@@ -23,9 +23,9 @@
                 <div class="wdiv-group-item">
                     {# TODO: person.img should be set to default on controller #}
                     {% if person.img %}
-                    <img src="/files/staff/{{ person.img }}" class="wdiv-img-max-100">
+                    <img class="wdiv-item-img wdiv-img-max-100" src="/files/staff/{{ person.img }}">
                     {% else %}
-                    <img src="/img/staff/default.jpg" class="wdiv-img-max-100">
+                    <img class="wdiv-item-img wdiv-img-max-100" src="/img/staff/default.jpg">
                     {% endif %}
                     <h3 class="wdiv-person-title tm--gamma">{{ person.firstname }} {{ person.lastname }}</h3>
                     <p class="wdiv-person-subtitle wdiv-tm--epsilon">{{ person.title_de }}</p>
