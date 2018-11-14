@@ -16,7 +16,7 @@
     {% for domain in domains %}
     {% for team in domain.teams %}
         <div class="wdiv-group  clearfix" data-group-id="{{loop.parent.loop.index}}">
-            <h2 class="wdiv-group-title">{{ team.title }}</h2>
+            <h2 class="tm--alpha wdiv-group-title  wdiv-color-green">{{ team.title }}</h2>
             <div class="wdiv-group-items">
             {% if team.members is defined %}
             {% for person in team.members %}
@@ -27,9 +27,9 @@
                     {% else %}
                     <img src="/img/staff/default.jpg" class="wdiv-img-max-100">
                     {% endif %}
-                    <h3 class="wdiv-person-title">{{ person.firstname }} {{ person.lastname }}</h3>
-                    <p>{{ person.title_de }}</p>
-                    <p><a href="mailto:{{ person.mail }}">E-Mail</a></p>
+                    <h3 class="wdiv-person-title tm--gamma">{{ person.firstname }} {{ person.lastname }}</h3>
+                    <p class="wdiv-person-subtitle">{{ person.title_de }}</p>
+                    <p class="ts--alpha"><a class="link--black" href="mailto:{{ person.mail }}">E-Mail</a></p>
                 </div>
             {% endfor %}
             {% endif %}
