@@ -214,11 +214,7 @@ class DatasetPageController extends Controller {
 		}
 
 
-		$path = '/pages/topics-draft';
-		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates'.$path.'.html.yaml' ) );
-
-		// we're assuming a data pattern w/ keys `template` and `data` on root
-		return $this->render( $preview['template'], $preview['data'] );
+		return $this->render( $templatePath, $data );
 	}
 
 	public function peopleStaff( Request $request ): Response {
@@ -230,7 +226,7 @@ class DatasetPageController extends Controller {
 	}
 
 	public function themes( Request $request ): Response {
-		return $this->themesParse('pages/themes.html.twig', '/templates/pages/projects.csv', '/templates/pages/themes.csv');
+		return $this->themesParse('pages/topics.html.twig', '/templates/pages/projects.csv', '/templates/pages/themes.csv');
 	}
 
 
