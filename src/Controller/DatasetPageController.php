@@ -46,6 +46,8 @@ class DatasetPageController extends Controller {
 	// group array in sub-arrays
 	// TODO: currently, only 1 root key is supported by argument,
 	//       we should be able to dive deeper via an array like [ 'title' , 'de' ]
+	// TODO: we should actually return associative arrays w/ the unique key
+	// TODO: grouped associative arrays might keep the value only if a third param is set
 	function groupBy( array $array, string $key ): array {
 		$groups = [];
 		$groupsLookup = [];
@@ -191,7 +193,8 @@ class DatasetPageController extends Controller {
 
 		// 3. modify item datasets
 
-		// TODO: transform highlight attribute to `type`
+		// TODO: transform highlight attribute to `type: wide`
+		// TODO: transform
 		// TODO: transform links to array
 
 		// 4. group topics by topic keys
