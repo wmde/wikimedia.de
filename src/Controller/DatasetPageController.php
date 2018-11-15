@@ -189,6 +189,15 @@ class DatasetPageController extends Controller {
 			'themes' => $this->csv2object( $csv['themes'], $keys['themes'] )
 		];
 
+		// 3. modify item datasets
+
+		// TODO: transform highlight attribute to `type`
+		// TODO: transform links to array
+
+		// 4. group topics by topic keys
+
+		// TODO: see above
+
 		$path = '/pages/topics-draft';
 		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates'.$path.'.html.yaml' ) );
 
