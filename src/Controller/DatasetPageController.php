@@ -164,23 +164,23 @@ class DatasetPageController extends Controller {
 		// but we settle for simple ids for now
 		$keys = [
 			'projects' => [
-			'id', // Nummer
-			'highlight', // Hervorheben
-			'locale', // Sprache
-			'title', // Title
-			'content', // Inhalt
-			'url1', // Link 1 = "Zum Projekt"
-			'url2', // Link 2 = "Weiterer Link"
-			'url3', // Link 3
-			'imgSrc', // Bild
-			'urlSrc', // URL-Quelle
-			'imgFile' // Dateiname lokal
+				'id', // Nummer
+				'highlight', // Hervorheben
+				'locale', // Sprache
+				'title', // Title
+				'content', // Inhalt
+				'url1', // Link 1 = "Zum Projekt"
+				'url2', // Link 2 = "Weiterer Link"
+				'url3', // Link 3
+				'imgSrc', // Bild
+				'urlSrc', // URL-Quelle
+				'imgFile' // Dateiname lokal
 			],
 			'themes' => [
-			'id', // Nummer
-			'locale', // Sprache
-			'title', // Handlungsfeld/Themen
-			'desc' // Beschreibung
+				'id', // Nummer
+				'locale', // Sprache
+				'title', // Handlungsfeld/Themen
+				'desc' // Beschreibung
 			]
 		];
 
