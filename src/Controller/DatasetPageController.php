@@ -69,7 +69,7 @@ class DatasetPageController extends Controller {
 		return $groups;
 	}
 
-	private function peopleParse( string $templatePath, string $csvPath ): array {
+	private function peopleParse( string $templatePath, string $csvPath ): object {
 		$data = [];
 
 		// 1. loading team table as data source
@@ -141,7 +141,7 @@ class DatasetPageController extends Controller {
 
 	}
 
-	private function themesParse( string $templatePath, string $csvPathProjects, string $csvPathThemes ): array {
+	private function themesParse( string $templatePath, string $csvPathProjects, string $csvPathThemes ): object {
 		$data = [];
 
 		// 1. loading team table as data source
