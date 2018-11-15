@@ -146,19 +146,24 @@ class DatasetPageController extends Controller {
 		$data = [];
 
 		// 1. loading team table as data source
-		$csvProjects = $this->csvAsArray($csvPathProjects);
-		$csvProjects = $this->csvAsArray($csvPathThemes);
+		$csv = [
+			'projects' => $this->csvAsArray($csvPathProjects),
+			'themes' => $this->csvAsArray($csvPathThemes)
+		];
 
 		// 2. key handling
 
 		// split first line (column headings)
-		$keysProjectsOrig = array_shift( $csvProjects );
-		$keysThemesOrig = array_shift( $csvThemes );
+		$keysOrig = [
+			'projects' => array_shift( $csv['projects'] ),
+			'themes' => array_shift( $csv['themes'] )
+		];
 
 		// note:
 		// instead of mapping, we could actually use the csv headings
 		// but we settle for simple ids for now
-		$keysProjects = [
+		$keys = [
+			'projects' => [
 			'id', // Nummer
 			'highlight', // Hervorheben
 			'locale', // Sprache
@@ -170,15 +175,16 @@ class DatasetPageController extends Controller {
 			'imgSrc', // Bild
 			'urlSrc', // URL-Quelle
 			'imgFile' // Dateiname lokal
-		];
-		$keysThemes = [
+			],
+			'themes' => [
 			'id', // Nummer
 			'locale', // Sprache
 			'title', // Handlungsfeld/Themen
 			'desc' // Beschreibung
+			]
 		];
 
-		$projects = $this->csv2object( $csvProjects, $keysProjects );
+		$projects = $this->csv2object( $csv['projects'], $keys['projects'] );
 
 		$path = '/pages/topics-draft';
 		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates'.$path.'.html.yaml' ) );
