@@ -28,9 +28,6 @@ class DatasetPageController extends Controller {
 		return $csv;
 	}
 
-		// TODO: supply multilingual strings per template
-		// TODO: split team and domain titles to de/en
-
 		// convert csv array to key/value objects per row
 		// keys get supplied separately
 		private function csv2object( array $csv, array $keys ): array {
@@ -48,7 +45,7 @@ class DatasetPageController extends Controller {
 
 		// group array in sub-arrays
 		// TODO: currently, only 1 root key is supported by argument,
-		// we should be able to dive deeper via an array like [ 'title' , 'de' ]
+		//       we should be able to dive deeper via an array like [ 'title' , 'de' ]
 		function groupBy( array $array, string $key ): array {
 			$groups = [];
 			$groupsLookup = [];
@@ -70,7 +67,6 @@ class DatasetPageController extends Controller {
 			return $groups;
 		}
 
-		// 3. modify item datasets
 	private function peopleParse($templatePath, $csvPath) {
 		$data = [];
 
@@ -101,6 +97,7 @@ class DatasetPageController extends Controller {
 
 		$items = $this->csv2object( $csv, $keys );
 
+		// 3. modify item datasets
 
 		// add image sources
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
@@ -109,6 +106,9 @@ class DatasetPageController extends Controller {
 		foreach( $items as &$item ) {
 			$item['img'] = pathinfo( $item['imgsrc'] )['basename'];
 		}
+
+		// TODO: supply multilingual strings per template
+		// TODO: split team and domain titles to de/en
 
 		// 4. group datasets by domains and teams
 
