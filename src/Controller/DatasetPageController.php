@@ -105,7 +105,7 @@ class DatasetPageController extends Controller {
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
 		// /files/staff/*.*
 		foreach( $items as &$item ) {
-			$item['img'] = pathinfo( $item['imgsrc'] )['basename'];
+			$item['img'] = '/files/people/'.pathinfo( $item['imgsrc'] )['basename'];
 		}
 
 		// TODO: supply multilingual strings per template
