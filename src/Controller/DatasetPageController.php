@@ -166,7 +166,8 @@ class DatasetPageController extends Controller {
 		// but we settle for simple ids for now
 		$keys = [
 			'projects' => [
-				'themeId', // Nummer
+				//'themeId', // Nummer
+				'topic', // Nummer // TODO: we keep the template naming for now
 				'highlight', // Hervorheben
 				'locale', // Sprache
 				'title', // Title
@@ -176,7 +177,8 @@ class DatasetPageController extends Controller {
 				'url3', // Link 3
 				'imgSrc', // Bild
 				'url', // URL-Quelle
-				'img' // Dateiname lokal
+				//'img' // Dateiname lokal
+				'image' // Dateiname lokal // TODO: we keep the template naming for now
 			],
 			'themes' => [
 				'id', // Nummer
@@ -200,6 +202,7 @@ class DatasetPageController extends Controller {
 		// 4. group topics by topic keys
 		// TODO: template uses „topics“ as ID, so we transform the key `theme` here
 
+		$data['projects'] = $items['projects'];
 		$data['topics'] = [];
 		foreach(
 			$this->groupBy( $items['themes'], 'id' )
