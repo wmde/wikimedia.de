@@ -28,40 +28,12 @@ class DatasetPageController extends Controller {
 		return $csv;
 	}
 
-	private function peopleParse($templatePath, $csvPath) {
-		$data = [];
-
-		// 1. loading team table as data source
-		$csv = $this->csvAsArray($csvPath);
-
-		// 2. key handling
-
-		// split first line (column headings)
-		$keysOrig = array_shift( $csv );
-
-		// note:
-		// instead of mapping, we could actually use the csv headings
-		// but we settle for simple ids for now
-		$keys = [
-			'delta', // 'Nummer'
-			'firstname', // 'Vorname'
-			'lastname', // 'Nachname'
-			'title_de', // 'Stellenbezeichnung (de)'
-			'title_en', // 'Stellenbezeichnung (en)'
-			'mail', // 'E-Mail (geschäftlich)'
-			'domain_de', // 'Bereich (de)'
-			'domain_en', // 'Bereich (en)'
-			'team_de', // 'Team (de)'
-			'team_en', // 'Team (en)'
-			'imgsrc' //' BildLink
-		];
-
 		// TODO: supply multilingual strings per template
 		// TODO: split team and domain titles to de/en
 
 		// convert csv array to key/value objects per row
 		// keys get supplied separately
-		function csv2object( array $csv, array $keys ): array {
+		private function csv2object( array $csv, array $keys ): array {
 			$items = [];
 			foreach ( $csv as $row ) {
 				$item = [];
@@ -99,8 +71,36 @@ class DatasetPageController extends Controller {
 		}
 
 		// 3. modify item datasets
+	private function peopleParse($templatePath, $csvPath) {
+		$data = [];
 
-		$items = csv2object( $csv, $keys );
+		// 1. loading team table as data source
+		$csv = $this->csvAsArray($csvPath);
+
+		// 2. key handling
+
+		// split first line (column headings)
+		$keysOrig = array_shift( $csv );
+
+		// note:
+		// instead of mapping, we could actually use the csv headings
+		// but we settle for simple ids for now
+		$keys = [
+			'delta', // 'Nummer'
+			'firstname', // 'Vorname'
+			'lastname', // 'Nachname'
+			'title_de', // 'Stellenbezeichnung (de)'
+			'title_en', // 'Stellenbezeichnung (en)'
+			'mail', // 'E-Mail (geschäftlich)'
+			'domain_de', // 'Bereich (de)'
+			'domain_en', // 'Bereich (en)'
+			'team_de', // 'Team (de)'
+			'team_en', // 'Team (en)'
+			'imgsrc' //' BildLink
+		];
+
+		$items = $this->csv2object( $csv, $keys );
+
 
 		// add image sources
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
@@ -114,7 +114,7 @@ class DatasetPageController extends Controller {
 
 		$data['domains'] = [];
 		foreach(
-			groupBy( $items, 'domain_de' )
+			$this->groupBy( $items, 'domain_de' )
 			as $domainItems
 		) {
 			// preparing domain object
@@ -125,7 +125,7 @@ class DatasetPageController extends Controller {
 				'teams' => []
 			];
 
-			foreach ( groupBy( $domainItems, 'team_de' ) as $team ) {
+			foreach ( $this->groupBy( $domainItems, 'team_de' ) as $team ) {
 				// preparing team object
 				$domain['teams'][] = [
 					// assuming identical titles due to grouping
