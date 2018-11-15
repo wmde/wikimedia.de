@@ -196,8 +196,14 @@ class DatasetPageController extends Controller {
 		// 3. modify item datasets
 
 		// TODO: transform highlight attribute to `type: wide`
-		// TODO: transform
 		// TODO: transform links to array
+
+		// add image sources
+		// this should be handled by an extra column, for now we only remove the path and assume the files under
+		// /files/projects/*.jpg
+		foreach( $items['projects'] as &$project ) {
+			$project['image'] = '/files/projects/'.pathinfo( $project['imgSrc'] )['filename'].'.jpg';
+		}
 
 		// 4. group topics by topic keys
 		// TODO: template uses „topics“ as ID, so we transform the key `theme` here
