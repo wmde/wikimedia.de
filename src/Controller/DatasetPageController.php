@@ -142,6 +142,43 @@ class DatasetPageController extends Controller {
 
 	}
 
+	private function themesParse($templatePath, $csvPathProjects, $csvPathThemes) {
+		$data = [];
+
+		// 1. loading team table as data source
+		$csvProjects = $this->csvAsArray($csvPathProjects);
+
+		// 2. key handling
+
+		// split first line (column headings)
+		$keysProjectsOrig = array_shift( $csvProjects );
+
+		// note:
+		// instead of mapping, we could actually use the csv headings
+		// but we settle for simple ids for now
+		$keysProjects = [
+			'delta', // 'Nummer'
+			'highlight', // "Hervorheben"
+			'locale', // "Sprache"
+			'title', // "Title"
+			'content', // "Inhalt"
+			'url1', // "Link 1 = "Zum Projekt""
+			'url2', //"Link 2 = "Weiterer Link""
+			'url3', // "Link 3"
+			'imgSrc', // "Bild"
+			'urlSrc', // "URL-Quelle"
+			'imgFile' //"Dateiname lokal"
+		];
+
+		$projects = $this->csv2object( $csvProjects, $keysProjects );
+
+		$path = '/pages/topics-draft';
+		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates'.$path.'.html.yaml' ) );
+
+		// we're assuming a data pattern w/ keys `template` and `data` on root
+		return $this->render( $preview['template'], $preview['data'] );
+	}
+
 	public function peopleStaff( Request $request ): Response {
 		return $this->peopleParse('pages/people/staff.html.twig', '/templates/pages/people/staff.csv');
 	}
@@ -151,11 +188,7 @@ class DatasetPageController extends Controller {
 	}
 
 	public function themes( Request $request ): Response {
-		$path = '/pages/topics-draft';
-		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates'.$path.'.html.yaml' ) );
-
-		// we're assuming a data pattern w/ keys `template` and `data` on root
-		return $this->render( $preview['template'], $preview['data'] );
+		return $this->themesParse('pages/themes.html.twig', '/templates/pages/projects.csv', '/templates/pages/themes.csv');
 	}
 
 
