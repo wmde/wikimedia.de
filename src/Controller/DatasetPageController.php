@@ -13,11 +13,8 @@ use Symfony\Component\Yaml\Yaml;
 
 class DatasetPageController extends Controller {
 
-	private function peopleParse($templatePath, $csvPath) {
-		$data = [];
-
-		// 1. loading team table as data source
-
+	// load CSV file and return contents as nested array
+	private function csvAsArray($csvPath){
 		// thanks to durik at 3ilab dot net for pointing out we need 2 str_getcsv() parsers for rows/columns, see
 		// https://secure.php.net/manual/en/function.str-getcsv.php#101888
 		$csv = [];
@@ -28,6 +25,14 @@ class DatasetPageController extends Controller {
 		) {
 			$csv[] = str_getcsv( $row );
 		}
+		return $csv;
+	}
+
+	private function peopleParse($templatePath, $csvPath) {
+		$data = [];
+
+		// 1. loading team table as data source
+		$csv = $this->csvAsArray($csvPath);
 
 		// 2. key handling
 
