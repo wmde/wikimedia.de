@@ -28,44 +28,44 @@ class DatasetPageController extends Controller {
 		return $csv;
 	}
 
-		// convert csv array to key/value objects per row
-		// keys get supplied separately
-		private function csv2object( array $csv, array $keys ): array {
-			$items = [];
-			foreach ( $csv as $row ) {
-				$item = [];
-				foreach ( $keys as $index => $key ) {
-					$value = isset( $row[$index] ) ? $row[$index] : '';
-					$item[$key] = $value;
-				}
-				$items[] = $item;
+	// convert csv array to key/value objects per row
+	// keys get supplied separately
+	private function csv2object( array $csv, array $keys ): array {
+		$items = [];
+		foreach ( $csv as $row ) {
+			$item = [];
+			foreach ( $keys as $index => $key ) {
+				$value = isset( $row[$index] ) ? $row[$index] : '';
+				$item[$key] = $value;
 			}
-			return $items;
+			$items[] = $item;
 		}
+		return $items;
+	}
 
-		// group array in sub-arrays
-		// TODO: currently, only 1 root key is supported by argument,
-		//       we should be able to dive deeper via an array like [ 'title' , 'de' ]
-		function groupBy( array $array, string $key ): array {
-			$groups = [];
-			$groupsLookup = [];
-			foreach ( $array as $item ) {
-				if ( isset( $item[$key] ) ) {
-					$groupBy = $item[$key];
+	// group array in sub-arrays
+	// TODO: currently, only 1 root key is supported by argument,
+	//       we should be able to dive deeper via an array like [ 'title' , 'de' ]
+	function groupBy( array $array, string $key ): array {
+		$groups = [];
+		$groupsLookup = [];
+		foreach ( $array as $item ) {
+			if ( isset( $item[$key] ) ) {
+				$groupBy = $item[$key];
 
-					// value not yet encountered? register grouping value in lookup
-					// TODO: test framework decided, this is one nesting too many, d'uh!
-					if ( !in_array( $item[$key], $groupsLookup ) ) {
-						$groupsLookup[] = $groupBy;
-					}
-
-					// groups are filled in order of first encounter of key value
-					$groups[array_search( $groupBy,$groupsLookup )][] = $item;
-
+				// value not yet encountered? register grouping value in lookup
+				// TODO: test framework decided, this is one nesting too many, d'uh!
+				if ( !in_array( $item[$key], $groupsLookup ) ) {
+					$groupsLookup[] = $groupBy;
 				}
+
+				// groups are filled in order of first encounter of key value
+				$groups[array_search( $groupBy,$groupsLookup )][] = $item;
+
 			}
-			return $groups;
 		}
+		return $groups;
+	}
 
 	private function peopleParse($templatePath, $csvPath) {
 		$data = [];
@@ -102,7 +102,6 @@ class DatasetPageController extends Controller {
 		// add image sources
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
 		// /files/staff/*.*
-
 		foreach( $items as &$item ) {
 			$item['img'] = pathinfo( $item['imgsrc'] )['basename'];
 		}
