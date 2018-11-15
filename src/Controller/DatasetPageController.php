@@ -184,7 +184,10 @@ class DatasetPageController extends Controller {
 			]
 		];
 
-		$projects = $this->csv2object( $csv['projects'], $keys['projects'] );
+		$items = [
+			'projects' => $this->csv2object( $csv['projects'], $keys['projects'] ),
+			'themes' => $this->csv2object( $csv['themes'], $keys['themes'] )
+		];
 
 		$path = '/pages/topics-draft';
 		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates'.$path.'.html.yaml' ) );
