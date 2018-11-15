@@ -14,11 +14,11 @@ use Symfony\Component\Yaml\Yaml;
 class DatasetPageController extends Controller {
 
 	// load CSV file and return contents as nested array
-	private function csvAsArray($csvPath){
+	private function csvAsArray( string $csvPath ): array {
 		// thanks to durik at 3ilab dot net for pointing out we need 2 str_getcsv() parsers for rows/columns, see
 		// https://secure.php.net/manual/en/function.str-getcsv.php#101888
 		$csv = [];
-		foreach(
+		foreach (
 			str_getcsv( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).$csvPath ), "\n" )
 			as
 			$row
@@ -48,7 +48,7 @@ class DatasetPageController extends Controller {
 	//       we should be able to dive deeper via an array like [ 'title' , 'de' ]
 	// TODO: we should actually return associative arrays w/ the unique key
 	// TODO: grouped associative arrays might keep the value only if a third param is set
-	function groupBy( array $array, string $key ): array {
+	private function groupBy( array $array, string $key ): array {
 		$groups = [];
 		$groupsLookup = [];
 		foreach ( $array as $item ) {
@@ -62,18 +62,18 @@ class DatasetPageController extends Controller {
 				}
 
 				// groups are filled in order of first encounter of key value
-				$groups[array_search( $groupBy,$groupsLookup )][] = $item;
+				$groups[array_search( $groupBy, $groupsLookup )][] = $item;
 
 			}
 		}
 		return $groups;
 	}
 
-	private function peopleParse($templatePath, $csvPath) {
+	private function peopleParse( string $templatePath, string $csvPath ): array {
 		$data = [];
 
 		// 1. loading team table as data source
-		$csv = $this->csvAsArray($csvPath);
+		$csv = $this->csvAsArray( $csvPath );
 
 		// 2. key handling
 
@@ -104,7 +104,7 @@ class DatasetPageController extends Controller {
 		// add image sources
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
 		// /files/staff/*.*
-		foreach( $items as &$item ) {
+		foreach ( $items as &$item ) {
 			$item['img'] = '/files/people/'.pathinfo( $item['imgsrc'] )['basename'];
 		}
 
@@ -114,10 +114,7 @@ class DatasetPageController extends Controller {
 		// 4. group datasets by domains and teams
 
 		$data['domains'] = [];
-		foreach(
-			$this->groupBy( $items, 'domain_de' )
-			as $domainItems
-		) {
+		foreach ( $this->groupBy( $items, 'domain_de' ) as $domainItems ) {
 			// preparing domain object
 			$domain = [
 				// assuming identical titles due to grouping
@@ -140,17 +137,17 @@ class DatasetPageController extends Controller {
 
 		}
 
-		return $this->render( $templatePath , $data );
+		return $this->render( $templatePath, $data );
 
 	}
 
-	private function themesParse($templatePath, $csvPathProjects, $csvPathThemes) {
+	private function themesParse( string $templatePath, string $csvPathProjects, string $csvPathThemes ): array {
 		$data = [];
 
 		// 1. loading team table as data source
 		$csv = [
-			'projects' => $this->csvAsArray($csvPathProjects),
-			'themes' => $this->csvAsArray($csvPathThemes)
+			'projects' => $this->csvAsArray( $csvPathProjects ),
+			'themes' => $this->csvAsArray( $csvPathThemes )
 		];
 
 		// 2. key handling
@@ -201,7 +198,7 @@ class DatasetPageController extends Controller {
 		// add image sources
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
 		// /files/projects/*.jpg
-		foreach( $items['projects'] as &$project ) {
+		foreach ( $items['projects'] as &$project ) {
 			// $project['image'] = '/files/projects/'.pathinfo( $project['imgSrc'] )['filename'].'.jpg';
 			$project['image'] = '/files/projects/'.$project['image'];
 		}
@@ -211,7 +208,7 @@ class DatasetPageController extends Controller {
 
 		$data['projects'] = $items['projects'];
 		$data['topics'] = [];
-		foreach(
+		foreach (
 			$this->groupBy( $items['themes'], 'id' )
 			as $themeItem
 		) {
@@ -220,21 +217,19 @@ class DatasetPageController extends Controller {
 			$data['topics'][$themeItem[0]['id']] = $themeItem[0];
 		}
 
-
 		return $this->render( $templatePath, $data );
 	}
 
 	public function peopleStaff( Request $request ): Response {
-		return $this->peopleParse('pages/people/staff.html.twig', '/public/files/staff.csv');
+		return $this->peopleParse( 'pages/people/staff.html.twig', '/public/files/staff.csv' );
 	}
 
 	public function peopleBoard( Request $request ): Response {
-		return $this->peopleParse('pages/people/board.html.twig', '/public/files/board.csv');
+		return $this->peopleParse( 'pages/people/board.html.twig', '/public/files/board.csv' );
 	}
 
 	public function themes( Request $request ): Response {
-		return $this->themesParse('pages/topics.html.twig', '/public/files/projects.csv', '/public/files/themes.csv');
+		return $this->themesParse( 'pages/topics.html.twig', '/public/files/projects.csv', '/public/files/themes.csv' );
 	}
-
 
 }
