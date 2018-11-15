@@ -164,7 +164,7 @@ class DatasetPageController extends Controller {
 		// but we settle for simple ids for now
 		$keys = [
 			'projects' => [
-				'id', // Nummer
+				'themeId', // Nummer
 				'highlight', // Hervorheben
 				'locale', // Sprache
 				'title', // Title
