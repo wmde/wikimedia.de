@@ -147,11 +147,13 @@ class DatasetPageController extends Controller {
 
 		// 1. loading team table as data source
 		$csvProjects = $this->csvAsArray($csvPathProjects);
+		$csvProjects = $this->csvAsArray($csvPathThemes);
 
 		// 2. key handling
 
 		// split first line (column headings)
 		$keysProjectsOrig = array_shift( $csvProjects );
+		$keysThemesOrig = array_shift( $csvThemes );
 
 		// note:
 		// instead of mapping, we could actually use the csv headings
@@ -168,6 +170,12 @@ class DatasetPageController extends Controller {
 			'imgSrc', // "Bild"
 			'urlSrc', // "URL-Quelle"
 			'imgFile' //"Dateiname lokal"
+		];
+		$keysThemes = [
+			'id', // Nummer
+			'locale', // Sprache
+			'title', // Handlungsfeld/Themen
+			'desc' // Beschreibung
 		];
 
 		$projects = $this->csv2object( $csvProjects, $keysProjects );
