@@ -218,15 +218,15 @@ class DatasetPageController extends Controller {
 	}
 
 	public function peopleStaff( Request $request ): Response {
-		return $this->peopleParse('pages/people/staff.html.twig', '/templates/pages/people/staff.csv');
+		return $this->peopleParse('pages/people/staff.html.twig', '/public/files/staff.csv');
 	}
 
 	public function peopleBoard( Request $request ): Response {
-		return $this->peopleParse('pages/people/board.html.twig', '/templates/pages/people/board.csv');
+		return $this->peopleParse('pages/people/board.html.twig', '/public/files/board.csv');
 	}
 
 	public function themes( Request $request ): Response {
-		return $this->themesParse('pages/topics.html.twig', '/templates/pages/projects.csv', '/templates/pages/themes.csv');
+		return $this->themesParse('pages/topics.html.twig', '/public/files/projects.csv', '/public/files/themes.csv');
 	}
 
 
