@@ -159,17 +159,17 @@ class DatasetPageController extends Controller {
 		// instead of mapping, we could actually use the csv headings
 		// but we settle for simple ids for now
 		$keysProjects = [
-			'delta', // 'Nummer'
-			'highlight', // "Hervorheben"
-			'locale', // "Sprache"
-			'title', // "Title"
-			'content', // "Inhalt"
-			'url1', // "Link 1 = "Zum Projekt""
-			'url2', //"Link 2 = "Weiterer Link""
-			'url3', // "Link 3"
-			'imgSrc', // "Bild"
-			'urlSrc', // "URL-Quelle"
-			'imgFile' //"Dateiname lokal"
+			'id', // Nummer
+			'highlight', // Hervorheben
+			'locale', // Sprache
+			'title', // Title
+			'content', // Inhalt
+			'url1', // Link 1 = "Zum Projekt"
+			'url2', // Link 2 = "Weiterer Link"
+			'url3', // Link 3
+			'imgSrc', // Bild
+			'urlSrc', // URL-Quelle
+			'imgFile' // Dateiname lokal
 		];
 		$keysThemes = [
 			'id', // Nummer
