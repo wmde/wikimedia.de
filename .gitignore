@@ -1,4 +1,5 @@
 # ignore datasources
+/templates/pages/*.csv
 /templates/pages/people/*.csv
 
 # ignore content assets
