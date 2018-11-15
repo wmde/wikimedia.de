@@ -202,7 +202,8 @@ class DatasetPageController extends Controller {
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
 		// /files/projects/*.jpg
 		foreach( $items['projects'] as &$project ) {
-			$project['image'] = '/files/projects/'.pathinfo( $project['imgSrc'] )['filename'].'.jpg';
+			// $project['image'] = '/files/projects/'.pathinfo( $project['imgSrc'] )['filename'].'.jpg';
+			$project['image'] = '/files/projects/'.$project['image'];
 		}
 
 		// 4. group topics by topic keys
