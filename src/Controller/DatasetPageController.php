@@ -195,8 +195,18 @@ class DatasetPageController extends Controller {
 		// TODO: transform links to array
 
 		// 4. group topics by topic keys
+		// TODO: template uses „topics“ as ID, so we transform the key `theme` here
 
-		// TODO: see above
+		$data['topics'] = [];
+		foreach(
+			$this->groupBy( $items['themes'], 'id' )
+			as $themeItem
+		) {
+			// preparing theme lookup
+			// note that were assuming only one result
+			$data['topics'][$themeItem[0]['id']] = $themeItem[0];
+		}
+
 
 		$path = '/pages/topics-draft';
 		$preview = Yaml::parse( file_get_contents( __DIR__.'/../../templates'.$path.'.html.yaml' ) );
