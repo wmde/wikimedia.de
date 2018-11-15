@@ -168,13 +168,13 @@ class DatasetPageController extends Controller {
 				'highlight', // Hervorheben
 				'locale', // Sprache
 				'title', // Title
-				'content', // Inhalt
+				'body', // Inhalt
 				'url1', // Link 1 = "Zum Projekt"
 				'url2', // Link 2 = "Weiterer Link"
 				'url3', // Link 3
 				'imgSrc', // Bild
-				'urlSrc', // URL-Quelle
-				'imgFile' // Dateiname lokal
+				'url', // URL-Quelle
+				'img' // Dateiname lokal
 			],
 			'themes' => [
 				'id', // Nummer
