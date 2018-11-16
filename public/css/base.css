@@ -22,13 +22,13 @@
 @import "globals/corners.css";
 @import "globals/references.css";
 
-@import "components/illuHero.css";
+@import "components/illuHero.css?r=1";
 @import "components/logo.css";
 @import "components/mission.css";
 @import "components/news.css";
 @import "components/team.css";
 @import "components/ctaButton.css";
-@import "components/fields.css";
+@import "components/fields.css?r=1";
 @import "components/figure.css";
 
 
