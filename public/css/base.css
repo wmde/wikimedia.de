@@ -13,14 +13,11 @@
 @import "globals/typography.css";
 @import "globals/basics.css";
 @import "globals/hyperlinks.css";
-@import "globals/text.css";
 @import "globals/util.css";
 @import "globals/layout.css";
 
 @import "globals/header.css";
 @import "globals/footer.css";
-@import "globals/forms.css";
-@import "globals/buttons.css";
 @import "globals/sections.css";
 @import "globals/corners.css";
 @import "globals/references.css";
