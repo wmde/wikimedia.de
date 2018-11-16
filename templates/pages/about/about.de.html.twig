@@ -1,5 +1,10 @@
 {% extends 'simple.page.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/components/wdiv-about.css') }}">
+{% endblock %}
+
 {% set page_title = 'Über Uns' %}
 
 {% block pagebody %}
