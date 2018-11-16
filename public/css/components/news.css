@@ -12,6 +12,9 @@
 
 .news__inner {
   position: relative;
+
+  /* emulating `.cp--t2` w/ different breakpoints */
+  padding-top: 144px;
 }
 
 .news__post {
@@ -88,7 +91,7 @@
 .news__teaser {
   margin-top: -2px;
 }
-@media (max-width: 1152px) {
+@media (max-width: 1400px) {
   .news__teaser {
     margin-top: -3px;
   }
@@ -182,7 +185,10 @@
   right: 36px;
 }
 
-@media (max-width: 1152px) {
+@media (max-width: 1400px) {
+  .news__inner {
+    padding-top: 72px;
+  }
   .news__post {
     padding-top: 72px;
   }
