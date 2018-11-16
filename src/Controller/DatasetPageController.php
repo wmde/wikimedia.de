@@ -106,7 +106,8 @@ class DatasetPageController extends Controller {
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
 		// /files/staff/*.*
 		foreach ( $items as &$item ) {
-			$item['img'] = '/files/people/'.$item['img'];
+			// use placeholder image for empty items
+			$item['img'] = strlen($item['img']) > 0 ? '/files/people/'.$item['img'] : '/img/staff/default.jpg';
 		}
 
 		// TODO: supply multilingual strings per template

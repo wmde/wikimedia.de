@@ -24,12 +24,7 @@
             {% if team.members is defined %}
             {% for person in team.members %}
                 <div class="wdiv-group-item">
-                    {# TODO: person.img should be set to default on controller #}
-                    {% if person.img %}
                     <img class="wdiv-item-img wdiv-img-max-100" src="{{ person.img }}">
-                    {% else %}
-                    <img class="wdiv-item-img wdiv-img-max-100" src="/img/staff/default.jpg">
-                    {% endif %}
                     <h3 class="wdiv-person-title tm--gamma">{{ person.firstname }} {{ person.lastname }}</h3>
                     <p class="wdiv-person-subtitle wdiv-tm--epsilon">{{ person.title_de }}</p>
                     <p class="ts--alpha"><a class="link--black" href="mailto:{{ person.mail }}">E-Mail</a></p>
