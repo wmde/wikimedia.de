@@ -174,7 +174,7 @@ class DatasetPageController extends Controller {
 				'url1', // Link 1 = "Zum Projekt"
 				'url2', // Link 2 = "Weiterer Link"
 				'url3', // Link 3
-				'imgSrc', // Bild
+				'imgsrc', // Bild
 				'url', // URL-Quelle
 				'img' // Dateiname lokal
 			],
@@ -200,7 +200,7 @@ class DatasetPageController extends Controller {
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
 		// /files/projects/*.jpg
 		foreach ( $items['projects'] as &$project ) {
-			// $project['image'] = '/files/projects/'.pathinfo( $project['imgSrc'] )['filename'].'.jpg';
+			// $project['image'] = '/files/projects/'.pathinfo( $project['imgsrc'] )['filename'].'.jpg';
 			$project['img'] = '/files/projects/'.$project['img'];
 		}
 
