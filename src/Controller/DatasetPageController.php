@@ -107,7 +107,7 @@ class DatasetPageController extends Controller {
 		// /files/staff/*.*
 		foreach ( $items as &$item ) {
 			// use placeholder image for empty items
-			$item['img'] = strlen($item['img']) > 0 ? '/files/people/'.$item['img'] : '/img/staff/default.jpg';
+			$item['img'] = strlen( $item['img'] ) > 0 ? '/files/people/'.$item['img'] : '/img/staff/default.jpg';
 		}
 
 		// TODO: supply multilingual strings per template
@@ -203,9 +203,9 @@ class DatasetPageController extends Controller {
 
 			// set `type` attribute as `wide` if `highlight` contains a string
 			// currently an `X` in the datasource
-			$project['type'] = strlen($project['highlight']) > 0 ? 'wide' : '';
+			$project['type'] = strlen( $project['highlight'] ) > 0 ? 'wide' : '';
 			// remove attribute from dataset
-			unset($project['highlight']);
+			unset( $project['highlight'] );
 		}
 
 		// 4. group topics by topic keys
