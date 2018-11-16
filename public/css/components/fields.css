@@ -32,19 +32,16 @@
   max-width: 230px;
 }
 .field-button--alpha {
-  background-image: url(../../ico/hf_icon_1.svg);
   background-position: right 36px top 36px;
   background-repeat: no-repeat;
 }
 
 .field-button--beta {
-  background-image: url(../../ico/hf_icon_2.svg);
   background-position: right 36px top 36px;
   background-repeat: no-repeat;
 }
 
 .field-button--gamma {
-  background-image: url(../../ico/hf_icon_3.svg);
   background-position: right 36px top 36px;
   background-repeat: no-repeat;
 }
@@ -90,8 +87,8 @@
   background-position-x: -108px;
 }
 .fields__blurb-lower {
-  background-color: var(--color-green);
-  color: white;
+  background-color: white;
+  color: #131313;
 }
 .fields__blurb-lower p:first-of-type {
   margin-top: 0;
