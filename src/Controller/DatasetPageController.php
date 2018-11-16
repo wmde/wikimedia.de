@@ -193,7 +193,6 @@ class DatasetPageController extends Controller {
 
 		// 3. modify item datasets
 
-		// TODO: transform highlight attribute to `type: wide`
 		// TODO: transform links to array
 
 		foreach ( $items['projects'] as &$project ) {
@@ -201,6 +200,12 @@ class DatasetPageController extends Controller {
 			// this should be handled by an extra column, for now we only remove the path and assume the files under
 			// /files/projects/*.jpg
 			$project['img'] = '/files/projects/'.$project['img'];
+
+			// set `type` attribute as `wide` if `highlight` contains a string
+			// currently an `X` in the datasource
+			$project['type'] = strlen($project['highlight']) > 0 ? 'wide' : '';
+			// remove attribute from dataset
+			unset($project['highlight']);
 		}
 
 		// 4. group topics by topic keys
