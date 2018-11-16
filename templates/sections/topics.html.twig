@@ -48,9 +48,20 @@
                         <div class="wdiv-project-body wdiv-tm--epsilon">
                             <p>{{ project.body | raw }}</p>
 
-                            {% if project.link is defined %}
+                            {# TODO: a better dataset would be iterating over an array #}
+                            {% if project.url1 %}
                             <p class="wdiv-project-links ts--alpha">
-                                <a href="{{ project.link }}">Zur Projektseite</a>
+                                <a href="{{ project.url1 }}">Zur Projektseite</a>
+                            </p>
+                            {% endif %}
+                            {% if project.url2 %}
+                            <p class="wdiv-project-links ts--alpha">
+                                <a href="{{ project.url2 }}">Weiterer Link</a>
+                            </p>
+                            {% endif %}
+                            {% if project.url3 %}
+                            <p class="wdiv-project-links ts--alpha">
+                                <a href="{{ project.url3 }}">Weiterer Link</a>
                             </p>
                             {% endif %}
                         </div>
