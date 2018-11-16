@@ -176,8 +176,7 @@ class DatasetPageController extends Controller {
 				'url3', // Link 3
 				'imgSrc', // Bild
 				'url', // URL-Quelle
-				//'img' // Dateiname lokal
-				'image' // Dateiname lokal // TODO: we keep the template naming for now
+				'img' // Dateiname lokal
 			],
 			'themes' => [
 				'id', // Nummer
@@ -202,7 +201,7 @@ class DatasetPageController extends Controller {
 		// /files/projects/*.jpg
 		foreach ( $items['projects'] as &$project ) {
 			// $project['image'] = '/files/projects/'.pathinfo( $project['imgSrc'] )['filename'].'.jpg';
-			$project['image'] = '/files/projects/'.$project['image'];
+			$project['img'] = '/files/projects/'.$project['img'];
 		}
 
 		// 4. group topics by topic keys

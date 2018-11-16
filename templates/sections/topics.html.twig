@@ -40,7 +40,7 @@
             <div class="wdiv-projects wdiv-clearfix">
             {% for project in projects %}
                 <div class="wdiv-project {% if project.type is defined %}wdiv-project-{{project.type}}{% endif %}" data-topic-id="{{project.topic}}">
-                    <img class="wdiv-project-img" src="{{ project.image }}">
+                    <img class="wdiv-project-img" src="{{ project.img }}">
                     <div class="wdiv-project-content">
                         <h3 class="wdiv-project-topic ts--alpha">{{ topics[project.topic].title }}</h3>
                         <h2 class="wdiv-project-title tl--gamma">{{ project.title }}</h2>
