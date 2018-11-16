@@ -25,6 +25,10 @@ charter:
     path: /charter
     controller: App\Controller\SimplePageController::charter
 
+about:
+    path: /about-us
+    controller: App\Controller\SimplePageController::about
+
 themes:
     path: /themes
     controller: App\Controller\DatasetPageController::themes
