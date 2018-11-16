@@ -94,7 +94,8 @@ class DatasetPageController extends Controller {
 			'domain_en', // 'Bereich (en)'
 			'team_de', // 'Team (de)'
 			'team_en', // 'Team (en)'
-			'imgsrc' //' BildLink
+			'imgsrc', //' BildLink
+			'img' //' Dateiname lokal
 		];
 
 		$items = $this->csv2object( $csv, $keys );
@@ -105,7 +106,7 @@ class DatasetPageController extends Controller {
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
 		// /files/staff/*.*
 		foreach ( $items as &$item ) {
-			$item['img'] = '/files/people/'.pathinfo( $item['imgsrc'] )['basename'];
+			$item['img'] = '/files/people/'.$item['img'];
 		}
 
 		// TODO: supply multilingual strings per template
