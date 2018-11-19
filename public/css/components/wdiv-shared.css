@@ -16,6 +16,14 @@
   }
 }
 
+.wdiv-height-124 {
+  height: 124px; /* TODO: reponsive */
+}
+
+.wdiv-margin-top-64 {
+  margin-top: 2.3em; /* TODO: reponsive */
+}
+
 .wdiv-clearfix::after {
 /*
     via (defunct)
