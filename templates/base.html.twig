@@ -53,6 +53,15 @@
                 <div class="mh">
                     <div class="mh__inner clearfix cp--h1 center-column wdiv-max-width-1190">
                         <div class="wdiv-header-meta-container">
+                            {% if app.request.attributes.get('_route') == 'index' %}
+                            <div class="mh__new-notice ts--beta">
+                                <div class="wh__new-notic-inner">
+                                    <a href="/wiki/Hauptseite" class="link link--green">{% trans %}header.old.site.link{% endtrans %}</a><br>
+                                    {% trans %}header.old.site.link.continued{% endtrans %}
+                                </div>
+                            </div>
+                            {% endif %}
+
                             <a href="https://spenden.wikimedia.de/apply-for-membership?piwik_campaign=wm.de_neu&piwik_kwd=mitglieds_btn"
                                     class="mh__support cp--0-5"
                                     role="button"
