@@ -63,6 +63,22 @@
     }
 }
 
+/* adapting atomic content-padding-technique for negative top margin */
+.wdiv-cm-nt1 {
+  margin-top: -72px;
+}
+@media (max-width: 1152px) {
+    .wdiv-cm-nt1 {
+        margin-top: -36px;
+    }
+}
+@media (max-width: 648px) {
+    .wdiv-cm-nt1 {
+        margin-top: -36px;
+    }
+}
+
+
 /* special override case */
 @media (max-width: 648px) {
     .wdiv-cp-l0-to-648 {
@@ -72,6 +88,10 @@
 
 .wdiv-img-max-100 {
   max-width: 100%;
+}
+
+.wdiv-pos-rel {
+  position: relative;
 }
 
 .wdiv-bg-white {
