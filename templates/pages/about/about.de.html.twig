@@ -1,15 +1,18 @@
-{% extends 'simple.page.html.twig' %}
+{% extends 'base.html.twig' %}
+
+{% block title %}Über Uns – {{ parent() }}{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/components/wdiv-about.css') }}">
 {% endblock %}
 
-{% set page_title = 'Über Uns' %}
-
-{% block pagebody %}
-<div class="tm--alpha">
+{% block body %}
+    <main id="main"  class="cp--h1 center-column">
     <img class="wdiv-img-max-100" src="/img/about/wikimedia-conference-2018-group.jpg">
+        <h1>Über Uns</h1>
+        <div class="cp--h1 center-column wdiv-max-width-1190">
+            <div class="tm--alpha cp--h1 wdiv-bg-white">
     <p>
         <span class="wdiv-color-green">Gemeinsam wissen wir mehr</span> – dieser Grundgedanke hinter der freien Online-Enzyklopädie Wikipedia und ihren Schwesterprojekten zeigt sich uns jeden Tag auf eindrucksvolle Weise: Tausende Freiwillige und ehrenamtliche Communitys schreiben und verbessern Artikel, fotografieren, pflegen Daten, entwickeln Software und stellen ihr Wissen allen Menschen zur freien Verfügung.
     </p>
@@ -31,5 +34,7 @@
     <p>
         <iframe style="width: 100%" width="560" height="315" src="https://www.youtube.com/embed/dlC4-SQKXJM?controls=1" frameborder="0" allow="accelerometer; encrypted-media;" allowfullscreen></iframe>
     </p>
-</div>
+        </div>
+        </div>
+    </main>
 {% endblock %}
