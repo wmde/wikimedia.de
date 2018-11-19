@@ -1,3 +1,19 @@
+
+.wdiv-image-heading {
+    position: relative;
+}
+
+.wdiv-image-heading img {
+    display: block;
+}
+
+.wdiv-image-heading-caption {
+    position: absolute;
+    top: calc( 164 / 630 * 100% ); /* position relative to image ratio */
+    left: 0;
+}
+
+/* Teaser element */
 .wdiv-about-teaser-annual {
     padding: 20px;
 
