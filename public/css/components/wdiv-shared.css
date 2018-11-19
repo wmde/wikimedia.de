@@ -47,6 +47,29 @@
   width: 1px;
 }
 
+/* adapting atomic content-padding-technique to pad left only */
+/* this exists but for cp--l2 only */
+.wdiv-cp-l1 {
+  padding-left: 72px;
+}
+@media (max-width: 1152px) {
+    .wdiv-cp-l1 {
+        padding-left: 36px;
+    }
+}
+@media (max-width: 648px) {
+    .wdiv-cp-l1 {
+        padding-left: 18px;
+    }
+}
+
+/* special override case */
+@media (max-width: 648px) {
+    .wdiv-cp-l0-to-648 {
+        padding-left: 0;
+    }
+}
+
 .wdiv-img-max-100 {
   max-width: 100%;
 }
