@@ -38,15 +38,16 @@
                     {% trans %}homepage.mission.message{% endtrans %}
                 </div>
                 <figure class="fig mission__image cm--l2 cm--t1">
+                    {% set person = staff.domains[0].teams[0].members[0] %}
                     <div>
-                        <img src="{{ asset('img/mission_abraham.png') }}" class="fig__media" alt="Portrait of Abraham Taherivand">
+                        <img src="{{ person.img }}" class="fig__media" alt="Portrait of Abraham Taherivand">
                         <div id="citation-2" class="ref fig__ref ts--beta" aria-label="citation number 2">
                             <a href="#ref-2" class="ref__number" aria-label="jump to reference in index">2</a>
                         </div>
                     </div>
                     <figcaption class="fig__caption mission__caption cm--l0-25">
-                        <div class="tm--gamma t--caps">Abraham&nbsp;Taherivand</div>
-                        <div class="tm--gamma">{% trans %}homepage.ED.title{% endtrans %}</div>
+                        <div class="tm--gamma t--caps">{{ person.firstname }}&nbsp;{{ person.lastname }}</div>
+                        <div class="tm--gamma">{{ person.title_de }}</div>
                     </figcaption>
                 </figure>
             </div>
