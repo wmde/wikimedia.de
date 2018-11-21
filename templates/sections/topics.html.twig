@@ -50,6 +50,9 @@
                     <img class="wdiv-project-img" src="{{ project.img }}">
                     <div class="wdiv-project-content">
                         <h3 class="wdiv-project-topic ts--alpha">{{ topics[project.topic].title }}</h3>
+                        <div id="citation-{{ loop.index }}" class="ref fig__ref ts--beta wdiv-float-right" aria-label="citation number {{ loop.index }}">
+                            <a href="#ref-{{ loop.index }}" class="ref__number" aria-label="jump to reference in index">{{ loop.index }}</a>
+                        </div>
                         <h2 class="wdiv-project-title tl--gamma">{{ project.title }}</h2>
 
                         <div class="wdiv-project-body wdiv-tm--epsilon">

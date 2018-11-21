@@ -90,6 +90,10 @@
   max-width: 100%;
 }
 
+.wdiv-float-right {
+  float: right;
+}
+
 .wdiv-pos-rel {
   position: relative;
 }
