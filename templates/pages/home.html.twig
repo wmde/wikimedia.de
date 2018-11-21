@@ -38,7 +38,15 @@
                     {% trans %}homepage.mission.message{% endtrans %}
                 </div>
                 <figure class="fig mission__image cm--l2 cm--t1">
-                    {% set person = staff.domains[0].teams[0].members[0] %}
+                    {%
+                        set person = random(
+                            random(
+                                random(
+                                    staff.domains
+                                ).teams
+                            ).members
+                        )
+                    %}
                     <div>
                         <img src="{{ person.img }}" class="fig__media" alt="Portrait of Abraham Taherivand">
                         <div id="citation-2" class="ref fig__ref ts--beta" aria-label="citation number 2">
