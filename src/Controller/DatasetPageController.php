@@ -139,7 +139,6 @@ class DatasetPageController extends Controller {
 
 		}
 
-
 		return $data;
 	}
 
