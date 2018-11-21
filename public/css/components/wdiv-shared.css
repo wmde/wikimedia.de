@@ -143,14 +143,31 @@
 
 /* grid for people overview page */
 
-.wdiv-cols {
-  margin: -20px; /* negative gutter ÷ 2 */
+@media (min-width: 649px) {
+  .wdiv-cols {
+    margin: -15px; /* negative gutter ÷ 2 */
+  }
+
+  .wdiv-col-6 {
+    width: calc( 50% - 2 * 15px ); /* width - gutter */
+    margin: 0 15px; /* spacing: gutter ÷ 2 */
+    float: left;
+  }
 }
 
-.wdiv-col-6 {
-  width: calc( 50% - 2 * 20px ); /* width - gutter */
-  margin: 0 20px; /* spacing: gutter ÷ 2 */
-  float: left;
+@media (min-width: 1280px) {
+
+  .wdiv-cols {
+    /* adapt gutter */
+    margin: -20px;
+  }
+
+  .wdiv-col-6 {
+    /* adapt gutter */
+    width: calc( 50% - 2 * 20px );
+    margin: 20px;
+  }
+
 }
 
 /* Type */
