@@ -111,6 +111,8 @@
 }
 
 .wdiv-youtube-wrapper {
+  clear: both; /* TODO: find a better functional class */
+
   position: relative;
   width: 100%;
   height: 0;
