@@ -150,7 +150,11 @@
 
   .wdiv-col-6 {
     width: calc( 50% - 2 * 15px ); /* width - gutter */
-    margin: 0 15px; /* spacing: gutter ÷ 2 */
+
+    /* spacing: gutter ÷ 2 */
+    margin-right: 15px;
+    margin-left: 15px;
+
     float: left;
   }
 }
@@ -159,13 +163,16 @@
 
   .wdiv-cols {
     /* adapt gutter */
-    margin: -20px;
+    margin-right: -20px;
+    margin-left: -20px;
   }
 
   .wdiv-col-6 {
     /* adapt gutter */
     width: calc( 50% - 2 * 20px );
-    margin: 20px;
+
+    margin-right: 20px;
+    margin-left: 20px;
   }
 
 }
