@@ -202,7 +202,6 @@
     margin-top: 0.6em;
 }
 
-.wdiv-project-links a {
+.wdiv-project-links {
     padding: 0.2em 0;
-    border-bottom: 1px #131313 solid;
 }
