@@ -1,0 +1,2 @@
+{# for now, we're simply inheriting the German page #}
+{% extends 'pages/people/people.de.html.twig' %}

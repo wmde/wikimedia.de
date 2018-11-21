@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Menschen bei Wikimedia – {{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css/components/wdiv-about.css') }}">
+{% endblock %}
+
+{% block body %}
+	<main id="main" class="wdiv-cp-l1 wdiv-cp-l0-to-648 center-column">
+		<div class="clearfix center-column wdiv-max-width-1190 wdiv-height-124">
+			<h1 class="tl--gamma wdiv-font-sans wdiv-margin-top-64">Menschen bei Wikimedia</h1>
+		</div>
+		<div class="wdiv-image-heading">
+			<img class="wdiv-img-max-100" src="/img/about/wikimedia-conference-2018-group.jpg">
+		</div>
+		<div class="cp--h1 center-column wdiv-pos-rel wdiv-max-width-1190">
+			<div class="clearfix tm--alpha cp--h1 cp--v0-5 wdiv-cm-nt1 wdiv-bg-white wdiv-weight-400">
+				<h2>Mitarbeiter</h2>
+				
+				<p>Bei Wikimedia Deutschland e. V. arbeiten derzeit rund 100 Mitarbeitende hauptamtlich daran, die Ziele des Vereins umzusetzen.</p>
+
+			</div>
+			<div class="clearfix tm--alpha cp--h1 cp--v0-5 wdiv-cm-nt1 wdiv-bg-white wdiv-weight-400">
+				<h2>Präsidium und Mitglieder</h2>
+				
+				<p>Das Präsidium ist das ehrenamtliche Leitungs- und Kontrollorgan des Vereins und repräsentiert dessen Mitglieder. Es hat insbesondere die Aufgaben, die strategische Ausrichtung des Vereins fortzuschreiben, Zielvorgaben für den hauptamtlichen Vorstand zu formulieren sowie dessen Geschäftsführung zu beaufsichtigen.</p>
+
+			</div>
+		</div>
+	</main>
+{% endblock %}

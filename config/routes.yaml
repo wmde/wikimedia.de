@@ -33,6 +33,10 @@ themes:
     path: /themes
     controller: App\Controller\DatasetPageController::themes
 
+people:
+    path: /people
+    controller: App\Controller\SimplePageController::people
+
 peopleBoard:
     path: /people/board
     controller: App\Controller\DatasetPageController::peopleBoard
