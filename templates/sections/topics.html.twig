@@ -31,7 +31,12 @@
             {% for id, topic in topics %}
                 <div class="wdiv-topic wdiv-topic-{{id}}" data-topic-id="{{id}}">
                     <div class="wdiv-topic-desc">
-                        {{ topic.desc | raw }}
+                        {% if topic.desc_title %}
+                        <h2 class="tl--gamma cm--b1">{{ topic.desc_title }}</h2>
+                        {% endif %}
+                        <div>
+                            {{ topic.desc | raw }}
+                        </div>
                     </div>
                     <h2 class="wdiv-topic-title tm--alpha">Projekte aus dem Bereich {{ topic.title }}</h2>
                 </div>
