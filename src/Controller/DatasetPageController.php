@@ -182,6 +182,7 @@ class DatasetPageController extends Controller {
 				'id', // Nummer
 				'locale', // Sprache
 				'title', // Handlungsfeld/Themen
+				'desc_title', // Titel Beschreibung
 				'desc' // Beschreibung
 			]
 		];
