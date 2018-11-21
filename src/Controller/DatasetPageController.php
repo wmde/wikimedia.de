@@ -14,12 +14,12 @@ use Symfony\Component\Yaml\Yaml;
 class DatasetPageController extends Controller {
 
 	// load CSV file and return contents as nested array
-	private function csvAsArray( string $csvPath ): array {
+	private function csvAsArray( string $csvString ): array {
 		// thanks to durik at 3ilab dot net for pointing out we need 2 str_getcsv() parsers for rows/columns, see
 		// https://secure.php.net/manual/en/function.str-getcsv.php#101888
 		$csv = [];
 		foreach (
-			str_getcsv( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).$csvPath ), "\n" )
+			str_getcsv( $csvString, "\n" )
 			as
 			$row
 		) {
@@ -69,11 +69,11 @@ class DatasetPageController extends Controller {
 		return $groups;
 	}
 
-	public function peopleData( string $csvPath ): array {
+	public function peopleData( string $csvString ): array {
 		$data = [];
 
 		// 1. loading team table as data source
-		$csv = $this->csvAsArray( $csvPath );
+		$csv = $this->csvAsArray( $csvString );
 
 		// 2. key handling
 
@@ -227,7 +227,8 @@ class DatasetPageController extends Controller {
 	}
 
 	private function peopleParse( string $templatePath, string $csvPath ): object {
-		return $this->render( $templatePath, $this->peopleData( $csvPath ) );
+		$csvString = file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).$csvPath );
+		return $this->render( $templatePath, $this->peopleData( $csvString ) );
 	}
 
 	public function peopleStaff( Request $request ): Response {
