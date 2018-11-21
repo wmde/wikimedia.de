@@ -32,6 +32,10 @@
 }
 
 .wdiv-about-teaser-annual a {
+    border-bottom: 1px white solid;
+}
+
+.wdiv-about-teaser-annual a {
     /* override regular dynamic page styles */
     color: white;
     border-color: white;
