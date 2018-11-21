@@ -81,4 +81,17 @@
             </div>
         </div>
     </div>
+
+    <div class="ts--beta">
+        <div class="limit--20 center-column cp--h1 cp--v1">
+
+            <div class="refs-foldout__content">
+                <ol class="refs-index">
+                    {% for project in projects %}
+                    <li id="ref-{{ loop.index }}" class="ref" aria-label="reference number {{ loop.index }}"><a href="#citation-{{ loop.index }}" class="ref__back">{% trans %}footer.references.jump.to{% endtrans %}</a> <span class="ref__number" aria-label="reference number {{ loop.index }}">{{ loop.index }}</span> <a href="{{ project.url }}" class="ref__title">{{ project.url }}</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="ref__license">CC BY-SA 4.0</a></li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
 </div>
