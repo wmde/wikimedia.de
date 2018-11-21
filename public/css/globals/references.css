@@ -73,6 +73,10 @@ a.ref__license {
   overflow: hidden;
   max-height: 0;
   transition: max-height .5s;
+
+  /* nudge over sidebar menu */
+  position: relative;
+  background-color: var(--color-lightgray);
 }
 .refs-foldout.revealed {
   /* Set to an (hopefully) impossible number. */
