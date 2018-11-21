@@ -41,7 +41,9 @@
                     <h2 class="wdiv-topic-title tm--alpha">Projekte aus dem Bereich {{ topic.title }}</h2>
                 </div>
             {% endfor %}
+            <!-- Fallback if no filtered -->
             </div>
+            <h2 class="wdiv-topic-title tm--alpha">Alle Projekte</h2>
             <div class="wdiv-projects wdiv-clearfix">
             {% for project in projects %}
                 <div class="wdiv-project {% if project.type is defined %}wdiv-project-{{project.type}}{% endif %}" data-topic-id="{{project.topic}}">

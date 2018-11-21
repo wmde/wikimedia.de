@@ -149,6 +149,11 @@
     display: none;
 }
 
+.wdiv-topics-wrapper.js-filtered .wdiv-topic-header + .wdiv-topic-title {
+    /* hide unfiltered topic header */
+    display: none;
+}
+
 /* Topic Cards */
 
 .wdiv-projects {
