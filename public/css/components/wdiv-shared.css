@@ -144,15 +144,14 @@
 /* grid for people overview page */
 
 .wdiv-cols {
-  margin: -20px;
+  margin: -20px; /* negative gutter ÷ 2 */
 }
 
 .wdiv-col-6 {
-  width: calc( 50% - 2 * 20px );
-  margin: 20px;
+  width: calc( 50% - 2 * 20px ); /* width - gutter */
+  margin: 0 20px; /* spacing: gutter ÷ 2 */
   float: left;
 }
-
 
 /* Type */
 
