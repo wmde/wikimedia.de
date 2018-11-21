@@ -16,6 +16,8 @@ class IndexController extends BaseController {
 
 		$newsPresenter->present( $this->getFactory()->newNewsRepository()->getLatestNewsItems() );
 
+		// thanks to Stackoverflow user Sarfraz we quickly got the concept of dynamic classes, see:
+		// https://stackoverflow.com/a/2350948
 		$datasets = new DatasetPageController;
 		$staffCsv = file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).'/public/files/staff.csv' );
 
