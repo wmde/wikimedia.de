@@ -141,6 +141,19 @@
   opacity: 0.46;
 }
 
+/* grid for people overview page */
+
+.wdiv-cols {
+  margin: -20px;
+}
+
+.wdiv-col-6 {
+  width: calc( 50% - 2 * 20px );
+  margin: 20px;
+  float: left;
+}
+
+
 /* Type */
 
 .wdiv-weight-400 {
