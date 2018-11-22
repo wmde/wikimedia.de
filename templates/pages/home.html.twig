@@ -37,8 +37,8 @@
                 <div class="mission__text tl--gamma cp--0-5">
                     {% trans %}homepage.mission.message{% endtrans %}
                 </div>
-                {% if staff.domains|length > 0 %}
                 <figure class="fig mission__image cm--l2 cm--t1">
+                    {% if staff.domains|length > 0 %}
                     {%
                         set person = random(
                             random(
@@ -59,8 +59,8 @@
                         <div class="tm--gamma">{{ person.title_de }}</div>
                         <div class="tm--gamma"><br><a class="link--black ts--alpha" href="{{ path('peopleStaff') }}">Alle Mitarbeitende</a></div>
                     </figcaption>
+                    {% endif %}
                 </figure>
-                {% endif %}
             </div>
         </section>
         <section class="fields is-active-support">
