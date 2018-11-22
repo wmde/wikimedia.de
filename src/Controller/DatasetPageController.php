@@ -147,8 +147,8 @@ class DatasetPageController extends Controller {
 
 		// 1. loading team table as data source
 		$csv = [
-			'projects' => $this->csvAsArray( $csvPathProjects ),
-			'themes' => $this->csvAsArray( $csvPathThemes )
+			'projects' => $this->csvAsArray( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).$csvPathProjects ) ),
+			'themes' => $this->csvAsArray( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).$csvPathThemes ) )
 		];
 
 		// 2. key handling
