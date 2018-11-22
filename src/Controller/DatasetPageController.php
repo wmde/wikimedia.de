@@ -170,7 +170,7 @@ class DatasetPageController extends Controller {
 				'locale', // Sprache
 				'title', // Title
 				'body', // Inhalt
-				'url1', // Link 1 = "Zum Projekt"
+				'url1', // Link 1 = "Mehr erfahren"
 				'url2', // Link 2 = "Weiterer Link"
 				'url3', // Link 3
 				'imgsrc', // Bild
@@ -181,7 +181,7 @@ class DatasetPageController extends Controller {
 				'id', // Nummer
 				'locale', // Sprache
 				'title', // Handlungsfeld/Themen
-				'desc_title', // Titel Beschreibung
+				'desc_title', // Überschrift
 				'desc' // Beschreibung
 			]
 		];
