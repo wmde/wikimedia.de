@@ -23,6 +23,9 @@ class DatasetPageController extends Controller {
 			as
 			$row
 		) {
+			// typecheck in case rows are empty or broken
+			if ( gettype( $row ) != 'string' ) { $row = ''; }
+
 			$csv[] = str_getcsv( $row );
 		}
 		return $csv;
