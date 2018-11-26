@@ -14,6 +14,11 @@
         </div>
         <div class="wdiv-image-heading">
             <img class="wdiv-img-max-100" src="/img/about/wikimedia-conference-2018-group.jpg">
+            <footer class="wdiv-image-heading-footer">
+                <div id="citation-1" class="ref fig__ref ts--beta wdiv-float-right" aria-label="citation number 1">
+                    <a href="#ref-1" class="ref__number" aria-label="jump to reference in index">1</a>
+                </div>
+            </footer>
         </div>
         <div class="cp--h1 cp--b1-75 wdiv-cm-nt1 limit--20 wdiv-pos-rel">
             <div class="wdiv-cols clearfix">
@@ -44,4 +49,18 @@
             </div>
         </div>
     </main>
+{% endblock %}
+
+{% block references %}
+    <div class="refs-foldout ts--beta">
+        <div class="limit--20 center-column cp--h1 cp--v1">
+            <a class="refs-foldout__close" href="#close">{% trans %}footer.references.close{% endtrans %}</a>
+
+            <div class="refs-foldout__content">
+                <ol class="refs-index">
+                    <li id="ref-1" class="ref" aria-label="reference number 1"><a href="#citation-1" class="ref__back">{% trans %}footer.references.jump.to{% endtrans %}</a> <span class="ref__number" aria-label="reference number 1">1</span> <span class="ref__authors">Tjane Hartenstein</span>, <a href="https://commons.wikimedia.org/wiki/File:Gemeinsam_wissen_wir_mehr_%E2%80%93_Wikimedia_Deutschland.jpg" class="ref__title">Gemeinsam wissen wir mehr – Wikimedia Deutschland</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="ref__license">CC BY-SA 4.0</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
 {% endblock %}
