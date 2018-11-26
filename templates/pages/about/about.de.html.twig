@@ -17,6 +17,10 @@
             <div class="cp--h1 wdiv-image-heading-caption">
                 <h2 class="tl--beta cp--h0-5 wdiv-color-green wdiv-bg-white-085 wdiv-weight-700 ">Gemeinsam wissen wir mehr</h2>
             </div>
+
+            <div id="citation-1" class="ref fig__ref ts--beta wdiv-float-right" aria-label="citation number 1">
+                <a href="#ref-1" class="ref__number" aria-label="jump to reference in index">1</a>
+            </div>
         </div>
         <div class="cp--h1 cp--b4  limit--12 wdiv-pos-rel">
             <div class="clearfix cp--h1 cp--v0-5 wdiv-cm-nt1 wdiv-bg-white">
@@ -52,4 +56,18 @@
             </div>
         </div>
     </main>
+{% endblock %}
+
+{% block references %}
+    <div class="refs-foldout ts--beta">
+        <div class="limit--20 center-column cp--h1 cp--v1">
+            <a class="refs-foldout__close" href="#close">{% trans %}footer.references.close{% endtrans %}</a>
+
+            <div class="refs-foldout__content">
+                <ol class="refs-index">
+                    <li id="ref-1" class="ref" aria-label="reference number 1"><a href="#citation-1" class="ref__back">{% trans %}footer.references.jump.to{% endtrans %}</a> <span class="ref__number" aria-label="reference number 1">1</span> <span class="ref__authors">Tjane Hartenstein</span>, <a href="https://commons.wikimedia.org/wiki/File:Gemeinsam_wissen_wir_mehr_%E2%80%93_Wikimedia_Deutschland.jpg" class="ref__title">Gemeinsam wissen wir mehr – Wikimedia Deutschland</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="ref__license">CC BY-SA 4.0</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
 {% endblock %}
