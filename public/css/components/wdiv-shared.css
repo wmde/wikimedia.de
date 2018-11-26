@@ -149,7 +149,9 @@
 
 @media (min-width: 649px) {
   .wdiv-cols {
-    margin: -15px; /* negative gutter ÷ 2 */
+    /* negative gutter ÷ 2 */
+    margin-left: -15px;
+    margin-right: -15px;
   }
 
   .wdiv-col-6 {
