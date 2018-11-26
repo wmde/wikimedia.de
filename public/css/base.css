@@ -24,7 +24,7 @@
 
 @import "components/illuHero.css?r=1";
 @import "components/logo.css";
-@import "components/mission.css";
+@import "components/mission.css?r=1";
 @import "components/news.css";
 @import "components/team.css";
 @import "components/ctaButton.css";
