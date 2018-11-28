@@ -185,7 +185,7 @@
 }
 
 @media (min-width:1152px) {
-    .wdiv-project {
+    .wdiv-project:not(.wdiv-project-wide) {
         grid-column: span 2; /* use 2 cols */
     }
 }
