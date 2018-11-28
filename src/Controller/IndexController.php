@@ -31,7 +31,7 @@ class IndexController extends BaseController {
 			'pages/home.html.twig',
 			[
 				'news' => $newsPresenter->getViewModel(),
-				'staff' => $datasets->peopleData( $staffCsv )
+				'staff' => $datasets->peopleData( $staffCsv, true )
 			]
 		);
 	}

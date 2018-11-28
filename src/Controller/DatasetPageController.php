@@ -74,7 +74,7 @@ class DatasetPageController extends Controller {
 		return $groups;
 	}
 
-	public function peopleData( string $csvString ): array {
+	public function peopleData( string $csvString, $ignoreEmpty=false ): array {
 		$data = [];
 
 		// 1. loading team table as data source
@@ -111,6 +111,9 @@ class DatasetPageController extends Controller {
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
 		// /files/staff/*.*
 		foreach ( $items as &$item ) {
+			if ( !(strlen( $item['img'] ) > 0) && $ignoreEmpty) 
+				continue;
+
 			// use placeholder image for empty items
 			$item['img'] = strlen( $item['img'] ) > 0 ? '/files/people/'.$item['img'] : '/img/staff/default.jpg';
 		}
