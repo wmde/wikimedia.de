@@ -6,11 +6,11 @@ namespace App\Controller;
 
 use App\FactoryWrapper;
 use App\TopLevelFactory;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class BaseController extends Controller {
+class BaseController extends AbstractController {
 
-	private $wrapper;
+	protected $wrapper;
 	private $factory;
 
 	public function __construct( FactoryWrapper $wrapper ) {

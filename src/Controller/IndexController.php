@@ -23,7 +23,7 @@ class IndexController extends BaseController {
 		// https://stackoverflow.com/a/2350948
 		$datasets = new DatasetPageController();
 
-		$staffCsv = $this->readFile( $this->container->getParameter( 'kernel.project_dir' ).'/public/files/staff.csv' );
+		$staffCsv = $this->readFile( $this->getParameter( 'kernel.project_dir' ).'/public/files/staff.csv' );
 
 		return $this->render(
 			'pages/home.html.twig',
