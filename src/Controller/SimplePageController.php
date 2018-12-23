@@ -26,4 +26,14 @@ class SimplePageController extends Controller {
 		return $this->render( $this->getPageTemplatePath( 'charter', $request->getLocale() ) );
 	}
 
+	public function about( Request $request ): Response {
+		return $this->render( $this->getPageTemplatePath( 'about', $request->getLocale() ) );
+	}
+
+	public function people( Request $request ): Response {
+		// TODO: either rename this `overview` or move to page root folder
+		// TODO: this shouldn't call multilanguage files but rather be handled via system translation
+		return $this->render( $this->getPageTemplatePath( 'people', $request->getLocale() ) );
+	}
+
 }

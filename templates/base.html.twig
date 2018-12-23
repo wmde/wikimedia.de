@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.locale }}">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Wikimedia Deutschland e. V.{% endblock %}</title>
 
         <link rel="icon" href="{{ asset('ico/app.png') }}">
 
+        <meta name="viewport" content="width=device-width">
+
         <!-- SEO -->
         {#<?php echo $this->seo->title() ?>#}
         {#<?php echo $this->seo->description() ?>#}
 
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/base.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/base.css?r=1') }}">
         {% endblock %}
 
         <!-- Social -->
@@ -20,47 +22,73 @@
     </head>
     <body class="layout-default">
         <a href="#main" class="skip-nav">Navigation überspringen</a>
+        <div class="wdiv-sidebar-alignment">
+            <header class="wdiv-page-header">
+                <div class="wdiv-header-nav">
+                    <header class="wdiv-nav-header">
+                        <h2 class="wdiv-header-nav-logo">
+                            <a href="{{ path('index') }}">
+                              <img class="wdiv-img-max-100" src="/img/wmde_logo_white.svg" alt="Wikimedia Deutschland e. V.">
+                            </a>
+                        </h2>
+                        <button class="wdiv-nav-toggle wdiv-hide-from-970 wdiv-color-white tm--gamma">Menü</button>
+                    </header>
+                    <div class="wdiv-nav-wrapper">
+                        <nav class="wdiv-nav" class="tm--gamma">
+                            <a href="{{ path('themes') }}" class="wdiv-color-white">{% trans %}nav.link.themes{% endtrans %}</a><br><br>
+                            <a class="wdiv-color-white" href="{{ path('about') }}">{% trans %}nav.link.aboutUs{% endtrans %}</a><br><br>
+                            <a class="wdiv-color-white" href="{{ path('people') }}">{% trans %}nav.link.people{% endtrans %}</a><br><br>
+                            <a class="wdiv-color-white" href="{{ path('imprint') }}">{% trans %}nav.link.contact{% endtrans %}</a><br><br>
+                            <a class="wdiv-color-white" href="https://spenden.wikimedia.de/apply-for-membership?piwik_campaign=wm.de_neu&piwik_kwd=mitglieds_btn">{% trans %}nav.link.supportUs{% endtrans %}</a><br><br>
 
-        <header class="mh">
-            <div class="mh__inner clearfix limit--20 cp--h1 center-column">
-                <h1 class="mh__logo-wrap logo--ir cm--r1">
-                    <a href="{{ path('index') }}" class="mh__logo logo logo--black">Wikimedia Deutschland e. V.</a>
-                </h1>
-                <div class="mh__new-notice ts--beta">
-                    <div class="wh__new-notic-inner">
-                        <a href="/wiki/Hauptseite" class="link link--green">{% trans %}header.old.site.link{% endtrans %}</a><br>
-                        {% trans %}header.old.site.link.continued{% endtrans %}
-                    </div>
-                </div>
-                <a href="https://spenden.wikimedia.de/apply-for-membership?piwik_campaign=wm.de_neu&piwik_kwd=mitglieds_btn"
-                        class="mh__support cp--0-5"
-                        role="button"
-                        aria-label="Go to the section ‚Support Free Knowledge‘">
-                    <div class="wh__support-inner">
-                        <div class="tm--gamma t--caps t--strong">{% trans %}header.support.knowledge.link{% endtrans %}</div>
-                        <div class="tm--delta">{% trans %}header.support.knowledge.link.continued{% endtrans %}</div>
-                    </div>
-                </a>
-                <div class="nav-locale-toggle ts--alpha">
-                    <div class="nav-locale-wrapper">
-                        <div class="nav-locale-toggle__locale">{{ app.request.locale|escape }}</div>
-                        <nav class="nav-locale">
-                            <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'de'}) }}" {% if app.request.locale == 'de' %}class="active"{% endif %}>Deutsch (de)</a>
-                            <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'en'}) }}" {% if app.request.locale == 'en' %}class="active"{% endif %}>English (en)</a>
+                            <div class="wdiv-hide-from-970">
+                                <a class="wdiv-color-white" href="{{ path(app.request.attributes.get('_route'), {'_locale': 'de'}) }}">DE</a>
+                                &emsp;&emsp;&emsp;
+                                <a class="wdiv-color-white" href="{{ path(app.request.attributes.get('_route'), {'_locale': 'en'}) }}">EN</a>
+                            </div>
                         </nav>
                     </div>
                 </div>
-            </div>
-        </header>
+                <div class="mh">
+                    <div class="mh__inner clearfix cp--h1 center-column wdiv-max-width-1190">
+                        <div class="wdiv-header-meta-container">
+                            {% set route = app.request.attributes.get('_route') %}
+                            {% if route == 'index' or route == 'root' %}
+                            <div class="mh__new-notice ts--beta">
+                                <div class="wh__new-notic-inner">
+                                    <a href="https://wikimedia.de/wiki/Hauptseite" class="link link--green">{% trans %}header.old.site.link{% endtrans %}</a><br>
+                                    {% trans %}header.old.site.link.continued{% endtrans %}
+                                </div>
+                            </div>
+                            {% endif %}
 
-        {% block body %}{% endblock %}
+                            <a href="https://spenden.wikimedia.de/apply-for-membership?piwik_campaign=wm.de_neu&piwik_kwd=mitglieds_btn"
+                                    class="mh__support cp--0-5"
+                                    role="button"
+                                    aria-label="Go to the section ‚Support Free Knowledge‘">
+                                <div class="wh__support-inner">
+                                    <div class="tm--gamma t--caps t--strong">{% trans %}header.support.knowledge.link{% endtrans %}</div>
+                                    <div class="tm--delta">{% trans %}header.support.knowledge.link.continued{% endtrans %}</div>
+                                </div>
+                            </a>
+                            <div class="wdiv-hide-to-720 nav-locale-toggle ts--alpha">
+                                <div class="nav-locale-wrapper">
+                                    <div class="nav-locale-toggle__locale">{{ app.request.locale|escape }}</div>
+                                    <nav class="nav-locale">
+                                        <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'de'}) }}" {% if app.request.locale == 'de' %}class="active"{% endif %}>Deutsch (de)</a>
+                                        <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'en'}) }}" {% if app.request.locale == 'en' %}class="active"{% endif %}>English (en)</a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            {% block body %}{% endblock %}
 
         <footer class="mf">
             <div class="limit--20 center-column cp--h1 cp--b0-5">
-                <div class="mf__column cp--v1-25">
-                    <a href="{{ path('index') }}" class="mf__logo logo logo--white logo--ir">Wikimedia Deutschland e. V.</a>
-                </div>
-                <div class="mf__column">
                     <div class="mf__column__inner cp--v1-25">
                         <div class="mf__column-title ts--alpha">{% trans %}footer.header.association{% endtrans %}</div>
                         <nav class="mf__nav ts--alpha">
@@ -81,9 +109,10 @@
                             <a href="https://twitter.com/wikimediade" target="new">{% trans %}footer.link.twitter{% endtrans %}</a>
                         </nav>
                     </div>
-                </div>
             </div>
         </footer>
+
+        </div>
 
         {% block references %}{% endblock %}
 
@@ -102,11 +131,12 @@
 				}
             </script>
 
-            <script type="text/javascript" src="{{ asset('js/compat/core.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/require.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/base.js') }}"></script>
-            <script type="text/javascript" src="{{ asset('js/views/layouts/default.js') }}"></script>
-	  
+            <script src="{{ asset('js/compat/core.js') }}"></script>
+            <script src="{{ asset('js/require.js') }}"></script>
+            <script src="{{ asset('js/base.js') }}"></script>
+            <script src="{{ asset('js/views/layouts/default.js') }}"></script>
+            <script src="{{ asset('js/components/wdiv-header.js') }}"></script>
+
 	    <!-- Matomo -->
 	    <script type="text/javascript">
 	   	var _paq = _paq || [];

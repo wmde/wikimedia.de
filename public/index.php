@@ -1,5 +1,7 @@
 <?php
 
+// start of actual Symfony application
+
 use App\Kernel;
 use App\TopLevelFactory;
 use Symfony\Component\Debug\Debug;

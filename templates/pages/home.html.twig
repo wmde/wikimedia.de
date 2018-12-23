@@ -4,23 +4,23 @@
 
 {% block body %}
     <main id="main" class="home">
-        <section class="illu-hero sc--lightgreen-gradient">
-            <div class="illu-hero__green"></div>
-            <div class="illu-hero__wrapper">
-                <div class="illu-hero__inner limit--20 cp--h1 center-column">
+        <section class="illu-hero">
+            <div class="illu-hero__wrapper wdiv-bg-white">
+                <div class="wdiv-illu-hero-bg"></div>
+                <div class="illu-hero__inner wdiv-max-width-1190 cp--h1 center-column">
                     <div class="illu-hero__cube"></div>
                 </div>
             </div>
             <div class="illu-hero__wrapper--no-overflow">
                 <div class="illu-hero__blue"></div>
             </div>
-            <div class="illu-hero__inner limit--20 cp--h1 center-column">
+            <div class="illu-hero__inner wdiv-max-width-1190 cp--h1 center-column">
                 <div class="illu-hero__text tl--alpha">
                     {% trans %}homepage.vision.message{% endtrans %}
                 </div>
             </div>
             <div class="illu-hero__lower sc--white">
-                <div class="illu-hero__inner limit--20 cp--h1 center-column">
+                <div class="illu-hero__inner wdiv-max-width-1190 cp--h1 center-column">
                     <div id="citation-1" class="ref illu-hero__ref ts--beta" aria-label="citation number 1">
                         <a href="#ref-1" class="ref__number" aria-label="jump to reference in index">1</a>
                         <span class="ref__authors">Inga Israel</span>,
@@ -33,21 +33,33 @@
 
         <section class="mission sc--white">
             <div class="mission__inner limit--16 cp--h1 cp--v2 center-column clearfix">
-                <h1 class="mission__headline tl--beta t--strong">{% trans %}homepage.mission.header{% endtrans %}</h1>
+                <div class="mission__headline tl--beta t--strong">&nbsp;<!-- Placeholder --></div>
                 <div class="mission__text tl--gamma cp--0-5">
                     {% trans %}homepage.mission.message{% endtrans %}
                 </div>
                 <figure class="fig mission__image cm--l2 cm--t1">
+                    {% if staff.domains|length > 0 %}
+                    {%
+                        set person = random(
+                            random(
+                                random(
+                                    staff.domains
+                                ).teams
+                            ).members
+                        )
+                    %}
                     <div>
-                        <img src="{{ asset('img/mission_abraham.png') }}" class="fig__media" alt="Portrait of Abraham Taherivand">
+                        <img src="{{ person.img }}" class="fig__media" alt="Portrait of Abraham Taherivand">
                         <div id="citation-2" class="ref fig__ref ts--beta" aria-label="citation number 2">
                             <a href="#ref-2" class="ref__number" aria-label="jump to reference in index">2</a>
                         </div>
                     </div>
                     <figcaption class="fig__caption mission__caption cm--l0-25">
-                        <div class="tm--gamma t--caps">Abraham&nbsp;Taherivand</div>
-                        <div class="tm--gamma">{% trans %}homepage.ED.title{% endtrans %}</div>
+                        <div class="tm--gamma t--caps">{{ person.firstname }}&nbsp;{{ person.lastname }}</div>
+                        <div class="tm--gamma">{{ person.title_de }}</div>
+                        <div class="tm--gamma"><br><a class="link--black ts--alpha" href="{{ path('peopleStaff') }}">Alle Mitarbeitenden</a></div>
                     </figcaption>
+                    {% endif %}
                 </figure>
             </div>
         </section>
@@ -89,19 +101,28 @@
                     </a>
                 </div>
             </div>
-            <div class="sc--white">
+            <div>
                 <div class="fields__blurb-wrapper limit--16 center-column cp--b1 cp--h1">
                     <div id="fields-blurb" class="fields__blurb limit--8" aria-live="polite">
                         <div class="fields__blurb-top"></div>
                         <div class="fields__blurb-lower cp--0-5 tm--beta">
                             <article id="fields-support" class="fields__text">
                                 {% trans %}homepage.fields.support.message{% endtrans %}
+                                <p>
+                                    <a class="link--black ts--alpha" href="{{ path('themes') }}">{% trans %}homepage.fields.more{% endtrans %}</a>
+                                </p>
                             </article>
                             <article id="fields-dev" class="fields__text" hidden>
                                 {% trans %}homepage.fields.development.message{% endtrans %}
+                                <p>
+                                    <a class="link--black ts--alpha" href="{{ path('themes') }}">{% trans %}homepage.fields.more{% endtrans %}</a>
+                                </p>
                             </article>
                             <article id="fields-know" class="fields__text" hidden>
                                 {% trans %}homepage.fields.knowledge.message{% endtrans %}
+                                <p>
+                                    <a class="link--black ts--alpha" href="{{ path('themes') }}">{% trans %}homepage.fields.more{% endtrans %}</a>
+                                </p>
                             </article>
                         </div>
                     </div>
@@ -128,18 +149,12 @@
         </section>
 
         <section class="news sc--lightgray">
-            <div class="news__inner limit--16 center-column cp--h1 cp--t2">
+            <div class="news__inner limit--16 center-column cp--h1">
                 <h1 class="tl--beta t--strong">{% trans %}homepage.news.header{% endtrans %}</h1>
                 {% include 'sections/news.html.twig' %}
             </div>
         </section>
 
-        <section class="team sc--white">
-            <div class="team__inner limit--16 cp--h1 cp--t1-25 center-column">
-                <h1 class="tl--beta t--strong">{% trans %}homepage.board.header{% endtrans %}</h1>
-                {% include 'sections/board.html.twig' %}
-            </div>
-        </section>
     </main>
 {% endblock %}
 
@@ -151,7 +166,9 @@
             <div class="refs-foldout__content">
                 <ol class="refs-index">
                     <div id="ref-1" class="ref" aria-label="reference number 1"><a href="#citation-1" class="ref__back">{% trans %}footer.references.jump.to{% endtrans %}</a> <span class="ref__number" aria-label="reference number 1">1</span> <span class="ref__authors">Inga Israel</span>, <a href="https://commons.wikimedia.org/wiki/File:Vision_Freies_Wissen_Illustration.png" class="ref__title">Vision Freies Wissen Illustration</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="ref__license">CC BY-SA 4.0</a></div>
-                    <div id="ref-2" class="ref" aria-label="reference number 2"><a href="#citation-2" class="ref__back">{% trans %}footer.references.jump.to{% endtrans %}</a> <span class="ref__number" aria-label="reference number 2">2</span> <span class="ref__authors">René Zieger</span>, <a href="https://commons.wikimedia.org/wiki/File:Abraham_Taherivand_WMDE.jpg" class="ref__title">Abraham Taherivand WMDE</a>, <span class="ref__changes">Beschnitt von Atelier Disko</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="ref__license">CC BY-SA 4.0</a></div>
+                    <div id="ref-2" class="ref" aria-label="reference number 2"><a href="#citation-2" class="ref__back">{% trans %}footer.references.jump.to{% endtrans %}</a> <span class="ref__number" aria-label="reference number 2">2</span>
+
+                        Alle Fotos von:  <span class="ref__authors">Jan Apel</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="ref__license">CC BY-SA 4.0</a>; außer Foto Jan Apel: Tjane Hartenstein, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="ref__license">CC BY-SA 4.0</a></div>
                     <div id="ref-3" class="ref" aria-label="reference number 3"><a href="#citation-3" class="ref__back">{% trans %}footer.references.jump.to{% endtrans %}</a> <span class="ref__number" aria-label="reference number 3">3</span> <span class="ref__authors">JOEXX</span>, <a href="https://commons.wikimedia.org/wiki/File:ZKM_Kubus_.jpg" class="ref__title">ZKM Kubus </a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" class="ref__license">CC BY-SA 3.0</a></div>
                     <div id="ref-4" class="ref" aria-label="reference number 4"><a href="#citation-4" class="ref__back">{% trans %}footer.references.jump.to{% endtrans %}</a> <span class="ref__number" aria-label="reference number 4">4</span> <span class="ref__authors">René Zieger</span>, <a href="https://commons.wikimedia.org/wiki/File:Tim_Moritz_Hector_WMDE_03.jpg" class="ref__title">Tim Moritz Hector WMDE 03</a>, <span class="ref__changes">Beschnitt durch Atelier Disko</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="ref__license">CC BY-SA 4.0</a></div>
                     <div id="ref-5" class="ref" aria-label="reference number 5"><a href="#citation-5" class="ref__back">{% trans %}footer.references.jump.to{% endtrans %}</a> <span class="ref__number" aria-label="reference number 5">5</span> <span class="ref__authors">René Zieger</span>, <a href="https://commons.wikimedia.org/wiki/File:Sabria_David_WMDE_03.jpg" class="ref__title">Sabria David WMDE 03</a>, <span class="ref__changes">Beschnitt durch Atelier Disko</span>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="ref__license">CC BY-SA 4.0</a></div>

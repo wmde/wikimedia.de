@@ -1,0 +1,168 @@
+/* Filter */
+
+/* TODO: unify markup for both filters */
+
+.wdiv-radio-filter {
+    margin: 1.4em -12px 1em; /* account for negative gutter */
+}
+
+.wdiv-radio-filter-col-3,
+.wdiv-radio-filter-col-4 {
+    float: left;
+    margin: 0 12px; /* gutter */
+
+    width: calc( 100% - 24px );
+}
+
+@media (min-width: 480px) {
+    .wdiv-radio-filter-col-3,
+    .wdiv-radio-filter-col-4 {
+        width: calc( 100% / 2 - 24px );
+    }
+}
+
+
+@media (min-width: 720px) {
+    .wdiv-radio-filter-col-3 {
+        width: calc( 100% / 3 - 24px );
+    }
+
+    .wdiv-radio-filter-col-4 {
+        width: calc( 100% / 3 - 24px );
+    }
+}
+
+@media (min-width: 1440px) {
+    .wdiv-radio-filter-col-3 {
+        width: calc( 100% / 4 - 24px );
+    }
+}
+
+/* general filter design */
+
+.wdiv-radio-filter-option,
+.wdiv-filter-reset {
+    display: block;
+
+    position: relative;
+
+    font-size: 16px;
+    line-height: 1.375em; /* 22 to 16px */
+    padding: 9px 0 9px 32px;
+
+    color: #339966;
+    font-weight: 500; /* medium */
+    font-family: 'Montserrat', sans-serif;
+
+    cursor: pointer;
+}
+
+/* inactive state … */
+.js-filtered .wdiv-radio-filter-option {
+    color: #CACACA;
+}
+
+/* … except for the actually checked one */
+input[type="radio"]:checked ~ .wdiv-radio-filter-option {
+    color: #339966;
+}
+
+.wdiv-radio-filter-option {
+    /* skinning */
+    border-bottom: 1px solid #339966;
+}
+
+
+/* reset button */
+
+.wdiv-filter-reset {
+    position: relative; /* for icon positioning */
+
+    width: 100%;
+
+    /* hmm? */
+    text-align: left;
+
+    color: #cacaca; /* initially inactive */
+
+    /* reset standard button borders … rather clunky */
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+/* cross icon in CSS */
+
+.wdiv-filter-reset::before,
+.wdiv-filter-reset::after {
+    content: "";
+    display: block;
+
+    position: absolute;
+    top: 50%;
+    margin-top: -9px;
+    left: 10px;
+
+    height: 18px;
+
+    border-color: inherit;  /* uses parent element's color */
+    border-left: 1px solid;
+}
+
+.wdiv-filter-reset::before {
+    transform: rotate(45deg);
+}
+
+.wdiv-filter-reset::after {
+    transform: rotate(-45deg);
+}
+
+.js-filtered .wdiv-filter-reset {
+    color: #131313;
+}
+
+/* indicator */
+
+.wdiv-radio-filter-indicator {
+    display: block;
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+    margin-top: calc( -18px / 2 );
+
+    /* include border width in size */
+    box-sizing: border-box;
+    width: 18px;
+    height: 18px;
+
+
+    border: 1px #339966 solid;
+    border-radius: 50%;
+}
+
+/* yeah, I know … dat selector */
+input[type="radio"] + .wdiv-radio-filter-option .wdiv-radio-filter-indicator::before {
+    content: "";
+
+    position: absolute;
+    width: 8px;
+    height: 8px;
+
+    /* center */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+
+    /* skin */
+
+    background: #339966;
+    border-radius: 50%;
+
+    /* activation */
+    transition: transform 0.2s;
+}
+
+input[type="radio"]:checked + .wdiv-radio-filter-option .wdiv-radio-filter-indicator::before {
+    transform: translate(-50%, -50%) scale(1);
+}

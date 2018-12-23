@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Über uns – {{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/components/wdiv-about.css') }}">
+{% endblock %}
+
+{% block body %}
+    <main id="main" class="wdiv-cp-l1 wdiv-cp-l0-to-648 center-column wdiv-max-width-1190 ">
+        <div class="clearfix center-column wdiv-height-124">
+            <h1 class="tl--gamma wdiv-margin-top-64">Über uns</h1>
+        </div>
+        <div class="wdiv-image-heading">
+            <img class="wdiv-img-max-100" src="/img/about/wikimedia-conference-2018-group.jpg">
+            <div class="cp--h1 wdiv-image-heading-caption">
+                <h2 class="tl--beta cp--h0-5 wdiv-color-green wdiv-bg-white-085 wdiv-weight-700 ">Gemeinsam wissen wir mehr</h2>
+            </div>
+
+            <div id="citation-1" class="ref fig__ref ts--beta wdiv-float-right" aria-label="citation number 1">
+                <a href="#ref-1" class="ref__number" aria-label="jump to reference in index">1</a>
+            </div>
+        </div>
+        <div class="cp--h1 cp--b4  limit--12 wdiv-pos-rel">
+            <div class="clearfix cp--h1 cp--v0-5 wdiv-cm-nt1 wdiv-bg-white">
+                <div class="tm--alpha">
+                    <p>
+                        <span class="wdiv-color-green">Gemeinsam wissen wir mehr</span> – dieser Grundgedanke hinter der freien Online-Enzyklopädie Wikipedia und ihren Schwesterprojekten zeigt sich uns jeden Tag auf eindrucksvolle Weise: Tausende Freiwillige und ehrenamtliche Communitys schreiben und verbessern Artikel, fotografieren, pflegen Daten, entwickeln Software und stellen ihr Wissen allen Menschen zur freien Verfügung.
+                    </p>
+                </div>
+                <div class="tm--beta">
+                    <p>
+                        Als Gesellschaft zur Förderung Freien Wissens arbeitet Wikimedia Deutschland daran, dass Projekte wie die Wikipedia auch in Zukunft existieren können und dass Freies Wissen in unserer Gesellschaft zur Selbstverständlichkeit wird. Wir unterstützen die unschätzbar wertvolle Arbeit der Ehrenamtlichen in den Wikimedia-Projekten und wirken darauf hin, dass sich noch mehr Menschen beteiligen.
+                    </p>
+                    <div class="ts--alpha wdiv-about-teaser-annual">
+                        <img class="wdiv-img-max-100" src="/img/about/visual-annual.jpg">
+                        <p>Mehr Informationen in unserem <a class="" href="https://2017.wikimedia.de/">aktuellen Jahresbericht</a>.</p>
+                    </div>
+                    <p>
+                        Wir entwickeln und verbessern Software, damit die Freiwilligen ihr Wissen noch besser in den Wikimedia-Projekten teilen können. Wir arbeiten mit Institutionen aus Kultur, Bildung und Wissenschaft zusammen und bringen politischen und gesellschaftlichen Entscheidungsträgern die Idee des Freien Wissens näher.
+                    </p>
+                    <p>
+                        All das tun wir nicht allein, sondern gemeinsam mit den ehrenamtlichen Wikimedia-Communitys, mit unseren Partnerorganisationen innerhalb und außerhalb der internationalen Wikimedia-Bewegung und mit der Unterstützung durch rund 65.000 Mitglieder und zahlreiche Spenderinnen
+                        und Spender.
+                    </p>
+                    <p>
+                        &nbsp;
+                    </p>
+                    <p>
+                        <div class="wdiv-youtube-wrapper">
+                            <iframe style="width: 100%" width="560" height="315" src="https://www.youtube.com/embed/dlC4-SQKXJM?controls=1" frameborder="0" allow="accelerometer; encrypted-media;" allowfullscreen></iframe>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block references %}
+    <div class="refs-foldout ts--beta">
+        <div class="limit--20 center-column cp--h1 cp--v1">
+            <a class="refs-foldout__close" href="#close">{% trans %}footer.references.close{% endtrans %}</a>
+
+            <div class="refs-foldout__content">
+                <ol class="refs-index">
+                    <li id="ref-1" class="ref" aria-label="reference number 1"><a href="#citation-1" class="ref__back">{% trans %}footer.references.jump.to{% endtrans %}</a> <span class="ref__number" aria-label="reference number 1">1</span> <span class="ref__authors">Tjane Hartenstein</span>, <a href="https://commons.wikimedia.org/wiki/File:Gemeinsam_wissen_wir_mehr_%E2%80%93_Wikimedia_Deutschland.jpg" class="ref__title">Gemeinsam wissen wir mehr – Wikimedia Deutschland</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="ref__license">CC BY-SA 4.0</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+{% endblock %}

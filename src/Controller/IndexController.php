@@ -6,102 +6,32 @@ namespace App\Controller;
 
 use App\Presenter\NewsItemsTwigPresenter;
 use App\TopLevelFactory;
+use App\Controller\DatasetPageController;
 
 // phpcs:ignoreFile
 class IndexController extends BaseController {
+
+	private function readFile( string $filename ): string {
+		if (! file_exists( $filename ) ) { return ''; } // no file? return empty string
+		return file_get_contents( $filename );
+	}
 
 	public function index() {
 		$newsPresenter = new NewsItemsTwigPresenter();
 
 		$newsPresenter->present( $this->getFactory()->newNewsRepository()->getLatestNewsItems() );
 
+		// thanks to Stackoverflow user Sarfraz we quickly got the concept of dynamic classes, see:
+		// https://stackoverflow.com/a/2350948
+		$datasets = new DatasetPageController;
+
+		$staffCsv = $this->readFile( $this->container->getParameter( 'kernel.project_dir' ).'/public/files/staff.csv' );
+
 		return $this->render(
 			'pages/home.html.twig',
 			[
 				'news' => $newsPresenter->getViewModel(),
-				'board' => [
-					[
-						'name' => 'Tim Moritz Hector',
-						'title' => 'board.title.chair',
-						'email' => 'tim-moritz.hector@wikimedia.de',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/317ac5.jpg',
-						'message_en' => 'As chair of the board, I am committed to making the Wikimedia world understandable and accessible to all. For me, Free Knowledge means more available knowledge for everybody and thus more educational justice. For me, this is the key to a mature society.',
-						'message_de' => 'Als Vorsitzender des Präsidiums engagiere ich mich dafür, die Wikimedia-Welt allen verständlich und zugänglich zu machen. Freies Wissen bedeutet für mich mehr verfügbares Wissen für alle Menschen und dadurch mehr Bildungsgerechtigkeit. Es ist für mich der Schlüssel zu einer mündigen Gesellschaft.',
-						'reference_number' => 4,
-					],
-					[
-						'name' => 'Sabria David',
-						'title' => 'board.title.vice.chair',
-						'email' => 'sabria.david@wikimedia.de',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/cb9ad0.jpg',
-						'message_en' => 'As vice chair, I take care of the strategic affairs of the association and its global role. With the support of the largest of all sources of knowledge, there is also a responsibility for society as a whole. Time and again, I\'m concerned with how we can make the global movement and Wikipedia sustainable.',
-						'message_de' => 'Als stellvertretende Vorsitzende kümmere ich mich um die strategischen Angelegenheiten des Vereins und um dessen globale Rolle. Mit der Unterstützung der größten Wissensquelle überhaupt geht eben auch eine gesamtgesellschaftliche Verantwortung einher. Mich beschäftigt immer wieder die Frage, wie wir das Movement und die Wikipedia zukunftsfähig machen können.',
-						'reference_number' => 5,
-					],
-					[
-						'name' => 'Kurt Jansson',
-						'title' => 'board.title.vice.chair',
-						'email' => 'kurt.jansson@wikimedia.de',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/8a1069.jpg',
-						'message_en' => 'I am one of the founders of Wikimedia Deutschland and was chairman of the association for five years. I work in the committees on strategy and finance. The idea of gathering and sharing knowledge brought me to Wikipedia in 2001 and still motivates me to get involved in Free Knowledge.',
-						'message_de' => 'Ich bin einer der Gründer von Wikimedia Deutschland und war fünf Jahre lang Vorsitzender des Vereins. Im Präsidium arbeite ich in den Ausschüssen zu Strategie und Finanzen. Die Idee, gemeinsam Wissen zu sammeln und zu teilen, nahm mich schon 2001 für Wikipedia gefangen und motiviert mich bis heute, mich für Freies Wissen zu engagieren.',
-						'reference_number' => 6,
-					],
-					[
-						'name' => 'Sebastian Moleski',
-						'title' => 'board.title.treasurer',
-						'email' => 'sebastian.moleski@wikimedia.de',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/dfceb6.jpg',
-						'message_en' => 'Equality of opportunity is very important to me. That is why, with my work on the board, I would like to contribute to giving people access to knowledge and education. I have been active in Wikipedia since 2004 and work both as treasurer and in the financial supervision of the association.',
-						'message_de' => 'Mir ist Chancengerechtigkeit besonders wichtig. Deshalb möchte ich mit meiner Arbeit im Präsidium vor allem dazu beitragen, Menschen den Zugang zu Wissen und Bildung zu ermöglichen. Ich bin seit 2004 in der Wikipedia aktiv und arbeite sowohl als Schatzmeister als auch in der Finanzaufsicht des Vereins.',
-						'reference_number' => 7,
-					],
-					[
-						'name' => 'Harald Krichel',
-						'title' => 'board.title.at.large',
-						'email' => 'harald.krichel@wikimedia.de',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/c49409.jpg',
-						'message_en' => 'Since 2003 I am active as an author, photographer and administrator in Wikipedia. That is why it is particularly important to me to represent the position of the community on the board. I used to be a fan of Brockhaus, but today I think it\'s great to always have knowledge in the bag and above all to contribute to it.',
-						'message_de' => 'Seit 2003 bin ich als Autor, Fotograf und Administrator in der Wikipedia aktiv. Deshalb ist es mir besonders wichtig, die Position der Community im Präsidium zu vertreten. Früher war ich Brockhaus-Fan, heute finde ich es großartig, Wissen immer in der Tasche dabei zu haben und vor allem dazu beizutragen.',
-						'reference_number' => 8,
-					],
-					[
-						'name' => 'Lukas Mezger',
-						'title' => 'board.title.at.large',
-						'email' => 'lukas.mezger@wikimedia.de',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/ba1c9d.jpg',
-						'message_en' => 'I am committed to ensuring that Wikimedia Deutschland supports the work of the Wikipedia authors in the best possible way. I believe that more knowledge can make us better people. I also want to get the idea of Free Knowledge shared by as many institutions and organizations as possible.',
-						'message_de' => 'Ich setze mich dafür ein, dass Wikimedia Deutschland die Arbeit der ehrenamtlichen Wikipedia-Autorengemeinschaft bestmöglich unterstützt. Denn ich glaube daran, dass mehr Wissen uns zu besseren Menschen machen kann. Außerdem möchte ich erreichen, dass die Idee des Freien Wissens von so vielen Institutionen und Organisationen wie möglich geteilt wird.',
-						'reference_number' => 9,
-					],
-					[
-						'name' => 'Johanna Niesyto',
-						'title' => 'board.title.at.large',
-						'email' => 'johanna.niesyto@wikimedia.de',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/5902ed.jpg',
-						'message_en' => "It is important to me that the association is committed to Free Knowledge for society as a whole. It takes a smart strategy, patience and a lived cooperation culture. According to the saying: 'If you want to go fast, go alone. If you want to go far, go together.'",
-						'message_de' => 'Mir liegt es am Herzen, dass sich der Verein gesamtgesellschaftlich für Freies Wissen einsetzt. Dafür braucht es eine kluge Strategie, etwas Geduld und gelebte Kooperationskultur. Ganz nach dem Sprichwort: ‚Wenn du schnell gehen willst, gehe alleine. Wenn du weit gehen willst, gehe mit anderen.‘',
-						'reference_number' => 10,
-					],
-					[
-						'name' => 'Peter Dewald',
-						'title' => 'board.title.at.large',
-						'email' => 'peter.dewald@wikimedia.de',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/902ed7.jpg',
-						'message_en' => 'I am looking back on 35 years of leadership experience and volunteering. For me Wikipedia has created within a few years the basis for free access to extensive knowledge for millions of people. I would like to promote the development of the association and its initiatives on the board.',
-						'message_de' => 'Ich blicke auf 35 Jahre Erfahrung als Führungskraft zurück und bin ehrenamtlich engagiert. Für mich hat Wikipedia innerhalb weniger Jahre die Basis für den freien Zugang zu umfangreichem Wissen für Millionen Menschen geschaffen. Im Präsidium möchte ich die Entwicklung des Vereins und seiner Initiativen vorantreiben.',
-						'reference_number' => 11,
-					],
-					[
-						'name' => 'Gabriele Theren',
-						'title' => 'board.title.at.large',
-						'email' => 'gabriele.theren@wikimedia.de',
-						'image' => 'https://blog.wikimedia.de/wp-content/uploads/55f19b.jpg',
-						'message_en' => 'As a lawyer and head of the social and occupational safety section of the Ministry of Social Affairs of Saxony-Anhalt, I would like to contribute my experience with authorities and organizations to Wikimedia. I am delighted to be able to support the idea of spreading free access to knowledge and to be able to participate practically.',
-						'message_de' => 'Als Juristin und Leiterin der Abteilung Soziales und Arbeitsschutz im Sozialministerium Sachsen-Anhalt möchte ich vor allem meine Erfahrungen mit Behörden und Organisationen bei Wikimedia einbringen. Ich freue mich, auf diese Weise die Idee eines sich verbreitenden freien Zugangs zu Wissen zu unterstützen und praktisch mitarbeiten zu können.',
-						'reference_number' => 12,
-					]
-				]
+				'staff' => $datasets->peopleData( $staffCsv, true )
 			]
 		);
 	}

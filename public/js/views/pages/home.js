@@ -569,5 +569,4 @@ let team = new Team();
 let news = new News();
 
 fields.mount($1('.fields'));
-team.mount($1('.team'));
 news.mount($1('.news'));

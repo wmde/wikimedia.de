@@ -54,10 +54,10 @@
   background-size: contain;
 
   position: absolute;
-  bottom: -5vw;
-  left: 216px;
+  bottom: -6vw;
+  left: 85px;
 
-  width: calc(100% - 216px);
+  width: calc(48% - 85px);
   height: 50vw;
   min-height: 650px;
   max-height: 740px;
@@ -134,7 +134,7 @@
     top: 144px;
     left: 36px;
 
-    width: calc(100% - 36px);
+    width: calc(48% - 36px);
     height: 50vw;
     min-height: 369px;
     max-height: 513px;

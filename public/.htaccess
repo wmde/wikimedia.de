@@ -1,0 +1,10 @@
+# rewrite rules
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+# point all links to index.php for routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*) index.php [L]
+
+</IfModule>

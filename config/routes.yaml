@@ -24,3 +24,32 @@ transparency:
 charter:
     path: /charter
     controller: App\Controller\SimplePageController::charter
+
+about:
+    path: /about-us
+    controller: App\Controller\SimplePageController::about
+
+themes:
+    path: /themes
+    controller: App\Controller\DatasetPageController::themes
+
+people:
+    path: /people
+    controller: App\Controller\SimplePageController::people
+
+peopleBoard:
+    path: /people/board
+    controller: App\Controller\DatasetPageController::peopleBoard
+
+peopleStaff:
+    path: /people/staff
+    controller: App\Controller\DatasetPageController::peopleStaff
+
+# this could be the Styleguide base if anybody ever finishes this
+# templates:
+#     path: /templates{path}
+#     controller: App\Controller\TemplatesController::preview
+#     # allow slashes in route parameters, see
+#     # https://symfony.com/doc/current/routing/slash_in_parameter.html
+#     requirements:
+#         path: .+

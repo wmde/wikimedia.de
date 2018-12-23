@@ -34,25 +34,38 @@
   /* Place caption on the same visual baseline with the image. */
   position: relative;
   top: -21px;
+  max-width: 218px;
+}
+
+
+@media (max-width: 1399px) {
+  .mission__image {
+    margin-top: 120px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .mission__caption {
+    margin-left: 24px;
+  }
 }
 
 @media (max-width: 1152px) {
   .mission__text {
     top: 72px;
-    right: 108px;
+    right: 36px;
   }
   .mission__image {
     margin-top: 90px;
   }
-}
-@media (max-width: 864px) {
   .mission__caption {
     top: 0;
     display: block;
-    margin-left: 0;
   }
-  .mission__text {
-    right: 36px;
+}
+@media (max-width: 767px) {
+  .mission__image {
+    margin-top: 142px;
   }
 }
 @media (max-width: 648px) {
@@ -77,5 +90,12 @@
   }
   .mission__caption {
     margin-left: 0;
+  }
+}
+@media (max-width: 472px) {
+  .mission__text {
+    margin-left: 60px;
+    width: auto;
+    font-size: 16px;
   }
 }

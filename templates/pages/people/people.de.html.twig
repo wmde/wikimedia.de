@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Menschen bei Wikimedia – {{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/components/wdiv-about.css') }}">
+{% endblock %}
+
+{% block body %}
+    <main id="main" class="wdiv-cp-l1 wdiv-cp-l0-to-648 center-column wdiv-max-width-1190 ">
+        <div class="clearfix center-column wdiv-height-124">
+            <h1 class="tl--gamma wdiv-margin-top-64">Menschen bei Wikimedia</h1>
+        </div>
+        <div class="wdiv-image-heading">
+            <img class="wdiv-img-max-100" src="/img/about/wikimedia-conference-2018-group.jpg">
+            <footer class="wdiv-image-heading-footer">
+                <div id="citation-1" class="ref fig__ref ts--beta wdiv-float-right" aria-label="citation number 1">
+                    <a href="#ref-1" class="ref__number" aria-label="jump to reference in index">1</a>
+                </div>
+            </footer>
+        </div>
+        <div class="cp--h1 wdiv-cm-nt1  cp--b1-75 limit--20 wdiv-pos-rel">
+            <div class="wdiv-cols clearfix cp--b1-75 ">
+                <div class="clearfix tm--alpha cp--h1 cp--v0-5 wdiv-bg-white wdiv-col-6">
+                    <h2 class="tl--gamma cm--t0-5">Mitarbeitende</h2>
+
+                    <div class="wdiv-tm--epsilon wdiv-weight-400">
+                        <p>Bei Wikimedia Deutschland e. V. arbeiten derzeit rund 100 Mitarbeitende hauptamtlich daran, die Ziele des Vereins umzusetzen.</p>
+                    </div>
+
+                    <p>
+                        <a class="link--black ts--alpha" href="{{ path( 'peopleStaff' ) }}">Alle Mitarbeitenden</a>
+                    </p>
+
+                </div>
+                <div class="clearfix tm--alpha cp--h1 cp--v0-5 wdiv-bg-white wdiv-col-6">
+                    <h2 class="tl--gamma cm--t0-5">Präsidium</h2>
+
+                    <div class="wdiv-tm--epsilon wdiv-weight-400">
+                        <p>Das Präsidium ist das ehrenamtliche Leitungs- und Kontrollorgan des Vereins und repräsentiert dessen Mitglieder. Es hat insbesondere die Aufgabe, die strategische Ausrichtung des Vereins fortzuschreiben, Zielvorgaben für den hauptamtlichen Vorstand zu formulieren sowie dessen Geschäftsführung zu beaufsichtigen.</p>
+                    </div>
+
+                    <p>
+                        <a class="link--black ts--alpha" href="{{ path( 'peopleBoard' ) }}">Alle Präsidiumsmitglieder</a>
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="clearfix cp--h1 cp--v0-5 wdiv-bg-lightorange">
+                <h2 class="tl--beta wdiv-color-white wdiv-weight-700 ">Werde Teil von Wikimedia Deutschland</h2>
+
+                <div class="wdiv-cols">
+                    <div class="wdiv-col-6">
+    
+                        <p class="wdiv-tm--epsilon">
+                            Unsere aktuellen Stellenausschreibungen finden Sie auf unserer Jobseite.
+                        </p>
+                        <p>
+                            <a class="link--black" href="https://wikimedia-deutschland.softgarden.io/de/vacancies">Zur Jobseite</a>
+                        </p>
+    
+                    </div>
+                    <div class="wdiv-col-6">
+    
+                        <p class="wdiv-tm--epsilon">
+                            Werden Sie Mitglied und unterstützen Sie den Verein dauerhaft!
+                        </p>
+                        <p>
+                            <a class="link--black" href="https://spenden.wikimedia.de/apply-for-membership?piwik_campaign=wm.de_neu&piwik_kwd=mitglieds_btn">Zum Antrag</a>
+                        </p>
+                    
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+{% endblock %}
+
+{% block references %}
+    <div class="refs-foldout ts--beta">
+        <div class="limit--20 center-column cp--h1 cp--v1">
+            <a class="refs-foldout__close" href="#close">{% trans %}footer.references.close{% endtrans %}</a>
+
+            <div class="refs-foldout__content">
+                <ol class="refs-index">
+                    <li id="ref-1" class="ref" aria-label="reference number 1"><a href="#citation-1" class="ref__back">{% trans %}footer.references.jump.to{% endtrans %}</a> <span class="ref__number" aria-label="reference number 1">1</span> <span class="ref__authors">Tjane Hartenstein</span>, <a href="https://commons.wikimedia.org/wiki/File:Gemeinsam_wissen_wir_mehr_%E2%80%93_Wikimedia_Deutschland.jpg" class="ref__title">Gemeinsam wissen wir mehr – Wikimedia Deutschland</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" class="ref__license">CC BY-SA 4.0</a></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+{% endblock %}

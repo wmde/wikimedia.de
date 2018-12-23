@@ -1,0 +1,39 @@
+<div class="wdiv-team-wrapper wdiv-clearfix">
+    {# hide filter for single group #}
+    {% if domains|length > 1 %}
+    <header class="wdiv-team-header clearfix cp--h1 center-column wdiv-max-width-1190">
+        <div class="wdiv-radio-filter">
+            {% for domain in domains %}
+                <p class="wdiv-radio-filter-col-4">
+                    <input class="wdiv-hide-accessibly" type="radio" value="{{loop.index}}" name="wdiv-group-filter" id="wdiv-group-filter-{{loop.index}}" >
+                    <label class="wdiv-radio-filter-option" for="wdiv-group-filter-{{loop.index}}"><span class="wdiv-radio-filter-indicator"></span>{{ domain.title }}</label>
+                </p>
+            {% endfor %}
+            <p class="wdiv-radio-filter-col-4">
+                <button class="wdiv-filter-reset">Filter aufheben</button>
+            </p>
+        </div>
+    </header>
+    {% endif %}
+    <div class="wdiv-team-content clearfix cp--h1 center-column wdiv-max-width-1190">
+    {% for domain in domains %}
+    {% for team in domain.teams %}
+        <div class="wdiv-group  clearfix" data-group-id="{{loop.parent.loop.index}}">
+            <h2 class="tm--alpha wdiv-group-title  wdiv-color-green">{{ team.title }}</h2>
+            <div class="wdiv-group-items">
+            {% if team.members is defined %}
+            {% for person in team.members %}
+                <div class="wdiv-group-item">
+                    <img class="wdiv-item-img wdiv-img-max-100" src="{{ person.img }}">
+                    <h3 class="wdiv-person-title tm--gamma">{{ person.firstname }} {{ person.lastname }}</h3>
+                    <p class="wdiv-person-subtitle wdiv-tm--epsilon">{{ person.title_de }}</p>
+                    <p class="wdiv-person-email ts--alpha"><a class="link--black" href="mailto:{{ person.mail }}">E-Mail</a></p>
+                </div>
+            {% endfor %}
+            {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    {% endfor %}
+    </div>
+</div>

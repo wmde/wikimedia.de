@@ -1,0 +1,390 @@
+/* shared/layout */
+
+.wdiv-max-width-1190 {
+    max-width: 1190px; /* subtracts sidebar width from main container */
+}
+
+@media (max-width: 720px) {
+  .wdiv-hide-to-720 {
+    display: none;
+  }
+}
+
+@media (min-width: 970px) {
+  .wdiv-hide-from-970 {
+    display: none;
+  }
+}
+
+.wdiv-height-124 {
+  height: 124px; /* TODO: reponsive */
+}
+
+.wdiv-margin-top-64 {
+  margin-top: 2.3em; /* TODO: reponsive */
+}
+
+.wdiv-clearfix::after {
+/*
+    via (defunct)
+    http://cssmojo.com/the-very-latest-clearfix-reloaded/
+*/
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.wdiv-hide-accessibly {
+  /*
+    see articles like:
+    https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+    https://css-tricks.com/snippets/css/accessibilityseo-friendly-css-hiding/#comment-1206657
+  */
+  position: absolute;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  height: 1px;
+  width: 1px;
+}
+
+/* adapting atomic content-padding-technique to pad left only */
+/* this exists but for cp--l2 only */
+.wdiv-cp-l1 {
+  padding-left: 72px;
+}
+@media (max-width: 1152px) {
+    .wdiv-cp-l1 {
+        padding-left: 36px;
+    }
+}
+@media (max-width: 648px) {
+    .wdiv-cp-l1 {
+        padding-left: 18px;
+    }
+}
+
+/* adapting atomic content-padding-technique for negative top margin */
+.wdiv-cm-nt1 {
+  margin-top: -72px;
+}
+@media (max-width: 1152px) {
+    .wdiv-cm-nt1 {
+        margin-top: -36px;
+    }
+}
+@media (max-width: 648px) {
+    .wdiv-cm-nt1 {
+        margin-top: -36px;
+    }
+}
+
+
+/* special override case */
+@media (max-width: 648px) {
+    .wdiv-cp-l0-to-648 {
+        padding-left: 0;
+    }
+}
+
+.wdiv-img-max-100 {
+  max-width: 100%;
+}
+
+.wdiv-float-right {
+  float: right;
+}
+
+.wdiv-pos-rel {
+  position: relative;
+}
+
+.wdiv-bg-white {
+  background-color: white;
+}
+
+.wdiv-bg-white-085 {
+  background-color: rgba( 255, 255, 255, 0.85 );
+}
+.wdiv-bg-lightorange {
+  background-color: #F7BF66;
+}
+
+.wdiv-color-white {
+  color: white;
+}
+
+.wdiv-color-green {
+  color: #339966;
+}
+
+.wdiv-youtube-wrapper {
+  clear: both; /* TODO: find a better functional class */
+
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: calc( 9 / 16 * 100% ); /* we settle for a standard 16:9 */
+}
+
+.wdiv-youtube-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* adaption for homepage visual */
+.wdiv-illu-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-image: url('/img/wdiv/gradient-blue.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.46;
+}
+
+/* grid for people overview page */
+
+@media (min-width: 649px) {
+  .wdiv-cols {
+    /* negative gutter ÷ 2 */
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  .wdiv-col-6 {
+    width: calc( 50% - 2 * 15px ); /* width - gutter */
+
+    /* spacing: gutter ÷ 2 */
+    margin-right: 15px;
+    margin-left: 15px;
+
+    float: left;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .wdiv-cols {
+    /* adapt gutter */
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+
+  .wdiv-col-6 {
+    /* adapt gutter */
+    width: calc( 50% - 2 * 20px );
+
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+}
+
+/* Type */
+
+.wdiv-weight-700 {
+  font-weight: 700;
+}
+
+.wdiv-font-serif {
+  font-family: 'Source Serif Pro', serif;
+}
+
+.wdiv-font-sans {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* new addition to font system */
+
+.wdiv-tm--epsilon {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.4em;
+}
+
+@media (min-width: 500px) {
+    .wdiv-tm--epsilon {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .wdiv-tm--epsilon {
+        font-size: 16px;
+    }
+}
+
+/* shared/new sidebar */
+
+/* mobile layout */
+
+@media (max-width: 969px) {
+  .wdiv-header-nav {
+    width: 100%;
+  }
+
+
+  /* top element */
+
+  .wdiv-nav-header {
+    box-sizing: border-box;
+    height: 90px;
+    background-color: #339966;
+    padding: 26px 50px; /* TODO: smaller mobile spacing */
+  }
+
+  .wdiv-header-nav-logo {
+    width: 160px;
+    float: left;
+  }
+
+  .wdiv-nav-toggle {
+    float: right;
+    height: 38px;
+
+    /* remove system styles */
+    border-style: none;
+    padding: 0;
+
+    cursor: pointer;
+    background-color: transparent;
+  }
+
+  /* navigation */
+
+  .wdiv-nav-wrapper {
+    background-color: rgba(51,153,102,0.8);
+  }
+
+  .wdiv-nav-wrapper .wdiv-nav {
+    padding: 42px 90px; /* TODO: smaller mobile spacing */
+  }
+
+  /* navigation toggling */
+
+  /* TODO: JS-detection */
+
+  .wdiv-nav-wrapper {
+    overflow: hidden;
+    transition: height 0.6s; /* animate height changes */
+  }
+
+  .wdiv-header-nav:not(.wdiv-js-toggled) .wdiv-nav-wrapper {
+    height: 0!important; /* force close navigation */
+  }
+
+  /* crazy hacks */
+
+  .wdiv-header-nav + .mh {
+    /* crudely override the existing CTA button */
+    display: none!important;
+  }
+}
+
+/* Media query includes old breakpoint: max720 for mobile and adds 250px navbar width */
+@media (min-width: 970px) {
+    .wdiv-sidebar-alignment {
+        margin-left: calc( 250 / 1140 * 100% );
+        position: relative;
+    }
+
+    .wdiv-sidebar-alignment::before {
+        content: '';
+        position: absolute;
+
+        right: 100%;
+        width: calc( 250 / ( 1140 - 250 ) * 100% );
+        max-width: 250px;
+        height: 100%;
+
+        background-color: #339966;
+    }
+
+    .wdiv-header-nav {
+      position: fixed;
+
+      width: calc( 250 / 1140 * 100% );
+      top: 0;
+      left: 0;
+
+      box-sizing: border-box;
+
+      padding: 1em 26px 1em;
+    }
+
+    .wdiv-header-nav-logo {
+      margin: 22px 0 72px; /* TODO: responsive */
+    }
+}
+
+@media (min-width: 1140px) {
+    .wdiv-header-nav {
+      width: 250px;
+    }
+
+    .wdiv-sidebar-alignment {
+        margin-left: 250px;
+    }
+}
+
+/* shared/new header */
+
+.wdiv-header-meta-container {
+    /* imitate existing height */
+    height: 72px;
+}
+
+
+/* shared/skinning */
+
+/* shared/new Google font */
+
+/* we're using the approach of `/css/globals/font` here and paste the Google CSS */
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Montserrat Medium'), local('Montserrat-Medium'), url(https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_ZpC3gTD_vx3rCubqg.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Montserrat Medium'), local('Montserrat-Medium'), url(https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_ZpC3g3D_vx3rCubqg.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Montserrat Medium'), local('Montserrat-Medium'), url(https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_ZpC3gbD_vx3rCubqg.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Montserrat Medium'), local('Montserrat-Medium'), url(https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_ZpC3gfD_vx3rCubqg.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Montserrat Medium'), local('Montserrat-Medium'), url(https://fonts.gstatic.com/s/montserrat/v12/JTURjIg1_i6t8kCHKm45_ZpC3gnD_vx3rCs.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

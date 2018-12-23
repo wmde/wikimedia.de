@@ -1,0 +1,81 @@
+/* Team */
+
+/* Team filter */
+
+.wdiv-team-filter {
+    /* brute clearfix */
+    width: 100%;
+    float: left;
+}
+
+.wdiv-team-filter-option {
+    width: calc(100%/3);
+    float: left;
+}
+
+/* Team cards */
+
+.wdiv-group {
+    margin: 100px 0 68px;  /* we remove inner spacing on bottom */ /* TODO: responsive */
+}
+
+.wdiv-person-title {
+    margin: 0.6em 0 0.4em;
+}
+
+.wdiv-person-email {
+/*    margin: 0.6em 0 0.4em;*/
+/*	border:1px solid red;*/
+/*	clear:both;*/
+	position: absolute;
+	bottom:-3.1em;
+}
+
+
+/* this equals Medium Epsilon Sans Serif */
+.wdiv-person-subtitle {
+    /* reset system styles */
+    margin: 0;
+}
+
+.wdiv-group-title {
+    margin-bottom: 10px; /* TODO: responsive */
+}
+
+.wdiv-group-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* we need 6 cols */
+}
+
+@media (min-width: 720px ){
+    .wdiv-group-items {
+        grid-template-columns: repeat(3, 1fr); /* we need 6 cols */
+    }
+}
+
+@media (min-width: 1280px ){
+    .wdiv-group-items {
+        grid-template-columns: repeat(4, 1fr); /* we need 6 cols */
+    }
+}
+
+.wdiv-group-item {
+    width: 160px;
+    margin: 32px 0;
+/*    border:1px solid blue;*/
+    position:relative;
+}
+
+.wdiv-item-img {
+    display: block;
+}
+
+@media (min-width: 520px ) {
+    .wdiv-group-item {
+        width: 200px;
+    }
+}
+
+.wdiv-team-wrapper {
+    background-color: white;
+}
