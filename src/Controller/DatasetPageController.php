@@ -9,43 +9,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 // TODO: remove once the template dummy is no longer used
-use Symfony\Component\Yaml\Yaml;
 
 class DatasetPageController extends Controller {
 
 	// load CSV file and return contents as nested array
-	private function csvAsArray( string $csvString ): array {
-		// thanks to durik at 3ilab dot net for pointing out we need 2 str_getcsv() parsers for rows/columns, see
-		// https://secure.php.net/manual/en/function.str-getcsv.php#101888
-		$csv = [];
-		foreach (
-			str_getcsv( $csvString, "\n" )
-			as
-			$row
-		) {
-			// typecheck in case rows are NULL
-			if ( gettype( $row ) != 'string' ) {
-				$row = '';
-			}
-
-			$csv[] = str_getcsv( $row );
-		}
-		return $csv;
+	public function peopleStaff( Request $request ): Response {
+		return $this->peopleParse( 'pages/people/staff.html.twig', '/public/files/staff.csv' );
 	}
 
 	// convert csv array to key/value objects per row
 	// keys get supplied separately
-	private function csv2object( array $csv, array $keys ): array {
-		$items = [];
-		foreach ( $csv as $row ) {
-			$item = [];
-			foreach ( $keys as $index => $key ) {
-				$value = isset( $row[$index] ) ? $row[$index] : '';
-				$item[$key] = $value;
-			}
-			$items[] = $item;
-		}
-		return $items;
+
+	private function peopleParse( string $templatePath, string $csvPath ): object {
+		$csvString = file_get_contents( $this->container->getParameter( 'kernel.project_dir' ) . $csvPath );
+		return $this->render( $templatePath, $this->peopleData( $csvString ) );
 	}
 
 	// group array in sub-arrays
@@ -53,28 +30,8 @@ class DatasetPageController extends Controller {
 	//       we should be able to dive deeper via an array like [ 'title' , 'de' ]
 	// TODO: we should actually return associative arrays w/ the unique key
 	// TODO: grouped associative arrays might keep the value only if a third param is set
-	private function groupBy( array $array, string $key ): array {
-		$groups = [];
-		$groupsLookup = [];
-		foreach ( $array as $item ) {
-			if ( isset( $item[$key] ) ) {
-				$groupBy = $item[$key];
 
-				// value not yet encountered? register grouping value in lookup
-				// TODO: test framework decided, this is one nesting too many, d'uh!
-				if ( !in_array( $item[$key], $groupsLookup ) ) {
-					$groupsLookup[] = $groupBy;
-				}
-
-				// groups are filled in order of first encounter of key value
-				$groups[array_search( $groupBy, $groupsLookup )][] = $item;
-
-			}
-		}
-		return $groups;
-	}
-
-	public function peopleData( string $csvString, $ignoreEmpty=false ): array {
+	public function peopleData( string $csvString, bool $ignoreEmpty = false ): array {
 		$data = [];
 
 		// 1. loading team table as data source
@@ -108,14 +65,15 @@ class DatasetPageController extends Controller {
 		// 3. modify item datasets
 
 //		var_dump($items);
-		if ($ignoreEmpty){
-			$titems = array();
+		if ( $ignoreEmpty ) {
+			$titems = [];
 			foreach ( $items as &$item ) {
-				if ( !(strlen( $item['img'] ) > 0) )
+				if ( !( strlen( $item['img'] ) > 0 ) ) {
 					continue;
-				$titems[]=$item;
+				}
+				$titems[] = $item;
 			}
-			$items=$titems;
+			$items = $titems;
 		}
 
 		// add image sources
@@ -123,7 +81,7 @@ class DatasetPageController extends Controller {
 		// /files/staff/*.*
 		foreach ( $items as &$item ) {
 			// use placeholder image for empty items
-			$item['img'] = strlen( $item['img'] ) > 0 ? '/files/people/'.$item['img'] : '/img/staff/default.jpg';
+			$item['img'] = strlen( $item['img'] ) > 0 ? '/files/people/' . $item['img'] : '/img/staff/default.jpg';
 		}
 
 		// TODO: supply multilingual strings per template
@@ -158,13 +116,78 @@ class DatasetPageController extends Controller {
 		return $data;
 	}
 
+	private function csvAsArray( string $csvString ): array {
+		// thanks to durik at 3ilab dot net for pointing out we need 2 str_getcsv() parsers for rows/columns, see
+		// https://secure.php.net/manual/en/function.str-getcsv.php#101888
+		$csv = [];
+		foreach (
+			str_getcsv( $csvString, "\n" )
+			as
+			$row
+		) {
+			// typecheck in case rows are NULL
+			if ( gettype( $row ) != 'string' ) {
+				$row = '';
+			}
+
+			$csv[] = str_getcsv( $row );
+		}
+		return $csv;
+	}
+
+	private function csv2object( array $csv, array $keys ): array {
+		$items = [];
+		foreach ( $csv as $row ) {
+			$item = [];
+			foreach ( $keys as $index => $key ) {
+				$value = isset( $row[$index] ) ? $row[$index] : '';
+				$item[$key] = $value;
+			}
+			$items[] = $item;
+		}
+		return $items;
+	}
+
+	private function groupBy( array $array, string $key ): array {
+		$groups = [];
+		$groupsLookup = [];
+		foreach ( $array as $item ) {
+			if ( isset( $item[$key] ) ) {
+				$groupBy = $item[$key];
+
+				// value not yet encountered? register grouping value in lookup
+				// TODO: test framework decided, this is one nesting too many, d'uh!
+				if ( !in_array( $item[$key], $groupsLookup ) ) {
+					$groupsLookup[] = $groupBy;
+				}
+
+				// groups are filled in order of first encounter of key value
+				$groups[array_search( $groupBy, $groupsLookup )][] = $item;
+
+			}
+		}
+		return $groups;
+	}
+
+	public function peopleBoard( Request $request ): Response {
+		return $this->peopleParse( 'pages/people/board.html.twig', '/public/files/board.csv' );
+	}
+
+	public function themes( Request $request ): Response {
+		return $this->themesParse( 'pages/topics.html.twig', '/public/files/projects.csv', '/public/files/themes.csv' );
+	}
+
 	private function themesParse( string $templatePath, string $csvPathProjects, string $csvPathThemes ): object {
 		$data = [];
 
 		// 1. loading team table as data source
 		$csv = [
-			'projects' => $this->csvAsArray( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).$csvPathProjects ) ),
-			'themes' => $this->csvAsArray( file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).$csvPathThemes ) )
+			'projects' => $this->csvAsArray(
+				file_get_contents( $this->container->getParameter( 'kernel.project_dir' ) . $csvPathProjects )
+			),
+			'themes' => $this->csvAsArray(
+				file_get_contents( $this->container->getParameter( 'kernel.project_dir' ) . $csvPathThemes )
+			)
 		];
 
 		// 2. key handling
@@ -215,7 +238,7 @@ class DatasetPageController extends Controller {
 			// add image sources
 			// this should be handled by an extra column, for now we only remove the path and assume the files under
 			// /files/projects/*.jpg
-			$project['img'] = '/files/projects/'.$project['img'];
+			$project['img'] = '/files/projects/' . $project['img'];
 
 			// set `type` attribute as `wide` if `highlight` contains a string
 			// currently an `X` in the datasource
@@ -239,23 +262,6 @@ class DatasetPageController extends Controller {
 		}
 
 		return $this->render( $templatePath, $data );
-	}
-
-	private function peopleParse( string $templatePath, string $csvPath ): object {
-		$csvString = file_get_contents( $this->container->getParameter( 'kernel.project_dir' ).$csvPath );
-		return $this->render( $templatePath, $this->peopleData( $csvString ) );
-	}
-
-	public function peopleStaff( Request $request ): Response {
-		return $this->peopleParse( 'pages/people/staff.html.twig', '/public/files/staff.csv' );
-	}
-
-	public function peopleBoard( Request $request ): Response {
-		return $this->peopleParse( 'pages/people/board.html.twig', '/public/files/board.csv' );
-	}
-
-	public function themes( Request $request ): Response {
-		return $this->themesParse( 'pages/topics.html.twig', '/public/files/projects.csv', '/public/files/themes.csv' );
 	}
 
 }
