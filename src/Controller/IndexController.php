@@ -5,8 +5,6 @@ declare( strict_types = 1 );
 namespace App\Controller;
 
 use App\Presenter\NewsItemsTwigPresenter;
-use App\TopLevelFactory;
-use App\Controller\DatasetPageController;
 
 // phpcs:ignoreFile
 class IndexController extends BaseController {
@@ -23,7 +21,7 @@ class IndexController extends BaseController {
 
 		// thanks to Stackoverflow user Sarfraz we quickly got the concept of dynamic classes, see:
 		// https://stackoverflow.com/a/2350948
-		$datasets = new DatasetPageController;
+		$datasets = new DatasetPageController();
 
 		$staffCsv = $this->readFile( $this->container->getParameter( 'kernel.project_dir' ).'/public/files/staff.csv' );
 
