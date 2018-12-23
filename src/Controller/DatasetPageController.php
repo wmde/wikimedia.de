@@ -13,14 +13,14 @@ use Symfony\Component\HttpFoundation\Response;
 class DatasetPageController extends Controller {
 
 	// load CSV file and return contents as nested array
-	public function peopleStaff( Request $request ): Response {
+	public function peopleStaff(): Response {
 		return $this->peopleParse( 'pages/people/staff.html.twig', '/public/files/staff.csv' );
 	}
 
 	// convert csv array to key/value objects per row
 	// keys get supplied separately
 
-	private function peopleParse( string $templatePath, string $csvPath ): object {
+	private function peopleParse( string $templatePath, string $csvPath ): Response {
 		$csvString = file_get_contents( $this->container->getParameter( 'kernel.project_dir' ) . $csvPath );
 		return $this->render( $templatePath, $this->peopleData( $csvString ) );
 	}
@@ -40,7 +40,7 @@ class DatasetPageController extends Controller {
 		// 2. key handling
 
 		// split first line (column headings)
-		$keysOrig = array_shift( $csv );
+		array_shift( $csv );
 
 		// note:
 		// instead of mapping, we could actually use the csv headings
