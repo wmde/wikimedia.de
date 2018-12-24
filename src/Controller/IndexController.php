@@ -9,11 +9,6 @@ use App\Presenter\NewsItemsTwigPresenter;
 // phpcs:ignoreFile
 class IndexController extends BaseController {
 
-	private function readFile( string $filename ): string {
-		if (! file_exists( $filename ) ) { return ''; } // no file? return empty string
-		return file_get_contents( $filename );
-	}
-
 	public function index() {
 		$newsPresenter = new NewsItemsTwigPresenter();
 
@@ -29,9 +24,17 @@ class IndexController extends BaseController {
 			'pages/home.html.twig',
 			[
 				'news' => $newsPresenter->getViewModel(),
-				'staff' => $datasets->peopleData( $staffCsv, true )
+				'staff' => ( new DatasetPageController() )->peopleData( $staffCsv, true )
 			]
 		);
+	}
+
+	private function readFile( string $filename ): string {
+		if ( !file_exists( $filename ) ) {
+			return '';
+		}
+
+		return file_get_contents( $filename );
 	}
 
 }
