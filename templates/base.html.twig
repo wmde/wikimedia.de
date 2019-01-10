@@ -42,9 +42,9 @@
                             <a class="wdiv-color-white" href="https://spenden.wikimedia.de/apply-for-membership?piwik_campaign=wm.de_neu&piwik_kwd=mitglieds_btn">{% trans %}nav.link.supportUs{% endtrans %}</a><br><br>
 
                             <div class="wdiv-hide-from-970">
-                                <a class="wdiv-color-white" href="{{ path(app.request.attributes.get('_route'), {'_locale': 'de'}) }}">DE</a>
+                                <a class="wdiv-color-white" href="{{ path(app.request.attributes.get('_route', 'index'), {'_locale': 'de'}) }}">DE</a>
                                 &emsp;&emsp;&emsp;
-                                <a class="wdiv-color-white" href="{{ path(app.request.attributes.get('_route'), {'_locale': 'en'}) }}">EN</a>
+                                <a class="wdiv-color-white" href="{{ path(app.request.attributes.get('_route', 'index'), {'_locale': 'en'}) }}">EN</a>
                             </div>
                         </nav>
                     </div>
@@ -75,8 +75,8 @@
                                 <div class="nav-locale-wrapper">
                                     <div class="nav-locale-toggle__locale">{{ app.request.locale|escape }}</div>
                                     <nav class="nav-locale">
-                                        <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'de'}) }}" {% if app.request.locale == 'de' %}class="active"{% endif %}>Deutsch (de)</a>
-                                        <a href="{{ path(app.request.attributes.get('_route'), {'_locale': 'en'}) }}" {% if app.request.locale == 'en' %}class="active"{% endif %}>English (en)</a>
+                                        <a href="{{ path(app.request.attributes.get('_route', 'index'), {'_locale': 'de'}) }}" {% if app.request.locale == 'de' %}class="active"{% endif %}>Deutsch (de)</a>
+                                        <a href="{{ path(app.request.attributes.get('_route', 'index'), {'_locale': 'en'}) }}" {% if app.request.locale == 'en' %}class="active"{% endif %}>English (en)</a>
                                     </nav>
                                 </div>
                             </div>
