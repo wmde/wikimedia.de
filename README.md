@@ -122,3 +122,8 @@ Then follow steps A through D from the section
 
 1. `git pull` - get the latest version of the site
 2. `composer install` - install the dependencies (`make install` if you have Docker instead of PHP)
+
+### Deployment guidelines
+
+* Only code from master can be deployed on the server
+* Only gitignored files such as configuration can be changed on the server directly
