@@ -4,13 +4,13 @@ declare( strict_types = 1 );
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 // TODO: remove once the template dummy is no longer used
 
-class DatasetPageController extends Controller {
+class DatasetPageController extends AbstractController {
 
 	// load CSV file and return contents as nested array
 	public function peopleStaff(): Response {
@@ -22,6 +22,7 @@ class DatasetPageController extends Controller {
 
 	private function peopleParse( string $templatePath, string $csvPath ): Response {
 		$csvString = file_get_contents( $this->container->getParameter( 'kernel.project_dir' ) . $csvPath );
+
 		return $this->render( $templatePath, $this->peopleData( $csvString ) );
 	}
 
