@@ -125,6 +125,6 @@ Then follow steps A through D from the section
 
 ### Deployment guidelines
 
-* Only code from master can be deployed on the server
+* Only code from master (on GitHub!!!) can be deployed on the server
 * Only gitignored files such as configuration can be changed on the server directly
 * The site should be deployed in production mode (see `.env`)
