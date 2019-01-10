@@ -107,13 +107,21 @@ class DatasetPageController extends Controller {
 
 		// 3. modify item datasets
 
+//		var_dump($items);
+		if ($ignoreEmpty){
+			$titems = array();
+			foreach ( $items as &$item ) {
+				if ( !(strlen( $item['img'] ) > 0) )
+					continue;
+				$titems[]=$item;
+			}
+			$items=$titems;
+		}
+
 		// add image sources
 		// this should be handled by an extra column, for now we only remove the path and assume the files under
 		// /files/staff/*.*
 		foreach ( $items as &$item ) {
-			if ( !(strlen( $item['img'] ) > 0) && $ignoreEmpty) 
-				continue;
-
 			// use placeholder image for empty items
 			$item['img'] = strlen( $item['img'] ) > 0 ? '/files/people/'.$item['img'] : '/img/staff/default.jpg';
 		}

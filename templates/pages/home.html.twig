@@ -37,30 +37,19 @@
                 <div class="mission__text tl--gamma cp--0-5">
                     {% trans %}homepage.mission.message{% endtrans %}
                 </div>
-                <figure class="fig mission__image cm--l2 cm--t1">
-                    {% if staff.domains|length > 0 %}
-                    {%
-                        set person = random(
-                            random(
-                                random(
-                                    staff.domains
-                                ).teams
-                            ).members
-                        )
-                    %}
+<figure class="fig mission__image cm--l2 cm--t1">
                     <div>
-                        <img src="{{ person.img }}" class="fig__media" alt="Portrait of Abraham Taherivand">
+                        <img src="{{ asset('img/mission_abraham.png') }}" class="fig__media" alt="Portrait of Abraham Taherivand">
                         <div id="citation-2" class="ref fig__ref ts--beta" aria-label="citation number 2">
                             <a href="#ref-2" class="ref__number" aria-label="jump to reference in index">2</a>
                         </div>
                     </div>
                     <figcaption class="fig__caption mission__caption cm--l0-25">
-                        <div class="tm--gamma t--caps">{{ person.firstname }}&nbsp;{{ person.lastname }}</div>
-                        <div class="tm--gamma">{{ person.title_de }}</div>
-                        <div class="tm--gamma"><br><a class="link--black ts--alpha" href="{{ path('peopleStaff') }}">Alle Mitarbeitenden</a></div>
+                        <div class="tm--gamma t--caps">Abraham&nbsp;Taherivand</div>
+                        <div class="tm--gamma">{% trans %}homepage.ED.title{% endtrans %}</div>
                     </figcaption>
-                    {% endif %}
                 </figure>
+
             </div>
         </section>
         <section class="fields is-active-support">

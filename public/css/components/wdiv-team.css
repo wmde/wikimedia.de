@@ -23,6 +23,15 @@
     margin: 0.6em 0 0.4em;
 }
 
+.wdiv-person-email {
+/*    margin: 0.6em 0 0.4em;*/
+/*	border:1px solid red;*/
+/*	clear:both;*/
+	position: absolute;
+	bottom:-3.1em;
+}
+
+
 /* this equals Medium Epsilon Sans Serif */
 .wdiv-person-subtitle {
     /* reset system styles */
@@ -53,6 +62,8 @@
 .wdiv-group-item {
     width: 160px;
     margin: 32px 0;
+/*    border:1px solid blue;*/
+    position:relative;
 }
 
 .wdiv-item-img {
