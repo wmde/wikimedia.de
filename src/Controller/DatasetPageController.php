@@ -21,7 +21,7 @@ class DatasetPageController extends AbstractController {
 	// keys get supplied separately
 
 	private function peopleParse( string $templatePath, string $csvPath ): Response {
-		$csvString = file_get_contents( $this->container->getParameter( 'kernel.project_dir' ) . $csvPath );
+		$csvString = file_get_contents( $this->getParameter( 'kernel.project_dir' ) . $csvPath );
 
 		return $this->render( $templatePath, $this->peopleData( $csvString ) );
 	}
@@ -184,10 +184,10 @@ class DatasetPageController extends AbstractController {
 		// 1. loading team table as data source
 		$csv = [
 			'projects' => $this->csvAsArray(
-				file_get_contents( $this->container->getParameter( 'kernel.project_dir' ) . $csvPathProjects )
+				file_get_contents( $this->getParameter( 'kernel.project_dir' ) . $csvPathProjects )
 			),
 			'themes' => $this->csvAsArray(
-				file_get_contents( $this->container->getParameter( 'kernel.project_dir' ) . $csvPathThemes )
+				file_get_contents( $this->getParameter( 'kernel.project_dir' ) . $csvPathThemes )
 			)
 		];
 
