@@ -29,3 +29,8 @@ services:
     # please note that last definitions always *replace* previous ones
     App\FactoryWrapper:
         public: true
+
+    # https://symfony.com/doc/current/event_dispatcher.html
+    App\EventListener\ExceptionListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
