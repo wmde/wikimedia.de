@@ -22,7 +22,6 @@ if ( !isset( $_SERVER['APP_ENV'] ) ) {
 
 $env = $_SERVER['APP_ENV'] ?? 'dev';
 $debug = (bool)( $_SERVER['APP_DEBUG'] ?? ( 'prod' !== $env ) );
-$debug = false;
 
 if ( $debug ) {
 	umask( 0000 );

@@ -28,3 +28,6 @@ install:
 
 update:
 	docker run --rm $(DOCKER_FLAGS) --volume $(BUILD_DIR):/app -w /app --volume ~/.composer:/composer --user $(current_user):$(current_group) composer update --ignore-platform-reqs $(COMPOSER_FLAGS)
+
+services:
+	docker-compose run --rm php-fpm php bin/console debug:autowiring
