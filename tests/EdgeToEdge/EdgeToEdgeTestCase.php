@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\Client;
 
 abstract class EdgeToEdgeTestCase extends TestCase {
 
-	protected function createEnvironment(): RequestEnvironment {
+	protected final function createEnvironment(): RequestEnvironment {
 		$kernel = new Kernel( 'test', true );
 
 		$kernel->boot();
@@ -43,7 +43,7 @@ abstract class EdgeToEdgeTestCase extends TestCase {
 	/**
 	 * @see Client::request
 	 */
-	protected function request( string $method, string $uri, array $parameters = [],
+	protected final function request( string $method, string $uri, array $parameters = [],
 		array $files = [], array $server = [], string $content = null ): Response {
 
 		$environment = $this->createEnvironment();
