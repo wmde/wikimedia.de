@@ -1,5 +1,4 @@
-# ignore content assets
-/public/files
+/public/files/people
 
 ###> symfony/framework-bundle ###
 /.env
