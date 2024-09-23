@@ -1,3 +1,5 @@
+Source code of WMDE's website. Discontinued in 2019.
+
 # www.wikimedia.de website
 
 [![Build Status](https://travis-ci.org/wmde/wikimedia.de.svg?branch=master)](https://travis-ci.org/wmde/wikimedia.de)
